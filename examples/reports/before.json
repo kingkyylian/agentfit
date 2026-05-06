@@ -1,0 +1,17 @@
+{
+  "score": 68,
+  "grade": "D",
+  "summary": "AgentFit score 68/100 (D).",
+  "generatedAt": "2026-05-06T09:00:00.000Z",
+  "caps": [
+    "no verification command found: max score 75"
+  ],
+  "failedChecks": [
+    "No verification command found.",
+    "1 instruction reference is missing or invalid."
+  ],
+  "instructionFiles": [],
+  "referenceIssues": [],
+  "tasks": [],
+  "runs": []
+}

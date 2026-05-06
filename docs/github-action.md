@@ -64,3 +64,18 @@ Add a comment step with `actions/github-script`:
         body: report
       });
 ```
+
+## Before/After Compare
+
+For PRs that update agent instructions, store a baseline report from the target branch and compare it with the PR report:
+
+```yaml
+- name: Compare AgentFit reports
+  run: |
+    npx agentfit compare before.json after.json \
+      --format markdown \
+      --output agentfit-compare.md \
+      --fail-on-regression
+```
+
+Use the compare output as the PR comment body when you want reviewers to see whether an instruction change improved or regressed the repository.

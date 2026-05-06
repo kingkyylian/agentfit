@@ -18,13 +18,21 @@ npx agentfit eval --adapter dry-run
 3. Show discovered instruction files, command checks, reference issues, and the final score.
 4. Open the Markdown report.
 5. Fix one stale command or missing reference.
-6. Run AgentFit again and show the score improve.
+6. Run AgentFit again.
+7. Run:
+
+```bash
+npx agentfit compare before.json after.json --format markdown
+```
+
+8. Show the before/after delta as the launch hook: `AgentFit improved by 23 points`.
 
 ## Launch Checklist
 
 - Publish a README with the badge, command, sample output, and comparison table.
 - Ship dry-run scoring and reports first.
 - Add GitHub Action documentation for PR checks.
+- Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Record a terminal GIF after the CLI writes real reports.
 

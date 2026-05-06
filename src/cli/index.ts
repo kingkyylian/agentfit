@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { evalCommand } from './commands/eval.js';
 import { initCommand } from './commands/init.js';
 import { doctorCommand } from './commands/doctor.js';
+import { compareCommand } from './commands/compare.js';
 
 export function createProgram(): Command {
   const program = new Command();
@@ -16,6 +17,7 @@ export function createProgram(): Command {
   program.addCommand(initCommand());
   program.addCommand(doctorCommand());
   program.addCommand(evalCommand());
+  program.addCommand(compareCommand());
 
   return program;
 }

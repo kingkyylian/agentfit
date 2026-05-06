@@ -22,6 +22,17 @@ FAIL  documented pnpm lint command is missing from package.json
 Report: .agentfit/reports/latest.md
 ```
 
+Compare instruction changes before and after a PR:
+
+```bash
+npx agentfit compare before.json after.json --format markdown
+```
+
+```text
+AgentFit improved by 23 points: 68/100 (D) -> 91/100 (A).
+Fixed checks: No verification command found.; 1 instruction reference is missing or invalid.
+```
+
 ## Why
 
 Agent instruction files rot quickly. Setup commands change, nested packages get missed, references move, and teams guess whether one instruction change helped. AgentFit turns that guess into a repeatable score and report.
@@ -32,6 +43,7 @@ Agent instruction files rot quickly. Setup commands change, nested packages get 
 - command and reference checks
 - generated repo-specific fitness tasks
 - JSON and Markdown reports
+- before/after report comparison
 - SVG badge output
 - GitHub Action support for PRs
 - optional real-agent adapters, starting with Codex
@@ -76,7 +88,8 @@ See [docs/github-action.md](docs/github-action.md).
 1. Run `npx agentfit eval --adapter dry-run`.
 2. Open the Markdown report.
 3. Fix a missing reference or stale command.
-4. Run AgentFit again and compare the score.
+4. Run AgentFit again.
+5. Compare the reports with `npx agentfit compare before.json after.json`.
 
 ## Good First Issues
 
