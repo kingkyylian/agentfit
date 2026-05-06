@@ -1,0 +1,32 @@
+version: 1
+root: .
+instructions:
+  include:
+    - AGENTS.md
+    - "**/AGENTS.md"
+    - CLAUDE.md
+    - "**/CLAUDE.md"
+    - GEMINI.md
+    - "**/GEMINI.md"
+    - .cursor/rules/**/*.mdc
+    - .github/copilot-instructions.md
+    - .github/instructions/**/*.instructions.md
+commands:
+  setup:
+    - pnpm install --frozen-lockfile
+  verify:
+    - pnpm typecheck
+    - pnpm test
+    - pnpm lint
+evaluation:
+  adapter: dry-run
+  taskCount: 5
+  timeoutSeconds: 900
+  budgetUsd: 1
+  worktreeDir: .agentfit/worktrees
+  allowExternalServices: false
+report:
+  formats:
+    - json
+    - markdown
+  failBelowScore: 70

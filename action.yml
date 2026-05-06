@@ -1,0 +1,67 @@
+name: AgentFit
+description: Evaluate whether a repository is ready for coding agents.
+author: AgentFit
+
+inputs:
+  adapter:
+    description: Evaluation adapter to run.
+    required: false
+    default: dry-run
+  fail-below-score:
+    description: Fail the action when the AgentFit score is below this value.
+    required: false
+    default: "70"
+  task-count:
+    description: Number of generated fitness tasks to evaluate.
+    required: false
+    default: "5"
+  format:
+    description: Human report format to generate.
+    required: false
+    default: markdown
+
+outputs:
+  score:
+    description: Final AgentFit score.
+    value: ${{ steps.collect.outputs.score }}
+  report-path:
+    description: Path to the human-readable report.
+    value: ${{ steps.collect.outputs.report-path }}
+  json-path:
+    description: Path to the JSON report.
+    value: ${{ steps.collect.outputs.json-path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Prepare report directory
+      shell: bash
+      run: mkdir -p .agentfit/reports
+
+    - name: Generate JSON report
+      shell: bash
+      run: |
+        npx agentfit eval \
+          --adapter "${{ inputs.adapter }}" \
+          --tasks "${{ inputs.task-count }}" \
+          --format json \
+          --output .agentfit/reports/agentfit.json
+
+    - name: Generate human report
+      shell: bash
+      run: |
+        npx agentfit eval \
+          --adapter "${{ inputs.adapter }}" \
+          --tasks "${{ inputs.task-count }}" \
+          --format "${{ inputs.format }}" \
+          --output .agentfit/reports/agentfit.md
+
+    - name: Collect outputs
+      id: collect
+      shell: bash
+      run: |
+        score="$(node -e "const fs=require('fs'); const report=JSON.parse(fs.readFileSync('.agentfit/reports/agentfit.json','utf8')); console.log(report.score)")"
+        echo "score=${score}" >> "${GITHUB_OUTPUT}"
+        echo "report-path=.agentfit/reports/agentfit.md" >> "${GITHUB_OUTPUT}"
+        echo "json-path=.agentfit/reports/agentfit.json" >> "${GITHUB_OUTPUT}"
+        node -e 'const score=Number(process.argv[1]); const min=Number(process.argv[2]); if (score < min) { console.error(`AgentFit score ${score} is below ${min}`); process.exit(1); }' "${score}" "${{ inputs.fail-below-score }}"
