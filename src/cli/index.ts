@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+import path from 'node:path';
 import { Command } from 'commander';
 import { fileURLToPath } from 'node:url';
 import { evalCommand } from './commands/eval.js';
@@ -12,7 +14,7 @@ export function createProgram(): Command {
   program
     .name('agentfit')
     .description('Local-first fitness tests for AI coding-agent instruction files.')
-    .version('0.1.0');
+    .version('0.1.1');
 
   program.addCommand(initCommand());
   program.addCommand(doctorCommand());
@@ -22,7 +24,20 @@ export function createProgram(): Command {
   return program;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+export function isCliEntrypoint(moduleUrl: string, argvPath: string | undefined): boolean {
+  if (!argvPath) {
+    return false;
+  }
+
+  const modulePath = fileURLToPath(moduleUrl);
+  try {
+    return realpathSync(modulePath) === realpathSync(argvPath);
+  } catch {
+    return path.resolve(modulePath) === path.resolve(argvPath);
+  }
+}
+
+if (isCliEntrypoint(import.meta.url, process.argv[1])) {
   createProgram().parseAsync(process.argv).catch((error: unknown) => {
     const message = error instanceof Error ? error.message : String(error);
     console.error(message);

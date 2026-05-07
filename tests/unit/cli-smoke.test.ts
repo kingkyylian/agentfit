@@ -1,9 +1,10 @@
-import { mkdtemp, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { evalCommand } from '../../src/cli/commands/eval.js';
-import { createProgram } from '../../src/cli/index.js';
+import { createProgram, isCliEntrypoint } from '../../src/cli/index.js';
 
 describe('agentfit cli', () => {
   it('prints help', async () => {
@@ -11,6 +12,19 @@ describe('agentfit cli', () => {
 
     expect(help).toContain('Local-first fitness tests');
     expect(help).toContain('eval');
+  });
+
+  it('detects package bin symlinks as CLI entrypoints', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-bin-'));
+    const entrypoint = join(root, 'dist/index.js');
+    const bin = join(root, 'node_modules/.bin/agentfit');
+
+    await mkdir(join(root, 'dist'), { recursive: true });
+    await mkdir(join(root, 'node_modules/.bin'), { recursive: true });
+    await writeFile(entrypoint, '#!/usr/bin/env node\n');
+    await symlink(entrypoint, bin);
+
+    expect(isCliEntrypoint(pathToFileURL(entrypoint).href, bin)).toBe(true);
   });
 
   it('writes multiple eval report formats from one command invocation', async () => {
