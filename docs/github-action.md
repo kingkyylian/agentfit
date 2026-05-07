@@ -21,11 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: agentfit
-        uses: your-org/agentfit@v1
+        uses: kyylian/agentfit@v1
         with:
+          version: 0.1.0
           adapter: dry-run
           fail-below-score: 70
           task-count: 5
+          timeout-seconds: 900
+          budget-usd: 1
           format: markdown
 ```
 
@@ -33,10 +36,15 @@ jobs:
 
 | Input | Default | Description |
 | --- | --- | --- |
+| `version` | `0.1.0` | AgentFit npm package version to run through `npx`. |
 | `adapter` | `dry-run` | Evaluation adapter to run. |
 | `fail-below-score` | `70` | Fail the job when the JSON report score is below this value. |
 | `task-count` | `5` | Number of generated fitness tasks. |
+| `timeout-seconds` | `900` | Maximum seconds for each task run. |
+| `budget-usd` | `1` | Maximum adapter budget in USD. |
 | `format` | `markdown` | Human report format. |
+
+The action generates the human report and JSON report from one `agentfit eval` invocation, so real-agent adapters do not run the same task batch twice.
 
 ## Outputs
 
@@ -72,7 +80,7 @@ For PRs that update agent instructions, store a baseline report from the target 
 ```yaml
 - name: Compare AgentFit reports
   run: |
-    npx agentfit compare before.json after.json \
+    npx agentfit@latest compare before.json after.json \
       --format markdown \
       --output agentfit-compare.md \
       --fail-on-regression
