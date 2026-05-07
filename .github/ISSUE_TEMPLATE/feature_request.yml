@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest a new AgentFit capability or signal.
+title: "Feature: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What agent-readiness gap should AgentFit help measure?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should AgentFit do?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - instruction discovery
+        - static checks
+        - generated tasks
+        - scoring
+        - reports
+        - GitHub Action
+        - real-agent adapters
+        - documentation
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: Link repositories, instruction files, or report snippets that show the need.
+    validations:
+      required: false

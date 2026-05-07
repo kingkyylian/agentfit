@@ -1,0 +1,522 @@
+{
+  "score": 73,
+  "grade": "C",
+  "summary": "AgentFit score 73/100 (C).",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4642,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "tsc",
+          "sourcePath": "AGENTS.md",
+          "line": 88,
+          "kind": "build"
+        },
+        {
+          "value": "npm run typecheck",
+          "sourcePath": "AGENTS.md",
+          "line": 92,
+          "kind": "build"
+        },
+        {
+          "value": "tsc",
+          "sourcePath": "AGENTS.md",
+          "line": 92,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm format",
+          "sourcePath": "AGENTS.md",
+          "line": 144,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "apps/desktop",
+      "message": "No nested instruction file found for apps/desktop.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/server",
+      "message": "No nested instruction file found for apps/server.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/storybook",
+      "message": "No nested instruction file found for apps/storybook.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/web",
+      "message": "No nested instruction file found for apps/web.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/action-history",
+      "message": "No nested instruction file found for packages/action-history.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/api-contract",
+      "message": "No nested instruction file found for packages/api-contract.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/atom-solid",
+      "message": "No nested instruction file found for packages/atom-solid.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/base-packages",
+      "message": "No nested instruction file found for packages/base-packages.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/clipboard",
+      "message": "No nested instruction file found for packages/clipboard.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/config",
+      "message": "No nested instruction file found for packages/config.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/effect-server-fn",
+      "message": "No nested instruction file found for packages/effect-server-fn.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/http-client",
+      "message": "No nested instruction file found for packages/http-client.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/icons",
+      "message": "No nested instruction file found for packages/icons.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/json",
+      "message": "No nested instruction file found for packages/json.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/option",
+      "message": "No nested instruction file found for packages/option.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/package-sdk",
+      "message": "No nested instruction file found for packages/package-sdk.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/packages",
+      "message": "No nested instruction file found for packages/packages.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/playground",
+      "message": "No nested instruction file found for packages/playground.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/project-domain",
+      "message": "No nested instruction file found for packages/project-domain.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/project-editor",
+      "message": "No nested instruction file found for packages/project-editor.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/project-runtime",
+      "message": "No nested instruction file found for packages/project-runtime.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/project-ui",
+      "message": "No nested instruction file found for packages/project-ui.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/runtime-rendering",
+      "message": "No nested instruction file found for packages/runtime-rendering.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/runtime-serde",
+      "message": "No nested instruction file found for packages/runtime-serde.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/runtime",
+      "message": "No nested instruction file found for packages/runtime.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/server-backend",
+      "message": "No nested instruction file found for packages/server-backend.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/server-domain",
+      "message": "No nested instruction file found for packages/server-domain.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/server-frontend",
+      "message": "No nested instruction file found for packages/server-frontend.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/typesystem-old",
+      "message": "No nested instruction file found for packages/typesystem-old.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/typesystem",
+      "message": "No nested instruction file found for packages/typesystem.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/ui",
+      "message": "No nested instruction file found for packages/ui.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/utils",
+      "message": "No nested instruction file found for packages/utils.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/web-backend",
+      "message": "No nested instruction file found for packages/web-backend.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/web-domain",
+      "message": "No nested instruction file found for packages/web-domain.",
+      "severity": "warning"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-desktop",
+      "title": "Exercise the desktop package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the desktop script passing. Run pnpm run desktop and report the result.",
+      "expectedChecks": [
+        "pnpm run desktop"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-fix",
+      "title": "Exercise the lint:fix package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:fix"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-typecheck",
+      "title": "Exercise the typecheck package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+      "expectedChecks": [
+        "pnpm run typecheck"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-desktop",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-desktop",
+        "title": "Exercise the desktop package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the desktop script passing. Run pnpm run desktop and report the result.",
+        "expectedChecks": [
+          "pnpm run desktop"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.143Z",
+      "finishedAt": "2026-05-07T18:07:58.143Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.143Z",
+      "finishedAt": "2026-05-07T18:07:58.143Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-fix",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-fix",
+        "title": "Exercise the lint:fix package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:fix"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.143Z",
+      "finishedAt": "2026-05-07T18:07:58.143Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.143Z",
+      "finishedAt": "2026-05-07T18:07:58.143Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-typecheck",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-typecheck",
+        "title": "Exercise the typecheck package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+        "expectedChecks": [
+          "pnpm run typecheck"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.143Z",
+      "finishedAt": "2026-05-07T18:07:58.143Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-07T18:07:58.143Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 0,
+      "max": 20,
+      "explanation": "1 instruction file discovered; 34 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "No nested instruction file found for apps/desktop.",
+    "No nested instruction file found for apps/server.",
+    "No nested instruction file found for apps/storybook.",
+    "No nested instruction file found for apps/web.",
+    "No nested instruction file found for packages/action-history.",
+    "No nested instruction file found for packages/api-contract.",
+    "No nested instruction file found for packages/atom-solid.",
+    "No nested instruction file found for packages/base-packages.",
+    "No nested instruction file found for packages/clipboard.",
+    "No nested instruction file found for packages/config.",
+    "No nested instruction file found for packages/effect-server-fn.",
+    "No nested instruction file found for packages/http-client.",
+    "No nested instruction file found for packages/icons.",
+    "No nested instruction file found for packages/json.",
+    "No nested instruction file found for packages/option.",
+    "No nested instruction file found for packages/package-sdk.",
+    "No nested instruction file found for packages/packages.",
+    "No nested instruction file found for packages/playground.",
+    "No nested instruction file found for packages/project-domain.",
+    "No nested instruction file found for packages/project-editor.",
+    "No nested instruction file found for packages/project-runtime.",
+    "No nested instruction file found for packages/project-ui.",
+    "No nested instruction file found for packages/runtime.",
+    "No nested instruction file found for packages/runtime-rendering.",
+    "No nested instruction file found for packages/runtime-serde.",
+    "No nested instruction file found for packages/server-backend.",
+    "No nested instruction file found for packages/server-domain.",
+    "No nested instruction file found for packages/server-frontend.",
+    "No nested instruction file found for packages/typesystem.",
+    "No nested instruction file found for packages/typesystem-old.",
+    "No nested instruction file found for packages/ui.",
+    "No nested instruction file found for packages/utils.",
+    "No nested instruction file found for packages/web-backend.",
+    "No nested instruction file found for packages/web-domain."
+  ],
+  "scoreExplanation": "Instruction discoverability: 0/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

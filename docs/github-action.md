@@ -63,22 +63,7 @@ The action generates the human report and JSON report from one `agentfit eval` i
 
 ## PR Comment
 
-Add a comment step with `actions/github-script`:
-
-```yaml
-- uses: actions/github-script@v7
-  if: always()
-  with:
-    script: |
-      const fs = require('fs');
-      const report = fs.readFileSync('${{ steps.agentfit.outputs.report-path }}', 'utf8');
-      await github.rest.issues.createComment({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: context.issue.number,
-        body: report
-      });
-```
+For a complete workflow that creates or updates one AgentFit pull request comment, see [pr-comment-workflow.md](pr-comment-workflow.md).
 
 ## Before/After Compare
 

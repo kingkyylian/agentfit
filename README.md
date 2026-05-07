@@ -113,6 +113,8 @@ See [docs/github-action.md](docs/github-action.md).
 
 AgentFit uses this Action on its own repository with `run-tasks: true` and a minimum score of `90`.
 
+For a complete workflow that updates a pull request comment with the AgentFit report, see [docs/pr-comment-workflow.md](docs/pr-comment-workflow.md).
+
 ## 60-Second Demo
 
 The included demo starts with a stale `AGENTS.md`:
@@ -141,13 +143,25 @@ AgentFit improved by 28 points: 65/100 (D) -> 93/100 (A).
 
 See [docs/demo.md](docs/demo.md).
 
+## Real-World Examples
+
+Dry-run snapshots from public repositories:
+
+| Repository | Score | Signal |
+| --- | ---: | --- |
+| `hexlet-codebattle/codebattle` | 80/100 (B) | stale documented scripts and a nested scope gap |
+| `Brendonovich/MacroGraph` | 73/100 (C) | broad monorepo scope coverage gaps |
+| `skybrush-io/skybrush-server` | 93/100 (A) | healthy single instruction file |
+
+See [docs/real-world.md](docs/real-world.md).
+
 ## Good First Issues
 
 - Add instruction fixtures for more ecosystems.
 - Add examples for nested monorepo instructions.
 - Improve safety and reproducibility signal detection.
 - Add adapter smoke tests for Codex CLI.
-- Generate reports for real open-source repositories.
+- Add more real-world dry-run snapshots.
 
 ## License
 
@@ -156,3 +170,5 @@ MIT
 ## Contributing
 
 Keep changes local-first, deterministic by default, and transparent in reports. Real-agent adapters should be optional and must report skipped runs clearly when unavailable.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -21,7 +21,10 @@
     "examples/demo",
     "examples/reports/demo-*.json",
     "examples/reports/demo-*.md",
+    "examples/reports/real-world/*.json",
+    "examples/reports/real-world/*.md",
     "action.yml",
+    "CONTRIBUTING.md",
     "README.md"
   ],
   "scripts": {

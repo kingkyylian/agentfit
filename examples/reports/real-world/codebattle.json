@@ -1,0 +1,483 @@
+{
+  "score": 80,
+  "grade": "B",
+  "summary": "AgentFit score 80/100 (B).",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 3274,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make format",
+          "sourcePath": "AGENTS.md",
+          "line": 24,
+          "kind": "unknown"
+        },
+        {
+          "value": "make lint",
+          "sourcePath": "AGENTS.md",
+          "line": 24,
+          "kind": "lint"
+        },
+        {
+          "value": "make credo",
+          "sourcePath": "AGENTS.md",
+          "line": 25,
+          "kind": "unknown"
+        },
+        {
+          "value": "make lint-js",
+          "sourcePath": "AGENTS.md",
+          "line": 26,
+          "kind": "lint"
+        },
+        {
+          "value": "make server",
+          "sourcePath": "AGENTS.md",
+          "line": 27,
+          "kind": "unknown"
+        },
+        {
+          "value": "make test",
+          "sourcePath": "AGENTS.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "make test-code-checkers",
+          "sourcePath": "AGENTS.md",
+          "line": 29,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run dev",
+          "sourcePath": "AGENTS.md",
+          "line": 32,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": "AGENTS.md",
+          "line": 33,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run test",
+          "sourcePath": "AGENTS.md",
+          "line": 34,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": "AGENTS.md",
+          "line": 39,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 2963,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make compose                    # Start app + db via Docker Compose",
+          "sourcePath": "CLAUDE.md",
+          "line": 32,
+          "kind": "unknown"
+        },
+        {
+          "value": "make server                     # Local: iex -S mix phx.server",
+          "sourcePath": "CLAUDE.md",
+          "line": 33,
+          "kind": "unknown"
+        },
+        {
+          "value": "make console                    # Local: iex -S mix",
+          "sourcePath": "CLAUDE.md",
+          "line": 34,
+          "kind": "unknown"
+        },
+        {
+          "value": "cd apps/codebattle && pnpm run dev  # Vite dev server with HMR (port 8080)",
+          "sourcePath": "CLAUDE.md",
+          "line": 35,
+          "kind": "unknown"
+        },
+        {
+          "value": "make test                       # ExUnit + coverage (excludes image_executor)",
+          "sourcePath": "CLAUDE.md",
+          "line": 40,
+          "kind": "test"
+        },
+        {
+          "value": "make test-code-checkers         # Image executor tests (CODEBATTLE_EXECUTOR=local)",
+          "sourcePath": "CLAUDE.md",
+          "line": 41,
+          "kind": "test"
+        },
+        {
+          "value": "make compose-test               # Tests in Docker",
+          "sourcePath": "CLAUDE.md",
+          "line": 42,
+          "kind": "test"
+        },
+        {
+          "value": "cd apps/codebattle && pnpm test # Jest frontend tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 43,
+          "kind": "test"
+        },
+        {
+          "value": "mix test apps/codebattle/test/codebattle/game/context_test.exs",
+          "sourcePath": "CLAUDE.md",
+          "line": 46,
+          "kind": "test"
+        },
+        {
+          "value": "cd apps/codebattle && pnpm test UserStats.test.jsx",
+          "sourcePath": "CLAUDE.md",
+          "line": 49,
+          "kind": "test"
+        },
+        {
+          "value": "make format                     # mix format",
+          "sourcePath": "CLAUDE.md",
+          "line": 54,
+          "kind": "unknown"
+        },
+        {
+          "value": "make lint                       # mix format --check-formatted",
+          "sourcePath": "CLAUDE.md",
+          "line": 55,
+          "kind": "lint"
+        },
+        {
+          "value": "make credo                      # Credo static analysis",
+          "sourcePath": "CLAUDE.md",
+          "line": 56,
+          "kind": "unknown"
+        },
+        {
+          "value": "make dialyzer                   # Type checking",
+          "sourcePath": "CLAUDE.md",
+          "line": 57,
+          "kind": "unknown"
+        },
+        {
+          "value": "make lint-js                    # OXLint + stylelint",
+          "sourcePath": "CLAUDE.md",
+          "line": 58,
+          "kind": "lint"
+        },
+        {
+          "value": "make lint-js-fix                # Auto-fix JS lint issues",
+          "sourcePath": "CLAUDE.md",
+          "line": 59,
+          "kind": "lint"
+        },
+        {
+          "value": "make setup                      # Full first-time setup (Docker)",
+          "sourcePath": "CLAUDE.md",
+          "line": 64,
+          "kind": "setup"
+        },
+        {
+          "value": "make setup-env-local            # Local setup without Docker (requires asdf)",
+          "sourcePath": "CLAUDE.md",
+          "line": 65,
+          "kind": "setup"
+        },
+        {
+          "value": "make compose-db-setup           # Create + migrate database",
+          "sourcePath": "CLAUDE.md",
+          "line": 66,
+          "kind": "setup"
+        },
+        {
+          "value": "make compose-db-migrate         # Apply pending migrations",
+          "sourcePath": "CLAUDE.md",
+          "line": 67,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"build\".",
+      "severity": "error"
+    },
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"lint\".",
+      "severity": "error"
+    },
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"test\".",
+      "severity": "error"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/codebattle",
+      "message": "No nested instruction file found for apps/codebattle.",
+      "severity": "warning"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "test-contributorslist-test",
+      "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx",
+      "prompt": "Inspect apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx"
+      ]
+    },
+    {
+      "id": "test-creategamedialog-test",
+      "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx",
+      "prompt": "Inspect apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx"
+      ]
+    },
+    {
+      "id": "test-registration-test",
+      "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/Registration.test.jsx",
+      "prompt": "Inspect apps/codebattle/assets/js/__tests__/Registration.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "apps/codebattle/assets/js/__tests__/Registration.test.jsx"
+      ]
+    },
+    {
+      "id": "test-rootcontainer-test",
+      "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/RootContainer.test.jsx",
+      "prompt": "Inspect apps/codebattle/assets/js/__tests__/RootContainer.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "apps/codebattle/assets/js/__tests__/RootContainer.test.jsx"
+      ]
+    },
+    {
+      "id": "test-tournamentheader-test",
+      "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx",
+      "prompt": "Inspect apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-test-contributorslist-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-contributorslist-test",
+        "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx",
+        "prompt": "Inspect apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "apps/codebattle/assets/js/__tests__/ContributorsList.test.jsx"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.141Z",
+      "finishedAt": "2026-05-07T18:07:58.141Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-creategamedialog-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-creategamedialog-test",
+        "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx",
+        "prompt": "Inspect apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "apps/codebattle/assets/js/__tests__/CreateGameDialog.test.jsx"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.141Z",
+      "finishedAt": "2026-05-07T18:07:58.141Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-registration-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-registration-test",
+        "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/Registration.test.jsx",
+        "prompt": "Inspect apps/codebattle/assets/js/__tests__/Registration.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "apps/codebattle/assets/js/__tests__/Registration.test.jsx"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.141Z",
+      "finishedAt": "2026-05-07T18:07:58.141Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-rootcontainer-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-rootcontainer-test",
+        "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/RootContainer.test.jsx",
+        "prompt": "Inspect apps/codebattle/assets/js/__tests__/RootContainer.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "apps/codebattle/assets/js/__tests__/RootContainer.test.jsx"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.141Z",
+      "finishedAt": "2026-05-07T18:07:58.141Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-tournamentheader-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-tournamentheader-test",
+        "title": "Make a safe change covered by apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx",
+        "prompt": "Inspect apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "apps/codebattle/assets/js/__tests__/TournamentHeader.test.jsx"
+        ]
+      },
+      "startedAt": "2026-05-07T18:07:58.141Z",
+      "finishedAt": "2026-05-07T18:07:58.141Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-07T18:07:58.141Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "2 instruction files discovered; 1 nested scope issue found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "3 static command issues found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "No nested instruction file found for apps/codebattle.",
+    "Documented command references missing package script \"build\".",
+    "Documented command references missing package script \"test\".",
+    "Documented command references missing package script \"lint\"."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}
