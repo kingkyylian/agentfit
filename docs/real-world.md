@@ -2,7 +2,7 @@
 
 These are dry-run AgentFit snapshots from public open-source repositories that already contain agent instruction files. They are not endorsements or judgments of the projects. The goal is to show the kinds of signals AgentFit can surface without executing generated tasks.
 
-Generated on 2026-05-07 with AgentFit 0.1.2.
+Generated on 2026-05-07 with AgentFit 0.1.3.
 
 | Repository | Language | Commit | Score | Main Signal |
 | --- | --- | --- | ---: | --- |
@@ -21,7 +21,7 @@ Generated on 2026-05-07 with AgentFit 0.1.2.
 ```bash
 git clone --depth 1 https://github.com/hexlet-codebattle/codebattle.git /tmp/codebattle
 cd /tmp/codebattle
-npx @kingkyylian/agentfit@0.1.2 eval --adapter dry-run --format markdown
+npx @kingkyylian/agentfit@0.1.3 eval --adapter dry-run --format markdown
 ```
 
 Use `--run-tasks` only after installing the target repository's dependencies and accepting that generated checks will execute in isolated worktrees.
