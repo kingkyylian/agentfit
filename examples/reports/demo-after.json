@@ -1,0 +1,256 @@
+{
+  "score": 93,
+  "grade": "A",
+  "summary": "AgentFit score 93/100 (A).",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 305,
+      "importedPaths": [
+        "docs/setup.md"
+      ],
+      "commands": [
+        {
+          "value": "pnpm install --frozen-lockfile",
+          "sourcePath": "AGENTS.md",
+          "line": 8,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm lint",
+          "sourcePath": "AGENTS.md",
+          "line": 15,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm build",
+          "sourcePath": "AGENTS.md",
+          "line": 16,
+          "kind": "build"
+        }
+      ]
+    },
+    {
+      "path": "packages/api/AGENTS.md",
+      "scope": "packages/api",
+      "kind": "agents",
+      "bytes": 136,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    },
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+      "expectedChecks": [
+        "npm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+      "expectedChecks": [
+        "npm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.714Z",
+      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+        "expectedChecks": [
+          "npm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.714Z",
+      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+        "expectedChecks": [
+          "npm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.714Z",
+      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.714Z",
+      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-07T12:24:02.715Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "2 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "4 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

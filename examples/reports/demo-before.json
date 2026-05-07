@@ -1,0 +1,194 @@
+{
+  "score": 65,
+  "grade": "D",
+  "summary": "AgentFit score 65/100 (D).",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 307,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install --frozen-lockfile",
+          "sourcePath": "AGENTS.md",
+          "line": 8,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm lint",
+          "sourcePath": "AGENTS.md",
+          "line": 14,
+          "kind": "lint"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [
+    {
+      "sourcePath": "AGENTS.md",
+      "line": 3,
+      "target": "docs/setup.md",
+      "message": "Referenced file does not exist: docs/setup.md",
+      "severity": "error"
+    }
+  ],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"lint\".",
+      "severity": "error"
+    },
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "No runnable verification command found in instruction files.",
+      "severity": "error"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/api",
+      "message": "No nested instruction file found for packages/api.",
+      "severity": "warning"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.709Z",
+      "finishedAt": "2026-05-07T12:24:02.709Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-07T12:24:02.709Z",
+      "finishedAt": "2026-05-07T12:24:02.709Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-07T12:24:02.709Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "1 instruction file discovered; 1 nested scope issue found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "2 static command issues found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 reference error found."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "2 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "No nested instruction file found for packages/api.",
+    "Documented command references missing package script \"lint\".",
+    "No runnable verification command found in instruction files.",
+    "1 instruction reference is missing or invalid."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 0/15; Reference integrity: 0/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

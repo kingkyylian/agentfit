@@ -7,30 +7,28 @@ AgentFit runs local fitness tests for `AGENTS.md`, `CLAUDE.md`, Cursor rules, Co
 ![AgentFit 82/100](https://img.shields.io/badge/AgentFit-82%2F100-4c8fbd)
 
 ```bash
-npx agentfit eval --adapter dry-run
+npx agentfit@latest eval --adapter dry-run
 ```
 
 ```text
-AgentFit score: 82/100
-
-PASS  instruction files discovered
-PASS  referenced files resolve
-PASS  setup command completed
-WARN  no nested instructions for packages/api
-FAIL  documented pnpm lint command is missing from package.json
-
-Report: .agentfit/reports/latest.md
+AgentFit score: 82/100 (B)
+AgentFit score 82/100 (B).
+Instruction files: 2
+Reference issues: 1
+Tasks: 5
+Task execution: static dry-run preview; generated tasks were not executed.
+Runs: 0 executed, 5 previewed
 ```
 
 Compare instruction changes before and after a PR:
 
 ```bash
-npx agentfit compare before.json after.json --format markdown
+npx agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
 ```
 
 ```text
-AgentFit improved by 23 points: 68/100 (D) -> 91/100 (A).
-Fixed checks: No verification command found.; 1 instruction reference is missing or invalid.
+AgentFit improved by 28 points: 65/100 (D) -> 93/100 (A).
+Fixed checks: No nested instruction file found for packages/api.; Documented command references missing package script "lint".; No runnable verification command found in instruction files.; 1 instruction reference is missing or invalid.
 ```
 
 ## Why
@@ -70,14 +68,19 @@ Scores are out of 100:
 
 See [docs/scoring.md](docs/scoring.md).
 
+By default, dry-run mode performs deterministic discovery, reference, command, and task-generation checks. Use `--run-tasks` or a real adapter when you want generated tasks executed in isolated worktrees.
+
 ## GitHub Action
 
 ```yaml
-- uses: your-org/agentfit@v1
+- uses: kyylian/agentfit@v1
   with:
+    version: 0.1.0
     adapter: dry-run
     fail-below-score: 70
     task-count: 5
+    timeout-seconds: 900
+    budget-usd: 1
     format: markdown
 ```
 
@@ -85,11 +88,31 @@ See [docs/github-action.md](docs/github-action.md).
 
 ## 60-Second Demo
 
-1. Run `npx agentfit eval --adapter dry-run`.
-2. Open the Markdown report.
-3. Fix a missing reference or stale command.
-4. Run AgentFit again.
-5. Compare the reports with `npx agentfit compare before.json after.json`.
+The included demo starts with a stale `AGENTS.md`:
+
+- missing `@docs/setup.md`
+- stale `pnpm lint` command
+- no runnable verification command
+- no nested instruction file for `packages/api`
+
+Run the before/after reports and compare them:
+
+```bash
+cd examples/demo/bad
+npx agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
+
+cd ../fixed
+npx agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
+
+cd ../../..
+npx agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
+```
+
+```text
+AgentFit improved by 28 points: 65/100 (D) -> 93/100 (A).
+```
+
+See [docs/demo.md](docs/demo.md).
 
 ## Good First Issues
 

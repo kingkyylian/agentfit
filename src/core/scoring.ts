@@ -1,4 +1,5 @@
-import type { AgentFitReport, EvaluationRun, InstructionFile, ReferenceIssue } from '../types.js';
+import type { AgentFitReport, EvaluationRun, InstructionFile, ReferenceIssue, StaticIssue } from '../types.js';
+import { isPreviewRun } from './execution-mode.js';
 
 export type ScoreCategoryId =
   | 'discoverability'
@@ -20,6 +21,7 @@ export type ScoreBreakdownItem = {
 export type ScoringInput = {
   instructionFiles: InstructionFile[];
   referenceIssues?: ReferenceIssue[];
+  staticIssues?: StaticIssue[];
   runs?: EvaluationRun[];
   hasExposedSecrets?: boolean;
   setupCommandFailed?: boolean;
@@ -61,6 +63,7 @@ export function calculateScore(input: ScoringInput): ScoreResult {
 
   const instructionFiles = input.instructionFiles;
   const referenceIssues = input.referenceIssues ?? [];
+  const staticIssues = input.staticIssues ?? [];
   const runs = input.runs ?? [];
   const verificationCommands = instructionFiles.flatMap((file) =>
     file.commands.filter((command) => VERIFICATION_COMMAND_KINDS.has(command.kind))
@@ -70,8 +73,8 @@ export function calculateScore(input: ScoringInput): ScoreResult {
   );
 
   const breakdown: ScoreBreakdownItem[] = [
-    scoreDiscoverability(instructionFiles, failedChecks),
-    scoreCommandFreshness(instructionFiles, runs, failedChecks),
+    scoreDiscoverability(instructionFiles, staticIssues, failedChecks),
+    scoreCommandFreshness(instructionFiles, runs, staticIssues, failedChecks),
     scoreReferenceIntegrity(referenceIssues, failedChecks),
     scoreEvaluationPassRate(runs, failedChecks),
     scoreDiffDiscipline(runs, failedChecks),
@@ -142,6 +145,7 @@ export function attachScoreToReport(report: AgentFitReport, input: Omit<ScoringI
   const result = calculateScore({
     instructionFiles: report.instructionFiles,
     referenceIssues: report.referenceIssues,
+    staticIssues: report.staticIssues ?? [],
     runs: report.runs,
     ...input
   });
@@ -160,7 +164,11 @@ export function attachScoreToReport(report: AgentFitReport, input: Omit<ScoringI
   };
 }
 
-function scoreDiscoverability(files: InstructionFile[], failedChecks: string[]): ScoreBreakdownItem {
+function scoreDiscoverability(
+  files: InstructionFile[],
+  staticIssues: StaticIssue[],
+  failedChecks: string[]
+): ScoreBreakdownItem {
   if (files.length === 0) {
     failedChecks.push('No agent instruction files were discovered.');
     return category('discoverability', 'Instruction discoverability', 0, WEIGHTS.discoverability, 'No agent instruction files were discovered.');
@@ -169,7 +177,11 @@ function scoreDiscoverability(files: InstructionFile[], failedChecks: string[]):
   const hasRootInstruction = files.some((file) => isRootInstruction(file.path));
   const hasRecognizedKind = files.some((file) => file.kind !== 'unknown');
   const hasReadableContent = files.some((file) => file.bytes > 0);
-  const earned = (hasRootInstruction ? 10 : 0) + (hasRecognizedKind ? 5 : 0) + (hasReadableContent ? 5 : 0);
+  const scopeIssues = staticIssues.filter((issue) => issue.category === 'scope');
+  const earned = Math.max(
+    0,
+    (hasRootInstruction ? 10 : 0) + (hasRecognizedKind ? 5 : 0) + (hasReadableContent ? 5 : 0) - scopeIssues.length * 5
+  );
 
   if (!hasRootInstruction) {
     failedChecks.push('No root-level instruction file was discovered.');
@@ -177,18 +189,40 @@ function scoreDiscoverability(files: InstructionFile[], failedChecks: string[]):
   if (!hasRecognizedKind) {
     failedChecks.push('No recognized instruction file type was discovered.');
   }
+  for (const issue of scopeIssues) {
+    failedChecks.push(issue.message);
+  }
 
   return category(
     'discoverability',
     'Instruction discoverability',
     earned,
     WEIGHTS.discoverability,
-    `${files.length} instruction file${files.length === 1 ? '' : 's'} discovered.`
+    scopeIssues.length === 0
+      ? `${files.length} instruction file${files.length === 1 ? '' : 's'} discovered.`
+      : `${files.length} instruction file${files.length === 1 ? '' : 's'} discovered; ${scopeIssues.length} nested scope issue${scopeIssues.length === 1 ? '' : 's'} found.`
   );
 }
 
-function scoreCommandFreshness(files: InstructionFile[], runs: EvaluationRun[], failedChecks: string[]): ScoreBreakdownItem {
+function scoreCommandFreshness(
+  files: InstructionFile[],
+  runs: EvaluationRun[],
+  staticIssues: StaticIssue[],
+  failedChecks: string[]
+): ScoreBreakdownItem {
   const commands = files.flatMap((file) => file.commands);
+  const commandIssues = staticIssues.filter((issue) => issue.category === 'command');
+  if (commandIssues.length > 0) {
+    failedChecks.push(...commandIssues.map((issue) => issue.message));
+    return category(
+      'command-freshness',
+      'Command freshness',
+      0,
+      WEIGHTS.commandFreshness,
+      `${commandIssues.length} static command issue${commandIssues.length === 1 ? '' : 's'} found.`
+    );
+  }
+
   if (commands.length === 0) {
     failedChecks.push('No commands were found in instruction files.');
     return category('command-freshness', 'Command freshness', 0, WEIGHTS.commandFreshness, 'No commands were found in instruction files.');
@@ -233,6 +267,16 @@ function scoreReferenceIntegrity(issues: ReferenceIssue[], failedChecks: string[
 }
 
 function scoreEvaluationPassRate(runs: EvaluationRun[], failedChecks: string[]): ScoreBreakdownItem {
+  if (runs.length > 0 && runs.every(isPreviewRun)) {
+    return category(
+      'evaluation-pass-rate',
+      'Evaluation pass rate',
+      WEIGHTS.evaluationPassRate,
+      WEIGHTS.evaluationPassRate,
+      `${runs.length} deterministic task preview${runs.length === 1 ? '' : 's'} generated; no tasks were executed.`
+    );
+  }
+
   const evaluatedRuns = runs.filter((run) => run.status !== 'skipped');
   if (evaluatedRuns.length === 0) {
     failedChecks.push('No evaluation runs completed.');
@@ -255,6 +299,16 @@ function scoreEvaluationPassRate(runs: EvaluationRun[], failedChecks: string[]):
 }
 
 function scoreDiffDiscipline(runs: EvaluationRun[], failedChecks: string[]): ScoreBreakdownItem {
+  if (runs.length > 0 && runs.every(isPreviewRun)) {
+    return category(
+      'diff-discipline',
+      'Diff discipline',
+      WEIGHTS.diffDiscipline,
+      WEIGHTS.diffDiscipline,
+      'No task diffs were captured because runs were previews.'
+    );
+  }
+
   const changedRuns = runs.filter((run) => run.status !== 'skipped');
   if (changedRuns.length === 0) {
     failedChecks.push('No diff statistics were captured.');

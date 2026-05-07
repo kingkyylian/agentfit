@@ -1,0 +1,10 @@
+{
+  "name": "agentfit-demo-fixed",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node -e \"process.exit(0)\"",
+    "lint": "node -e \"process.exit(0)\"",
+    "test": "node -e \"process.exit(0)\""
+  }
+}

@@ -176,4 +176,64 @@ describe('calculateScore', () => {
       ])
     );
   });
+
+  it('describes deterministic dry-run previews without claiming tasks executed', () => {
+    const result = calculateScore({
+      instructionFiles: [instruction()],
+      referenceIssues: [],
+      runs: [
+        run({
+          verification: [],
+          diffStat: {
+            filesChanged: 0,
+            insertions: 0,
+            deletions: 0
+          },
+          message: 'Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks.'
+        })
+      ],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.breakdown.find((item) => item.id === 'evaluation-pass-rate')?.explanation).toBe(
+      '1 deterministic task preview generated; no tasks were executed.'
+    );
+    expect(result.breakdown.find((item) => item.id === 'diff-discipline')?.explanation).toBe(
+      'No task diffs were captured because runs were previews.'
+    );
+  });
+
+  it('includes static command and scope issues in the score', () => {
+    const result = calculateScore({
+      instructionFiles: [instruction()],
+      referenceIssues: [],
+      staticIssues: [
+        {
+          category: 'command',
+          sourcePath: 'AGENTS.md',
+          message: 'Documented command references missing package script "lint".',
+          severity: 'error'
+        },
+        {
+          category: 'scope',
+          sourcePath: 'packages/api',
+          message: 'No nested instruction file found for packages/api.',
+          severity: 'warning'
+        }
+      ],
+      runs: [run()],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.breakdown.find((item) => item.id === 'command-freshness')?.earned).toBe(0);
+    expect(result.breakdown.find((item) => item.id === 'discoverability')?.earned).toBe(15);
+    expect(result.failedChecks).toEqual(
+      expect.arrayContaining([
+        'Documented command references missing package script "lint".',
+        'No nested instruction file found for packages/api.'
+      ])
+    );
+  });
 });

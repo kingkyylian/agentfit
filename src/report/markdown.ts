@@ -1,4 +1,6 @@
 import type { ScoredAgentFitReport } from '../core/scoring.js';
+import type { EvaluationRun } from '../types.js';
+import { executionModeForRuns, isPreviewRun } from '../core/execution-mode.js';
 
 export function renderMarkdownReport(report: ScoredAgentFitReport): string {
   const lines = [
@@ -9,6 +11,8 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     report.summary,
     '',
     `Generated: ${report.generatedAt}`,
+    '',
+    ...executionSummary(report),
     '',
     `## Score Breakdown`,
     '',
@@ -50,6 +54,22 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     );
   }
 
+  if ((report.staticIssues ?? []).length > 0) {
+    lines.splice(
+      lines.length - 1,
+      0,
+      `## Static Issues`,
+      '',
+      `| Category | Source | Severity | Message |`,
+      `| --- | --- | --- | --- |`,
+      ...(report.staticIssues ?? []).map(
+        (issue) =>
+          `| ${issue.category} | ${escapeCell(issue.sourcePath)} | ${issue.severity} | ${escapeCell(issue.message)} |`
+      ),
+      ''
+    );
+  }
+
   return `${lines.join('\n').trimEnd()}\n`;
 }
 
@@ -84,14 +104,51 @@ function runRows(report: ScoredAgentFitReport): string[] {
   }
 
   return [
-    `| Task | Adapter | Status | Diff | Cost |`,
-    `| --- | --- | --- | ---: | ---: |`,
+    `| Task | Adapter | Status | Verification | Diff | Cost |`,
+    `| --- | --- | --- | --- | ---: | ---: |`,
     ...report.runs.map((run) => {
       const diff = `${run.diffStat.filesChanged} files, +${run.diffStat.insertions}/-${run.diffStat.deletions}`;
       const cost = run.costUsd === undefined ? '-' : `$${run.costUsd.toFixed(4)}`;
-      return `| ${escapeCell(run.task.title)} | ${run.adapter} | ${run.status} | ${diff} | ${cost} |`;
+      const status = isPreviewRun(run) ? 'preview' : run.status;
+      const verification = verificationSummary(run);
+      return `| ${escapeCell(run.task.title)} | ${run.adapter} | ${status} | ${verification} | ${diff} | ${cost} |`;
     })
   ];
+}
+
+function executionSummary(report: ScoredAgentFitReport): string[] {
+  const executionMode = executionModeForRuns(report.runs);
+  if (executionMode === 'none') {
+    return ['**Task execution:** No generated tasks were executed.'];
+  }
+
+  if (executionMode === 'preview') {
+    return [
+      '**Task execution:** Static dry-run preview; generated tasks were not executed.',
+      '',
+      'Run `agentfit eval --run-tasks` or select a real adapter to execute tasks in worktrees.'
+    ];
+  }
+
+  const executedRuns = report.runs.filter((run) => !isPreviewRun(run));
+  return [`**Task execution:** ${executedRuns.length} of ${report.runs.length} generated task runs executed.`];
+}
+
+function verificationSummary(run: EvaluationRun): string {
+  if (isPreviewRun(run)) {
+    return 'not executed';
+  }
+
+  if (run.verification.length === 0) {
+    return 'none recorded';
+  }
+
+  const failed = run.verification.filter((result) => result.exitCode !== 0).length;
+  if (failed > 0) {
+    return `${failed} of ${run.verification.length} failed`;
+  }
+
+  return `${run.verification.length} passed`;
 }
 
 function listOrNone(items: string[]): string[] {

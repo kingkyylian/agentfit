@@ -26,6 +26,13 @@ export type ReferenceIssue = {
   severity: 'error' | 'warning';
 };
 
+export type StaticIssue = {
+  category: 'command' | 'scope';
+  sourcePath: string;
+  message: string;
+  severity: 'error' | 'warning';
+};
+
 export type CommandResult = {
   command: string;
   exitCode: number;
@@ -65,6 +72,7 @@ export type AgentFitReport = {
   summary: string;
   instructionFiles: InstructionFile[];
   referenceIssues: ReferenceIssue[];
+  staticIssues?: StaticIssue[];
   tasks: FitnessTask[];
   runs: EvaluationRun[];
   caps: string[];

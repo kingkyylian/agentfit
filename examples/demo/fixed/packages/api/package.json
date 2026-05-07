@@ -1,0 +1,8 @@
+{
+  "name": "@agentfit-demo/api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node -e \"process.exit(0)\""
+  }
+}

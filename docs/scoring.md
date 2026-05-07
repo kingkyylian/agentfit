@@ -38,3 +38,16 @@ Caps are applied after the weighted score is calculated, so the report still sho
 High scores mean a coding agent can discover the instructions, follow current commands, resolve referenced docs, and complete small repo-specific tasks without large unrelated diffs.
 
 Low scores are meant to be actionable. Start with failed checks, then fix caps. A capped score usually means the repo is not ready for automated agent work even if other categories look healthy.
+
+## Execution Modes
+
+Reports include an `executionMode` field in JSON and a task execution note in Markdown:
+
+| Mode | Meaning |
+| --- | --- |
+| `preview` | Default deterministic dry-run. AgentFit generated task records but did not execute them in worktrees. |
+| `executed` | Generated tasks were executed through `--run-tasks` or a real adapter. |
+| `mixed` | The report contains both preview and executed runs. |
+| `none` | No task runs were recorded. |
+
+Use `agentfit eval --run-tasks` for local worktree execution, or select a real adapter when you want agent behavior measured rather than previewed.
