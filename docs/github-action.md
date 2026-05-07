@@ -20,11 +20,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
       - id: agentfit
         uses: kingkyylian/agentfit@v1
         with:
           version: 0.1.2
           adapter: dry-run
+          run-tasks: true
           fail-below-score: 70
           task-count: 5
           timeout-seconds: 900
@@ -36,10 +42,11 @@ jobs:
 
 | Input | Default | Description |
 | --- | --- | --- |
-| `version` | `0.1.2` | AgentFit npm package version to run through `npx`. |
+| `version` | `0.1.2` | AgentFit npm package version to run through `npm exec`. |
 | `adapter` | `dry-run` | Evaluation adapter to run. |
 | `fail-below-score` | `70` | Fail the job when the JSON report score is below this value. |
 | `task-count` | `5` | Number of generated fitness tasks. |
+| `run-tasks` | `false` | Execute generated tasks in isolated worktrees. Install dependencies first when this is `true`. |
 | `timeout-seconds` | `900` | Maximum seconds for each task run. |
 | `budget-usd` | `1` | Maximum adapter budget in USD. |
 | `format` | `markdown` | Human report format. |

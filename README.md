@@ -2,25 +2,45 @@
 
 Is your repo actually ready for coding agents?
 
-AgentFit runs local fitness tests for `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files. It checks whether instructions are discoverable, commands still work, references resolve, and coding agents can complete small repo-specific tasks in isolated worktrees.
+AgentFit scores whether `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files are usable in practice. It checks whether instructions are discoverable, commands still work, references resolve, nested packages are covered, and coding agents can complete small repo-specific tasks in isolated worktrees.
 
-![AgentFit 82/100](https://img.shields.io/badge/AgentFit-82%2F100-4c8fbd)
+![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
+![AgentFit 95/100](https://img.shields.io/badge/AgentFit-95%2F100-2ea043)
 
 ```bash
 npx @kingkyylian/agentfit@latest eval --adapter dry-run
 ```
 
 ```text
-AgentFit score: 82/100 (B)
-AgentFit score 82/100 (B).
-Instruction files: 2
-Reference issues: 1
+AgentFit score: 93/100 (A)
+AgentFit score 93/100 (A).
+Instruction files: 1
+Reference issues: 0
 Tasks: 5
 Task execution: static dry-run preview; generated tasks were not executed.
 Runs: 0 executed, 5 previewed
 ```
 
-Compare instruction changes before and after a PR:
+Execute generated tasks in isolated worktrees when you want command-level proof:
+
+```bash
+npx @kingkyylian/agentfit@latest eval --adapter dry-run --run-tasks
+```
+
+AgentFit's own repository currently scores `95/100 (A)` with `5 of 5` generated task runs executed.
+
+## The 60-Second Pitch
+
+Start with a stale `AGENTS.md`:
+
+```text
+- missing @docs/setup.md
+- stale pnpm lint command
+- no runnable verification command
+- no nested instruction file for packages/api
+```
+
+Then fix the instructions and compare:
 
 ```bash
 npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
@@ -28,7 +48,11 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 
 ```text
 AgentFit improved by 28 points: 65/100 (D) -> 93/100 (A).
-Fixed checks: No nested instruction file found for packages/api.; Documented command references missing package script "lint".; No runnable verification command found in instruction files.; 1 instruction reference is missing or invalid.
+Fixed checks:
+- No nested instruction file found for packages/api.
+- Documented command references missing package script "lint".
+- No runnable verification command found in instruction files.
+- 1 instruction reference is missing or invalid.
 ```
 
 ## Why
@@ -77,6 +101,7 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
   with:
     version: 0.1.2
     adapter: dry-run
+    run-tasks: true
     fail-below-score: 70
     task-count: 5
     timeout-seconds: 900
@@ -85,6 +110,8 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
 ```
 
 See [docs/github-action.md](docs/github-action.md).
+
+AgentFit uses this Action on its own repository with `run-tasks: true` and a minimum score of `90`.
 
 ## 60-Second Demo
 

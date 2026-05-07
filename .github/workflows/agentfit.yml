@@ -1,0 +1,33 @@
+name: AgentFit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  agentfit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - uses: ./
+        with:
+          version: 0.1.2
+          adapter: dry-run
+          run-tasks: true
+          fail-below-score: 90
+          task-count: 5
+          timeout-seconds: 900
+          budget-usd: 1
+          format: markdown
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agentfit-report
+          path: .agentfit/reports/

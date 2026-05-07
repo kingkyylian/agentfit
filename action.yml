@@ -19,6 +19,10 @@ inputs:
     description: Number of generated fitness tasks to evaluate.
     required: false
     default: "5"
+  run-tasks:
+    description: Execute generated tasks in isolated worktrees.
+    required: false
+    default: "false"
   timeout-seconds:
     description: Maximum seconds for each task run.
     required: false
@@ -48,7 +52,7 @@ runs:
   steps:
     - name: Prepare report directory
       shell: bash
-      run: mkdir -p .agentfit/reports
+      run: mkdir -p .agentfit/reports .agentfit/npm-exec
 
     - name: Generate reports
       shell: bash
@@ -56,6 +60,7 @@ runs:
         AGENTFIT_VERSION: ${{ inputs.version }}
         AGENTFIT_ADAPTER: ${{ inputs.adapter }}
         AGENTFIT_TASK_COUNT: ${{ inputs.task-count }}
+        AGENTFIT_RUN_TASKS: ${{ inputs.run-tasks }}
         AGENTFIT_TIMEOUT_SECONDS: ${{ inputs.timeout-seconds }}
         AGENTFIT_BUDGET_USD: ${{ inputs.budget-usd }}
         AGENTFIT_FORMAT: ${{ inputs.format }}
@@ -65,14 +70,27 @@ runs:
           exit 1
         fi
 
-        npx --yes "@kingkyylian/agentfit@${AGENTFIT_VERSION}" eval \
-          --adapter "${AGENTFIT_ADAPTER}" \
-          --tasks "${AGENTFIT_TASK_COUNT}" \
-          --timeout-seconds "${AGENTFIT_TIMEOUT_SECONDS}" \
-          --budget-usd "${AGENTFIT_BUDGET_USD}" \
-          --format "${AGENTFIT_FORMAT}" \
-          --output .agentfit/reports/agentfit.md \
+        if [[ "${AGENTFIT_RUN_TASKS}" != "true" && "${AGENTFIT_RUN_TASKS}" != "false" ]]; then
+          echo "Invalid run-tasks input. Use true or false." >&2
+          exit 1
+        fi
+
+        args=(
+          eval
+          --adapter "${AGENTFIT_ADAPTER}"
+          --tasks "${AGENTFIT_TASK_COUNT}"
+          --timeout-seconds "${AGENTFIT_TIMEOUT_SECONDS}"
+          --budget-usd "${AGENTFIT_BUDGET_USD}"
+          --format "${AGENTFIT_FORMAT}"
+          --output .agentfit/reports/agentfit.md
           --json-output .agentfit/reports/agentfit.json
+        )
+
+        if [[ "${AGENTFIT_RUN_TASKS}" == "true" ]]; then
+          args+=(--run-tasks)
+        fi
+
+        npm exec --yes --prefix .agentfit/npm-exec --package "@kingkyylian/agentfit@${AGENTFIT_VERSION}" -- agentfit "${args[@]}"
 
     - name: Collect outputs
       id: collect
