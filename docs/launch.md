@@ -12,7 +12,7 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 2. Run:
 
 ```bash
-npx agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
+npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
 ```
 
 3. Show the score: `65/100 (D)`.
@@ -21,14 +21,14 @@ npx agentfit@latest eval --format markdown --output ../../reports/demo-before.md
 6. Run AgentFit again:
 
 ```bash
-npx agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
+npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
 ```
 
 7. Show the fixed score: `93/100 (A)`.
 8. From the project root, run:
 
 ```bash
-npx agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
+npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
 ```
 
 9. Show the before/after delta as the launch hook: `AgentFit improved by 28 points`.
@@ -47,9 +47,9 @@ npx agentfit@latest compare examples/reports/demo-before.json examples/reports/d
 1. Run `pnpm install --frozen-lockfile`.
 2. Run `pnpm typecheck`, `pnpm test`, `pnpm lint`, and `pnpm build`.
 3. Run `npm pack --dry-run --json` and confirm the package includes `dist`, `README.md`, `LICENSE`, `action.yml`, and top-level docs.
-4. Publish the npm CLI package as `agentfit@0.1.0`.
+4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.0`.
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
-6. Smoke-test the Action with `uses: kyylian/agentfit@v1` and `version: 0.1.0`.
+6. Smoke-test the Action with `uses: kingkyylian/agentfit@v1` and `version: 0.1.0`.
 
 ## Good First Issues
 

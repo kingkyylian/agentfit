@@ -65,7 +65,7 @@ runs:
           exit 1
         fi
 
-        npx --yes "agentfit@${AGENTFIT_VERSION}" eval \
+        npx --yes "@kingkyylian/agentfit@${AGENTFIT_VERSION}" eval \
           --adapter "${AGENTFIT_ADAPTER}" \
           --tasks "${AGENTFIT_TASK_COUNT}" \
           --timeout-seconds "${AGENTFIT_TIMEOUT_SECONDS}" \

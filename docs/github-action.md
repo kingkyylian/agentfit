@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: agentfit
-        uses: kyylian/agentfit@v1
+        uses: kingkyylian/agentfit@v1
         with:
           version: 0.1.0
           adapter: dry-run
@@ -80,7 +80,7 @@ For PRs that update agent instructions, store a baseline report from the target 
 ```yaml
 - name: Compare AgentFit reports
   run: |
-    npx agentfit@latest compare before.json after.json \
+    npx @kingkyylian/agentfit@latest compare before.json after.json \
       --format markdown \
       --output agentfit-compare.md \
       --fail-on-regression

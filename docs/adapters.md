@@ -7,7 +7,7 @@ Adapters run the generated fitness tasks. AgentFit keeps adapters small so deter
 `dry-run` is the default adapter. It validates discovery, references, command extraction, and configured verification commands without invoking an AI coding agent.
 
 ```bash
-npx agentfit@latest eval --adapter dry-run
+npx @kingkyylian/agentfit@latest eval --adapter dry-run
 ```
 
 Use dry-run in CI when you want low-cost signal for instruction quality.
@@ -25,7 +25,7 @@ The Codex adapter is intended for non-interactive Codex CLI evaluations. It shou
 Example:
 
 ```bash
-npx agentfit@latest eval --adapter codex --tasks 3 --budget-usd 1.00
+npx @kingkyylian/agentfit@latest eval --adapter codex --tasks 3 --budget-usd 1.00
 ```
 
 ## Adapter Result Contract

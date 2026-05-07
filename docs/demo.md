@@ -15,7 +15,7 @@ Run:
 
 ```bash
 cd examples/demo/bad
-npx agentfit@latest eval \
+npx @kingkyylian/agentfit@latest eval \
   --format markdown \
   --output ../../reports/demo-before.md \
   --json-output ../../reports/demo-before.json \
@@ -47,7 +47,7 @@ Run:
 
 ```bash
 cd examples/demo/fixed
-npx agentfit@latest eval \
+npx @kingkyylian/agentfit@latest eval \
   --format markdown \
   --output ../../reports/demo-after.md \
   --json-output ../../reports/demo-after.json \
@@ -66,7 +66,7 @@ Failed checks: none.
 From the project root:
 
 ```bash
-npx agentfit@latest compare \
+npx @kingkyylian/agentfit@latest compare \
   examples/reports/demo-before.json \
   examples/reports/demo-after.json \
   --format markdown

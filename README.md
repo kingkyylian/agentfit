@@ -7,7 +7,7 @@ AgentFit runs local fitness tests for `AGENTS.md`, `CLAUDE.md`, Cursor rules, Co
 ![AgentFit 82/100](https://img.shields.io/badge/AgentFit-82%2F100-4c8fbd)
 
 ```bash
-npx agentfit@latest eval --adapter dry-run
+npx @kingkyylian/agentfit@latest eval --adapter dry-run
 ```
 
 ```text
@@ -23,7 +23,7 @@ Runs: 0 executed, 5 previewed
 Compare instruction changes before and after a PR:
 
 ```bash
-npx agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
+npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
 ```
 
 ```text
@@ -73,7 +73,7 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
 ## GitHub Action
 
 ```yaml
-- uses: kyylian/agentfit@v1
+- uses: kingkyylian/agentfit@v1
   with:
     version: 0.1.0
     adapter: dry-run
@@ -99,13 +99,13 @@ Run the before/after reports and compare them:
 
 ```bash
 cd examples/demo/bad
-npx agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
+npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
 
 cd ../fixed
-npx agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
+npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
 
 cd ../../..
-npx agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
+npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
 ```
 
 ```text
