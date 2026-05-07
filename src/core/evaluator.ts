@@ -1,3 +1,4 @@
+import { delimiter, join } from 'node:path';
 import type { AdapterContext, EvaluationAdapter } from '../adapters/adapter.js';
 import type { CommandResult, EvaluationRun, FitnessTask } from '../types.js';
 import { getDiffStat, runShellCommand } from './git.js';
@@ -40,15 +41,21 @@ function createAdapterContext(
 async function runVerificationCommands(
   commands: string[],
   cwd: string,
-  timeoutMs: number | undefined
+  timeoutMs: number | undefined,
+  env: NodeJS.ProcessEnv
 ): Promise<CommandResult[]> {
   const results: CommandResult[] = [];
 
   for (const command of commands) {
-    results.push(await runShellCommand(command, cwd, timeoutMs));
+    results.push(await runShellCommand(command, cwd, timeoutMs, env));
   }
 
   return results;
+}
+
+function createVerificationEnv(root: string): NodeJS.ProcessEnv {
+  const path = [join(root, 'node_modules', '.bin'), process.env.PATH].filter(Boolean).join(delimiter);
+  return { ...process.env, PATH: path };
 }
 
 function appendOptionalRunFields(
@@ -69,6 +76,7 @@ function appendOptionalRunFields(
 export async function evaluateTasks(options: EvaluateTasksOptions): Promise<EvaluationRun[]> {
   const runs: EvaluationRun[] = [];
   const worktreeDir = options.worktreeDir ?? '.agentfit/worktrees';
+  const verificationEnv = createVerificationEnv(options.root);
 
   for (const task of options.tasks) {
     let worktree: EvaluationWorktree | undefined;
@@ -91,7 +99,7 @@ export async function evaluateTasks(options: EvaluateTasksOptions): Promise<Eval
           ? (adapterResult.verification ?? [])
           : [
               ...(adapterResult.verification ?? []),
-              ...(await runVerificationCommands(task.expectedChecks, worktree.path, options.timeoutMs))
+              ...(await runVerificationCommands(task.expectedChecks, worktree.path, options.timeoutMs, verificationEnv))
             ];
       const diffStat = await getDiffStat(worktree.path);
       const failedVerification = verification.some((result) => result.exitCode !== 0);

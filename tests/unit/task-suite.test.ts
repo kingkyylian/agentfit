@@ -1,3 +1,6 @@
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { generateFitnessTasks } from '../../src/core/task-suite.js';
 
@@ -9,13 +12,13 @@ describe('generateFitnessTasks', () => {
     });
 
     expect(tasks.map((task) => task.id)).toEqual([
-      'script-build',
-      'script-lint',
       'script-test',
       'script-typecheck',
+      'script-lint',
+      'script-build',
       'test-example-test'
     ]);
-    expect(tasks[2]?.expectedChecks).toEqual(['npm run test']);
+    expect(tasks[0]?.expectedChecks).toEqual(['npm run test']);
   });
 
   it('omits external-service tasks unless explicitly allowed', async () => {
@@ -41,5 +44,50 @@ describe('generateFitnessTasks', () => {
       title: 'Make a harmless README wording change and run verification',
       filesLikelyTouched: ['README.md']
     });
+  });
+
+  it('prioritizes verification scripts and skips interactive lifecycle scripts', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-task-suite-'));
+    await mkdir(join(root, 'tests'));
+    await mkdir(join(root, 'tests/fixtures/basic-repo/src'), { recursive: true });
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify(
+        {
+          packageManager: 'pnpm@10.33.0',
+          scripts: {
+            dev: 'tsx src/cli/index.ts',
+            prepack: 'pnpm build',
+            test: 'vitest run',
+            typecheck: 'tsc --noEmit',
+            lint: 'eslint .',
+            build: 'tsup',
+            'test:unit': 'vitest run tests/unit'
+          }
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(join(root, 'tests/example.test.ts'), 'export {};\n');
+    await writeFile(join(root, 'tests/fixtures/basic-repo/src/index.ts'), 'export const fixture = true;\n');
+
+    const tasks = await generateFitnessTasks(root, { taskCount: 6 });
+
+    expect(tasks.map((task) => task.id)).toEqual([
+      'script-test',
+      'script-test-unit',
+      'script-typecheck',
+      'script-lint',
+      'script-build',
+      'test-example-test'
+    ]);
+    expect(tasks.some((task) => task.id === 'script-dev')).toBe(false);
+    expect(tasks.some((task) => task.id === 'script-prepack')).toBe(false);
+    expect(tasks.some((task) => task.filesLikelyTouched.includes('tests/fixtures/basic-repo/src/index.ts'))).toBe(
+      false
+    );
+    expect(tasks[0]?.expectedChecks).toEqual(['pnpm run test']);
+    expect(tasks[5]?.expectedChecks).toEqual(['pnpm run test']);
   });
 });

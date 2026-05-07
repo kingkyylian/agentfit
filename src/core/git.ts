@@ -88,13 +88,15 @@ async function countFileLines(filePath: string): Promise<number> {
 export async function runShellCommand(
   command: string,
   cwd: string,
-  timeoutMs?: number
+  timeoutMs?: number,
+  env?: NodeJS.ProcessEnv
 ): Promise<CommandResult> {
   const started = performance.now();
   const result = await execaCommand(command, {
     cwd,
     reject: false,
     shell: true,
+    ...(env !== undefined ? { env } : {}),
     ...(timeoutMs !== undefined ? { timeout: timeoutMs } : {})
   }).catch((error: unknown) => {
     const message = error instanceof Error ? error.message : String(error);

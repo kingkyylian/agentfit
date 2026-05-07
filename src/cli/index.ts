@@ -14,7 +14,7 @@ export function createProgram(): Command {
   program
     .name('agentfit')
     .description('Local-first fitness tests for AI coding-agent instruction files.')
-    .version('0.1.1');
+    .version('0.1.2');
 
   program.addCommand(initCommand());
   program.addCommand(doctorCommand());
