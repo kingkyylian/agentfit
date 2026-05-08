@@ -24,6 +24,9 @@ permissions:
   pull-requests: read
   issues: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   agentfit:
     runs-on: ubuntu-latest
@@ -46,7 +49,7 @@ jobs:
           timeout-seconds: 900
           budget-usd: 1
           format: markdown
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@v8
         if: always()
         with:
           script: |

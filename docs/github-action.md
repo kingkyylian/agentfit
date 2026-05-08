@@ -15,6 +15,9 @@ on:
       - .github/copilot-instructions.md
       - .github/instructions/**
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   agentfit:
     runs-on: ubuntu-latest
