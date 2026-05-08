@@ -28,7 +28,7 @@ jobs:
       - id: agentfit
         uses: kingkyylian/agentfit@v1
         with:
-          version: 0.1.3
+          version: 0.1.4
           adapter: dry-run
           run-tasks: true
           fail-below-score: 70
@@ -42,7 +42,7 @@ jobs:
 
 | Input | Default | Description |
 | --- | --- | --- |
-| `version` | `0.1.3` | AgentFit npm package version to run through `npm exec`. |
+| `version` | `0.1.4` | AgentFit npm package version to run through `npm exec`. |
 | `adapter` | `dry-run` | Evaluation adapter to run. |
 | `fail-below-score` | `70` | Fail the job when the JSON report score is below this value. |
 | `task-count` | `5` | Number of generated fitness tasks. |

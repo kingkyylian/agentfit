@@ -99,7 +99,7 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
 ```yaml
 - uses: kingkyylian/agentfit@v1
   with:
-    version: 0.1.3
+    version: 0.1.4
     adapter: dry-run
     run-tasks: true
     fail-below-score: 70
