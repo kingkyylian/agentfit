@@ -16,7 +16,7 @@ inputs:
     required: false
     default: dry-run
   fail-below-score:
-    description: Fail the action when the AgentFit score is below this value.
+    description: Fail the action when the AgentFit score is below this integer from 0 to 100.
     required: false
     default: "70"
   task-count:
@@ -106,4 +106,4 @@ runs:
         echo "score=${score}" >> "${GITHUB_OUTPUT}"
         echo "report-path=.agentfit/reports/agentfit.md" >> "${GITHUB_OUTPUT}"
         echo "json-path=.agentfit/reports/agentfit.json" >> "${GITHUB_OUTPUT}"
-        node -e 'const score=Number(process.argv[1]); const min=Number(process.argv[2]); if (score < min) { console.error(`AgentFit score ${score} is below ${min}`); process.exit(1); }' "${score}" "${AGENTFIT_FAIL_BELOW_SCORE}"
+        node -e 'const score=Number(process.argv[1]); const min=Number(process.argv[2]); if (!Number.isInteger(score) || score < 0 || score > 100) { console.error(`Invalid AgentFit report score: ${process.argv[1]}`); process.exit(1); } if (!Number.isInteger(min) || min < 0 || min > 100) { console.error("Invalid fail-below-score input. Use an integer from 0 to 100."); process.exit(1); } if (score < min) { console.error(`AgentFit score ${score} is below ${min}`); process.exit(1); }' "${score}" "${AGENTFIT_FAIL_BELOW_SCORE}"

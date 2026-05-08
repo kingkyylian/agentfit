@@ -48,7 +48,7 @@ jobs:
 | --- | --- | --- |
 | `version` | `0.1.4` | AgentFit npm package version to run through `npm exec`. |
 | `adapter` | `dry-run` | Evaluation adapter to run. |
-| `fail-below-score` | `70` | Fail the job when the JSON report score is below this value. |
+| `fail-below-score` | `70` | Fail the job when the JSON report score is below this integer from 0 to 100. |
 | `task-count` | `5` | Number of generated fitness tasks. |
 | `run-tasks` | `false` | Execute generated tasks in isolated worktrees. Install dependencies first when this is `true`. |
 | `timeout-seconds` | `900` | Maximum seconds for each task run. |
