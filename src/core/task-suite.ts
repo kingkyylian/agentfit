@@ -8,6 +8,7 @@ export type GenerateFitnessTasksOptions = {
   taskCount?: number;
   recentPaths?: string[];
   allowExternalServices?: boolean;
+  configuredChecks?: string[];
 };
 
 const externalServicePattern = /\b(docker|compose|supabase|firebase|aws|gcloud|az|vercel|netlify|curl|wget|ssh)\b/i;
@@ -18,8 +19,10 @@ export async function generateFitnessTasks(
 ): Promise<FitnessTask[]> {
   const taskCount = options.taskCount ?? 5;
   const scriptRunner = await detectProjectScriptRunner(root);
+  const allowExternalServices = options.allowExternalServices ?? false;
   const tasks = [
-    ...(await tasksFromPackageScripts(root, options.allowExternalServices ?? false, scriptRunner)),
+    ...tasksFromConfiguredChecks(options.configuredChecks ?? [], allowExternalServices),
+    ...(await tasksFromPackageScripts(root, allowExternalServices, scriptRunner)),
     ...(await tasksFromTestFiles(root, scriptRunner)),
     ...tasksFromRecentPaths(options.recentPaths ?? [], scriptRunner),
     fallbackTask(scriptRunner)
@@ -53,6 +56,27 @@ async function tasksFromPackageScripts(
       command
     }))
     .map(({ command: _command, ...task }) => task);
+}
+
+function tasksFromConfiguredChecks(commands: string[], allowExternalServices: boolean): FitnessTask[] {
+  const expectedChecks = commands
+    .map((command) => command.trim())
+    .filter(Boolean)
+    .filter((command) => allowExternalServices || !externalServicePattern.test(command));
+
+  if (expectedChecks.length === 0) {
+    return [];
+  }
+
+  return [
+    {
+      id: 'config-verification',
+      title: 'Run configured verification commands',
+      prompt: 'Make a minimal repository-appropriate change, then run the configured verification commands.',
+      expectedChecks,
+      filesLikelyTouched: ['agentfit.config.yml']
+    }
+  ];
 }
 
 const interactiveScriptPattern = /^(dev|start|serve|preview|watch)(?::|$)/i;
@@ -130,7 +154,7 @@ async function tasksFromTestFiles(root: string, scriptRunner: string): Promise<F
       onlyFiles: true,
       unique: true,
       dot: false,
-      ignore: ['**/node_modules/**', '**/dist/**']
+      ignore: ['**/node_modules/**', '**/dist/**', '**/fixtures/**', 'examples/**']
     }
   );
 

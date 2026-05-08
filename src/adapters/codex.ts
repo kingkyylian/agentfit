@@ -80,7 +80,6 @@ export function createCodexAdapter(options: CodexAdapterOptions = {}): Evaluatio
             durationMs
           }
         ],
-        costUsd: 0,
         message:
           result.exitCode === 0
             ? 'Codex command completed.'

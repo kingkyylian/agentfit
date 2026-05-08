@@ -18,7 +18,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - uses: ./
         with:
-          version: 0.1.2
+          version: 0.1.3
           adapter: dry-run
           run-tasks: true
           fail-below-score: 90

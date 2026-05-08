@@ -1,24 +1,39 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import fg from 'fast-glob';
-import type { InstructionFile, StaticIssue } from '../types.js';
+import type { ExtractedCommand, InstructionFile, StaticIssue } from '../types.js';
 
 const verificationKinds = new Set(['test', 'lint', 'build']);
 
-export async function collectStaticIssues(root: string, instructionFiles: InstructionFile[]): Promise<StaticIssue[]> {
-  const commandIssues = await collectCommandIssues(root, instructionFiles);
-  const scopeIssues = await collectScopeIssues(root, instructionFiles);
+export type CollectStaticIssuesOptions = {
+  configuredCommands?: ExtractedCommand[];
+};
 
-  return [...commandIssues, ...scopeIssues];
+export async function collectStaticIssues(
+  root: string,
+  instructionFiles: InstructionFile[],
+  options: CollectStaticIssuesOptions = {}
+): Promise<StaticIssue[]> {
+  const commandIssues = await collectCommandIssues(root, instructionFiles, options.configuredCommands ?? []);
+  const scopeIssues = await collectScopeIssues(root, instructionFiles);
+  const secretIssues = await collectSecretIssues(root, instructionFiles);
+
+  return [...commandIssues, ...scopeIssues, ...secretIssues];
 }
 
-async function collectCommandIssues(root: string, instructionFiles: InstructionFile[]): Promise<StaticIssue[]> {
+async function collectCommandIssues(
+  root: string,
+  instructionFiles: InstructionFile[],
+  configuredCommands: ExtractedCommand[]
+): Promise<StaticIssue[]> {
   const issues: StaticIssue[] = [];
   const packageJson = await readPackageJson(path.join(root, 'package.json'));
   const scripts = packageJson?.scripts ?? {};
-  const verificationCommands = instructionFiles.flatMap((file) =>
-    file.commands.filter((command) => verificationKinds.has(command.kind))
-  );
+  const commands = [
+    ...instructionFiles.flatMap((file) => file.commands),
+    ...configuredCommands
+  ];
+  const verificationCommands = commands.filter((command) => verificationKinds.has(command.kind));
 
   for (const command of verificationCommands) {
     const scriptName = packageScriptName(command.value);
@@ -68,6 +83,46 @@ async function collectScopeIssues(root: string, instructionFiles: InstructionFil
       message: `No nested instruction file found for ${scope}.`,
       severity: 'warning' as const
     }));
+}
+
+const secretPatterns = [
+  {
+    name: 'OpenAI API key',
+    pattern: /\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b/
+  },
+  {
+    name: 'AWS access key ID',
+    pattern: /\bA(?:KIA|SIA)[A-Z0-9]{16}\b/
+  },
+  {
+    name: 'GitHub token',
+    pattern: /\bgh[pousr]_[A-Za-z0-9_]{36,}\b/
+  },
+  {
+    name: 'private key',
+    pattern: /-----BEGIN [A-Z ]*PRIVATE KEY-----/
+  }
+] as const;
+
+async function collectSecretIssues(root: string, instructionFiles: InstructionFile[]): Promise<StaticIssue[]> {
+  const issues: StaticIssue[] = [];
+
+  for (const file of instructionFiles) {
+    const content = await readFile(path.join(root, file.path), 'utf8');
+
+    for (const secretPattern of secretPatterns) {
+      if (secretPattern.pattern.test(content)) {
+        issues.push({
+          category: 'secret',
+          sourcePath: file.path,
+          message: `Potential ${secretPattern.name} detected in instruction file.`,
+          severity: 'error'
+        });
+      }
+    }
+  }
+
+  return issues;
 }
 
 function packageScriptName(command: string): string | undefined {

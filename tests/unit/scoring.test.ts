@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculateScore } from '../../src/core/scoring.js';
-import type { EvaluationRun, InstructionFile } from '../../src/types.js';
+import type { EvaluationRun, ExtractedCommand, InstructionFile } from '../../src/types.js';
 
 const instruction = (overrides: Partial<InstructionFile> = {}): InstructionFile => ({
   path: 'AGENTS.md',
@@ -55,6 +55,14 @@ const run = (overrides: Partial<EvaluationRun> = {}): EvaluationRun => ({
   ...overrides
 });
 
+const configuredCommand = (overrides: Partial<ExtractedCommand> = {}): ExtractedCommand => ({
+  value: 'npm test',
+  sourcePath: 'agentfit.config.yml',
+  line: 0,
+  kind: 'test',
+  ...overrides
+});
+
 describe('calculateScore', () => {
   it('awards a transparent 100 point score for a clean evaluation', () => {
     const result = calculateScore({
@@ -78,6 +86,55 @@ describe('calculateScore', () => {
       expect.objectContaining({ id: 'safety-guardrails', earned: 10, max: 10 }),
       expect.objectContaining({ id: 'reproducibility', earned: 10, max: 10 })
     ]);
+  });
+
+  it('matches package-manager script aliases with explicit run commands', () => {
+    const result = calculateScore({
+      instructionFiles: [instruction()],
+      referenceIssues: [],
+      runs: [
+        run({
+          verification: [
+            {
+              command: 'pnpm run test',
+              exitCode: 0,
+              stdout: '',
+              stderr: '',
+              durationMs: 1200
+            }
+          ]
+        })
+      ],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.breakdown.find((item) => item.id === 'command-freshness')?.earned).toBe(15);
+    expect(result.score).toBe(100);
+  });
+
+  it('does not match package scripts by prefix only', () => {
+    const result = calculateScore({
+      instructionFiles: [instruction()],
+      referenceIssues: [],
+      runs: [
+        run({
+          verification: [
+            {
+              command: 'pnpm run test:unit',
+              exitCode: 0,
+              stdout: '',
+              stderr: '',
+              durationMs: 1200
+            }
+          ]
+        })
+      ],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.breakdown.find((item) => item.id === 'command-freshness')?.earned).toBe(10);
   });
 
   it('applies score caps for failed setup and missing verification commands', () => {
@@ -202,6 +259,36 @@ describe('calculateScore', () => {
     expect(result.breakdown.find((item) => item.id === 'diff-discipline')?.explanation).toBe(
       'No task diffs were captured because runs were previews.'
     );
+  });
+
+  it('uses explicit configured commands as verification signals', () => {
+    const result = calculateScore({
+      instructionFiles: [
+        instruction({
+          commands: []
+        })
+      ],
+      configuredCommands: [configuredCommand()],
+      referenceIssues: [],
+      runs: [
+        run({
+          verification: [
+            {
+              command: 'npm test',
+              exitCode: 0,
+              stdout: '',
+              stderr: '',
+              durationMs: 1200
+            }
+          ]
+        })
+      ],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.caps).not.toContain('no verification command found: max score 75');
+    expect(result.breakdown.find((item) => item.id === 'command-freshness')?.earned).toBe(15);
   });
 
   it('includes static command and scope issues in the score', () => {

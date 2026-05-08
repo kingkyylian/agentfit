@@ -27,7 +27,7 @@ export type ReferenceIssue = {
 };
 
 export type StaticIssue = {
-  category: 'command' | 'scope';
+  category: 'command' | 'scope' | 'secret';
   sourcePath: string;
   message: string;
   severity: 'error' | 'warning';

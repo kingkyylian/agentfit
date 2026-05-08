@@ -70,8 +70,8 @@ export const DEFAULT_CONFIG: AgentFitConfig = {
     include: DEFAULT_INSTRUCTION_PATTERNS
   },
   commands: {
-    setup: ['pnpm install --frozen-lockfile'],
-    verify: ['pnpm typecheck', 'pnpm test', 'pnpm lint']
+    setup: [],
+    verify: []
   },
   evaluation: {
     adapter: 'dry-run',

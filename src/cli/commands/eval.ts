@@ -3,6 +3,7 @@ import path from 'node:path';
 import { Command } from 'commander';
 import { createCodexAdapter } from '../../adapters/codex.js';
 import { createDryRunAdapter } from '../../adapters/dry-run.js';
+import { classifyCommand } from '../../core/command-extractor.js';
 import { loadAgentFitConfig } from '../../core/config.js';
 import { discoverInstructionFiles } from '../../core/discovery.js';
 import { evaluateTasks } from '../../core/evaluator.js';
@@ -14,7 +15,7 @@ import { generateFitnessTasks } from '../../core/task-suite.js';
 import { renderBadgeSvg } from '../../report/badge.js';
 import { renderJsonReport } from '../../report/json.js';
 import { renderMarkdownReport } from '../../report/markdown.js';
-import type { AgentFitReport, EvaluationRun, ReferenceIssue } from '../../types.js';
+import type { AgentFitReport, EvaluationRun, ExtractedCommand, ReferenceIssue } from '../../types.js';
 
 type EvalOptions = {
   adapter: 'dry-run' | 'codex';
@@ -55,11 +56,13 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         : config.evaluation.timeoutSeconds;
       const budgetUsd = options.budgetUsd ? Number.parseFloat(options.budgetUsd) : config.evaluation.budgetUsd;
       const instructionFiles = await discoverInstructionFiles(root, config.instructions.include);
+      const configuredCommands = configuredCommandsFromConfig(config.commands);
       const referenceIssues = await collectReferenceIssues(root, instructionFiles.map((file) => file.path));
-      const staticIssues = await collectStaticIssues(root, instructionFiles);
+      const staticIssues = await collectStaticIssues(root, instructionFiles, { configuredCommands });
       const tasks = await generateFitnessTasks(root, {
         taskCount,
-        allowExternalServices: config.evaluation.allowExternalServices
+        allowExternalServices: config.evaluation.allowExternalServices,
+        configuredChecks: config.commands.verify
       });
       const shouldRunTasks = options.runTasks === true || options.adapter === 'codex';
       const runs = shouldRunTasks
@@ -94,7 +97,9 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
       };
       const report = attachScoreToReport(baseReport, {
         safetyGuardrailsFound: hasSafetyGuardrails(instructionFiles),
-        reproducibilitySignalsFound: hasReproducibilitySignals(instructionFiles),
+        reproducibilitySignalsFound: hasReproducibilitySignals(instructionFiles, configuredCommands),
+        configuredCommands,
+        hasExposedSecrets: staticIssues.some((issue) => issue.category === 'secret'),
         setupCommandFailed: runs.some((run) =>
           run.verification.some((result) => result.command.includes('install') && result.exitCode !== 0)
         )
@@ -113,6 +118,24 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         process.exitCode = 1;
       }
     });
+}
+
+function configuredCommandsFromConfig(commands: { setup: string[]; verify: string[] }): ExtractedCommand[] {
+  return [
+    ...commands.setup.map((value) => configuredCommand(value, 'setup')),
+    ...commands.verify.map((value) => configuredCommand(value, 'verify'))
+  ];
+}
+
+function configuredCommand(value: string, section: 'setup' | 'verify'): ExtractedCommand {
+  const kind = classifyCommand(value);
+
+  return {
+    value,
+    sourcePath: `agentfit.config.yml#commands.${section}`,
+    line: 0,
+    kind: section === 'verify' && kind === 'unknown' ? 'test' : kind
+  };
 }
 
 function validateEvalOptions(options: EvalOptions): EvalOptions {
@@ -187,10 +210,16 @@ function hasSafetyGuardrails(instructionFiles: AgentFitReport['instructionFiles'
   );
 }
 
-function hasReproducibilitySignals(instructionFiles: AgentFitReport['instructionFiles']): boolean {
-  return instructionFiles.some((file) =>
-    file.commands.some((command) => command.kind === 'setup' || command.kind === 'build' || command.kind === 'test')
-  );
+function hasReproducibilitySignals(
+  instructionFiles: AgentFitReport['instructionFiles'],
+  configuredCommands: ExtractedCommand[]
+): boolean {
+  const commands = [
+    ...instructionFiles.flatMap((file) => file.commands),
+    ...configuredCommands
+  ];
+
+  return commands.some((command) => command.kind === 'setup' || command.kind === 'build' || command.kind === 'test');
 }
 
 function renderOutput(report: ReturnType<typeof attachScoreToReport>, format: EvalOptions['format']): string {

@@ -1,4 +1,11 @@
-import type { AgentFitReport, EvaluationRun, InstructionFile, ReferenceIssue, StaticIssue } from '../types.js';
+import type {
+  AgentFitReport,
+  EvaluationRun,
+  ExtractedCommand,
+  InstructionFile,
+  ReferenceIssue,
+  StaticIssue
+} from '../types.js';
 import { isPreviewRun } from './execution-mode.js';
 
 export type ScoreCategoryId =
@@ -23,6 +30,7 @@ export type ScoringInput = {
   referenceIssues?: ReferenceIssue[];
   staticIssues?: StaticIssue[];
   runs?: EvaluationRun[];
+  configuredCommands?: ExtractedCommand[];
   hasExposedSecrets?: boolean;
   setupCommandFailed?: boolean;
   budgetExceeded?: boolean;
@@ -56,6 +64,27 @@ const WEIGHTS = {
 } as const;
 
 const VERIFICATION_COMMAND_KINDS = new Set(['test', 'lint', 'build']);
+const PACKAGE_MANAGERS = new Set(['pnpm', 'npm', 'yarn', 'bun']);
+const PACKAGE_MANAGER_COMMANDS = new Set([
+  'add',
+  'audit',
+  'ci',
+  'config',
+  'create',
+  'dlx',
+  'exec',
+  'install',
+  'link',
+  'outdated',
+  'pack',
+  'publish',
+  'remove',
+  'uninstall',
+  'update',
+  'upgrade',
+  'why'
+]);
+const NPM_SCRIPT_ALIASES = new Set(['start', 'stop', 'restart', 'test']);
 
 export function calculateScore(input: ScoringInput): ScoreResult {
   const failedChecks: string[] = [];
@@ -65,16 +94,16 @@ export function calculateScore(input: ScoringInput): ScoreResult {
   const referenceIssues = input.referenceIssues ?? [];
   const staticIssues = input.staticIssues ?? [];
   const runs = input.runs ?? [];
-  const verificationCommands = instructionFiles.flatMap((file) =>
-    file.commands.filter((command) => VERIFICATION_COMMAND_KINDS.has(command.kind))
-  );
-  const setupCommands = instructionFiles.flatMap((file) =>
-    file.commands.filter((command) => command.kind === 'setup')
-  );
+  const commands = [
+    ...instructionFiles.flatMap((file) => file.commands),
+    ...(input.configuredCommands ?? [])
+  ];
+  const verificationCommands = commands.filter((command) => VERIFICATION_COMMAND_KINDS.has(command.kind));
+  const setupCommands = commands.filter((command) => command.kind === 'setup');
 
   const breakdown: ScoreBreakdownItem[] = [
     scoreDiscoverability(instructionFiles, staticIssues, failedChecks),
-    scoreCommandFreshness(instructionFiles, runs, staticIssues, failedChecks),
+    scoreCommandFreshness(commands, runs, staticIssues, failedChecks),
     scoreReferenceIntegrity(referenceIssues, failedChecks),
     scoreEvaluationPassRate(runs, failedChecks),
     scoreDiffDiscipline(runs, failedChecks),
@@ -205,12 +234,11 @@ function scoreDiscoverability(
 }
 
 function scoreCommandFreshness(
-  files: InstructionFile[],
+  commands: ExtractedCommand[],
   runs: EvaluationRun[],
   staticIssues: StaticIssue[],
   failedChecks: string[]
 ): ScoreBreakdownItem {
-  const commands = files.flatMap((file) => file.commands);
   const commandIssues = staticIssues.filter((issue) => issue.category === 'command');
   if (commandIssues.length > 0) {
     failedChecks.push(...commandIssues.map((issue) => issue.message));
@@ -236,7 +264,7 @@ function scoreCommandFreshness(
   }
 
   const executedDocumentedCommands = commandResults.filter((result) =>
-    commands.some((command) => result.command.includes(command.value) || command.value.includes(result.command))
+    commands.some((command) => commandsMatch(result.command, command.value))
   );
   const earned = commandResults.length === 0 ? 8 : executedDocumentedCommands.length > 0 ? WEIGHTS.commandFreshness : 10;
 
@@ -370,6 +398,78 @@ function setupVerificationFailed(runs: EvaluationRun[]): boolean {
   return runs.some((run) =>
     run.verification.some((result) => result.exitCode !== 0 && /install|setup|bootstrap/i.test(result.command))
   );
+}
+
+function commandsMatch(resultCommand: string, documentedCommand: string): boolean {
+  const normalizedResult = normalizeComparableCommand(resultCommand);
+  const normalizedDocumented = normalizeComparableCommand(documentedCommand);
+
+  return (
+    containsComparableCommand(normalizedResult, normalizedDocumented) ||
+    containsComparableCommand(normalizedDocumented, normalizedResult)
+  );
+}
+
+function containsComparableCommand(haystack: string, needle: string): boolean {
+  let index = haystack.indexOf(needle);
+
+  while (index !== -1) {
+    const before = index === 0 || isCommandBoundary(haystack[index - 1]);
+    const afterIndex = index + needle.length;
+    const after = afterIndex === haystack.length || isCommandBoundary(haystack[afterIndex]);
+
+    if (before && after) {
+      return true;
+    }
+
+    index = haystack.indexOf(needle, index + 1);
+  }
+
+  return false;
+}
+
+function isCommandBoundary(value: string | undefined): boolean {
+  return value === undefined || /\s|[;&|()]/.test(value);
+}
+
+function normalizeComparableCommand(command: string): string {
+  const normalized = command.trim().replace(/\s+/g, ' ');
+  const packageScript = parsePackageScriptCommand(normalized);
+
+  if (!packageScript) {
+    return normalized;
+  }
+
+  return `${packageScript.manager} run ${packageScript.script}${packageScript.args}`;
+}
+
+function parsePackageScriptCommand(command: string): { manager: string; script: string; args: string } | undefined {
+  const [manager, subcommand, maybeScript, ...rest] = command.split(' ');
+  if (!manager || !subcommand || !PACKAGE_MANAGERS.has(manager)) {
+    return undefined;
+  }
+
+  if (subcommand === 'run' && maybeScript) {
+    return {
+      manager,
+      script: maybeScript,
+      args: rest.length > 0 ? ` ${rest.join(' ')}` : ''
+    };
+  }
+
+  if (PACKAGE_MANAGER_COMMANDS.has(subcommand)) {
+    return undefined;
+  }
+
+  if (manager === 'npm' && !NPM_SCRIPT_ALIASES.has(subcommand)) {
+    return undefined;
+  }
+
+  return {
+    manager,
+    script: subcommand,
+    args: maybeScript ? ` ${[maybeScript, ...rest].join(' ')}` : ''
+  };
 }
 
 function isRootInstruction(path: string): boolean {

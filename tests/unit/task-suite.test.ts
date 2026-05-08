@@ -21,6 +21,20 @@ describe('generateFitnessTasks', () => {
     expect(tasks[0]?.expectedChecks).toEqual(['npm run test']);
   });
 
+  it('includes explicit configured verification commands as a task', async () => {
+    const tasks = await generateFitnessTasks('tests/fixtures/basic-repo', {
+      taskCount: 1,
+      configuredChecks: ['npm test', 'npm run lint']
+    });
+
+    expect(tasks[0]).toMatchObject({
+      id: 'config-verification',
+      title: 'Run configured verification commands',
+      expectedChecks: ['npm test', 'npm run lint'],
+      filesLikelyTouched: ['agentfit.config.yml']
+    });
+  });
+
   it('omits external-service tasks unless explicitly allowed', async () => {
     const defaultTasks = await generateFitnessTasks('tests/fixtures/basic-repo', {
       taskCount: 20
@@ -89,5 +103,23 @@ describe('generateFitnessTasks', () => {
     );
     expect(tasks[0]?.expectedChecks).toEqual(['pnpm run test']);
     expect(tasks[5]?.expectedChecks).toEqual(['pnpm run test']);
+  });
+
+  it('ignores fixture and example test files when selecting repository tasks', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-task-suite-'));
+    await mkdir(join(root, 'tests/unit'), { recursive: true });
+    await mkdir(join(root, 'tests/fixtures/basic-repo/tests'), { recursive: true });
+    await mkdir(join(root, 'examples/demo/tests'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'vitest run' } }, null, 2));
+    await writeFile(join(root, 'tests/unit/scoring.test.ts'), 'export {};\n');
+    await writeFile(join(root, 'tests/fixtures/basic-repo/tests/example.test.ts'), 'export {};\n');
+    await writeFile(join(root, 'examples/demo/tests/example.test.ts'), 'export {};\n');
+
+    const tasks = await generateFitnessTasks(root, { taskCount: 10 });
+    const touchedFiles = tasks.flatMap((task) => task.filesLikelyTouched);
+
+    expect(touchedFiles).toContain('tests/unit/scoring.test.ts');
+    expect(touchedFiles).not.toContain('tests/fixtures/basic-repo/tests/example.test.ts');
+    expect(touchedFiles).not.toContain('examples/demo/tests/example.test.ts');
   });
 });

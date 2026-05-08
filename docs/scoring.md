@@ -23,6 +23,8 @@ AgentFit scores repositories out of 100. The score is intentionally transparent:
 
 Caps are applied after the weighted score is calculated, so the report still shows the underlying category performance.
 
+Secret detection is intentionally high-confidence. AgentFit currently flags obvious OpenAI API keys, AWS access key IDs, GitHub tokens, and private key blocks in discovered instruction files.
+
 ## Grades
 
 | Score | Grade |

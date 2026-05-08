@@ -5,7 +5,7 @@ Is your repo actually ready for coding agents?
 AgentFit scores whether `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files are usable in practice. It checks whether instructions are discoverable, commands still work, references resolve, nested packages are covered, and coding agents can complete small repo-specific tasks in isolated worktrees.
 
 ![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
-![AgentFit 95/100](https://img.shields.io/badge/AgentFit-95%2F100-2ea043)
+![AgentFit 100/100](https://img.shields.io/badge/AgentFit-100%2F100-2ea043)
 
 ```bash
 npx @kingkyylian/agentfit@latest eval --adapter dry-run
@@ -27,7 +27,7 @@ Execute generated tasks in isolated worktrees when you want command-level proof:
 npx @kingkyylian/agentfit@latest eval --adapter dry-run --run-tasks
 ```
 
-AgentFit's own repository currently scores `95/100 (A)` with `5 of 5` generated task runs executed.
+AgentFit's own repository currently scores `100/100 (A)` with `5 of 5` generated task runs executed.
 
 ## The 60-Second Pitch
 
