@@ -148,27 +148,32 @@ function validateEvalOptions(options: EvalOptions): EvalOptions {
   }
 
   if (options.tasks !== undefined) {
-    const parsed = Number.parseInt(options.tasks, 10);
-    if (!Number.isInteger(parsed) || parsed <= 0) {
+    if (!isPositiveIntegerLiteral(options.tasks)) {
       throw new Error('--tasks must be a positive integer.');
     }
   }
 
   if (options.timeoutSeconds !== undefined) {
-    const parsed = Number.parseInt(options.timeoutSeconds, 10);
-    if (!Number.isInteger(parsed) || parsed <= 0) {
+    if (!isPositiveIntegerLiteral(options.timeoutSeconds)) {
       throw new Error('--timeout-seconds must be a positive integer.');
     }
   }
 
   if (options.budgetUsd !== undefined) {
-    const parsed = Number.parseFloat(options.budgetUsd);
-    if (!Number.isFinite(parsed) || parsed < 0) {
+    if (!isNonNegativeNumberLiteral(options.budgetUsd)) {
       throw new Error('--budget-usd must be a non-negative number.');
     }
   }
 
   return options;
+}
+
+function isPositiveIntegerLiteral(value: string): boolean {
+  return /^[1-9]\d*$/.test(value);
+}
+
+function isNonNegativeNumberLiteral(value: string): boolean {
+  return /^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value);
 }
 
 async function collectReferenceIssues(root: string, paths: string[]): Promise<ReferenceIssue[]> {

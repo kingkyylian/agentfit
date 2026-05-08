@@ -44,6 +44,18 @@ describe('agentfit cli', () => {
     expect(() => parseAgentFitConfig(content)).not.toThrow();
   });
 
+  it.each([
+    ['--tasks', '5abc', '--tasks must be a positive integer.'],
+    ['--timeout-seconds', '30s', '--timeout-seconds must be a positive integer.'],
+    ['--budget-usd', '1x', '--budget-usd must be a non-negative number.']
+  ])('rejects malformed numeric option %s=%s', async (option, value, message) => {
+    await expect(
+      evalCommand(() => {
+        throw new Error('cwd should not be read before option validation');
+      }).parseAsync(['node', 'agentfit', option, value])
+    ).rejects.toThrow(message);
+  });
+
   it('writes multiple eval report formats from one command invocation', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
 
