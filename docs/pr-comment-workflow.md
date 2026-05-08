@@ -41,7 +41,7 @@ jobs:
       - id: agentfit
         uses: kingkyylian/agentfit@v1
         with:
-          version: 0.1.4
+          version: 0.1.5
           adapter: dry-run
           run-tasks: true
           fail-below-score: 70

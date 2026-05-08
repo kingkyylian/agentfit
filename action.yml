@@ -10,7 +10,7 @@ inputs:
   version:
     description: AgentFit npm package version to run.
     required: false
-    default: "0.1.4"
+    default: "0.1.5"
   adapter:
     description: Evaluation adapter to run.
     required: false

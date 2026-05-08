@@ -47,9 +47,9 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 1. Run `pnpm install --frozen-lockfile`.
 2. Run `pnpm typecheck`, `pnpm test`, `pnpm lint`, `pnpm build`, and `pnpm smoke:package`.
 3. Confirm `pnpm smoke:package` validates the packed tarball contents, executable CLI entrypoint, and reported CLI version.
-4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.4`.
+4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.5`.
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
-6. Smoke-test the Action with `uses: kingkyylian/agentfit@v1` and `version: 0.1.4`.
+6. Smoke-test the Action with `uses: kingkyylian/agentfit@v1` and `version: 0.1.5`.
 
 ## Good First Issues
 
