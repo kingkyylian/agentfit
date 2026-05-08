@@ -10,6 +10,7 @@ pnpm typecheck
 pnpm test
 pnpm lint
 pnpm build
+pnpm smoke:package
 ```
 
 Before sending a change, run the same verification commands used by CI.

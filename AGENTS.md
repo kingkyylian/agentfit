@@ -15,6 +15,7 @@ pnpm typecheck
 pnpm test
 pnpm lint
 pnpm build
+pnpm smoke:package
 ```
 
 Check the working tree with `git status --short` before summarizing changes.
