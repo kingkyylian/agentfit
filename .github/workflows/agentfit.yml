@@ -27,7 +27,7 @@ jobs:
           timeout-seconds: 900
           budget-usd: 1
           format: markdown
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: agentfit-report
