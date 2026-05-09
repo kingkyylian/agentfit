@@ -1,0 +1,38 @@
+name: AgentFit Consumer Smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  consumer-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - id: agentfit
+        uses: kingkyylian/agentfit@v1
+        with:
+          version: 0.1.5
+          adapter: dry-run
+          run-tasks: true
+          fail-below-score: 90
+          task-count: 5
+          timeout-seconds: 900
+          budget-usd: 1
+          format: markdown
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: agentfit-consumer-smoke-report
+          path: .agentfit/reports/
