@@ -1,7 +1,7 @@
 {
   "name": "@kingkyylian/agentfit",
   "version": "0.1.5",
-  "description": "Local-first fitness tests for AI coding-agent instruction files.",
+  "description": "Local-first tests for AGENTS.md and coding-agent instructions.",
   "type": "module",
   "repository": {
     "type": "git",
@@ -38,12 +38,19 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
-    "agents",
     "agents-md",
+    "agent-instructions",
+    "coding-agents",
+    "ai-agents",
+    "agents",
     "codex",
     "claude",
+    "claude-code",
     "cursor",
     "copilot",
+    "github-actions",
+    "developer-tools",
+    "llmops",
     "cli"
   ],
   "license": "MIT",

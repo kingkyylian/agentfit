@@ -1,8 +1,10 @@
 # AgentFit
 
-Is your repo actually ready for coding agents?
+Test whether your `AGENTS.md` and coding-agent instructions actually work.
 
-AgentFit scores whether `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files are usable in practice. It checks whether instructions are discoverable, commands still work, references resolve, nested packages are covered, and coding agents can complete small repo-specific tasks in isolated worktrees.
+Agent instruction files rot. Setup commands change, docs move, nested packages get missed, and teams guess whether a prompt change helped. AgentFit turns that guess into a local-first score, report, and CI check.
+
+AgentFit discovers `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files. It checks whether instructions are discoverable, commands still work, references resolve, nested packages are covered, and generated repo-specific tasks can be verified in isolated git worktrees.
 
 ![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
 ![AgentFit 100/100](https://img.shields.io/badge/AgentFit-100%2F100-2ea043)
@@ -29,18 +31,17 @@ npx @kingkyylian/agentfit@latest eval --adapter dry-run --run-tasks
 
 AgentFit's own repository currently scores `100/100 (A)` with `5 of 5` generated task runs executed.
 
-## The 60-Second Pitch
+## What It Catches
 
-Start with a stale `AGENTS.md`:
+- missing referenced docs such as `@docs/setup.md`
+- stale commands such as `pnpm lint` after the script was removed
+- missing verification commands before agents claim work is done
+- monorepo packages with no nested `AGENTS.md`
+- instruction changes that look better but lower the score
 
-```text
-- missing @docs/setup.md
-- stale pnpm lint command
-- no runnable verification command
-- no nested instruction file for packages/api
-```
+## 60-Second Demo
 
-Then fix the instructions and compare:
+The included demo starts with a stale `AGENTS.md`, then compares it with a fixed version:
 
 ```bash
 npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
@@ -55,9 +56,7 @@ Fixed checks:
 - 1 instruction reference is missing or invalid.
 ```
 
-## Why
-
-Agent instruction files rot quickly. Setup commands change, nested packages get missed, references move, and teams guess whether one instruction change helped. AgentFit turns that guess into a repeatable score and report.
+See [docs/demo.md](docs/demo.md).
 
 ## What You Get
 
@@ -69,6 +68,10 @@ Agent instruction files rot quickly. Setup commands change, nested packages get 
 - SVG badge output
 - GitHub Action support for PRs
 - optional real-agent adapters, starting with Codex
+
+## Why Now
+
+Agent-aware repositories are becoming normal. The missing piece is regression testing: once `AGENTS.md`, `CLAUDE.md`, or Cursor rules are part of the development workflow, they need the same feedback loop as code. AgentFit gives maintainers a quick answer before and after an instruction change.
 
 ## AgentFit Compared
 
@@ -115,34 +118,6 @@ AgentFit uses this Action on its own repository with `run-tasks: true` and a min
 
 For a complete workflow that updates a pull request comment with the AgentFit report, see [docs/pr-comment-workflow.md](docs/pr-comment-workflow.md).
 
-## 60-Second Demo
-
-The included demo starts with a stale `AGENTS.md`:
-
-- missing `@docs/setup.md`
-- stale `pnpm lint` command
-- no runnable verification command
-- no nested instruction file for `packages/api`
-
-Run the before/after reports and compare them:
-
-```bash
-cd examples/demo/bad
-npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true
-
-cd ../fixed
-npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-after.md --json-output ../../reports/demo-after.json --tasks 5
-
-cd ../../..
-npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examples/reports/demo-after.json --format markdown
-```
-
-```text
-AgentFit improved by 28 points: 65/100 (D) -> 93/100 (A).
-```
-
-See [docs/demo.md](docs/demo.md).
-
 ## Real-World Examples
 
 Dry-run snapshots from public repositories:
@@ -157,11 +132,11 @@ See [docs/real-world.md](docs/real-world.md).
 
 ## Good First Issues
 
-- Add instruction fixtures for more ecosystems.
-- Add examples for nested monorepo instructions.
-- Improve safety and reproducibility signal detection.
-- Add adapter smoke tests for Codex CLI.
-- Add more real-world dry-run snapshots.
+- [Add more real-world dry-run snapshots](https://github.com/kingkyylian/agentfit/issues/1)
+- [Add a nested monorepo instruction fixture](https://github.com/kingkyylian/agentfit/issues/2)
+- [Add terminal demo recording to README](https://github.com/kingkyylian/agentfit/issues/3)
+- [Add Codex adapter smoke tests](https://github.com/kingkyylian/agentfit/issues/4)
+- [Improve safety and reproducibility signal detection](https://github.com/kingkyylian/agentfit/issues/5)
 
 ## License
 
