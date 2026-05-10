@@ -18,6 +18,7 @@
   "files": [
     "dist",
     "docs/*.md",
+    "docs/assets/*.svg",
     "examples/demo",
     "examples/reports/demo-*.json",
     "examples/reports/demo-*.md",

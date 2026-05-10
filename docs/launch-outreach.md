@@ -20,6 +20,12 @@ Your README has tests. Your code has tests. Your AGENTS.md probably does not.
 
 Use the before/after demo as the launch hook:
 
+README asset:
+
+```text
+docs/assets/agentfit-terminal-demo.svg
+```
+
 ```bash
 cd examples/demo/bad
 npx @kingkyylian/agentfit@latest eval --format markdown --output ../../reports/demo-before.md --json-output ../../reports/demo-before.json --tasks 5 || true

@@ -13,7 +13,9 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - Repository metadata: description, homepage, and discovery topics are configured.
 - Local full verification passed on 2026-05-10.
 - Manual `AgentFit Consumer Smoke` workflow passed on 2026-05-10 with `kingkyylian/agentfit@v1`, `version: 0.1.5`, `run-tasks: true`, and score `100/100 (A)`.
-- Starter issues are open for real-world snapshots, monorepo fixtures, a terminal demo, Codex adapter smoke tests, and scoring signal improvements.
+- Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
+- README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
+- Social preview source is available at [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 
 ## 60-Second Demo
@@ -47,12 +49,12 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 
 - Publish a README with the badge, command, sample output, and comparison table.
 - Configure GitHub repository description, homepage, and topics.
-- Add a social preview image manually in GitHub repository settings.
+- Add a social preview image manually in GitHub repository settings from `docs/assets/social-preview.svg` or a rendered PNG.
 - Ship dry-run scoring and reports first.
 - Add GitHub Action documentation for PR checks.
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
-- Record a terminal GIF after the CLI writes real reports.
+- Add the terminal demo asset to README.
 - Ask 10-20 trusted developers for first-star social proof before public posts.
 - Publish one launch post per channel, not a generic cross-post.
 

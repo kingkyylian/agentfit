@@ -68,6 +68,8 @@ try {
   requirePackedFile(filesByPath, 'package.json');
   requirePackedFile(filesByPath, 'README.md');
   requirePackedFile(filesByPath, 'action.yml');
+  requirePackedFile(filesByPath, 'docs/assets/agentfit-terminal-demo.svg');
+  requirePackedFile(filesByPath, 'docs/assets/social-preview.svg');
   const packedCli = requirePackedFile(filesByPath, 'dist/index.js');
 
   if ((packedCli.mode & 0o111) === 0) {

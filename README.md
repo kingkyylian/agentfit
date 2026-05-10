@@ -9,6 +9,8 @@ AgentFit discovers `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions,
 ![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
 ![AgentFit 100/100](https://img.shields.io/badge/AgentFit-100%2F100-2ea043)
 
+![AgentFit terminal demo](docs/assets/agentfit-terminal-demo.svg)
+
 ```bash
 npx @kingkyylian/agentfit@latest eval --adapter dry-run
 ```
@@ -134,9 +136,9 @@ See [docs/real-world.md](docs/real-world.md).
 
 - [Add more real-world dry-run snapshots](https://github.com/kingkyylian/agentfit/issues/1)
 - [Add a nested monorepo instruction fixture](https://github.com/kingkyylian/agentfit/issues/2)
-- [Add terminal demo recording to README](https://github.com/kingkyylian/agentfit/issues/3)
 - [Add Codex adapter smoke tests](https://github.com/kingkyylian/agentfit/issues/4)
 - [Improve safety and reproducibility signal detection](https://github.com/kingkyylian/agentfit/issues/5)
+- [Add an animated terminal GIF or asciicast](https://github.com/kingkyylian/agentfit/issues/6)
 
 ## License
 
