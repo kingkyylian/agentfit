@@ -207,9 +207,11 @@ function scoreDiscoverability(
   const hasRecognizedKind = files.some((file) => file.kind !== 'unknown');
   const hasReadableContent = files.some((file) => file.bytes > 0);
   const scopeIssues = staticIssues.filter((issue) => issue.category === 'scope');
+  const scopePenalty =
+    scopeIssues.length === 0 ? 0 : hasRootInstruction ? 5 : Math.min(15, scopeIssues.length * 5);
   const earned = Math.max(
     0,
-    (hasRootInstruction ? 10 : 0) + (hasRecognizedKind ? 5 : 0) + (hasReadableContent ? 5 : 0) - scopeIssues.length * 5
+    (hasRootInstruction ? 10 : 0) + (hasRecognizedKind ? 5 : 0) + (hasReadableContent ? 5 : 0) - scopePenalty
   );
 
   if (!hasRootInstruction) {
@@ -218,8 +220,10 @@ function scoreDiscoverability(
   if (!hasRecognizedKind) {
     failedChecks.push('No recognized instruction file type was discovered.');
   }
-  for (const issue of scopeIssues) {
-    failedChecks.push(issue.message);
+  if (scopeIssues.length === 1) {
+    failedChecks.push(scopeIssues[0]?.message ?? '1 nested scope does not have a local instruction file.');
+  } else if (scopeIssues.length > 1) {
+    failedChecks.push(`${scopeIssues.length} nested scopes do not have local instruction files.`);
   }
 
   return category(

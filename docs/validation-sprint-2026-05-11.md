@@ -8,8 +8,8 @@ Five repositories from the starter candidate list in [real-world-validation.md](
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
-| `statelyai/xstate` | `fb3876f` | `AGENTS.md`, `CLAUDE.md` | 73/100 (C) | noisy scope signal |
-| `gitbutlerapp/gitbutler` | `92ec892` | `AGENTS.md`, Copilot instructions | 73/100 (C) | noisy scope signal |
+| `statelyai/xstate` | `fb3876f` | `AGENTS.md`, `CLAUDE.md` | 88/100 (B) | scope warning summarized |
+| `gitbutlerapp/gitbutler` | `92ec892` | `AGENTS.md`, Copilot instructions | 88/100 (B) | scope warning summarized |
 | `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 88/100 (B) | safety signal fixed; scope warning remains |
 | `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | actionable candidate |
 | `grafana/mimir` | `f58ce6a0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
@@ -22,6 +22,7 @@ The first run exposed false positives in AgentFit itself:
 - Package-manager options such as `yarn --cwd tests/e2e test` and `pnpm --filter @scope/package test` were treated as missing package scripts.
 - Vendored instruction files under `vendor/**` were counted as first-party instructions.
 - Explicit safety boundaries in `CLAUDE.md`, such as "NEVER run versioning or publishing commands", were not counted as safety guardrails.
+- Multiple monorepo scope warnings drove discoverability to zero and filled failed checks with repetitive package-level messages.
 
 These were fixed before recording the final table:
 
@@ -29,6 +30,7 @@ These were fixed before recording the final table:
 - `src/core/static-checks.ts` now skips common package-manager options before extracting script names.
 - `src/core/discovery.ts` now ignores `vendor/**` by default.
 - `src/cli/commands/eval.ts` now recognizes explicit do-not-run and approval-gated safety language in any discovered instruction file.
+- `src/core/scoring.ts` now caps root-covered monorepo scope penalties and summarizes multiple missing local instruction warnings.
 
 Regression coverage was added in:
 
@@ -36,6 +38,7 @@ Regression coverage was added in:
 - `tests/unit/static-checks.test.ts`
 - `tests/unit/discovery.test.ts`
 - `tests/unit/cli-smoke.test.ts`
+- `tests/unit/scoring.test.ts`
 
 ## Findings
 
@@ -64,9 +67,14 @@ Do not include it as a public named example until permission is requested or the
 
 ### XState And GitButler
 
-Both repos now have clean reference integrity. Remaining failures are nested scope warnings across monorepo packages.
+Both repos now have clean reference integrity. Remaining failures are summarized nested scope warnings across monorepo packages:
 
-Treat these as product signal before maintainer signal. Root-level instructions may intentionally cover many packages, so AgentFit needs a better way to distinguish missing local instructions from acceptable root coverage.
+```text
+XState: 14 nested scopes do not have local instruction files.
+GitButler: 9 nested scopes do not have local instruction files.
+```
+
+These are no longer maintainer contact candidates. They are useful launch examples for how AgentFit reports root-covered monorepo scope gaps without making the score look broken.
 
 ### Lerna
 
@@ -80,7 +88,6 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 
 ## Next Actions
 
-1. Add a scoring or reporting refinement for monorepos where root instructions intentionally cover many packages.
-2. Re-run the same five repositories after the monorepo scope refinement.
-3. Ask before opening the RedisInsight maintainer issue.
-4. Use Mimir as a healthy internal benchmark, not public launch copy yet.
+1. Ask before opening the RedisInsight maintainer issue.
+2. Use Mimir as a healthy internal benchmark, not public launch copy yet.
+3. Run a second validation batch after deciding whether to contact RedisInsight.

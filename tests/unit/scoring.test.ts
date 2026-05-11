@@ -323,4 +323,26 @@ describe('calculateScore', () => {
       ])
     );
   });
+
+  it('caps nested scope penalties for monorepos covered by root instructions', () => {
+    const scopeIssues = Array.from({ length: 6 }, (_, index) => ({
+      category: 'scope' as const,
+      sourcePath: `packages/package-${index}`,
+      message: `No nested instruction file found for packages/package-${index}.`,
+      severity: 'warning' as const
+    }));
+
+    const result = calculateScore({
+      instructionFiles: [instruction()],
+      referenceIssues: [],
+      staticIssues: scopeIssues,
+      runs: [run()],
+      safetyGuardrailsFound: true,
+      reproducibilitySignalsFound: true
+    });
+
+    expect(result.breakdown.find((item) => item.id === 'discoverability')?.earned).toBe(15);
+    expect(result.failedChecks).toContain('6 nested scopes do not have local instruction files.');
+    expect(result.failedChecks).not.toContain('No nested instruction file found for packages/package-0.');
+  });
 });
