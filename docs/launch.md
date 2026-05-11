@@ -8,12 +8,12 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 
 ## Current Status
 
-- NPM package: `@kingkyylian/agentfit@0.1.6`.
+- NPM package: `@kingkyylian/agentfit@0.1.7`.
 - GitHub Action tag: `kingkyylian/agentfit@v1`.
 - Repository metadata: description, homepage, and discovery topics are configured.
-- Local full verification passed on 2026-05-11 for the `0.1.6` release.
-- AgentFit `0.1.6` is published to npm and `v1` points at the release commit.
-- Manual `AgentFit Consumer Smoke` with `version: 0.1.6` passed after publish and `v1` retag.
+- Local full verification passed on 2026-05-11 for the `0.1.7` release.
+- AgentFit `0.1.7` is the current patch release for optional alias command freshness fixes.
+- Manual `AgentFit Consumer Smoke` with `version: 0.1.7` should run after publish and `v1` retag.
 - Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
@@ -66,9 +66,9 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 1. Run `pnpm install --frozen-lockfile`.
 2. Run `pnpm typecheck`, `pnpm test`, `pnpm lint`, `pnpm build`, and `pnpm smoke:package`.
 3. Confirm `pnpm smoke:package` validates the packed tarball contents, executable CLI entrypoint, and reported CLI version.
-4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.6`.
+4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.7`.
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
-6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.6`.
+6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.7`.
 
 ## Real-World Validation Plan
 
