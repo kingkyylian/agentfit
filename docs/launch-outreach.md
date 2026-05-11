@@ -206,7 +206,7 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 10 snapshots: one external maintainer issue, one AgentFit product issue, and a few healthy baselines.
+5. Follow up with a small result thread after 10 snapshots: one external maintainer issue that became a PR, one AgentFit product issue, and a few healthy baselines.
 
 Preview result copy:
 
@@ -214,7 +214,7 @@ Preview result copy:
 I ran AgentFit against 10 public repos that already have coding-agent instructions.
 
 Useful signal so far:
-- one stale-command issue opened upstream
+- one stale-command issue opened upstream, followed by a maintainer-requested PR
 - one AgentFit false-positive class found and tracked
 - several healthy instruction files that score cleanly in dry-run mode
 
@@ -229,6 +229,7 @@ Use the RedisInsight issue as the concrete example only when the link helps the 
 Example finding: Cursor rules documented root E2E scripts that no longer exist, while the current Playwright commands live under a package directory.
 
 Issue: https://github.com/redis/RedisInsight/issues/5887
+PR: https://github.com/redis/RedisInsight/pull/5889
 ```
 
 ## Follow-Up Issues

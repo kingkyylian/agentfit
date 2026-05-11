@@ -19,7 +19,7 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 10 dry-run snapshots, one upstream maintainer issue, and one AgentFit product issue.
+- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 10 dry-run snapshots, one upstream maintainer issue that became a PR, and one AgentFit product issue.
 
 ## 60-Second Demo
 
@@ -102,7 +102,7 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 
 Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 10-snapshot summary from [launch-outreach.md](launch-outreach.md):
 
-- one stale-command issue opened upstream: https://github.com/redis/RedisInsight/issues/5887
+- one stale-command issue opened upstream, then a maintainer-requested PR: https://github.com/redis/RedisInsight/pull/5889
 - one AgentFit product issue opened from noisy validation: https://github.com/kingkyylian/agentfit/issues/7
 - healthy internal baselines from Mimir, Projen, and Dart-Code
 

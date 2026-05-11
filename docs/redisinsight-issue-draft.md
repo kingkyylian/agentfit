@@ -10,6 +10,7 @@ Record for the maintainer issue opened on `redis/RedisInsight`.
 - Duplicate PR search: no matching PR for `test:main`; `e2e-testing` search returned unrelated E2E work and the already-merged AI instruction update PR
 - AgentFit mode: dry-run only; no generated tasks executed; no model-provider calls
 - Issue opened: https://github.com/redis/RedisInsight/issues/5887
+- Maintainer-requested PR opened: https://github.com/redis/RedisInsight/pull/5889
 
 ## Evidence
 
