@@ -1,0 +1,33 @@
+name: Repo suggestion
+description: Suggest a public repository for AgentFit dry-run validation.
+title: "Repo suggestion: "
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: Link the public repository.
+      placeholder: "https://github.com/owner/repo"
+    validations:
+      required: true
+  - type: checkboxes
+    id: instruction_files
+    attributes:
+      label: Instruction files
+      description: Which coding-agent instruction files does the repo use?
+      options:
+        - label: AGENTS.md
+        - label: CLAUDE.md
+        - label: GEMINI.md
+        - label: .cursor/rules/*
+        - label: .github/copilot-instructions.md
+        - label: .github/instructions/**
+        - label: Other coding-agent instructions
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Anything AgentFit should treat carefully?
+      placeholder: "Large monorepo, generated packages, private-service setup commands, expensive test suites, etc."
+    validations:
+      required: false

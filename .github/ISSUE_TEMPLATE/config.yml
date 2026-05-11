@@ -1,1 +1,5 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Suggest a repository for AgentFit validation
+    url: https://github.com/kingkyylian/agentfit/issues/9
+    about: Share public repositories that already use AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions.

@@ -101,7 +101,7 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 
 ## Public Preview Gate
 
-Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 10-snapshot summary from [launch-outreach.md](launch-outreach.md):
+Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 20-snapshot summary from [launch-outreach.md](launch-outreach.md):
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
 - two AgentFit false-positive classes found from noisy validation and released in `0.1.8`, including https://github.com/kingkyylian/agentfit/issues/7

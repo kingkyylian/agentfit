@@ -152,6 +152,45 @@ No model-provider calls, no generated task execution, and no endorsement implied
 https://github.com/kingkyylian/agentfit
 ```
 
+## First Preview Thread
+
+Use this before a broad launch. It should feel like a request for help, not a finished product announcement.
+
+Post:
+
+```text
+I am looking for public repos that already use AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar coding-agent guidance.
+
+I will run AgentFit in dry-run mode and share concrete instruction drift if it finds any: stale commands, broken references, or monorepo scope gaps.
+
+Dry-run mode does not call model providers or execute generated tasks.
+
+Repo suggestions:
+https://github.com/kingkyylian/agentfit/issues/9
+```
+
+Reply 1:
+
+```text
+I have run 20 dry-run snapshots so far.
+
+Useful signal:
+- one stale-command issue became a merged upstream RedisInsight PR
+- two AgentFit false-positive classes shipped as fixes in 0.1.8
+- one noisy package-local command pattern became a product issue
+
+RedisInsight PR:
+https://github.com/redis/RedisInsight/pull/5889
+```
+
+Reply 2:
+
+```text
+No endorsement is implied by any repo being tested.
+
+If a report is noisy, I turn it into an AgentFit issue instead of bothering maintainers. If it finds concrete drift that can be verified quickly, I may share a narrow maintainer issue.
+```
+
 ## Maintainer Outreach
 
 Use this for projects that already have `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, or Copilot instructions:
