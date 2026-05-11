@@ -10,7 +10,7 @@ Five repositories from the starter candidate list in [real-world-validation.md](
 | --- | --- | --- | ---: | --- |
 | `statelyai/xstate` | `fb3876f` | `AGENTS.md`, `CLAUDE.md` | 73/100 (C) | noisy scope signal |
 | `gitbutlerapp/gitbutler` | `92ec892` | `AGENTS.md`, Copilot instructions | 73/100 (C) | noisy scope signal |
-| `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 78/100 (C) | AgentFit safety false negative |
+| `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 88/100 (B) | safety signal fixed; scope warning remains |
 | `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | actionable candidate |
 | `grafana/mimir` | `f58ce6a0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
 
@@ -21,18 +21,21 @@ The first run exposed false positives in AgentFit itself:
 - Scoped package names such as `@xstate/store`, `@gitbutler/ui`, and `@kingkyylian/agentfit@latest` were treated as missing file references.
 - Package-manager options such as `yarn --cwd tests/e2e test` and `pnpm --filter @scope/package test` were treated as missing package scripts.
 - Vendored instruction files under `vendor/**` were counted as first-party instructions.
+- Explicit safety boundaries in `CLAUDE.md`, such as "NEVER run versioning or publishing commands", were not counted as safety guardrails.
 
 These were fixed before recording the final table:
 
 - `src/core/references.ts` now requires explicit relative/absolute paths or file extensions for `@...` references.
 - `src/core/static-checks.ts` now skips common package-manager options before extracting script names.
 - `src/core/discovery.ts` now ignores `vendor/**` by default.
+- `src/cli/commands/eval.ts` now recognizes explicit do-not-run and approval-gated safety language in any discovered instruction file.
 
 Regression coverage was added in:
 
 - `tests/unit/references.test.ts`
 - `tests/unit/static-checks.test.ts`
 - `tests/unit/discovery.test.ts`
+- `tests/unit/cli-smoke.test.ts`
 
 ## Findings
 
@@ -73,12 +76,11 @@ Lerna's `CLAUDE.md` contains an explicit safety boundary:
 Claude should NEVER run versioning or publishing commands.
 ```
 
-AgentFit still reported safety guardrails as missing. This is an AgentFit false negative. The safety detector should recognize explicit "never run", "do not run", "must not", publishing, release, destructive, and permission-gated language in non-`AGENTS.md` instruction files.
+AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 (C) to 88/100 (B). The remaining issue is a nested scope warning for `packages/lerna`.
 
 ## Next Actions
 
-1. Improve safety guardrail detection before running a larger public batch.
-2. Add a scoring or reporting refinement for monorepos where root instructions intentionally cover many packages.
-3. Re-run the same five repositories after those fixes.
-4. Ask before opening the RedisInsight maintainer issue.
-5. Use Mimir as a healthy internal benchmark, not public launch copy yet.
+1. Add a scoring or reporting refinement for monorepos where root instructions intentionally cover many packages.
+2. Re-run the same five repositories after the monorepo scope refinement.
+3. Ask before opening the RedisInsight maintainer issue.
+4. Use Mimir as a healthy internal benchmark, not public launch copy yet.

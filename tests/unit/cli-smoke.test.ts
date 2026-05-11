@@ -209,4 +209,53 @@ describe('agentfit cli', () => {
     );
     expect(report.caps).not.toContain('no verification command found: max score 75');
   });
+
+  it('recognizes explicit do-not-run instructions as safety guardrails', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify(
+        {
+          type: 'module',
+          scripts: {
+            test: 'node -e "process.exit(0)"'
+          }
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      [
+        '# Guidelines for Claude Code',
+        '',
+        '```bash',
+        'npm test',
+        '```',
+        '',
+        'Claude should NEVER run versioning or publishing commands.'
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      ['version: 1', 'root: .', 'report:', '  failBelowScore: 0', ''].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'json',
+      '--output',
+      'reports/agentfit.json'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      failedChecks: string[];
+    };
+
+    expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
+  });
 });

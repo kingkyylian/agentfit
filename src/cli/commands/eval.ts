@@ -96,7 +96,7 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         generatedAt: new Date().toISOString()
       };
       const report = attachScoreToReport(baseReport, {
-        safetyGuardrailsFound: hasSafetyGuardrails(instructionFiles),
+        safetyGuardrailsFound: await hasSafetyGuardrails(root, instructionFiles),
         reproducibilitySignalsFound: hasReproducibilitySignals(instructionFiles, configuredCommands),
         configuredCommands,
         hasExposedSecrets: staticIssues.some((issue) => issue.category === 'secret'),
@@ -207,12 +207,39 @@ function deterministicRuns(adapter: EvalOptions['adapter'], tasks: AgentFitRepor
   }));
 }
 
-function hasSafetyGuardrails(instructionFiles: AgentFitReport['instructionFiles']): boolean {
-  return instructionFiles.some((file) =>
-    file.commands.some((command) => command.value.includes('git status')) ||
-    file.importedPaths.some((importedPath) => importedPath.toLowerCase().includes('security')) ||
-    file.path === 'AGENTS.md'
+async function hasSafetyGuardrails(root: string, instructionFiles: AgentFitReport['instructionFiles']): Promise<boolean> {
+  for (const file of instructionFiles) {
+    if (
+      file.commands.some((command) => command.value.includes('git status')) ||
+      file.importedPaths.some((importedPath) => importedPath.toLowerCase().includes('security')) ||
+      file.path === 'AGENTS.md'
+    ) {
+      return true;
+    }
+
+    const content = await readFile(path.join(root, file.path), 'utf8');
+    if (hasSafetyBoundaryText(content)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function hasSafetyBoundaryText(content: string): boolean {
+  const normalized = content.toLowerCase();
+  const actionBoundary = /\b(?:never|do not|don't|must not|should not)\s+(?:run|execute|use|call|modify|delete|remove|publish|deploy)\b/.test(
+    normalized
   );
+  const approvalBoundary = /\b(?:ask|confirm|require|requires)\b.{0,40}\b(?:first|approval|permission|before)\b/.test(
+    normalized
+  );
+  const riskyArea =
+    /\b(?:versioning|publishing|publish|release|deploy|production|destructive|secret|credential|token|database|migration|reset|force-push)\b/.test(
+      normalized
+    );
+
+  return riskyArea && (actionBoundary || approvalBoundary);
 }
 
 function hasReproducibilitySignals(
