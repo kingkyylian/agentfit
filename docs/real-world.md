@@ -2,9 +2,19 @@
 
 These are dry-run AgentFit snapshots from public open-source repositories that already contain agent instruction files. They are not endorsements or judgments of the projects. The goal is to show the kinds of signals AgentFit can surface without executing generated tasks.
 
-Generated on 2026-05-07 with AgentFit 0.1.3.
+Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.6 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
+
+## Latest Validation Sprint
+
+The 2026-05-11 sprint ran 10 dry-run snapshots and produced:
+
+- one external maintainer issue for stale E2E commands in RedisInsight Cursor rules
+- one AgentFit product issue for optional alias examples being scored too harshly
+- healthy internal baselines from Mimir, Projen, and Dart-Code
+
+Do not publish named healthy examples without asking permission first. Use the sprint log for internal launch planning.
 
 | Repository | Language | Commit | Score | Main Signal |
 | --- | --- | --- | ---: | --- |

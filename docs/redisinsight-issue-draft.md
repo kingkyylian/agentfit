@@ -1,6 +1,6 @@
-# RedisInsight Issue Draft
+# RedisInsight Issue Record
 
-Draft for a possible maintainer issue on `redis/RedisInsight`. Do not post without a final manual review.
+Record for the maintainer issue opened on `redis/RedisInsight`.
 
 ## Status
 
@@ -9,6 +9,7 @@ Draft for a possible maintainer issue on `redis/RedisInsight`. Do not post witho
 - Duplicate issue search: no matching issues for `test:main`, `test:electron`, `test:all`, or `cursor rules e2e`
 - Duplicate PR search: no matching PR for `test:main`; `e2e-testing` search returned unrelated E2E work and the already-merged AI instruction update PR
 - AgentFit mode: dry-run only; no generated tasks executed; no model-provider calls
+- Issue opened: https://github.com/redis/RedisInsight/issues/5887
 
 ## Evidence
 
@@ -56,11 +57,11 @@ npm run test:chromium
 npm run test:electron
 ```
 
-## Proposed Title
+## Posted Title
 
 Stale E2E test commands in Cursor rules
 
-## Proposed Body
+## Posted Body
 
 ````markdown
 Hi, I noticed a small docs/tooling mismatch in the AI/Cursor instructions for E2E tests.
@@ -119,4 +120,4 @@ No endorsement implied; this just looked like a concrete instruction drift issue
 
 ## Posting Notes
 
-Keep the issue narrow. Do not ask for a star. Do not include the full AgentFit report unless requested.
+The posted issue stayed narrow. It did not ask for a star and did not include the full AgentFit report.

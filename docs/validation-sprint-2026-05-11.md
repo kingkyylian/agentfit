@@ -4,15 +4,20 @@ Initial real-world validation sprint for public repositories with existing agent
 
 ## Scope
 
-Five repositories from the starter candidate list in [real-world-validation.md](real-world-validation.md):
+Ten repositories from the starter candidate list in [real-world-validation.md](real-world-validation.md):
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
 | `statelyai/xstate` | `fb3876f` | `AGENTS.md`, `CLAUDE.md` | 88/100 (B) | scope warning summarized |
 | `gitbutlerapp/gitbutler` | `92ec892` | `AGENTS.md`, Copilot instructions | 88/100 (B) | scope warning summarized |
 | `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 88/100 (B) | safety signal fixed; scope warning remains |
-| `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | actionable candidate |
+| `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | maintainer issue opened |
 | `grafana/mimir` | `f58ce6a0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
+| `projen/projen` | `b1186ce` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy example candidate |
+| `Dart-Code/Dart-Code` | `075e4a2` | `AGENTS.md` | 93/100 (A) | healthy example candidate |
+| `javascript-obfuscator/javascript-obfuscator` | `10c763f` | `CLAUDE.md` | 85/100 (B) | AgentFit product issue |
+| `zapier/zapier-platform` | `6a3ffbf` | `CLAUDE.md`, Copilot instructions | 78/100 (C) | no maintainer contact |
+| `snyk/snyk-intellij-plugin` | `2a8b015` | Cursor rules | 65/100 (D) | unsupported / low-signal |
 
 ## Product Issues Found And Fixed
 
@@ -62,7 +67,66 @@ npm run test:electron -> Missing script: "test:electron"
 npm run test:all      -> Missing script: "test:all"
 ```
 
-The likely current commands are package-local under `tests/e2e-playwright`: `npm test`, `npm run test:chromium`, and `npm run test:electron`. A maintainer issue draft is available in [redisinsight-issue-draft.md](redisinsight-issue-draft.md).
+The likely current commands are package-local under `tests/e2e-playwright`: `npm test`, `npm run test:chromium`, and `npm run test:electron`.
+
+Maintainer issue opened:
+
+```text
+https://github.com/redis/RedisInsight/issues/5887
+```
+
+The issue stayed narrow: stale E2E commands in Cursor rules, no star request, no full AgentFit report dump, and no implied endorsement.
+
+### Javascript Obfuscator
+
+AgentFit reported missing package scripts from `CLAUDE.md`:
+
+```text
+test:options
+test:analyzers
+test:transformers
+lint:transformers
+lint:analyzers
+lint:fix
+```
+
+Manual review showed the commands appear under "Creating Test Aliases (Optional)" and "Creating Lint Aliases (Optional)" sections. The scripts are not present in root `package.json`, but the surrounding prose frames them as optional aliases that can be added.
+
+Do not contact the maintainer for this one. It is a product-quality issue for AgentFit command freshness: optional/example alias sections should be downgraded or marked informational instead of hard command errors.
+
+AgentFit issue opened:
+
+```text
+https://github.com/kingkyylian/agentfit/issues/7
+```
+
+### Projen And Dart-Code
+
+Both are healthy examples:
+
+```text
+projen/projen: 93/100 (A), no failed checks.
+Dart-Code/Dart-Code: 93/100 (A), no failed checks.
+```
+
+Use them as internal confidence signals. Ask permission before naming them as public proof.
+
+### Zapier Platform
+
+AgentFit found a lower score driven by missing safety guardrails and nested package scope warnings:
+
+```text
+4 nested scopes do not have local instruction files.
+Safety guardrails were not found.
+```
+
+This is not specific enough for maintainer contact. Keep it as an internal example of monorepo scope and safety scoring.
+
+### Snyk IntelliJ Plugin
+
+AgentFit found only a Cursor rule under `.cursor/rules/general.mdc`, no root-level instruction file, and no verification command. The score is low, but the signal is weak because the repo may not intend the Cursor rule to be a complete agent contract.
+
+Classify as unsupported / low-signal for launch evidence.
 
 ### Mimir
 
@@ -98,6 +162,7 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 
 ## Next Actions
 
-1. Ask before opening the RedisInsight maintainer issue.
-2. Use Mimir as a healthy internal benchmark, not public launch copy yet.
-3. Run a second validation batch after deciding whether to contact RedisInsight.
+1. Monitor the RedisInsight issue for maintainer response.
+2. Fix or triage AgentFit issue #7 before using optional-alias findings in public launch copy.
+3. Use Mimir, Projen, and Dart-Code as healthy internal benchmarks, not public named examples unless permission is requested.
+4. For public preview, lead with the demo and the RedisInsight-style failure mode rather than broad score claims.

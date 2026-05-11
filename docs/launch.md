@@ -11,15 +11,15 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - NPM package: `@kingkyylian/agentfit@0.1.6`.
 - GitHub Action tag: `kingkyylian/agentfit@v1`.
 - Repository metadata: description, homepage, and discovery topics are configured.
-- Local full verification passed on 2026-05-10.
-- AgentFit `0.1.6` is the current patch release target for real-world validation false-positive fixes.
-- Manual `AgentFit Consumer Smoke` with `version: 0.1.6` is pending until after publish and `v1` retag.
+- Local full verification passed on 2026-05-11 for the `0.1.6` release.
+- AgentFit `0.1.6` is published to npm and `v1` points at the release commit.
+- Manual `AgentFit Consumer Smoke` with `version: 0.1.6` passed after publish and `v1` retag.
 - Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
+- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 10 dry-run snapshots, one upstream maintainer issue, and one AgentFit product issue.
 
 ## 60-Second Demo
 
@@ -58,7 +58,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Add the terminal demo asset to README.
-- Run a real-world validation sprint against 10-20 public repositories with agent instruction files.
+- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 10 snapshots are complete.
 - Publish one launch post per channel, not a generic cross-post.
 
 ## Release Order
@@ -97,3 +97,13 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 - Reddit `r/LocalLLaMA`
 - AI engineering Discords
 - Maintainers of AGENTS.md and Cursor rule template repositories
+
+## Public Preview Gate
+
+Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 10-snapshot summary from [launch-outreach.md](launch-outreach.md):
+
+- one stale-command issue opened upstream: https://github.com/redis/RedisInsight/issues/5887
+- one AgentFit product issue opened from noisy validation: https://github.com/kingkyylian/agentfit/issues/7
+- healthy internal baselines from Mimir, Projen, and Dart-Code
+
+This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.

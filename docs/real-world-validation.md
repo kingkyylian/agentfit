@@ -91,8 +91,16 @@ Track candidates before contacting anyone:
 
 | Repository | Instruction Files | Stack | Shape | Score | Main Signal | Contact? |
 | --- | --- | --- | --- | ---: | --- | --- |
-| owner/repo | `AGENTS.md` | TypeScript | monorepo | 82 | stale `pnpm lint` command | yes |
-| owner/repo | `CLAUDE.md` | Python | single app | 93 | healthy instruction file | no |
+| `statelyai/xstate` | `AGENTS.md`, `CLAUDE.md` | TypeScript | monorepo | 88 | summarized nested scope gaps | no |
+| `gitbutlerapp/gitbutler` | `AGENTS.md`, Copilot | Rust | monorepo | 88 | summarized nested scope gaps | no |
+| `lerna/lerna` | `CLAUDE.md` | TypeScript | monorepo | 88 | safety guardrail recognized after fix | no |
+| `redis/RedisInsight` | `AGENTS.md`, Cursor, Copilot | TypeScript | desktop/web app | 85 | stale E2E command docs | yes, opened |
+| `grafana/mimir` | `AGENTS.md`, `CLAUDE.md` | Go | monorepo | 93 | healthy instruction files | permission only |
+| `projen/projen` | `AGENTS.md`, `CLAUDE.md`, Copilot | TypeScript | tooling repo | 93 | healthy instruction files | permission only |
+| `Dart-Code/Dart-Code` | `AGENTS.md` | TypeScript | editor extension | 93 | healthy instruction file | permission only |
+| `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | library | 85 | optional alias examples flagged too hard | no, AgentFit issue |
+| `zapier/zapier-platform` | `CLAUDE.md`, Copilot | JavaScript | packages | 78 | broad scope/safety scoring | no |
+| `snyk/snyk-intellij-plugin` | Cursor rules | Kotlin | plugin | 65 | no root contract / no verification command | no |
 
 Use these labels:
 
@@ -158,6 +166,39 @@ Keep contact useful and sparse:
 - do not imply endorsement
 
 Prefer opening an issue only after running AgentFit locally and confirming the finding is still present.
+
+## Contact Log
+
+| Date | Repository | Link | Reason | Outcome |
+| --- | --- | --- | --- | --- |
+| 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | open |
+| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | open |
+
+## No-Network Preview Plan
+
+The 10-20 validation target does not require knowing maintainers personally. Use a public, low-pressure funnel:
+
+1. Run dry-run snapshots on public repos that already publish agent instructions.
+2. Contact maintainers only for concrete, reproducible drift that can be checked in under five minutes.
+3. Convert noisy findings into AgentFit product issues instead of external outreach.
+4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
+5. Request permission before using healthy named reports as launch proof.
+
+The first public preview should say: AgentFit found one real stale-command issue, one product false-positive class, and several healthy instruction files. That is a stronger story than a generic launch pitch.
+
+## Next Public Preview Queue
+
+Use these only if another 5-10 snapshots are needed before the broader launch:
+
+| Repository | Why Next | Contact Threshold |
+| --- | --- | --- |
+| `pingcap/tidb` | large Go monorepo with `AGENTS.md` | concrete stale command or broken reference only |
+| `appsmithorg/appsmith` | active TypeScript monorepo with Cursor rules | concrete stale command or broken reference only |
+| `eggjs/egg` | framework repo with agent instructions | concrete stale command only |
+| `kubernetes/kops` | infrastructure repo with `AGENTS.md` | concrete stale command or missing referenced file only |
+| `projen/projen` follow-up | healthy baseline candidate | permission request only |
+| `grafana/mimir` follow-up | healthy baseline candidate | permission request only |
+| `Dart-Code/Dart-Code` follow-up | healthy single-file baseline | permission request only |
 
 ## Issue Template
 
