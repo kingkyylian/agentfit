@@ -10,7 +10,7 @@ Use [real-world-validation.md](real-world-validation.md) when adding more snapsh
 
 The 2026-05-11 sprint ran 15 dry-run snapshots and produced:
 
-- one external maintainer issue for stale E2E commands in RedisInsight Cursor rules
+- one external maintainer issue for stale E2E commands in RedisInsight Cursor rules, fixed by a merged upstream PR
 - two AgentFit false-positive fixes: optional alias examples and TypeScript decorator calls
 - healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
 

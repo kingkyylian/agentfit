@@ -94,7 +94,7 @@ Track candidates before contacting anyone:
 | `statelyai/xstate` | `AGENTS.md`, `CLAUDE.md` | TypeScript | monorepo | 88 | summarized nested scope gaps | no |
 | `gitbutlerapp/gitbutler` | `AGENTS.md`, Copilot | Rust | monorepo | 88 | summarized nested scope gaps | no |
 | `lerna/lerna` | `CLAUDE.md` | TypeScript | monorepo | 88 | safety guardrail recognized after fix | no |
-| `redis/RedisInsight` | `AGENTS.md`, Cursor, Copilot | TypeScript | desktop/web app | 85 | stale E2E command docs | yes, PR opened |
+| `redis/RedisInsight` | `AGENTS.md`, Cursor, Copilot | TypeScript | desktop/web app | 85 | stale E2E command docs | yes, PR merged |
 | `grafana/mimir` | `AGENTS.md`, `CLAUDE.md` | Go | monorepo | 93 | healthy instruction files | permission only |
 | `projen/projen` | `AGENTS.md`, `CLAUDE.md`, Copilot | TypeScript | tooling repo | 93 | healthy instruction files | permission only |
 | `Dart-Code/Dart-Code` | `AGENTS.md` | TypeScript | editor extension | 93 | healthy instruction file | permission only |
@@ -176,8 +176,8 @@ Prefer opening an issue only after running AgentFit locally and confirming the f
 
 | Date | Repository | Link | Reason | Outcome |
 | --- | --- | --- | --- | --- |
-| 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | maintainer asked for PR |
-| 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/pull/5889 | fix stale E2E Cursor rule commands | open |
+| 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | closed after PR merge |
+| 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/pull/5889 | fix stale E2E Cursor rule commands | merged |
 | 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | fixed locally |
 
 ## No-Network Preview Plan

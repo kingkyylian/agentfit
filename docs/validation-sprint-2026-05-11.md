@@ -11,7 +11,7 @@ Fifteen repositories from the starter candidate list in [real-world-validation.m
 | `statelyai/xstate` | `fb3876f` | `AGENTS.md`, `CLAUDE.md` | 88/100 (B) | scope warning summarized |
 | `gitbutlerapp/gitbutler` | `92ec892` | `AGENTS.md`, Copilot instructions | 88/100 (B) | scope warning summarized |
 | `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 88/100 (B) | safety signal fixed; scope warning remains |
-| `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | maintainer issue and PR opened |
+| `redis/RedisInsight` | `94fab1d` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | maintainer issue and PR merged |
 | `grafana/mimir` | `f58ce6a0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
 | `projen/projen` | `b1186ce` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy example candidate |
 | `Dart-Code/Dart-Code` | `075e4a2` | `AGENTS.md` | 93/100 (A) | healthy example candidate |
@@ -84,7 +84,7 @@ https://github.com/redis/RedisInsight/issues/5887
 
 The issue stayed narrow: stale E2E commands in Cursor rules, no star request, no full AgentFit report dump, and no implied endorsement.
 
-The maintainer asked for a PR. PR opened and linked back to the issue:
+The maintainer asked for a PR. PR opened, linked back to the issue, and was merged on 2026-05-11:
 
 ```text
 https://github.com/redis/RedisInsight/pull/5889
@@ -230,7 +230,6 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 
 ## Next Actions
 
-1. Monitor the RedisInsight PR for maintainer review.
-2. Include the optional-alias and decorator-reference fixes in the next patch release before using those results in public launch copy.
-3. Use Mimir, Projen, Dart-Code, Kops, and iTerm2 as healthy internal benchmarks, not public named examples unless permission is requested.
-4. For public preview, lead with the demo and the RedisInsight-style failure mode rather than broad score claims.
+1. Include the optional-alias and decorator-reference fixes in the next patch release before using those results in public launch copy.
+2. Use Mimir, Projen, Dart-Code, Kops, and iTerm2 as healthy internal benchmarks, not public named examples unless permission is requested.
+3. For public preview, lead with the demo and the merged RedisInsight fix rather than broad score claims.
