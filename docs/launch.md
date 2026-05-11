@@ -110,3 +110,5 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 - healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.
+
+After the X preview has had a few hours to settle, use the GitHub Community draft in [launch-outreach.md](launch-outreach.md) as the next low-pressure channel. Do not post the Hacker News or Reddit launch copy until there is either repo-suggestion feedback or another concrete report result to include.

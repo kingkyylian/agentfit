@@ -191,6 +191,55 @@ No endorsement is implied by any repo being tested.
 If a report is noisy, I turn it into an AgentFit issue instead of bothering maintainers. If it finds concrete drift that can be verified quickly, I may share a narrow maintainer issue.
 ```
 
+## GitHub Community Draft
+
+Use this after the X preview has had a few hours to settle. Post it as a discussion-style request for repo suggestions and report sanity checks, not as a launch announcement.
+
+Suggested title:
+
+```text
+Looking for public repos with AGENTS.md / coding-agent instructions to dry-run validate
+```
+
+Body:
+
+```text
+I am building AgentFit, a local-first checker for AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, and similar coding-agent guidance.
+
+I am looking for public repositories that already use these files so I can run dry-run validation and sanity-check the reports.
+
+What AgentFit checks in dry-run mode:
+
+- stale documented commands
+- broken @file references
+- missing nested monorepo instruction coverage
+- safety and reproducibility guidance
+- before/after report changes
+
+Dry-run mode does not call model providers and does not execute generated tasks.
+
+I have run 20 public dry-run snapshots so far. The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
+https://github.com/redis/RedisInsight/pull/5889
+
+The same validation pass found noisy AgentFit behavior too, so I shipped two false-positive fixes in 0.1.8 and opened a follow-up issue for package-local command resolution:
+https://github.com/kingkyylian/agentfit/issues/8
+
+If you know a public repo that already has AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar guidance, please suggest it here:
+https://github.com/kingkyylian/agentfit/issues/9
+
+No endorsement is implied by any repo being tested. If a report is noisy, I turn it into an AgentFit issue instead of bothering maintainers. If it finds concrete drift that can be verified quickly, I may share a narrow maintainer issue.
+
+Repo:
+https://github.com/kingkyylian/agentfit
+```
+
+Optional addendum if linking back to X:
+
+```text
+I started with a short X thread here:
+<X_THREAD_URL>
+```
+
 ## Maintainer Outreach
 
 Use this for projects that already have `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, or Copilot instructions:
