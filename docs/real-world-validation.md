@@ -106,6 +106,11 @@ Track candidates before contacting anyone:
 | `umijs/qiankun` | package `AGENTS.md` files | TypeScript | monorepo | 88 | summarized nested scope gaps | no |
 | `erigontech/erigon` | `AGENTS.md`, `CLAUDE.md` | Go | infrastructure repo | 93 | healthy signal, but checkout required Git LFS caveat | no |
 | `gnachman/iTerm2` | `AGENTS.md`, `CLAUDE.md` | Objective-C | desktop app | 93 | healthy instruction files | permission only |
+| `pingcap/tidb` | `AGENTS.md`, `CLAUDE.md` | Go | large monorepo | 83 | broad reproducibility signal only | no |
+| `appsmithorg/appsmith` | Cursor rules | TypeScript | application monorepo | 75 | package-local command false positives | no |
+| `opf/openproject` | `AGENTS.md`, `CLAUDE.md`, Copilot | Ruby/TypeScript | large application | 93 | healthy layered instruction files | permission only |
+| `spinnaker/spinnaker` | `AGENTS.md`, `CLAUDE.md`, Copilot | Java/TypeScript | multi-service monorepo | 85 | package-local command false positives | no |
+| `hashintel/hash` | `AGENTS.md`, `CLAUDE.md`, Cursor | Rust/TypeScript | product monorepo | 80 | package-local command false positives | no |
 
 Use these labels:
 
@@ -179,6 +184,8 @@ Prefer opening an issue only after running AgentFit locally and confirming the f
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | closed after PR merge |
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/pull/5889 | fix stale E2E Cursor rule commands | merged |
 | 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | fixed locally |
+| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/8 | noisy package-local command checks | open |
+| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/9 | public repo suggestion funnel | open |
 
 ## No-Network Preview Plan
 
@@ -190,19 +197,19 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, two product false-positive classes that shipped in `0.1.8`, and several healthy instruction files. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit ran 20 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, shipped two false-positive fixes in `0.1.8`, and opened one follow-up product issue for package-local command resolution. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 
-Use these only if another 5-10 snapshots are needed before the broader launch:
+Use these only if another 5-10 snapshots are needed after the public repo-suggestion issue has had time to collect input:
 
 | Repository | Why Next | Contact Threshold |
 | --- | --- | --- |
-| `pingcap/tidb` | large Go monorepo with `AGENTS.md` | concrete stale command or broken reference only |
-| `appsmithorg/appsmith` | active TypeScript monorepo with Cursor rules | concrete stale command or broken reference only |
-| `opf/openproject` | large Ruby application with `AGENTS.md` | concrete stale command or broken reference only |
-| `spinnaker/spinnaker` | multi-service Java platform with `AGENTS.md` | concrete stale command or broken reference only |
-| `hashintel/hash` | complex Rust/TypeScript product repo with Cursor rules | concrete stale command or broken reference only |
+| Suggested repos from issue #9 | direct user interest | concrete stale command or broken reference only |
+| `pingcap/tidb` follow-up | broad reproducibility signal | no external contact without a narrower finding |
+| `appsmithorg/appsmith` follow-up | package-local command parser fixture | product issue only until #8 is fixed |
+| `spinnaker/spinnaker` follow-up | package-local command parser fixture | product issue only until #8 is fixed |
+| `hashintel/hash` follow-up | package-local command parser fixture | product issue only until #8 is fixed |
 | `projen/projen` follow-up | healthy baseline candidate | permission request only |
 | `grafana/mimir` follow-up | healthy baseline candidate | permission request only |
 | `Dart-Code/Dart-Code` follow-up | healthy single-file baseline | permission request only |
@@ -245,7 +252,7 @@ Repo: https://github.com/kingkyylian/agentfit
 One focused pass should be enough before public launch:
 
 1. Find 30 candidate repositories.
-2. Run dry-run snapshots on the best 10-20. Fifteen are complete.
+2. Run dry-run snapshots on the best 10-20. Twenty are complete.
 3. Keep 3-5 strong public examples.
 4. Open maintainer issues for only the clearest actionable findings.
 5. Convert false positives into AgentFit issues.

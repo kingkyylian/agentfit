@@ -4,7 +4,7 @@ Real-world validation sprint for public repositories with existing agent instruc
 
 ## Scope
 
-Fifteen repositories from the starter candidate list in [real-world-validation.md](real-world-validation.md):
+Twenty repositories from the starter candidate list in [real-world-validation.md](real-world-validation.md):
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
@@ -23,6 +23,11 @@ Fifteen repositories from the starter candidate list in [real-world-validation.m
 | `umijs/qiankun` | `8f386c3` | `AGENTS.md`, package instructions | 88/100 (B) | scope warning summarized |
 | `erigontech/erigon` | `ddf60f0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy signal with Git LFS checkout caveat |
 | `gnachman/iTerm2` | `e867712` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
+| `pingcap/tidb` | `4598d48` | `AGENTS.md`, `CLAUDE.md` | 83/100 (B) | reproducibility signal only |
+| `appsmithorg/appsmith` | `893572e` | Cursor rules | 75/100 (C) | package-local command false positives |
+| `opf/openproject` | `3a61240` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy example candidate |
+| `spinnaker/spinnaker` | `d6d10e0` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 85/100 (B) | package-local command false positives |
+| `hashintel/hash` | `f8eae3a` | `AGENTS.md`, `CLAUDE.md`, Cursor rules | 80/100 (B) | package-local command false positives |
 
 ## Product Issues Found And Fixed
 
@@ -34,6 +39,7 @@ The first run exposed false positives in AgentFit itself:
 - Explicit safety boundaries in `CLAUDE.md`, such as "NEVER run versioning or publishing commands", were not counted as safety guardrails.
 - Multiple monorepo scope warnings drove discoverability to zero and filled failed checks with repetitive package-level messages.
 - TypeScript decorator calls such as `@Hello(HelloType.FOO)` were treated as missing `@file` references because the parser saw `.FOO` as a file extension.
+- Commands scoped to package directories, such as Appsmith's `app/client` scripts and Spinnaker's `deck` scripts, are still checked against the root `package.json` in some reports.
 
 These were fixed before recording the final table:
 
@@ -43,6 +49,12 @@ These were fixed before recording the final table:
 - `src/cli/commands/eval.ts` now recognizes explicit do-not-run and approval-gated safety language in any discovered instruction file.
 - `src/core/scoring.ts` now caps root-covered monorepo scope penalties and summarizes multiple missing local instruction warnings.
 - `src/core/references.ts` now rejects call/decorator tokens with parentheses before treating an `@...` token as a file reference.
+
+The package-local command resolution gap is tracked for a future release:
+
+```text
+https://github.com/kingkyylian/agentfit/issues/8
+```
 
 Regression coverage was added in:
 
@@ -168,6 +180,38 @@ Qiankun has clean command and reference integrity. The remaining finding is a su
 
 This is not specific enough for maintainer contact. Keep it as another root-covered monorepo scope example.
 
+### OpenProject
+
+OpenProject is a healthy internal example:
+
+```text
+opf/openproject: 93/100 (A), no failed checks.
+```
+
+It has layered `AGENTS.md` and `CLAUDE.md` files across `app`, `config`, `db`, `docker/dev`, `frontend`, and `spec`, plus Copilot instructions. Do not cite it as a named public proof point without permission.
+
+### TiDB
+
+TiDB reported a single broad signal:
+
+```text
+Reproducibility instructions were not found.
+```
+
+The repo has root `AGENTS.md`, `CLAUDE.md`, and `dumpling/tests/AGENTS.md`, with clean command and reference integrity. Do not contact maintainers for this; it is too broad and could be improved by AgentFit's reproducibility phrase detection.
+
+### Appsmith, Spinnaker, And Hash
+
+These three reports exposed a product limitation rather than maintainer drift. AgentFit flagged commands as missing from the root `package.json`, but manual inspection found the scripts in the package directories that the instruction files describe:
+
+```text
+appsmithorg/appsmith: app/client/package.json defines test:unit, lint, prettier, test:pw:smoke, test:pw:sanity, test:pw:regression, and test:pw:flake-check.
+spinnaker/spinnaker: deck/package.json and deck-kayenta/package.json define build, test, lint, prettier, and prettier:check.
+hashintel/hash: libs/@hashintel/ds-components/package.json defines build, build:ladle, and test:snapshots.
+```
+
+Do not contact these maintainers from this batch. The correct follow-up is AgentFit issue `#8`: resolve command freshness against package-local scripts when instruction scope or prose makes the working directory clear.
+
 ### Projen And Dart-Code
 
 Both are healthy examples:
@@ -231,5 +275,5 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 ## Next Actions
 
 1. Use `0.1.8` or newer before referencing the optional-alias and decorator-reference fixes in public launch copy.
-2. Use Mimir, Projen, Dart-Code, Kops, and iTerm2 as healthy internal benchmarks, not public named examples unless permission is requested.
-3. For public preview, lead with the demo and the merged RedisInsight fix rather than broad score claims.
+2. Use Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject as healthy internal benchmarks, not public named examples unless permission is requested.
+3. For public preview, lead with the demo, the merged RedisInsight fix, and the repo-suggestion issue rather than broad score claims.

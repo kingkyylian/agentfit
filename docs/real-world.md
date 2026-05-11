@@ -8,11 +8,12 @@ Use [real-world-validation.md](real-world-validation.md) when adding more snapsh
 
 ## Latest Validation Sprint
 
-The 2026-05-11 sprint ran 15 dry-run snapshots and produced:
+The 2026-05-11 sprint ran 20 dry-run snapshots and produced:
 
 - one external maintainer issue for stale E2E commands in RedisInsight Cursor rules, fixed by a merged upstream PR
 - two AgentFit false-positive fixes: optional alias examples and TypeScript decorator calls
-- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
+- one open AgentFit product issue for package-local command freshness
+- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
 
 Do not publish named healthy examples without asking permission first. Use the sprint log for internal launch planning.
 

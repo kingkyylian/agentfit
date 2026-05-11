@@ -75,6 +75,19 @@ See [docs/demo.md](docs/demo.md).
 
 Agent-aware repositories are becoming normal. The missing piece is regression testing: once `AGENTS.md`, `CLAUDE.md`, or Cursor rules are part of the development workflow, they need the same feedback loop as code. AgentFit gives maintainers a quick answer before and after an instruction change.
 
+## Real-World Validation
+
+On 2026-05-11, AgentFit ran 20 dry-run snapshots against public repositories that already publish coding-agent instructions. Dry-run mode did not call model providers or execute generated tasks.
+
+The clearest finding was in RedisInsight: Cursor rules documented stale root E2E scripts. The maintainers requested a PR and merged the fix:
+
+- Issue: https://github.com/redis/RedisInsight/issues/5887
+- PR: https://github.com/redis/RedisInsight/pull/5889
+
+The same validation pass also found AgentFit false positives, which shipped as fixes in `0.1.8`, and one follow-up product issue for package-local command resolution. No endorsement is implied by any repository being tested.
+
+Suggest a public repository for dry-run validation: https://github.com/kingkyylian/agentfit/issues/9
+
 ## AgentFit Compared
 
 | Tool Type | Checks Syntax | Runs Repo Tasks | Measures Agent Results | Local-First |

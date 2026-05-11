@@ -19,7 +19,8 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 15 dry-run snapshots, one upstream maintainer issue that became a merged PR, and two AgentFit false-positive classes released in `0.1.8`.
+- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, two AgentFit false-positive classes released in `0.1.8`, and one follow-up product issue for package-local command freshness.
+- Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
 
 ## 60-Second Demo
 
@@ -58,7 +59,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Add the terminal demo asset to README.
-- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 15 snapshots are complete.
+- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 20 snapshots are complete.
 - Publish one launch post per channel, not a generic cross-post.
 
 ## Release Order
@@ -104,6 +105,8 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
 - two AgentFit false-positive classes found from noisy validation and released in `0.1.8`, including https://github.com/kingkyylian/agentfit/issues/7
-- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
+- one follow-up product issue for package-local command freshness: https://github.com/kingkyylian/agentfit/issues/8
+- a public repo-suggestion issue for low-pressure feedback: https://github.com/kingkyylian/agentfit/issues/9
+- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.

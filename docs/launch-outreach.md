@@ -206,21 +206,24 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 10 snapshots: one external maintainer issue that became a PR, one AgentFit product issue fixed before launch, and a few healthy baselines.
+5. Follow up with a small result thread after 20 snapshots: one external maintainer issue that became a merged PR, two AgentFit false-positive fixes released in `0.1.8`, one open product issue from noisy validation, and a few healthy baselines.
 
 Preview result copy:
 
 ```text
-I ran AgentFit against 10 public repos that already have coding-agent instructions.
+I ran AgentFit against 20 public repos that already have coding-agent instructions.
 
 Useful signal so far:
-- one stale-command issue opened upstream, followed by a maintainer-requested PR
-- one AgentFit false-positive class found and fixed before launch
+- one stale-command issue opened upstream, followed by a maintainer-requested PR that merged
+- two AgentFit false-positive classes found and released in 0.1.8
+- one noisy package-local command pattern turned into a product issue
 - several healthy instruction files that score cleanly in dry-run mode
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to sanity-check before a broader launch.
 
 https://github.com/kingkyylian/agentfit
+Repo suggestions:
+https://github.com/kingkyylian/agentfit/issues/9
 ```
 
 Use the RedisInsight issue as the concrete example only when the link helps the conversation:
@@ -230,6 +233,17 @@ Example finding: Cursor rules documented root E2E scripts that no longer exist, 
 
 Issue: https://github.com/redis/RedisInsight/issues/5887
 PR: https://github.com/redis/RedisInsight/pull/5889
+```
+
+Use this when linking the repo-suggestion issue directly:
+
+```text
+I opened a low-pressure repo suggestion issue for AgentFit dry-run validation.
+
+If your repo already has AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar coding-agent guidance, drop it here:
+https://github.com/kingkyylian/agentfit/issues/9
+
+Dry-run mode does not call model providers or execute generated tasks. If a report is noisy, I turn it into an AgentFit issue instead of bothering maintainers.
 ```
 
 ## Follow-Up Issues
