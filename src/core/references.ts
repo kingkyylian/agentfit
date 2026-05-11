@@ -102,7 +102,7 @@ function trimReference(value: string): string {
 }
 
 function isFileReference(value: string): boolean {
-  if (value.includes('@')) {
+  if (value.includes('@') || /[()]/.test(value)) {
     return false;
   }
 

@@ -41,6 +41,23 @@ describe('resolveInstructionReferences', () => {
     expect(result.issues).toEqual([]);
   });
 
+  it('does not treat TypeScript decorator calls as file references', async () => {
+    const result = await resolveInstructionReferences({
+      root: 'tests/fixtures/nested-repo',
+      sourcePath: 'AGENTS.md',
+      content: [
+        '```typescript',
+        '@ContextProto()',
+        '@Hello(HelloType.FOO)',
+        'class FooHello {}',
+        '```'
+      ].join('\n')
+    });
+
+    expect(result.importedPaths).toEqual([]);
+    expect(result.issues).toEqual([]);
+  });
+
   it('rejects references outside the repository root', async () => {
     const result = await resolveInstructionReferences({
       root: 'tests/fixtures/nested-repo',

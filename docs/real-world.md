@@ -2,17 +2,17 @@
 
 These are dry-run AgentFit snapshots from public open-source repositories that already contain agent instruction files. They are not endorsements or judgments of the projects. The goal is to show the kinds of signals AgentFit can surface without executing generated tasks.
 
-Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.6 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
+Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with local AgentFit main after the 0.1.7 release is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
 ## Latest Validation Sprint
 
-The 2026-05-11 sprint ran 10 dry-run snapshots and produced:
+The 2026-05-11 sprint ran 15 dry-run snapshots and produced:
 
 - one external maintainer issue for stale E2E commands in RedisInsight Cursor rules
-- one AgentFit product issue for optional alias examples being scored too harshly, fixed before launch
-- healthy internal baselines from Mimir, Projen, and Dart-Code
+- two AgentFit false-positive fixes: optional alias examples and TypeScript decorator calls
+- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
 
 Do not publish named healthy examples without asking permission first. Use the sprint log for internal launch planning.
 

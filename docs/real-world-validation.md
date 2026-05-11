@@ -101,6 +101,11 @@ Track candidates before contacting anyone:
 | `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | library | 85 -> 93 | optional alias examples flagged too hard, then fixed | no |
 | `zapier/zapier-platform` | `CLAUDE.md`, Copilot | JavaScript | packages | 78 | broad scope/safety scoring | no |
 | `snyk/snyk-intellij-plugin` | Cursor rules | Kotlin | plugin | 65 | no root contract / no verification command | no |
+| `eggjs/egg` | `AGENTS.md`, `CLAUDE.md`, Copilot | TypeScript | framework monorepo | 65 -> 80 | decorator call false positive fixed; active upstream PR overlaps remaining command drift | no |
+| `kubernetes/kops` | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | Go | infrastructure repo | 93 | healthy instruction files | permission only |
+| `umijs/qiankun` | package `AGENTS.md` files | TypeScript | monorepo | 88 | summarized nested scope gaps | no |
+| `erigontech/erigon` | `AGENTS.md`, `CLAUDE.md` | Go | infrastructure repo | 93 | healthy signal, but checkout required Git LFS caveat | no |
+| `gnachman/iTerm2` | `AGENTS.md`, `CLAUDE.md` | Objective-C | desktop app | 93 | healthy instruction files | permission only |
 
 Use these labels:
 
@@ -185,7 +190,7 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, one product false-positive class that was fixed before launch, and several healthy instruction files. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, two product false-positive classes that were fixed on main before the broader launch, and several healthy instruction files. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 
@@ -195,8 +200,9 @@ Use these only if another 5-10 snapshots are needed before the broader launch:
 | --- | --- | --- |
 | `pingcap/tidb` | large Go monorepo with `AGENTS.md` | concrete stale command or broken reference only |
 | `appsmithorg/appsmith` | active TypeScript monorepo with Cursor rules | concrete stale command or broken reference only |
-| `eggjs/egg` | framework repo with agent instructions | concrete stale command only |
-| `kubernetes/kops` | infrastructure repo with `AGENTS.md` | concrete stale command or missing referenced file only |
+| `opf/openproject` | large Ruby application with `AGENTS.md` | concrete stale command or broken reference only |
+| `spinnaker/spinnaker` | multi-service Java platform with `AGENTS.md` | concrete stale command or broken reference only |
+| `hashintel/hash` | complex Rust/TypeScript product repo with Cursor rules | concrete stale command or broken reference only |
 | `projen/projen` follow-up | healthy baseline candidate | permission request only |
 | `grafana/mimir` follow-up | healthy baseline candidate | permission request only |
 | `Dart-Code/Dart-Code` follow-up | healthy single-file baseline | permission request only |
@@ -239,7 +245,7 @@ Repo: https://github.com/kingkyylian/agentfit
 One focused pass should be enough before public launch:
 
 1. Find 30 candidate repositories.
-2. Run dry-run snapshots on the best 10-20.
+2. Run dry-run snapshots on the best 10-20. Fifteen are complete.
 3. Keep 3-5 strong public examples.
 4. Open maintainer issues for only the clearest actionable findings.
 5. Convert false positives into AgentFit issues.

@@ -19,7 +19,7 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 10 dry-run snapshots, one upstream maintainer issue that became a PR, and one AgentFit product issue fixed before launch.
+- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 15 dry-run snapshots, one upstream maintainer issue that became a PR, and two AgentFit false-positive classes fixed on main for the next patch release.
 
 ## 60-Second Demo
 
@@ -58,7 +58,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Add the terminal demo asset to README.
-- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 10 snapshots are complete.
+- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 15 snapshots are complete.
 - Publish one launch post per channel, not a generic cross-post.
 
 ## Release Order
@@ -103,7 +103,7 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 10-snapshot summary from [launch-outreach.md](launch-outreach.md):
 
 - one stale-command issue opened upstream, then a maintainer-requested PR: https://github.com/redis/RedisInsight/pull/5889
-- one AgentFit product issue opened from noisy validation and fixed before launch: https://github.com/kingkyylian/agentfit/issues/7
-- healthy internal baselines from Mimir, Projen, and Dart-Code
+- two AgentFit false-positive classes found from noisy validation and fixed on main, including https://github.com/kingkyylian/agentfit/issues/7
+- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.
