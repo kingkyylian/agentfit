@@ -98,7 +98,7 @@ Track candidates before contacting anyone:
 | `grafana/mimir` | `AGENTS.md`, `CLAUDE.md` | Go | monorepo | 93 | healthy instruction files | permission only |
 | `projen/projen` | `AGENTS.md`, `CLAUDE.md`, Copilot | TypeScript | tooling repo | 93 | healthy instruction files | permission only |
 | `Dart-Code/Dart-Code` | `AGENTS.md` | TypeScript | editor extension | 93 | healthy instruction file | permission only |
-| `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | library | 85 | optional alias examples flagged too hard | no, AgentFit issue |
+| `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | library | 85 -> 93 | optional alias examples flagged too hard, then fixed | no |
 | `zapier/zapier-platform` | `CLAUDE.md`, Copilot | JavaScript | packages | 78 | broad scope/safety scoring | no |
 | `snyk/snyk-intellij-plugin` | Cursor rules | Kotlin | plugin | 65 | no root contract / no verification command | no |
 
@@ -173,7 +173,7 @@ Prefer opening an issue only after running AgentFit locally and confirming the f
 | --- | --- | --- | --- | --- |
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | maintainer asked for PR |
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/pull/5889 | fix stale E2E Cursor rule commands | open |
-| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | open |
+| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | fixed locally |
 
 ## No-Network Preview Plan
 
@@ -185,7 +185,7 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, one product false-positive class, and several healthy instruction files. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, one product false-positive class that was fixed before launch, and several healthy instruction files. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 

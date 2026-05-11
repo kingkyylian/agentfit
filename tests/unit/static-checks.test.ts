@@ -129,4 +129,54 @@ describe('collectStaticIssues', () => {
       'Documented command references missing package script "--filter".'
     );
   });
+
+  it('does not report optional package script alias examples as stale commands', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          test: 'node test.js'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Agent instructions',
+        '',
+        'Run the default verification command before committing:',
+        '',
+        '```bash',
+        'npm test',
+        '```',
+        '',
+        '#### Creating Test Aliases (Optional)',
+        '',
+        'For convenience, you can add these aliases to your `package.json` scripts.',
+        '',
+        '```json',
+        '{',
+        '  "scripts": {',
+        '    "test:options": "mocha test/options/**/*.spec.ts"',
+        '  }',
+        '}',
+        '```',
+        '',
+        'Then run with:',
+        '',
+        '```bash',
+        'npm run test:options',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "test:options".'
+    );
+  });
 });

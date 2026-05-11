@@ -206,7 +206,7 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 10 snapshots: one external maintainer issue that became a PR, one AgentFit product issue, and a few healthy baselines.
+5. Follow up with a small result thread after 10 snapshots: one external maintainer issue that became a PR, one AgentFit product issue fixed before launch, and a few healthy baselines.
 
 Preview result copy:
 
@@ -215,7 +215,7 @@ I ran AgentFit against 10 public repos that already have coding-agent instructio
 
 Useful signal so far:
 - one stale-command issue opened upstream, followed by a maintainer-requested PR
-- one AgentFit false-positive class found and tracked
+- one AgentFit false-positive class found and fixed before launch
 - several healthy instruction files that score cleanly in dry-run mode
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to sanity-check before a broader launch.
@@ -237,7 +237,7 @@ PR: https://github.com/redis/RedisInsight/pull/5889
 Open these after the first public feedback batch:
 
 - Add more real-world dry-run snapshots.
-- Fix optional alias/example command detection before citing those results publicly.
+- Keep optional alias/example command detection covered by regression tests.
 - Add a terminal recording to the README.
 - Add an `agentfit init --from-repo` improvement if users ask for scaffolding.
 - Improve monorepo examples.

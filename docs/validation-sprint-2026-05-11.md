@@ -15,7 +15,7 @@ Ten repositories from the starter candidate list in [real-world-validation.md](r
 | `grafana/mimir` | `f58ce6a0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
 | `projen/projen` | `b1186ce` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy example candidate |
 | `Dart-Code/Dart-Code` | `075e4a2` | `AGENTS.md` | 93/100 (A) | healthy example candidate |
-| `javascript-obfuscator/javascript-obfuscator` | `10c763f` | `CLAUDE.md` | 85/100 (B) | AgentFit product issue |
+| `javascript-obfuscator/javascript-obfuscator` | `10c763f` | `CLAUDE.md` | 85/100 (B) | AgentFit product issue fixed |
 | `zapier/zapier-platform` | `6a3ffbf` | `CLAUDE.md`, Copilot instructions | 78/100 (C) | no maintainer contact |
 | `snyk/snyk-intellij-plugin` | `2a8b015` | Cursor rules | 65/100 (D) | unsupported / low-signal |
 
@@ -106,6 +106,13 @@ AgentFit issue opened:
 https://github.com/kingkyylian/agentfit/issues/7
 ```
 
+The fix teaches command freshness checks to ignore package script commands when they are presented as optional alias examples. Re-running the snapshot after the fix moves the report to:
+
+```text
+AgentFit score 93/100 (A).
+Failed Checks: None.
+```
+
 ### Projen And Dart-Code
 
 Both are healthy examples:
@@ -169,6 +176,6 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 ## Next Actions
 
 1. Monitor the RedisInsight PR for maintainer review.
-2. Fix or triage AgentFit issue #7 before using optional-alias findings in public launch copy.
+2. Include the optional-alias fix in the next patch release before using those results in public launch copy.
 3. Use Mimir, Projen, and Dart-Code as healthy internal benchmarks, not public named examples unless permission is requested.
 4. For public preview, lead with the demo and the RedisInsight-style failure mode rather than broad score claims.

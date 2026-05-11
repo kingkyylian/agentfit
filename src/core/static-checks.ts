@@ -29,11 +29,14 @@ async function collectCommandIssues(
   const issues: StaticIssue[] = [];
   const packageJson = await readPackageJson(path.join(root, 'package.json'));
   const scripts = packageJson?.scripts ?? {};
+  const instructionContents = await readInstructionContents(root, instructionFiles);
   const commands = [
     ...instructionFiles.flatMap((file) => file.commands),
     ...configuredCommands
   ];
-  const verificationCommands = commands.filter((command) => verificationKinds.has(command.kind));
+  const verificationCommands = commands
+    .filter((command) => verificationKinds.has(command.kind))
+    .filter((command) => !isOptionalAliasExample(command, instructionContents.get(command.sourcePath)));
 
   for (const command of verificationCommands) {
     const scriptName = packageScriptName(command.value);
@@ -62,6 +65,22 @@ async function collectCommandIssues(
   }
 
   return issues;
+}
+
+async function readInstructionContents(root: string, instructionFiles: InstructionFile[]): Promise<Map<string, string>> {
+  const contents = new Map<string, string>();
+
+  await Promise.all(
+    instructionFiles.map(async (file) => {
+      try {
+        contents.set(file.path, await readFile(path.join(root, file.path), 'utf8'));
+      } catch {
+        // Ignore unreadable instruction files here; discovery/reference checks surface path issues separately.
+      }
+    })
+  );
+
+  return contents;
 }
 
 async function collectScopeIssues(root: string, instructionFiles: InstructionFile[]): Promise<StaticIssue[]> {
@@ -172,6 +191,36 @@ function optionConsumesValue(token: string): boolean {
 
 function isPackageManagerCommand(token: string): boolean {
   return ['install', 'add', 'exec', 'dlx', 'create', 'init', 'remove', 'why', 'config'].includes(token);
+}
+
+function isOptionalAliasExample(command: ExtractedCommand, sourceContent: string | undefined): boolean {
+  if (!sourceContent || !packageScriptName(command.value)) {
+    return false;
+  }
+
+  const lines = sourceContent.split(/\r?\n/);
+  const commandLineIndex = Math.max(0, command.line - 1);
+  const headingIndex = previousMarkdownHeadingIndex(lines, commandLineIndex);
+  const contextStart = Math.max(headingIndex, commandLineIndex - 24);
+  const context = lines.slice(contextStart, commandLineIndex + 1).join('\n').toLowerCase();
+  const heading = headingIndex >= 0 ? lines[headingIndex]?.toLowerCase() ?? '' : '';
+
+  return (
+    (heading.includes('optional') && heading.includes('alias')) ||
+    ((context.includes('optional') || context.includes('for convenience')) &&
+      context.includes('alias') &&
+      (context.includes('package.json') || context.includes('scripts')))
+  );
+}
+
+function previousMarkdownHeadingIndex(lines: string[], fromIndex: number): number {
+  for (let index = fromIndex; index >= 0; index -= 1) {
+    if (/^\s{0,3}#{1,6}\s+/.test(lines[index] ?? '')) {
+      return index;
+    }
+  }
+
+  return 0;
 }
 
 async function readPackageJson(filePath: string): Promise<{ scripts?: Record<string, string> } | undefined> {

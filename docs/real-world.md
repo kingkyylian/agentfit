@@ -11,7 +11,7 @@ Use [real-world-validation.md](real-world-validation.md) when adding more snapsh
 The 2026-05-11 sprint ran 10 dry-run snapshots and produced:
 
 - one external maintainer issue for stale E2E commands in RedisInsight Cursor rules
-- one AgentFit product issue for optional alias examples being scored too harshly
+- one AgentFit product issue for optional alias examples being scored too harshly, fixed before launch
 - healthy internal baselines from Mimir, Projen, and Dart-Code
 
 Do not publish named healthy examples without asking permission first. Use the sprint log for internal launch planning.
