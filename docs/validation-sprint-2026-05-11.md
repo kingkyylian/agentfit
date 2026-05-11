@@ -54,6 +54,16 @@ Documented command references missing package script "test:all".
 
 This is the only first-batch maintainer contact candidate. Before opening an external issue, verify whether these scripts are intended to be root-level scripts or package-local scripts that AgentFit cannot yet resolve.
 
+Follow-up verification confirmed the commands are stale at the repository root:
+
+```text
+npm run test:main     -> Missing script: "test:main"
+npm run test:electron -> Missing script: "test:electron"
+npm run test:all      -> Missing script: "test:all"
+```
+
+The likely current commands are package-local under `tests/e2e-playwright`: `npm test`, `npm run test:chromium`, and `npm run test:electron`. A maintainer issue draft is available in [redisinsight-issue-draft.md](redisinsight-issue-draft.md).
+
 ### Mimir
 
 After ignoring `vendor/**`, Mimir is a healthy example candidate:
