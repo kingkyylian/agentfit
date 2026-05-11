@@ -4,6 +4,8 @@ These are dry-run AgentFit snapshots from public open-source repositories that a
 
 Generated on 2026-05-07 with AgentFit 0.1.3.
 
+Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
+
 | Repository | Language | Commit | Score | Main Signal |
 | --- | --- | --- | ---: | --- |
 | [hexlet-codebattle/codebattle](https://github.com/hexlet-codebattle/codebattle) | Elixir | `fd9ed72` | 80/100 (B) | Finds stale documented package scripts and a nested scope gap. |

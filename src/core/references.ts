@@ -102,7 +102,11 @@ function trimReference(value: string): string {
 }
 
 function isFileReference(value: string): boolean {
-  return value.includes('/') || /\.[A-Za-z0-9]+$/.test(value);
+  if (value.includes('@')) {
+    return false;
+  }
+
+  return value.startsWith('./') || value.startsWith('../') || value.startsWith('/') || /\.[A-Za-z0-9]+$/.test(value);
 }
 
 function normalizePath(value: string): string {

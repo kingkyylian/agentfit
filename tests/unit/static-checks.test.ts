@@ -103,4 +103,30 @@ describe('collectStaticIssues', () => {
       ])
     );
   });
+
+  it('skips package manager options before validating script names', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          test: 'node test.js'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      ['# Agent instructions', '', '```bash', 'yarn --cwd tests/e2e test', 'pnpm --filter @scope/package test', '```', ''].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "--cwd".'
+    );
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "--filter".'
+    );
+  });
 });

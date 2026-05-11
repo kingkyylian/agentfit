@@ -15,8 +15,10 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 - Manual `AgentFit Consumer Smoke` workflow passed on 2026-05-10 with `kingkyylian/agentfit@v1`, `version: 0.1.5`, `run-tasks: true`, and score `100/100 (A)`.
 - Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
-- Social preview source is available at [assets/social-preview.svg](assets/social-preview.svg).
+- Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
+- Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
+- Initial validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
 
 ## 60-Second Demo
 
@@ -49,13 +51,13 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 
 - Publish a README with the badge, command, sample output, and comparison table.
 - Configure GitHub repository description, homepage, and topics.
-- Add a social preview image manually in GitHub repository settings from `docs/assets/social-preview.svg` or a rendered PNG.
+- Confirm the configured GitHub social preview still matches the current launch positioning.
 - Ship dry-run scoring and reports first.
 - Add GitHub Action documentation for PR checks.
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Add the terminal demo asset to README.
-- Ask 10-20 trusted developers for first-star social proof before public posts.
+- Run a real-world validation sprint against 10-20 public repositories with agent instruction files.
 - Publish one launch post per channel, not a generic cross-post.
 
 ## Release Order
@@ -67,13 +69,17 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
 6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.5`.
 
-## First Star Plan
+## Real-World Validation Plan
 
-1. Send the short DM in [launch-outreach.md](launch-outreach.md) to 10-20 developers who use Codex, Claude Code, Cursor, or Copilot.
-2. Wait until the repo has at least a small base of stars before Hacker News or Reddit.
-3. Launch with the before/after demo, not a feature list.
-4. Reply to every technical question with concrete report output or a repro command.
-5. Convert good questions into issues within the same day.
+The goal is not friend-based social proof. The goal is to collect public, reproducible evidence that AgentFit finds useful signal in repositories that already use `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
+
+1. Build a candidate list of 30 public repositories using GitHub code search queries from [real-world-validation.md](real-world-validation.md).
+2. Run deterministic dry-run snapshots against 10-20 candidates without executing generated tasks.
+3. Classify each result as actionable drift, healthy example, noisy signal, or unsupported repository.
+4. Open maintainer issues only when the report has a concrete finding: missing referenced file, stale documented command, or clear nested scope gap.
+5. Turn false positives and confusing output into AgentFit issues before public launch posts.
+6. Launch with the before/after demo plus 3-5 real-world signals, not a feature list.
+7. Reply to every technical question with report output, a repro command, or a scoped product issue.
 
 ## Good First Issues
 

@@ -27,7 +27,7 @@ export async function discoverInstructionFiles(
     onlyFiles: true,
     unique: true,
     dot: true,
-    ignore: ['**/node_modules/**', '**/.git/**', '**/dist/**']
+    ignore: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/vendor/**']
   });
 
   const sortedPaths = paths.map(normalizePath).sort();

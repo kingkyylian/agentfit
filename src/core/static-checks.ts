@@ -126,14 +126,52 @@ async function collectSecretIssues(root: string, instructionFiles: InstructionFi
 }
 
 function packageScriptName(command: string): string | undefined {
-  const match = command.match(/^(?:pnpm|npm|yarn|bun)(?:\s+run)?\s+([A-Za-z0-9:_-]+)(?:\s|$)/);
-  const scriptName = match?.[1];
+  const tokens = command.trim().split(/\s+/);
+  const manager = tokens[0];
 
-  if (!scriptName || scriptName === 'install') {
+  if (!manager || !['pnpm', 'npm', 'yarn', 'bun'].includes(manager)) {
     return undefined;
   }
 
-  return scriptName;
+  let index = 1;
+  if (tokens[index] === 'run') {
+    index += 1;
+  }
+
+  while (index < tokens.length) {
+    const token = tokens[index];
+    if (!token) {
+      return undefined;
+    }
+
+    if (token === 'run') {
+      index += 1;
+      continue;
+    }
+
+    if (token.startsWith('-')) {
+      index += optionConsumesValue(token) ? 2 : 1;
+      continue;
+    }
+
+    const scriptName = token;
+
+    if (isPackageManagerCommand(scriptName)) {
+      return undefined;
+    }
+
+    return scriptName;
+  }
+
+  return undefined;
+}
+
+function optionConsumesValue(token: string): boolean {
+  return !token.includes('=') && ['--cwd', '--filter', '-F', '--workspace', '-w', '--dir', '-C', '--prefix'].includes(token);
+}
+
+function isPackageManagerCommand(token: string): boolean {
+  return ['install', 'add', 'exec', 'dlx', 'create', 'init', 'remove', 'why', 'config'].includes(token);
 }
 
 async function readPackageJson(filePath: string): Promise<{ scripts?: Record<string, string> } | undefined> {

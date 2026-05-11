@@ -1,3 +1,6 @@
+import { mkdir, mkdtemp, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { discoverInstructionFiles } from '../../src/core/discovery.js';
 
@@ -19,5 +22,16 @@ describe('discoverInstructionFiles', () => {
 
     expect(files.map((file) => file.path)).toEqual(['AGENTS.md', 'packages/api/AGENTS.md']);
     expect(files.map((file) => file.scope)).toEqual(['.', 'packages/api']);
+  });
+
+  it('ignores vendored instruction files', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-discovery-'));
+    await mkdir(join(root, 'vendor/github.com/example/pkg'), { recursive: true });
+    await writeFile(join(root, 'AGENTS.md'), '# Root instructions\n');
+    await writeFile(join(root, 'vendor/github.com/example/pkg/CLAUDE.md'), '# Vendored instructions\n');
+
+    const files = await discoverInstructionFiles(root);
+
+    expect(files.map((file) => file.path)).toEqual(['AGENTS.md']);
   });
 });

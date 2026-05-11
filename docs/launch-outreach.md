@@ -140,14 +140,15 @@ https://github.com/kingkyylian/agentfit
 I am looking for repos with real agent instruction files to test against.
 ```
 
-## Direct Message
+## Public Repo Request
 
 ```text
-Hey, I built a small OSS tool that might be relevant if you use Codex, Claude Code, Cursor, or Copilot.
+I am looking for 5-10 public repos that already use AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions.
 
-It is called AgentFit. It tests whether AGENTS.md / coding-agent instructions still work: commands, references, nested package coverage, and before/after score changes.
+I will run AgentFit in dry-run mode and share the report if it finds concrete instruction drift: stale commands, missing references, or monorepo scope gaps.
 
-No pressure, but a star or a quick sanity check would help before I launch it more publicly:
+No model-provider calls, no generated task execution, and no endorsement implied.
+
 https://github.com/kingkyylian/agentfit
 ```
 
@@ -156,21 +157,46 @@ https://github.com/kingkyylian/agentfit
 Use this for projects that already have `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, or Copilot instructions:
 
 ```text
-Hi, I noticed this repo has agent instruction files. I built AgentFit, a local-first checker that scores whether those files still match the repo: commands, references, nested scopes, and generated verification tasks.
+Hi, I maintain AgentFit, a local-first checker for AGENTS.md / coding-agent instruction files.
 
-I would like to add a dry-run snapshot of your repo as a real-world example. No endorsement implied, and I can remove it if you prefer.
+I ran a dry-run snapshot on this repo because it already has agent instructions. It did not execute generated tasks or call model providers.
 
-Tool: https://github.com/kingkyylian/agentfit
+Command:
+npx @kingkyylian/agentfit@latest eval --adapter dry-run --format markdown
+
+Finding:
+- <one concrete finding>
+
+Why it may matter:
+<one sentence explaining how a coding agent could be misled>
+
+This may be useful as a quick docs/tooling cleanup. If tool-generated issues are not welcome here, feel free to close this and I will not follow up.
 ```
 
-## First 100 Stars
+Use this when asking permission to include a named report:
 
-- 0-10: direct messages to trusted developers.
-- 10-25: X post with terminal demo.
-- 25-50: targeted Discord/Slack communities where coding agents are already discussed.
-- 50-100: Show HN and Reddit with the before/after demo.
+```text
+Hi, I ran AgentFit in dry-run mode against this repo while collecting public examples of AGENTS.md / coding-agent instruction checks.
+
+The snapshot is only a static report. It does not execute generated tasks or call model providers.
+
+I would like to include the report as a real-world example. No endorsement implied, and I can remove it if you prefer.
+
+Tool:
+https://github.com/kingkyylian/agentfit
+```
+
+## First Feedback Funnel
+
+- First 3-5 reports: public repositories found through GitHub code search.
+- First maintainer contact: only when AgentFit finds a concrete, reproducible issue.
+- First X post: terminal demo plus one real-world finding, not a generic product pitch.
+- First Discord/Slack posts: ask for repos to test, not for stars.
+- First Hacker News or Reddit post: before/after demo plus 3-5 public report signals.
 
 Do not lead with "perfect" or "AI-ready". Lead with the concrete failure mode: instruction drift.
+
+Do not ask for stars in validation messages. Ask for repo suggestions, report sanity checks, or permission to reference a snapshot.
 
 ## Follow-Up Issues
 

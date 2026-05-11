@@ -26,6 +26,21 @@ describe('resolveInstructionReferences', () => {
     });
   });
 
+  it('does not treat scoped package names as file references', async () => {
+    const result = await resolveInstructionReferences({
+      root: 'tests/fixtures/nested-repo',
+      sourcePath: 'AGENTS.md',
+      content: [
+        'Run `pnpm test:store` for @xstate/store changes.',
+        'Install with `npx @kingkyylian/agentfit@latest eval`.',
+        'Use `pnpm --filter @gitbutler/ui test` for UI-only checks.'
+      ].join('\n')
+    });
+
+    expect(result.importedPaths).toEqual([]);
+    expect(result.issues).toEqual([]);
+  });
+
   it('rejects references outside the repository root', async () => {
     const result = await resolveInstructionReferences({
       root: 'tests/fixtures/nested-repo',
