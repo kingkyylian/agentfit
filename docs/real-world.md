@@ -2,7 +2,7 @@
 
 These are dry-run AgentFit snapshots from public open-source repositories that already contain agent instruction files. They are not endorsements or judgments of the projects. The goal is to show the kinds of signals AgentFit can surface without executing generated tasks.
 
-Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with local AgentFit main after the 0.1.7 release is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
+Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.8 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 

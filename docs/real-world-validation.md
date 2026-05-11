@@ -190,7 +190,7 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, two product false-positive classes that were fixed on main before the broader launch, and several healthy instruction files. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit found one real stale-command issue that became an upstream PR, two product false-positive classes that shipped in `0.1.8`, and several healthy instruction files. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 

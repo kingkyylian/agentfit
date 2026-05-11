@@ -8,18 +8,18 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 
 ## Current Status
 
-- NPM package: `@kingkyylian/agentfit@0.1.7`.
+- NPM package: `@kingkyylian/agentfit@0.1.8`.
 - GitHub Action tag: `kingkyylian/agentfit@v1`.
 - Repository metadata: description, homepage, and discovery topics are configured.
-- Local full verification passed on 2026-05-11 for the `0.1.7` release.
-- AgentFit `0.1.7` is published to npm and `v1` points at the release commit.
-- Manual `AgentFit Consumer Smoke` with `version: 0.1.7` passed after publish and `v1` retag.
+- Local full verification passed on 2026-05-11 for the `0.1.8` release.
+- AgentFit `0.1.8` is published to npm and `v1` points at the release commit.
+- Manual `AgentFit Consumer Smoke` with `version: 0.1.8` passed after publish and `v1` retag.
 - Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 15 dry-run snapshots, one upstream maintainer issue that became a merged PR, and two AgentFit false-positive classes fixed on main for the next patch release.
+- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 15 dry-run snapshots, one upstream maintainer issue that became a merged PR, and two AgentFit false-positive classes released in `0.1.8`.
 
 ## 60-Second Demo
 
@@ -66,9 +66,9 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 1. Run `pnpm install --frozen-lockfile`.
 2. Run `pnpm typecheck`, `pnpm test`, `pnpm lint`, `pnpm build`, and `pnpm smoke:package`.
 3. Confirm `pnpm smoke:package` validates the packed tarball contents, executable CLI entrypoint, and reported CLI version.
-4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.7`.
+4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.8`.
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
-6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.7`.
+6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.8`.
 
 ## Real-World Validation Plan
 
@@ -103,7 +103,7 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 10-snapshot summary from [launch-outreach.md](launch-outreach.md):
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
-- two AgentFit false-positive classes found from noisy validation and fixed on main, including https://github.com/kingkyylian/agentfit/issues/7
+- two AgentFit false-positive classes found from noisy validation and released in `0.1.8`, including https://github.com/kingkyylian/agentfit/issues/7
 - healthy internal baselines from Mimir, Projen, Dart-Code, Kops, and iTerm2
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.

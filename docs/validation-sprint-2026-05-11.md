@@ -230,6 +230,6 @@ AgentFit now recognizes that as a safety guardrail. The score moved from 78/100 
 
 ## Next Actions
 
-1. Include the optional-alias and decorator-reference fixes in the next patch release before using those results in public launch copy.
+1. Use `0.1.8` or newer before referencing the optional-alias and decorator-reference fixes in public launch copy.
 2. Use Mimir, Projen, Dart-Code, Kops, and iTerm2 as healthy internal benchmarks, not public named examples unless permission is requested.
 3. For public preview, lead with the demo and the merged RedisInsight fix rather than broad score claims.
