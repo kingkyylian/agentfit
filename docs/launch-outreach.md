@@ -237,7 +237,7 @@ Optional addendum if linking back to X:
 
 ```text
 I started with a short X thread here:
-<X_THREAD_URL>
+https://x.com/KaganIs66551/status/2053875763275768289
 ```
 
 ## Maintainer Outreach
