@@ -87,12 +87,12 @@ async function collectCommandAnalysis(
   const verificationCommands = commands
     .filter((command) => verificationKinds.has(command.kind))
     .filter((command) => !isOptionalAliasExample(command, instructionContents.get(command.sourcePath)));
-  let hasRunnableVerification = false;
+  let hasNonPackageVerification = false;
 
   for (const command of verificationCommands) {
     const parsed = parsePackageScriptCommand(command.value);
     if (!parsed) {
-      hasRunnableVerification = true;
+      hasNonPackageVerification = true;
       continue;
     }
 
@@ -113,17 +113,23 @@ async function collectCommandAnalysis(
       reason: candidate.reason
     };
     commandResolutions.push(resolution);
+  }
 
+  reuseSameSourceResolutions(commandResolutions);
+
+  let hasRunnableVerification = hasNonPackageVerification;
+  for (const resolution of commandResolutions) {
     if (resolution.status === 'resolved') {
       hasRunnableVerification = true;
-    } else {
-      issues.push({
-        category: 'command',
-        sourcePath: command.sourcePath,
-        message: missingPackageScriptMessage(resolution),
-        severity: 'error'
-      });
+      continue;
     }
+
+    issues.push({
+      category: 'command',
+      sourcePath: resolution.sourcePath,
+      message: missingPackageScriptMessage(resolution),
+      severity: 'error'
+    });
   }
 
   if (!hasRunnableVerification) {
@@ -139,6 +145,31 @@ async function collectCommandAnalysis(
     issues,
     commandResolutions
   };
+}
+
+function reuseSameSourceResolutions(commandResolutions: CommandResolution[]): void {
+  const resolvedBySourceAndScript = new Map<string, CommandResolution>();
+
+  for (const resolution of commandResolutions) {
+    if (resolution.status === 'resolved') {
+      resolvedBySourceAndScript.set(commandResolutionKey(resolution), resolution);
+    }
+  }
+
+  for (const resolution of commandResolutions) {
+    if (resolution.status === 'missing') {
+      const resolved = resolvedBySourceAndScript.get(commandResolutionKey(resolution));
+      if (resolved) {
+        resolution.packageJsonPath = resolved.packageJsonPath;
+        resolution.status = 'resolved';
+        resolution.reason = 'same source resolved package script';
+      }
+    }
+  }
+}
+
+function commandResolutionKey(resolution: Pick<CommandResolution, 'sourcePath' | 'scriptName'>): string {
+  return `${resolution.sourcePath}\0${resolution.scriptName}`;
 }
 
 async function readInstructionContents(root: string, instructionFiles: InstructionFile[]): Promise<Map<string, string>> {
@@ -387,7 +418,7 @@ function resolvePackageCandidate(input: {
     return packageCandidateFromDirectory(input.packageJsons, input.parsed.chainedCwd, 'cd command');
   }
 
-  const contextualCwd = workingDirectoryFromSourceContext(input.command, input.sourceContent);
+  const contextualCwd = workingDirectoryFromSourceContext(input.command, input.sourceContent, input.packageJsons);
   if (contextualCwd) {
     return packageCandidateFromDirectory(input.packageJsons, contextualCwd, 'instruction working directory');
   }
@@ -491,7 +522,11 @@ function splitLeadingCd(command: string): { command: string; cwd?: string } {
   };
 }
 
-function workingDirectoryFromSourceContext(command: ExtractedCommand, sourceContent: string | undefined): string | undefined {
+function workingDirectoryFromSourceContext(
+  command: ExtractedCommand,
+  sourceContent: string | undefined,
+  packageJsons: PackageJsonInfo[]
+): string | undefined {
   if (!sourceContent) {
     return undefined;
   }
@@ -513,6 +548,16 @@ function workingDirectoryFromSourceContext(command: ExtractedCommand, sourceCont
     }
   }
 
+  const headingDirectory = directoryFromPreviousHeadings(lines, commandIndex);
+  if (headingDirectory) {
+    return headingDirectory;
+  }
+
+  const frontmatterDirectory = directoryFromFrontmatterGlobs(lines, packageJsons);
+  if (frontmatterDirectory) {
+    return frontmatterDirectory;
+  }
+
   return undefined;
 }
 
@@ -522,30 +567,84 @@ function directoryFromCdLine(line: string): string | undefined {
 }
 
 function directoryFromProse(line: string): string | undefined {
-  if (!/\b(?:command|commands|check|checks|test|tests|run|runs|from|inside|under|cwd|directory|folder)\b/i.test(line)) {
-    return undefined;
-  }
-
-  for (const match of line.matchAll(/`([^`]+)`/g)) {
-    const candidate = normalizeCandidateDir(match[1] ?? '');
-    if (candidate && looksLikeDirectoryReference(candidate)) {
-      return candidate;
-    }
-  }
-
   const explicitMatch =
+    line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+`([^`]+)`/i) ??
     line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+([A-Za-z0-9@._/-]+)/i) ??
-    line.match(/\b(?:from|inside|under|cwd|directory|folder)\s+([A-Za-z0-9@._/-]+)/i);
+    line.match(/\bcwd\s*[:=]\s*`([^`]+)`/i) ??
+    line.match(/\bcwd\s*[:=]\s*([A-Za-z0-9@._/-]+)/i);
 
   return explicitMatch?.[1] ? normalizeCandidateDir(explicitMatch[1]) : undefined;
 }
 
-function looksLikeDirectoryReference(value: string): boolean {
-  if (!value || /\s|:/.test(value) || value.endsWith('.json')) {
-    return false;
+function directoryFromPreviousHeadings(lines: string[], commandIndex: number): string | undefined {
+  for (let index = commandIndex; index >= 0; index -= 1) {
+    const line = lines[index] ?? '';
+    if (!/^\s{0,3}#{1,6}\s+/.test(line)) {
+      continue;
+    }
+
+    const directory = directoryFromBacktickPath(line);
+    if (directory) {
+      return directory;
+    }
   }
 
-  return !['pnpm', 'npm', 'yarn', 'bun', 'test', 'lint', 'build'].includes(value);
+  return undefined;
+}
+
+function directoryFromBacktickPath(line: string): string | undefined {
+  for (const match of line.matchAll(/`([^`]+)`/g)) {
+    const candidate = normalizeCandidateDir(match[1] ?? '');
+    if (looksLikeDirectoryReference(candidate)) {
+      return candidate;
+    }
+  }
+
+  return undefined;
+}
+
+function directoryFromFrontmatterGlobs(lines: string[], packageJsons: PackageJsonInfo[]): string | undefined {
+  if ((lines[0] ?? '').trim() !== '---') {
+    return undefined;
+  }
+
+  const endIndex = lines.findIndex((line, index) => index > 0 && line.trim() === '---');
+  if (endIndex < 0) {
+    return undefined;
+  }
+
+  const frontmatter = lines.slice(1, endIndex);
+  for (const line of frontmatter) {
+    const globPath = line.match(/^\s*-\s+(.+)$/)?.[1];
+    if (!globPath) {
+      continue;
+    }
+
+    const packageJson = nearestPackageForGlob(packageJsons, cleanGlobPath(globPath));
+    if (packageJson) {
+      return packageJson.dir;
+    }
+  }
+
+  return undefined;
+}
+
+function nearestPackageForGlob(packageJsons: PackageJsonInfo[], globPath: string): PackageJsonInfo | undefined {
+  return [...packageJsons]
+    .sort((left, right) => right.dir.length - left.dir.length)
+    .find((candidate) => candidate.dir !== '.' && isPathInsideOrEqual(globPath, candidate.dir));
+}
+
+function cleanGlobPath(value: string): string {
+  const cleaned = normalizeCandidateDir(value);
+  const wildcardIndex = cleaned.search(/[*{[]/);
+  const pathWithoutGlob = wildcardIndex >= 0 ? cleaned.slice(0, wildcardIndex) : cleaned;
+
+  return normalizePackageDir(pathWithoutGlob.replace(/\/+$/g, ''));
+}
+
+function looksLikeDirectoryReference(value: string): boolean {
+  return Boolean(value) && !/\s|:|\(|\)/.test(value) && !value.endsWith('.json') && value.includes('/');
 }
 
 function cleanFilterTarget(value: string): string {

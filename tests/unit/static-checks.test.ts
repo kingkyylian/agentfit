@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { mkdtemp } from 'node:fs/promises';
 import { describe, expect, it } from 'vitest';
 import { discoverInstructionFiles } from '../../src/core/discovery.js';
-import { collectStaticIssues } from '../../src/core/static-checks.js';
+import { collectCommandResolutions, collectStaticIssues } from '../../src/core/static-checks.js';
 import type { ExtractedCommand } from '../../src/types.js';
 
 async function createRepo(): Promise<string> {
@@ -211,6 +211,136 @@ describe('collectStaticIssues', () => {
     expect(issues.map((issue) => issue.message)).not.toContain(
       'Documented command references missing package script "test".'
     );
+  });
+
+  it('resolves cursor rules from heading and frontmatter package scope without treating nearby prose paths as cwd', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, '.cursor/rules'), { recursive: true });
+    await mkdir(join(root, 'app/client'), { recursive: true });
+    await writeFile(
+      join(root, 'app/client/package.json'),
+      JSON.stringify({
+        scripts: {
+          'test:unit': 'jest',
+          'test:pw:flake-check': 'playwright test --repeat-each 5',
+          'test:pw:regression': 'playwright test regression',
+          'test:pw:sanity': 'playwright test sanity',
+          'test:pw:smoke': 'playwright test smoke'
+        }
+      })
+    );
+    await writeFile(
+      join(root, '.cursor/rules/frontend.mdc'),
+      [
+        '---',
+        'description: React frontend commands',
+        '---',
+        '# Frontend - `app/client/`',
+        '',
+        'Look for `ce/`, `ee/`, and `enterprise/` directories under `src/`.',
+        '',
+        '## Testing',
+        '',
+        '- **Unit:** Jest - `yarn run test:unit`',
+        ''
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, '.cursor/rules/playwright.mdc'),
+      [
+        '---',
+        'description: Playwright E2E test conventions',
+        'globs:',
+        '  - app/client/playwright/**/*.ts',
+        'alwaysApply: false',
+        '---',
+        '# Playwright E2E Conventions',
+        '',
+        '- Never use bare `test.skip()`. Use `test.fixme("reason")` to track why.',
+        '- Before merging new specs: `yarn test:pw:flake-check --grep "test name"`.',
+        '',
+        '```text',
+        'playwright/tests/',
+        '  smoke/',
+        '  sanity/',
+        '  regression/',
+        '```',
+        '',
+        '- Run by tier: `yarn test:pw:smoke`, `yarn test:pw:sanity`, `yarn test:pw:regression`',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          command: 'yarn run test:unit',
+          packageJsonPath: 'app/client/package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'yarn test:pw:flake-check --grep "test name"',
+          packageJsonPath: 'app/client/package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'yarn test:pw:smoke',
+          packageJsonPath: 'app/client/package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+    expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('ce/package.json');
+    expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('test.skip(/package.json');
+    expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('smoke/package.json');
+  });
+
+  it('reuses same-file package script resolutions for later shorthand commands', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'deck'), { recursive: true });
+    await writeFile(join(root, 'deck/package.json'), JSON.stringify({ scripts: { lint: 'eslint .' } }));
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Instructions',
+        '',
+        '### Frontend',
+        '',
+        '```bash',
+        'cd deck',
+        'yarn lint',
+        '```',
+        '',
+        '## Testing Strategy',
+        '',
+        '- Run `spotlessCheck` / `yarn lint` before commits',
+        '',
+        '## Git & PR Policy',
+        '',
+        '- Run `./gradlew spotlessCheck` and `yarn lint` before committing',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions.filter((resolution) => resolution.command === 'yarn lint')).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          packageJsonPath: 'deck/package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+    expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('spotlessCheck/package.json');
   });
 
   it('does not satisfy root-scoped stale commands from unrelated nested packages', async () => {
