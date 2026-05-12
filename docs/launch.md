@@ -8,18 +8,18 @@ The hook is empirical evaluation instead of another instruction-file checklist. 
 
 ## Current Status
 
-- NPM package: `@kingkyylian/agentfit@0.1.9`.
+- NPM package: `@kingkyylian/agentfit@0.1.9` is prepared locally; publish is pending npm auth.
 - GitHub Action tag: `kingkyylian/agentfit@v1`.
 - Repository metadata: description, homepage, and discovery topics are configured.
 - Local full verification passed on 2026-05-12 for the `0.1.9` release.
-- AgentFit `0.1.9` is published to npm and `v1` points at the release commit.
-- Manual `AgentFit Consumer Smoke` with `version: 0.1.9` passed after publish and `v1` retag.
+- AgentFit `0.1.9` is not published yet; `v1` still points at the previous release commit.
+- Manual `AgentFit Consumer Smoke` with `version: 0.1.9` is pending publish and `v1` retag.
 - Starter issues are open for real-world snapshots, monorepo fixtures, an animated terminal demo, Codex adapter smoke tests, and scoring signal improvements.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and a package-local command freshness fix released in `0.1.9`.
+- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and a package-local command freshness fix queued for `0.1.9`.
 - Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
 
 ## 60-Second Demo
@@ -105,7 +105,7 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
 - earlier AgentFit false-positive classes found from noisy validation, including https://github.com/kingkyylian/agentfit/issues/7
-- one package-local command freshness fix released in `0.1.9`: https://github.com/kingkyylian/agentfit/issues/8
+- one package-local command freshness fix queued for `0.1.9`: https://github.com/kingkyylian/agentfit/issues/8
 - a public repo-suggestion issue for low-pressure feedback: https://github.com/kingkyylian/agentfit/issues/9
 - healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
 
