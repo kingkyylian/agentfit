@@ -70,6 +70,22 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     );
   }
 
+  if ((report.commandResolutions ?? []).length > 0) {
+    lines.splice(
+      lines.length - 1,
+      0,
+      `## Command Resolutions`,
+      '',
+      `| Command | Source | Script | Package | Status |`,
+      `| --- | --- | --- | --- | --- |`,
+      ...(report.commandResolutions ?? []).map(
+        (resolution) =>
+          `| ${escapeCell(resolution.command)} | ${escapeCell(`${resolution.sourcePath}:${resolution.line}`)} | ${escapeCell(resolution.scriptName)} | ${escapeCell(resolution.packageJsonPath)} | ${resolution.status} |`
+      ),
+      ''
+    );
+  }
+
   return `${lines.join('\n').trimEnd()}\n`;
 }
 

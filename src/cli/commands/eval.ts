@@ -10,7 +10,7 @@ import { evaluateTasks } from '../../core/evaluator.js';
 import { executionModeForRuns, isPreviewRun } from '../../core/execution-mode.js';
 import { resolveInstructionReferences } from '../../core/references.js';
 import { attachScoreToReport } from '../../core/scoring.js';
-import { collectStaticIssues } from '../../core/static-checks.js';
+import { collectStaticAnalysis } from '../../core/static-checks.js';
 import { generateFitnessTasks } from '../../core/task-suite.js';
 import { renderBadgeSvg } from '../../report/badge.js';
 import { renderJsonReport } from '../../report/json.js';
@@ -58,7 +58,7 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
       const instructionFiles = await discoverInstructionFiles(root, config.instructions.include);
       const configuredCommands = configuredCommandsFromConfig(config.commands);
       const referenceIssues = await collectReferenceIssues(root, instructionFiles.map((file) => file.path));
-      const staticIssues = await collectStaticIssues(root, instructionFiles, { configuredCommands });
+      const staticAnalysis = await collectStaticAnalysis(root, instructionFiles, { configuredCommands });
       const tasks = await generateFitnessTasks(root, {
         taskCount,
         allowExternalServices: config.evaluation.allowExternalServices,
@@ -89,7 +89,8 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         summary: '',
         instructionFiles,
         referenceIssues,
-        staticIssues,
+        staticIssues: staticAnalysis.issues,
+        commandResolutions: staticAnalysis.commandResolutions,
         tasks,
         runs,
         caps: [],
@@ -99,7 +100,7 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         safetyGuardrailsFound: await hasSafetyGuardrails(root, instructionFiles),
         reproducibilitySignalsFound: hasReproducibilitySignals(instructionFiles, configuredCommands),
         configuredCommands,
-        hasExposedSecrets: staticIssues.some((issue) => issue.category === 'secret'),
+        hasExposedSecrets: staticAnalysis.issues.some((issue) => issue.category === 'secret'),
         setupCommandFailed: runs.some((run) =>
           run.verification.some((result) => result.command.includes('install') && result.exitCode !== 0)
         )

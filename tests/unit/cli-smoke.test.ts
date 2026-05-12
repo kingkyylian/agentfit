@@ -258,4 +258,69 @@ describe('agentfit cli', () => {
 
     expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
   });
+
+  it('shows package-local command resolution in json and markdown reports', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await mkdir(join(root, '.cursor/rules'), { recursive: true });
+    await mkdir(join(root, 'app/client'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'node test.js' } }, null, 2));
+    await writeFile(
+      join(root, 'app/client/package.json'),
+      JSON.stringify({ name: '@agentfit/app-client', scripts: { 'test:unit': 'vitest run' } }, null, 2)
+    );
+    await writeFile(
+      join(root, '.cursor/rules/frontend.mdc'),
+      [
+        '# Frontend rules',
+        '',
+        'Frontend commands run from `app/client`.',
+        '',
+        '```bash',
+        'yarn test:unit',
+        '```',
+        ''
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      ['version: 1', 'root: .', 'report:', '  failBelowScore: 0', ''].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'json',
+      '--output',
+      'reports/agentfit.json',
+      '--markdown-output',
+      'reports/agentfit.md'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      commandResolutions?: Array<{
+        command: string;
+        sourcePath: string;
+        scriptName: string;
+        packageJsonPath: string;
+        status: string;
+      }>;
+      failedChecks: string[];
+    };
+    const markdown = await readFile(join(root, 'reports/agentfit.md'), 'utf8');
+
+    expect(report.commandResolutions).toContainEqual(
+      expect.objectContaining({
+        command: 'yarn test:unit',
+        sourcePath: '.cursor/rules/frontend.mdc',
+        scriptName: 'test:unit',
+        packageJsonPath: 'app/client/package.json',
+        status: 'resolved'
+      })
+    );
+    expect(report.failedChecks).not.toContain('Documented command references missing package script "test:unit".');
+    expect(markdown).toContain('## Command Resolutions');
+    expect(markdown).toContain('| yarn test:unit | .cursor/rules/frontend.mdc:6 | test:unit | app/client/package.json | resolved |');
+  });
 });

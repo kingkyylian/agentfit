@@ -33,6 +33,16 @@ export type StaticIssue = {
   severity: 'error' | 'warning';
 };
 
+export type CommandResolution = {
+  command: string;
+  sourcePath: string;
+  line: number;
+  scriptName: string;
+  packageJsonPath: string;
+  status: 'resolved' | 'missing';
+  reason: string;
+};
+
 export type CommandResult = {
   command: string;
   exitCode: number;
@@ -73,6 +83,7 @@ export type AgentFitReport = {
   instructionFiles: InstructionFile[];
   referenceIssues: ReferenceIssue[];
   staticIssues?: StaticIssue[];
+  commandResolutions?: CommandResolution[];
   tasks: FitnessTask[];
   runs: EvaluationRun[];
   caps: string[];

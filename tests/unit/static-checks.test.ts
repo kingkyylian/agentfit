@@ -130,6 +130,111 @@ describe('collectStaticIssues', () => {
     );
   });
 
+  it('resolves package scripts from a nested instruction file package', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'libs/@hashintel/ds-components'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'node test.js' } }));
+    await writeFile(
+      join(root, 'libs/@hashintel/ds-components/package.json'),
+      JSON.stringify({ scripts: { build: 'tsc -b', 'test:snapshots': 'vitest run snapshots' } })
+    );
+    await writeFile(
+      join(root, 'libs/@hashintel/ds-components/AGENTS.md'),
+      ['# Component instructions', '', '```bash', 'pnpm build', 'pnpm test:snapshots', '```', ''].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "build".'
+    );
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "test:snapshots".'
+    );
+  });
+
+  it('resolves package scripts from prose-scoped working directories and cwd flags', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, '.cursor/rules'), { recursive: true });
+    await mkdir(join(root, 'app/client'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'node test.js' } }));
+    await writeFile(
+      join(root, 'app/client/package.json'),
+      JSON.stringify({ scripts: { 'test:unit': 'vitest run', 'test:pw:smoke': 'playwright test --grep smoke' } })
+    );
+    await writeFile(
+      join(root, '.cursor/rules/frontend.mdc'),
+      [
+        '# Frontend rules',
+        '',
+        'Frontend commands run from `app/client`.',
+        '',
+        '```bash',
+        'yarn test:unit',
+        'yarn --cwd app/client test:pw:smoke',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "test:unit".'
+    );
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "test:pw:smoke".'
+    );
+  });
+
+  it('resolves package scripts from package-manager filters', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'packages/api'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'node test.js' } }));
+    await writeFile(
+      join(root, 'packages/api/package.json'),
+      JSON.stringify({ name: '@agentfit/api', scripts: { lint: 'eslint .', test: 'vitest run' } })
+    );
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      ['# Agent instructions', '', '```bash', 'pnpm --filter @agentfit/api lint', 'pnpm --filter @agentfit/api run test', '```', ''].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "lint".'
+    );
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'Documented command references missing package script "test".'
+    );
+  });
+
+  it('does not satisfy root-scoped stale commands from unrelated nested packages', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'packages/api'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { test: 'node test.js' } }));
+    await writeFile(join(root, 'packages/api/package.json'), JSON.stringify({ scripts: { lint: 'eslint .' } }));
+    await writeFile(join(root, 'AGENTS.md'), ['# Agent instructions', '', '```bash', 'pnpm lint', '```', ''].join('\n'));
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(issues).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          category: 'command',
+          sourcePath: 'AGENTS.md',
+          message: 'Documented command references missing package script "lint".',
+          severity: 'error'
+        })
+      ])
+    );
+  });
+
   it('does not report optional package script alias examples as stale commands', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await writeFile(

@@ -20,6 +20,9 @@ export function normalizeReport(report: ScoredAgentFitReport): JsonAgentFitRepor
     staticIssues: [...(report.staticIssues ?? [])].sort((left, right) =>
       `${left.category}:${left.sourcePath}:${left.message}`.localeCompare(`${right.category}:${right.sourcePath}:${right.message}`)
     ),
+    commandResolutions: [...(report.commandResolutions ?? [])].sort((left, right) =>
+      `${left.sourcePath}:${left.line}:${left.command}`.localeCompare(`${right.sourcePath}:${right.line}:${right.command}`)
+    ),
     tasks: [...report.tasks].sort((left, right) => left.id.localeCompare(right.id)),
     runs: [...report.runs].sort((left, right) => left.id.localeCompare(right.id)),
     caps: [...report.caps].sort()
