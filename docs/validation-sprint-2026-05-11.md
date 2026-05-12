@@ -39,9 +39,9 @@ The first run exposed false positives in AgentFit itself:
 - Explicit safety boundaries in `CLAUDE.md`, such as "NEVER run versioning or publishing commands", were not counted as safety guardrails.
 - Multiple monorepo scope warnings drove discoverability to zero and filled failed checks with repetitive package-level messages.
 - TypeScript decorator calls such as `@Hello(HelloType.FOO)` were treated as missing `@file` references because the parser saw `.FOO` as a file extension.
-- Commands scoped to package directories, such as Appsmith's `app/client` scripts and Spinnaker's `deck` scripts, are still checked against the root `package.json` in some reports.
+- Commands scoped to package directories, such as Appsmith's `app/client` scripts and Spinnaker's `deck` scripts, were checked against the root `package.json` in some reports.
 
-These were fixed before recording the final table:
+Most of these were fixed before recording the final table:
 
 - `src/core/references.ts` now requires explicit relative/absolute paths or file extensions for `@...` references.
 - `src/core/static-checks.ts` now skips common package-manager options before extracting script names.
@@ -50,7 +50,7 @@ These were fixed before recording the final table:
 - `src/core/scoring.ts` now caps root-covered monorepo scope penalties and summarizes multiple missing local instruction warnings.
 - `src/core/references.ts` now rejects call/decorator tokens with parentheses before treating an `@...` token as a file reference.
 
-The package-local command resolution gap is tracked for a future release:
+The package-local command resolution gap was fixed on `main` after `0.1.8` and is tracked for the next release:
 
 ```text
 https://github.com/kingkyylian/agentfit/issues/8

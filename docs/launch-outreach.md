@@ -294,7 +294,7 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 20 snapshots: one external maintainer issue that became a merged PR, two AgentFit false-positive fixes released in `0.1.8`, one open product issue from noisy validation, and a few healthy baselines.
+5. Follow up with a small result thread after 20 snapshots: one external maintainer issue that became a merged PR, two AgentFit false-positive fixes released in `0.1.8`, one package-local command fix on `main`, and a few healthy baselines.
 
 Preview result copy:
 
@@ -304,7 +304,7 @@ I ran AgentFit against 20 public repos that already have coding-agent instructio
 Useful signal so far:
 - one stale-command issue opened upstream, followed by a maintainer-requested PR that merged
 - two AgentFit false-positive classes found and released in 0.1.8
-- one noisy package-local command pattern turned into a product issue
+- one noisy package-local command pattern turned into a product fix on main
 - several healthy instruction files that score cleanly in dry-run mode
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to sanity-check before a broader launch.
