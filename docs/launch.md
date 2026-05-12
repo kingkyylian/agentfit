@@ -6,6 +6,8 @@ AgentFit answers one question: is this repository actually ready for coding agen
 
 The hook is empirical evaluation instead of another instruction-file checklist. Agent instruction files are code. Test them.
 
+The next milestone is not a broad launch. It is collecting five external repo suggestions or report sanity checks from people who maintain or use repositories with coding-agent instructions.
+
 ## Current Status
 
 - NPM package: `@kingkyylian/agentfit@0.1.10`.
@@ -111,4 +113,11 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.
 
-After the X preview has had a few hours to settle, use the GitHub Community draft in [launch-outreach.md](launch-outreach.md) as the next low-pressure channel. Do not post the Hacker News or Reddit launch copy until there is either repo-suggestion feedback or another concrete report result to include.
+After the X preview has had a few hours to settle, use the GitHub Community draft in [launch-outreach.md](launch-outreach.md) as the next low-pressure channel.
+
+Do not post to Hacker News or Reddit until at least one of these is true:
+
+- issue `#9` has 3+ external repo suggestions
+- a healthy named example gives permission to be referenced
+- another concrete stale-command or broken-reference finding is verified
+- a developer outside the project asks for a report or Action setup

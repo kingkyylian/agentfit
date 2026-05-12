@@ -15,6 +15,14 @@ AgentFit discovers `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions,
 npx @kingkyylian/agentfit@latest eval --adapter dry-run
 ```
 
+## Why This Exists
+
+AgentFit has been tested against 20 public repositories that already publish coding-agent instructions. The first validation pass found one stale-command issue that became a merged upstream RedisInsight PR, and it exposed AgentFit false positives that were fixed through `0.1.10`.
+
+The current feedback ask is narrow: suggest public repos with `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, or similar guidance so AgentFit can run deterministic dry-run validation.
+
+Suggest a repo: https://github.com/kingkyylian/agentfit/issues/9
+
 ```text
 AgentFit score: 93/100 (A)
 AgentFit score 93/100 (A).

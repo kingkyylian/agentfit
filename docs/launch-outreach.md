@@ -16,6 +16,17 @@ Problem version:
 Your README has tests. Your code has tests. Your AGENTS.md probably does not.
 ```
 
+## Current Objective
+
+Do not optimize for repository popularity metrics yet. Optimize for five external repo suggestions or report sanity checks from people who maintain repositories with coding-agent instructions.
+
+The first-touch message should not be a product announcement. Lead with the validation result:
+
+- 20 public dry-run snapshots
+- one stale-command issue that became a merged upstream RedisInsight PR
+- AgentFit false positives found during validation and fixed through `0.1.10`
+- a narrow ask for public repos to dry-run validate
+
 ## Demo Script
 
 Use the before/after demo as the launch hook:
@@ -58,30 +69,42 @@ AgentFit score 100/100 (A).
 ## X Post
 
 ```text
-I built AgentFit: CI for AGENTS.md and coding-agent instructions.
+I ran AgentFit against 20 public repos that already have coding-agent instructions.
 
-It checks whether your agent docs still work:
-- stale setup/test commands
-- broken @file references
-- missing nested monorepo instructions
-- before/after score regressions
-- isolated worktree verification
+Useful signal:
+- one stale-command issue became a merged upstream PR
+- two AgentFit false-positive classes were fixed in 0.1.8
+- package-local command false positives were fixed in 0.1.10
 
-npx @kingkyylian/agentfit@latest eval --adapter dry-run
+I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to dry-run validate.
 
-Repo: https://github.com/kingkyylian/agentfit
+Repo suggestions:
+https://github.com/kingkyylian/agentfit/issues/9
 ```
 
 Follow-up:
 
 ```text
-The demo starts with a stale AGENTS.md:
-- missing @docs/setup.md
-- stale pnpm lint
-- no runnable verification command
-- no nested packages/api/AGENTS.md
+AgentFit is a local-first checker for AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, and similar repo guidance.
 
-AgentFit compare: 65/100 (D) -> 93/100 (A)
+Dry-run mode does not call model providers or execute generated tasks.
+
+It checks for stale commands, broken @file references, missing nested monorepo instructions, and before/after report changes.
+
+Repo:
+https://github.com/kingkyylian/agentfit
+
+Repo suggestions:
+https://github.com/kingkyylian/agentfit/issues/9
+```
+
+Follow-up 2:
+
+```text
+The clearest external finding so far was RedisInsight Cursor rules documenting stale root E2E commands.
+
+The maintainers requested a PR and merged it:
+https://github.com/redis/RedisInsight/pull/5889
 ```
 
 ## Hacker News
@@ -177,7 +200,7 @@ I have run 20 dry-run snapshots so far.
 Useful signal:
 - one stale-command issue became a merged upstream RedisInsight PR
 - two AgentFit false-positive classes shipped as fixes in 0.1.8
-- one noisy package-local command pattern became a product issue
+- package-local command false positives were fixed in 0.1.10
 
 RedisInsight PR:
 https://github.com/redis/RedisInsight/pull/5889
@@ -278,13 +301,35 @@ https://github.com/kingkyylian/agentfit
 
 - First 3-5 reports: public repositories found through GitHub code search.
 - First maintainer contact: only when AgentFit finds a concrete, reproducible issue.
-- First X post: terminal demo plus one real-world finding, not a generic product pitch.
-- First Discord/Slack posts: ask for repos to test, not for stars.
+- First X post: proof-led validation summary plus one real-world finding, not a generic product pitch.
+- First Discord/Slack posts: ask for repos to test, not for promotion.
 - First Hacker News or Reddit post: before/after demo plus 3-5 public report signals.
 
-Do not lead with "perfect" or "AI-ready". Lead with the concrete failure mode: instruction drift.
+Do not lead with broad quality claims. Lead with the concrete failure mode: instruction drift.
 
-Do not ask for stars in validation messages. Ask for repo suggestions, report sanity checks, or permission to reference a snapshot.
+Do not ask for promotion in validation messages. Ask for repo suggestions, report sanity checks, or permission to reference a snapshot.
+
+## 7-Day Feedback Cadence
+
+The goal is five external repo suggestions or report sanity checks. Stop and re-evaluate after five real external signals, even if the post metrics look small.
+
+| Day | Action | Success Signal |
+| --- | --- | --- |
+| 1 | Post the proof-led X thread and reply once with the RedisInsight PR. | One reply, quote, DM, or issue comment with a repo suggestion. |
+| 1 | Pin or repost issue `#9` as the single call to action. | People know where to leave repo URLs. |
+| 2 | Post the GitHub Community draft as a request for repo suggestions. | One external comment or reaction from a maintainer/developer. |
+| 3 | Ask 3 healthy baseline repos for permission to reference a named dry-run report. | One yes/no response, not silence. |
+| 4 | Run one suggested repo or one new public candidate and share only concrete output. | A fresh report artifact or product issue. |
+| 5 | Follow up with the best single concrete finding or clean baseline. | One technical reply or repo suggestion. |
+| 6 | Prepare HN/Reddit only if there is new external proof. | A sharper title backed by feedback, not a generic launch. |
+| 7 | Decide whether to broaden launch or run another validation batch. | At least five external signals, or a clear reason to iterate messaging. |
+
+Do not post broad launch copy to Hacker News or Reddit until at least one of these is true:
+
+- issue `#9` has 3+ external repo suggestions
+- a healthy named example gives permission to be referenced
+- another concrete stale-command or broken-reference finding is verified
+- a developer outside the project asks for a report or Action setup
 
 ## Public Preview Without A Network
 
