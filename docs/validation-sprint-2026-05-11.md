@@ -24,10 +24,10 @@ Twenty repositories from the starter candidate list in [real-world-validation.md
 | `erigontech/erigon` | `ddf60f0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy signal with Git LFS checkout caveat |
 | `gnachman/iTerm2` | `e867712` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy example candidate |
 | `pingcap/tidb` | `4598d48` | `AGENTS.md`, `CLAUDE.md` | 83/100 (B) | reproducibility signal only |
-| `appsmithorg/appsmith` | `893572e` | Cursor rules | 75/100 (C) | package-local command false positives |
+| `appsmithorg/appsmith` | `893572e` | Cursor rules | 75 -> 83 | package-local command false positives cleared in `0.1.10` rerun |
 | `opf/openproject` | `3a61240` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy example candidate |
-| `spinnaker/spinnaker` | `d6d10e0` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 85/100 (B) | package-local command false positives |
-| `hashintel/hash` | `f8eae3a` | `AGENTS.md`, `CLAUDE.md`, Cursor rules | 80/100 (B) | package-local command false positives |
+| `spinnaker/spinnaker` | `d6d10e0` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 85 -> 93 | package-local command false positives cleared in `0.1.10` rerun |
+| `hashintel/hash` | `f8eae3a` | `AGENTS.md`, `CLAUDE.md`, Cursor rules | 80 -> 88 | package-local command false positives cleared in `0.1.10` rerun |
 
 ## Product Issues Found And Fixed
 
@@ -50,11 +50,17 @@ Most of these were fixed before recording the final table:
 - `src/core/scoring.ts` now caps root-covered monorepo scope penalties and summarizes multiple missing local instruction warnings.
 - `src/core/references.ts` now rejects call/decorator tokens with parentheses before treating an `@...` token as a file reference.
 
-The package-local command resolution gap was fixed on `main` after `0.1.8` and is tracked for the next release:
+The package-local command resolution gap was fixed and released in `0.1.10`:
 
 ```text
 https://github.com/kingkyylian/agentfit/issues/8
 ```
+
+Published-package reruns on 2026-05-12 removed the command findings from the affected fixtures:
+
+- `appsmithorg/appsmith`: 83/100 (B), 7 command resolutions, 0 missing
+- `spinnaker/spinnaker`: 93/100 (A), 33 command resolutions, 0 missing
+- `hashintel/hash`: 88/100 (B), 25 command resolutions, 0 missing
 
 Regression coverage was added in:
 

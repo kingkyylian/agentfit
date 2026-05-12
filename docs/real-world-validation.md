@@ -107,10 +107,10 @@ Track candidates before contacting anyone:
 | `erigontech/erigon` | `AGENTS.md`, `CLAUDE.md` | Go | infrastructure repo | 93 | healthy signal, but checkout required Git LFS caveat | no |
 | `gnachman/iTerm2` | `AGENTS.md`, `CLAUDE.md` | Objective-C | desktop app | 93 | healthy instruction files | permission only |
 | `pingcap/tidb` | `AGENTS.md`, `CLAUDE.md` | Go | large monorepo | 83 | broad reproducibility signal only | no |
-| `appsmithorg/appsmith` | Cursor rules | TypeScript | application monorepo | 75 | package-local command false positives | no |
+| `appsmithorg/appsmith` | Cursor rules | TypeScript | application monorepo | 75 -> 83 | package-local command false positives cleared in `0.1.10` rerun | no |
 | `opf/openproject` | `AGENTS.md`, `CLAUDE.md`, Copilot | Ruby/TypeScript | large application | 93 | healthy layered instruction files | permission only |
-| `spinnaker/spinnaker` | `AGENTS.md`, `CLAUDE.md`, Copilot | Java/TypeScript | multi-service monorepo | 85 | package-local command false positives | no |
-| `hashintel/hash` | `AGENTS.md`, `CLAUDE.md`, Cursor | Rust/TypeScript | product monorepo | 80 | package-local command false positives | no |
+| `spinnaker/spinnaker` | `AGENTS.md`, `CLAUDE.md`, Copilot | Java/TypeScript | multi-service monorepo | 85 -> 93 | package-local command false positives cleared in `0.1.10` rerun | no |
+| `hashintel/hash` | `AGENTS.md`, `CLAUDE.md`, Cursor | Rust/TypeScript | product monorepo | 80 -> 88 | package-local command false positives cleared in `0.1.10` rerun | no |
 
 Use these labels:
 
@@ -184,7 +184,7 @@ Prefer opening an issue only after running AgentFit locally and confirming the f
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/issues/5887 | stale E2E commands in Cursor rules | closed after PR merge |
 | 2026-05-11 | `redis/RedisInsight` | https://github.com/redis/RedisInsight/pull/5889 | fix stale E2E Cursor rule commands | merged |
 | 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/7 | noisy optional alias command checks | fixed locally |
-| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/8 | noisy package-local command checks | fixed on `main`, release pending |
+| 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/8 | noisy package-local command checks | fixed and released in `0.1.10` |
 | 2026-05-11 | `kingkyylian/agentfit` | https://github.com/kingkyylian/agentfit/issues/9 | public repo suggestion funnel | open |
 
 ## No-Network Preview Plan
@@ -197,7 +197,7 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit ran 20 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, shipped two false-positive fixes in `0.1.8`, and turned one package-local command false-positive pattern into a product fix on `main`. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit ran 20 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, shipped two false-positive fixes in `0.1.8`, and released the package-local command false-positive fix in `0.1.10`. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 
@@ -207,9 +207,9 @@ Use these only if another 5-10 snapshots are needed after the public repo-sugges
 | --- | --- | --- |
 | Suggested repos from issue #9 | direct user interest | concrete stale command or broken reference only |
 | `pingcap/tidb` follow-up | broad reproducibility signal | no external contact without a narrower finding |
-| `appsmithorg/appsmith` follow-up | package-local command parser fixture | re-run after the next AgentFit release before any maintainer contact |
-| `spinnaker/spinnaker` follow-up | package-local command parser fixture | re-run after the next AgentFit release before any maintainer contact |
-| `hashintel/hash` follow-up | package-local command parser fixture | re-run after the next AgentFit release before any maintainer contact |
+| `appsmithorg/appsmith` follow-up | package-local command parser fixture | rerun clean in `0.1.10`; no maintainer contact |
+| `spinnaker/spinnaker` follow-up | package-local command parser fixture | rerun clean in `0.1.10`; no maintainer contact |
+| `hashintel/hash` follow-up | package-local command parser fixture | rerun clean in `0.1.10`; no maintainer contact |
 | `projen/projen` follow-up | healthy baseline candidate | permission request only |
 | `grafana/mimir` follow-up | healthy baseline candidate | permission request only |
 | `Dart-Code/Dart-Code` follow-up | healthy single-file baseline | permission request only |
