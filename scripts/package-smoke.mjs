@@ -54,7 +54,12 @@ try {
     '--json',
     '--pack-destination',
     tempDir
-  ]);
+  ], {
+    env: {
+      ...process.env,
+      npm_config_dry_run: 'false'
+    }
+  });
   const [packed] = JSON.parse(packOutput);
   if (!packed?.filename || !Array.isArray(packed.files)) {
     fail('npm pack did not return the expected JSON metadata.');
