@@ -1,6 +1,6 @@
 {
   "name": "@kingkyylian/agentfit",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Local-first tests for AGENTS.md and coding-agent instructions.",
   "type": "module",
   "repository": {

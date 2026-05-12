@@ -84,7 +84,7 @@ The clearest finding was in RedisInsight: Cursor rules documented stale root E2E
 - Issue: https://github.com/redis/RedisInsight/issues/5887
 - PR: https://github.com/redis/RedisInsight/pull/5889
 
-The same validation pass also found AgentFit false positives, which shipped as fixes in `0.1.8`, and one follow-up product issue for package-local command resolution. No endorsement is implied by any repository being tested.
+The same validation pass also found AgentFit false positives, including package-local command checks that now resolve nested package scripts in `0.1.9`. No endorsement is implied by any repository being tested.
 
 Suggest a public repository for dry-run validation: https://github.com/kingkyylian/agentfit/issues/9
 
@@ -117,7 +117,7 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
 ```yaml
 - uses: kingkyylian/agentfit@v1
   with:
-    version: 0.1.8
+    version: 0.1.9
     adapter: dry-run
     run-tasks: true
     fail-below-score: 70
