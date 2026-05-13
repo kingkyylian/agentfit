@@ -50,6 +50,7 @@ Reports include an `executionMode` field in JSON and a task execution note in Ma
 | Mode | Meaning |
 | --- | --- |
 | `preview` | Default deterministic dry-run. AgentFit generated task records but did not execute them in worktrees. |
+| `skipped` | A selected real adapter did not run tasks, for example because the adapter executable was unavailable or the configured budget was zero. |
 | `executed` | Generated tasks were executed through `--run-tasks` or a real adapter. |
 | `mixed` | The report contains both preview and executed runs. |
 | `none` | No task runs were recorded. |

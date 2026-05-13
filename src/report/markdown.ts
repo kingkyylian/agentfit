@@ -158,6 +158,10 @@ function executionSummary(report: ScoredAgentFitReport): string[] {
     return ['**Task execution:** No generated tasks were executed.'];
   }
 
+  if (executionMode === 'skipped') {
+    return ['**Task execution:** Generated task runs were skipped.'];
+  }
+
   if (executionMode === 'preview') {
     return [
       '**Task execution:** Static dry-run preview; generated tasks were not executed.',

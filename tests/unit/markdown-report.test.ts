@@ -75,4 +75,37 @@ describe('renderMarkdownReport', () => {
     expect(markdown).toContain('| safety | AGENTS.md:4 | Approval boundary for risky changes. |');
     expect(markdown).toContain('| reproducibility | CLAUDE.md:8 | Exact reproduction guidance. |');
   });
+
+  it('describes skipped adapter runs without claiming execution', () => {
+    const markdown = renderMarkdownReport(
+      report({
+        runs: [
+          {
+            id: 'codex-task',
+            adapter: 'codex',
+            task: {
+              id: 'task',
+              title: 'Exercise the test package script',
+              prompt: 'Run tests.',
+              expectedChecks: ['npm run test'],
+              filesLikelyTouched: ['package.json']
+            },
+            startedAt: '2026-05-07T10:00:00.000Z',
+            finishedAt: '2026-05-07T10:00:00.000Z',
+            status: 'skipped',
+            verification: [],
+            diffStat: {
+              filesChanged: 0,
+              insertions: 0,
+              deletions: 0
+            },
+            message: 'Codex adapter skipped because budgetUsd is 0.'
+          }
+        ]
+      })
+    );
+
+    expect(markdown).toContain('**Task execution:** Generated task runs were skipped.');
+    expect(markdown).toContain('| Exercise the test package script | codex | skipped | none recorded | 0 files, +0/-0 | - |');
+  });
 });

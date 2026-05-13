@@ -22,6 +22,14 @@ The Codex adapter is intended for non-interactive Codex CLI evaluations. It shou
 - mark runs as skipped when Codex is unavailable
 - capture verification results, diff stats, runtime, and cost when available
 
+Use a zero budget when you want to smoke-test the Codex adapter path without running Codex:
+
+```bash
+npx @kingkyylian/agentfit@latest eval --adapter codex --budget-usd 0
+```
+
+Reports mark those runs as skipped instead of executed.
+
 Example:
 
 ```bash

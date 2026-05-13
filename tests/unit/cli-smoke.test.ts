@@ -2,6 +2,7 @@ import { mkdir, mkdtemp, readFile, symlink, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { execa } from 'execa';
 import { describe, expect, it } from 'vitest';
 import { evalCommand } from '../../src/cli/commands/eval.js';
 import { initCommand } from '../../src/cli/commands/init.js';
@@ -164,6 +165,88 @@ describe('agentfit cli', () => {
     expect(report.score).toBe(0);
     expect(report.caps).toContain('exposed secrets in instruction files: hard fail');
     expect(report.staticIssues.some((issue) => issue.category === 'secret')).toBe(true);
+  });
+
+  it('reports explicitly selected Codex adapter runs as skipped when budget is zero', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify(
+        {
+          type: 'module',
+          scripts: {
+            test: 'node -e "process.exit(0)"'
+          }
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Instructions',
+        '',
+        '```bash',
+        'npm test',
+        '```',
+        '',
+        'Do not expose tokens in logs.',
+        'Record exact repro steps for failures.'
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      [
+        'version: 1',
+        'root: .',
+        'evaluation:',
+        '  taskCount: 1',
+        'report:',
+        '  failBelowScore: 0',
+        ''
+      ].join('\n')
+    );
+    await initGitRepo(root);
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--adapter',
+      'codex',
+      '--budget-usd',
+      '0',
+      '--format',
+      'text',
+      '--output',
+      'reports/agentfit.txt',
+      '--json-output',
+      'reports/agentfit.json',
+      '--markdown-output',
+      'reports/agentfit.md'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      executionMode: string;
+      runs: Array<{ adapter: string; status: string; verification: unknown[]; message?: string }>;
+    };
+    const text = await readFile(join(root, 'reports/agentfit.txt'), 'utf8');
+    const markdown = await readFile(join(root, 'reports/agentfit.md'), 'utf8');
+
+    expect(report.executionMode).toBe('skipped');
+    expect(report.runs).toEqual([
+      expect.objectContaining({
+        adapter: 'codex',
+        status: 'skipped',
+        verification: [],
+        message: 'Codex adapter skipped because budgetUsd is 0.'
+      })
+    ]);
+    expect(text).toContain('Task execution: generated task runs were skipped.');
+    expect(text).toContain('Runs: 0 executed, 1 skipped');
+    expect(markdown).toContain('**Task execution:** Generated task runs were skipped.');
+    expect(markdown).toContain('| Exercise the test package script | codex | skipped | none recorded | 0 files, +0/-0 | - |');
   });
 
   it('uses configured verification commands when generating eval tasks', async () => {
@@ -516,3 +599,11 @@ describe('agentfit cli', () => {
     expect(markdown).toContain('| yarn test:unit | .cursor/rules/frontend.mdc:6 | test:unit | app/client/package.json | resolved |');
   });
 });
+
+async function initGitRepo(root: string): Promise<void> {
+  await execa('git', ['init'], { cwd: root });
+  await execa('git', ['config', 'user.email', 'agentfit@example.test'], { cwd: root });
+  await execa('git', ['config', 'user.name', 'AgentFit Test'], { cwd: root });
+  await execa('git', ['add', '.'], { cwd: root });
+  await execa('git', ['commit', '-m', 'initial'], { cwd: root });
+}

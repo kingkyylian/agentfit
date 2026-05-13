@@ -48,6 +48,40 @@ describe('renderJsonReport', () => {
     expect(parsed.executionMode).toBe('preview');
   });
 
+  it('marks all-skipped adapter runs as skipped execution mode', () => {
+    const parsed = JSON.parse(
+      renderJsonReport(
+        report({
+          runs: [
+            {
+              id: 'codex-task',
+              adapter: 'codex',
+              task: {
+                id: 'task',
+                title: 'Exercise the test package script',
+                prompt: 'Run tests.',
+                expectedChecks: ['npm run test'],
+                filesLikelyTouched: ['package.json']
+              },
+              startedAt: '2026-05-07T10:00:00.000Z',
+              finishedAt: '2026-05-07T10:00:00.000Z',
+              status: 'skipped',
+              verification: [],
+              diffStat: {
+                filesChanged: 0,
+                insertions: 0,
+                deletions: 0
+              },
+              message: 'Codex adapter skipped because budgetUsd is 0.'
+            }
+          ]
+        })
+      )
+    ) as { executionMode?: string };
+
+    expect(parsed.executionMode).toBe('skipped');
+  });
+
   it('includes signal findings in a stable order', () => {
     const parsed = JSON.parse(
       renderJsonReport(

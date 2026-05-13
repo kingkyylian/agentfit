@@ -246,6 +246,10 @@ function textExecutionSummary(report: ReturnType<typeof attachScoreToReport>): s
     return 'Task execution: no generated tasks were executed.';
   }
 
+  if (executionMode === 'skipped') {
+    return 'Task execution: generated task runs were skipped.';
+  }
+
   if (executionMode === 'mixed') {
     return 'Task execution: mixed preview and executed runs.';
   }
@@ -256,9 +260,14 @@ function textExecutionSummary(report: ReturnType<typeof attachScoreToReport>): s
 function textRunSummary(report: ReturnType<typeof attachScoreToReport>): string {
   const previewedRuns = report.runs.filter(isPreviewRun).length;
   const executedRuns = report.runs.filter((run) => run.status !== 'skipped' && !isPreviewRun(run)).length;
+  const skippedRuns = report.runs.filter((run) => run.status === 'skipped').length;
 
   if (previewedRuns > 0) {
     return `Runs: ${executedRuns} executed, ${previewedRuns} previewed`;
+  }
+
+  if (skippedRuns > 0) {
+    return `Runs: ${executedRuns} executed, ${skippedRuns} skipped`;
   }
 
   return `Runs: ${executedRuns}`;

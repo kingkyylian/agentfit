@@ -1,10 +1,15 @@
 import type { EvaluationRun } from '../types.js';
 
-export type ExecutionMode = 'none' | 'preview' | 'executed' | 'mixed';
+export type ExecutionMode = 'none' | 'preview' | 'skipped' | 'executed' | 'mixed';
 
 export function executionModeForRuns(runs: EvaluationRun[]): ExecutionMode {
   if (runs.length === 0) {
     return 'none';
+  }
+
+  const skippedRuns = runs.filter((run) => run.status === 'skipped').length;
+  if (skippedRuns === runs.length) {
+    return 'skipped';
   }
 
   const previewRuns = runs.filter(isPreviewRun).length;

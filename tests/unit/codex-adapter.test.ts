@@ -14,6 +14,52 @@ const task: FitnessTask = {
 };
 
 describe('createCodexAdapter', () => {
+  it('skips cleanly when the Codex executable is unavailable', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-codex-adapter-'));
+    const adapter = createCodexAdapter({
+      executable: join(root, 'missing-codex')
+    });
+
+    const result = await adapter.runTask(
+      {
+        root,
+        worktreePath: root
+      },
+      task
+    );
+
+    expect(result).toEqual({
+      status: 'skipped',
+      message: `Codex adapter skipped because "${join(root, 'missing-codex')}" is not installed.`
+    });
+  });
+
+  it('skips cleanly when adapter budget is zero', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-codex-adapter-'));
+    const executable = join(root, 'codex-stub');
+
+    await writeFile(executable, '#!/bin/sh\nexit 1\n');
+    await chmod(executable, 0o755);
+
+    const adapter = createCodexAdapter({
+      executable
+    });
+
+    const result = await adapter.runTask(
+      {
+        root,
+        worktreePath: root,
+        budgetUsd: 0
+      },
+      task
+    );
+
+    expect(result).toEqual({
+      status: 'skipped',
+      message: 'Codex adapter skipped because budgetUsd is 0.'
+    });
+  });
+
   it('omits cost when the Codex command does not report usage cost', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-codex-adapter-'));
     const executable = join(root, 'codex-stub');

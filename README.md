@@ -157,7 +157,6 @@ See [docs/real-world.md](docs/real-world.md).
 ## Good First Issues
 
 - [Add more real-world dry-run snapshots](https://github.com/kingkyylian/agentfit/issues/1)
-- [Add Codex adapter smoke tests](https://github.com/kingkyylian/agentfit/issues/4)
 - [Add an animated terminal GIF or asciicast](https://github.com/kingkyylian/agentfit/issues/6)
 
 ## License
