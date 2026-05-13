@@ -154,10 +154,6 @@ Dry-run snapshots from public repositories:
 
 See [docs/real-world.md](docs/real-world.md).
 
-## Good First Issues
-
-- [Add an animated terminal GIF or asciicast](https://github.com/kingkyylian/agentfit/issues/6)
-
 ## License
 
 MIT
