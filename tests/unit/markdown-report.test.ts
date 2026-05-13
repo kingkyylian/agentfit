@@ -50,4 +50,29 @@ describe('renderMarkdownReport', () => {
     expect(markdown).toContain('| Task | Adapter | Status | Verification | Diff | Cost |');
     expect(markdown).toContain('| Exercise the test package script | dry-run | preview | not executed | 0 files, +0/-0 | - |');
   });
+
+  it('renders safety and reproducibility signal evidence', () => {
+    const markdown = renderMarkdownReport(
+      report({
+        signalFindings: [
+          {
+            category: 'safety',
+            sourcePath: 'AGENTS.md',
+            line: 4,
+            message: 'Approval boundary for risky changes.'
+          },
+          {
+            category: 'reproducibility',
+            sourcePath: 'CLAUDE.md',
+            line: 8,
+            message: 'Exact reproduction guidance.'
+          }
+        ]
+      })
+    );
+
+    expect(markdown).toContain('## Signal Findings');
+    expect(markdown).toContain('| safety | AGENTS.md:4 | Approval boundary for risky changes. |');
+    expect(markdown).toContain('| reproducibility | CLAUDE.md:8 | Exact reproduction guidance. |');
+  });
 });

@@ -86,6 +86,26 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     );
   }
 
+  if ((report.signalFindings ?? []).length > 0) {
+    lines.splice(
+      lines.length - 1,
+      0,
+      `## Signal Findings`,
+      '',
+      `| Category | Source | Evidence |`,
+      `| --- | --- | --- |`,
+      ...[...(report.signalFindings ?? [])].sort((left, right) =>
+        `${left.category}:${left.sourcePath}:${left.line}:${left.message}`.localeCompare(
+          `${right.category}:${right.sourcePath}:${right.line}:${right.message}`
+        )
+      ).map(
+        (finding) =>
+          `| ${finding.category} | ${escapeCell(`${finding.sourcePath}:${finding.line}`)} | ${escapeCell(finding.message)} |`
+      ),
+      ''
+    );
+  }
+
   return `${lines.join('\n').trimEnd()}\n`;
 }
 

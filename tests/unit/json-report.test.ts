@@ -47,4 +47,42 @@ describe('renderJsonReport', () => {
 
     expect(parsed.executionMode).toBe('preview');
   });
+
+  it('includes signal findings in a stable order', () => {
+    const parsed = JSON.parse(
+      renderJsonReport(
+        report({
+          signalFindings: [
+            {
+              category: 'reproducibility',
+              sourcePath: 'CLAUDE.md',
+              line: 8,
+              message: 'Exact reproduction guidance.'
+            },
+            {
+              category: 'safety',
+              sourcePath: 'AGENTS.md',
+              line: 4,
+              message: 'Approval boundary for risky changes.'
+            }
+          ]
+        })
+      )
+    ) as { signalFindings?: Array<{ category: string; sourcePath: string; line: number; message: string }> };
+
+    expect(parsed.signalFindings).toEqual([
+      {
+        category: 'reproducibility',
+        sourcePath: 'CLAUDE.md',
+        line: 8,
+        message: 'Exact reproduction guidance.'
+      },
+      {
+        category: 'safety',
+        sourcePath: 'AGENTS.md',
+        line: 4,
+        message: 'Approval boundary for risky changes.'
+      }
+    ]);
+  });
 });

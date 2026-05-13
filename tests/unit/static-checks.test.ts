@@ -414,4 +414,28 @@ describe('collectStaticIssues', () => {
       'Documented command references missing package script "test:options".'
     );
   });
+
+  it('documents nested monorepo fixture scope warnings and fixed coverage', async () => {
+    const badRoot = join(process.cwd(), 'examples/fixtures/nested-monorepo/bad');
+    const fixedRoot = join(process.cwd(), 'examples/fixtures/nested-monorepo/fixed');
+
+    const badIssues = await collectStaticIssues(badRoot, await discoverInstructionFiles(badRoot));
+    const fixedIssues = await collectStaticIssues(fixedRoot, await discoverInstructionFiles(fixedRoot));
+
+    expect(badIssues).toContainEqual(
+      expect.objectContaining({
+        category: 'scope',
+        sourcePath: 'packages/api',
+        message: 'No nested instruction file found for packages/api.',
+        severity: 'warning'
+      })
+    );
+    expect(badIssues).not.toContainEqual(
+      expect.objectContaining({
+        category: 'scope',
+        sourcePath: 'packages/web'
+      })
+    );
+    expect(fixedIssues.filter((issue) => issue.category === 'scope')).toEqual([]);
+  });
 });

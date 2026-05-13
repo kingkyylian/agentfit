@@ -259,6 +259,198 @@ describe('agentfit cli', () => {
     expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
   });
 
+  it('recognizes approval-gated risky changes as safety guardrails in reports', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify(
+        {
+          type: 'module',
+          scripts: {
+            test: 'node -e "process.exit(0)"'
+          }
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      [
+        '# Guidelines for Claude Code',
+        '',
+        '```bash',
+        'npm test',
+        '```',
+        '',
+        'Get explicit approval before touching database migrations.'
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      ['version: 1', 'root: .', 'report:', '  failBelowScore: 0', ''].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'json',
+      '--output',
+      'reports/agentfit.json',
+      '--markdown-output',
+      'reports/agentfit.md'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      breakdown: Array<{ label: string; earned: number; max: number; explanation: string }>;
+      failedChecks: string[];
+      signalFindings?: Array<{ category: string; sourcePath: string; line: number; message: string }>;
+    };
+    const markdown = await readFile(join(root, 'reports/agentfit.md'), 'utf8');
+
+    expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
+    expect(report.signalFindings).toContainEqual({
+      category: 'safety',
+      sourcePath: 'CLAUDE.md',
+      line: 7,
+      message: 'Approval boundary for risky changes.'
+    });
+    expect(report.breakdown).toContainEqual(
+      expect.objectContaining({
+        label: 'Safety guardrails',
+        earned: 10,
+        max: 10,
+        explanation: 'Safety guardrails found.'
+      })
+    );
+    expect(markdown).toContain('| Safety guardrails | 10/10 | Safety guardrails found. |');
+    expect(markdown).toContain('## Signal Findings');
+    expect(markdown).toContain('| safety | CLAUDE.md:7 | Approval boundary for risky changes. |');
+  });
+
+  it('recognizes local-first provider network boundaries as safety guardrails', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify(
+        {
+          type: 'module',
+          scripts: {
+            test: 'node -e "process.exit(0)"'
+          }
+        },
+        null,
+        2
+      )
+    );
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Agent instructions',
+        '',
+        '```bash',
+        'npm test',
+        '```',
+        '',
+        'Keep the CLI local-first and deterministic by default.',
+        'Do not add provider network calls to the dry-run adapter.'
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      ['version: 1', 'root: .', 'report:', '  failBelowScore: 0', ''].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'json',
+      '--output',
+      'reports/agentfit.json'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      failedChecks: string[];
+    };
+
+    expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
+  });
+
+  it('recognizes exact reproduction instructions without relying on package command categories', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(join(root, 'package.json'), JSON.stringify({ type: 'module' }, null, 2));
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      [
+        '# Guidelines for Claude Code',
+        '',
+        'Record exact repro steps, environment variables, and seed for failing tests.',
+        'Do not expose tokens in logs.'
+      ].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      ['version: 1', 'root: .', 'report:', '  failBelowScore: 0', ''].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'json',
+      '--output',
+      'reports/agentfit.json',
+      '--markdown-output',
+      'reports/agentfit.md'
+    ]);
+
+    const report = JSON.parse(await readFile(join(root, 'reports/agentfit.json'), 'utf8')) as {
+      breakdown: Array<{ label: string; earned: number; max: number; explanation: string }>;
+      failedChecks: string[];
+      signalFindings?: Array<{ category: string; sourcePath: string; line: number; message: string }>;
+    };
+    const markdown = await readFile(join(root, 'reports/agentfit.md'), 'utf8');
+
+    expect(report.failedChecks).not.toContain('Reproducibility instructions were not found.');
+    expect(report.failedChecks).not.toContain('Safety guardrails were not found.');
+    expect(report.signalFindings).toEqual(
+      expect.arrayContaining([
+        {
+          category: 'reproducibility',
+          sourcePath: 'CLAUDE.md',
+          line: 3,
+          message: 'Exact reproduction guidance.'
+        },
+        {
+          category: 'safety',
+          sourcePath: 'CLAUDE.md',
+          line: 4,
+          message: 'Do-not-run or do-not-expose boundary for risky actions.'
+        }
+      ])
+    );
+    expect(report.breakdown).toContainEqual(
+      expect.objectContaining({
+        label: 'Reproducibility',
+        earned: 10,
+        max: 10,
+        explanation: 'Reproducible setup and verification guidance found.'
+      })
+    );
+    expect(markdown).toContain(
+      '| Reproducibility | 10/10 | Reproducible setup and verification guidance found. |'
+    );
+    expect(markdown).toContain('| reproducibility | CLAUDE.md:3 | Exact reproduction guidance. |');
+    expect(markdown).toContain(
+      '| safety | CLAUDE.md:4 | Do-not-run or do-not-expose boundary for risky actions. |'
+    );
+  });
+
   it('shows package-local command resolution in json and markdown reports', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
 

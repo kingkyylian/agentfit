@@ -8,6 +8,7 @@ import { loadAgentFitConfig } from '../../core/config.js';
 import { discoverInstructionFiles } from '../../core/discovery.js';
 import { evaluateTasks } from '../../core/evaluator.js';
 import { executionModeForRuns, isPreviewRun } from '../../core/execution-mode.js';
+import { collectInstructionSignalFindings } from '../../core/instruction-signals.js';
 import { resolveInstructionReferences } from '../../core/references.js';
 import { attachScoreToReport } from '../../core/scoring.js';
 import { collectStaticAnalysis } from '../../core/static-checks.js';
@@ -59,6 +60,7 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
       const configuredCommands = configuredCommandsFromConfig(config.commands);
       const referenceIssues = await collectReferenceIssues(root, instructionFiles.map((file) => file.path));
       const staticAnalysis = await collectStaticAnalysis(root, instructionFiles, { configuredCommands });
+      const signalFindings = await collectInstructionSignalFindings(root, instructionFiles, configuredCommands);
       const tasks = await generateFitnessTasks(root, {
         taskCount,
         allowExternalServices: config.evaluation.allowExternalServices,
@@ -91,14 +93,15 @@ export function evalCommand(getCwd: () => string = () => process.cwd()): Command
         referenceIssues,
         staticIssues: staticAnalysis.issues,
         commandResolutions: staticAnalysis.commandResolutions,
+        signalFindings,
         tasks,
         runs,
         caps: [],
         generatedAt: new Date().toISOString()
       };
       const report = attachScoreToReport(baseReport, {
-        safetyGuardrailsFound: await hasSafetyGuardrails(root, instructionFiles),
-        reproducibilitySignalsFound: hasReproducibilitySignals(instructionFiles, configuredCommands),
+        safetyGuardrailsFound: signalFindings.some((finding) => finding.category === 'safety'),
+        reproducibilitySignalsFound: signalFindings.some((finding) => finding.category === 'reproducibility'),
         configuredCommands,
         hasExposedSecrets: staticAnalysis.issues.some((issue) => issue.category === 'secret'),
         setupCommandFailed: runs.some((run) =>
@@ -206,53 +209,6 @@ function deterministicRuns(adapter: EvalOptions['adapter'], tasks: AgentFitRepor
     },
     message: 'Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks.'
   }));
-}
-
-async function hasSafetyGuardrails(root: string, instructionFiles: AgentFitReport['instructionFiles']): Promise<boolean> {
-  for (const file of instructionFiles) {
-    if (
-      file.commands.some((command) => command.value.includes('git status')) ||
-      file.importedPaths.some((importedPath) => importedPath.toLowerCase().includes('security')) ||
-      file.path === 'AGENTS.md'
-    ) {
-      return true;
-    }
-
-    const content = await readFile(path.join(root, file.path), 'utf8');
-    if (hasSafetyBoundaryText(content)) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function hasSafetyBoundaryText(content: string): boolean {
-  const normalized = content.toLowerCase();
-  const actionBoundary = /\b(?:never|do not|don't|must not|should not)\s+(?:run|execute|use|call|modify|delete|remove|publish|deploy)\b/.test(
-    normalized
-  );
-  const approvalBoundary = /\b(?:ask|confirm|require|requires)\b.{0,40}\b(?:first|approval|permission|before)\b/.test(
-    normalized
-  );
-  const riskyArea =
-    /\b(?:versioning|publishing|publish|release|deploy|production|destructive|secret|credential|token|database|migration|reset|force-push)\b/.test(
-      normalized
-    );
-
-  return riskyArea && (actionBoundary || approvalBoundary);
-}
-
-function hasReproducibilitySignals(
-  instructionFiles: AgentFitReport['instructionFiles'],
-  configuredCommands: ExtractedCommand[]
-): boolean {
-  const commands = [
-    ...instructionFiles.flatMap((file) => file.commands),
-    ...configuredCommands
-  ];
-
-  return commands.some((command) => command.kind === 'setup' || command.kind === 'build' || command.kind === 'test');
 }
 
 function renderOutput(report: ReturnType<typeof attachScoreToReport>, format: EvalOptions['format']): string {

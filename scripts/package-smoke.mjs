@@ -75,6 +75,8 @@ try {
   requirePackedFile(filesByPath, 'action.yml');
   requirePackedFile(filesByPath, 'docs/assets/agentfit-terminal-demo.svg');
   requirePackedFile(filesByPath, 'docs/assets/social-preview.svg');
+  requirePackedFile(filesByPath, 'examples/fixtures/nested-monorepo/bad/AGENTS.md');
+  requirePackedFile(filesByPath, 'examples/fixtures/nested-monorepo/fixed/packages/api/AGENTS.md');
   const packedCli = requirePackedFile(filesByPath, 'dist/index.js');
 
   if ((packedCli.mode & 0o111) === 0) {

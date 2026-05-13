@@ -25,6 +25,8 @@ Caps are applied after the weighted score is calculated, so the report still sho
 
 Secret detection is intentionally high-confidence. AgentFit currently flags obvious OpenAI API keys, AWS access key IDs, GitHub tokens, and private key blocks in discovered instruction files.
 
+Safety and reproducibility scoring is evidence-backed. JSON reports include `signalFindings`, and Markdown reports include a Signal Findings table with the category, source location, and detected guidance, such as approval boundaries for risky changes or exact reproduction steps.
+
 ## Grades
 
 | Score | Grade |

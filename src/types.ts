@@ -43,6 +43,13 @@ export type CommandResolution = {
   reason: string;
 };
 
+export type InstructionSignalFinding = {
+  category: 'safety' | 'reproducibility';
+  sourcePath: string;
+  line: number;
+  message: string;
+};
+
 export type CommandResult = {
   command: string;
   exitCode: number;
@@ -84,6 +91,7 @@ export type AgentFitReport = {
   referenceIssues: ReferenceIssue[];
   staticIssues?: StaticIssue[];
   commandResolutions?: CommandResolution[];
+  signalFindings?: InstructionSignalFinding[];
   tasks: FitnessTask[];
   runs: EvaluationRun[];
   caps: string[];

@@ -74,6 +74,7 @@ See [docs/demo.md](docs/demo.md).
 - command and reference checks
 - generated repo-specific fitness tasks
 - JSON and Markdown reports
+- detected safety and reproducibility signal evidence
 - before/after report comparison
 - SVG badge output
 - GitHub Action support for PRs
@@ -156,9 +157,7 @@ See [docs/real-world.md](docs/real-world.md).
 ## Good First Issues
 
 - [Add more real-world dry-run snapshots](https://github.com/kingkyylian/agentfit/issues/1)
-- [Add a nested monorepo instruction fixture](https://github.com/kingkyylian/agentfit/issues/2)
 - [Add Codex adapter smoke tests](https://github.com/kingkyylian/agentfit/issues/4)
-- [Improve safety and reproducibility signal detection](https://github.com/kingkyylian/agentfit/issues/5)
 - [Add an animated terminal GIF or asciicast](https://github.com/kingkyylian/agentfit/issues/6)
 
 ## License
