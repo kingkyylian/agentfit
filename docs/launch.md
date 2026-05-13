@@ -16,7 +16,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Local full verification passed on 2026-05-12 for the `0.1.10` release.
 - AgentFit `0.1.10` is published to npm and `v1` points at the release commit.
 - Manual `AgentFit Consumer Smoke` with `version: 0.1.10` passed after publish and `v1` retag.
-- Starter issues are open for real-world snapshots and an animated terminal demo.
+- Starter issue is open for an animated terminal demo.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).

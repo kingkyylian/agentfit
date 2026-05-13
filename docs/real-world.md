@@ -2,7 +2,7 @@
 
 These are dry-run AgentFit snapshots from public open-source repositories that already contain agent instruction files. They are not endorsements or judgments of the projects. The goal is to show the kinds of signals AgentFit can surface without executing generated tasks.
 
-Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.8 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md).
+Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.8 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md). Additional dry-run snapshots were added on 2026-05-13 from local `main` after the signal-evidence reporting work.
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
@@ -23,12 +23,18 @@ Do not publish named healthy examples without asking permission first. Use the s
 | [hexlet-codebattle/codebattle](https://github.com/hexlet-codebattle/codebattle) | Elixir | `fd9ed72` | 80/100 (B) | Finds stale documented package scripts and a nested scope gap. |
 | [Brendonovich/MacroGraph](https://github.com/Brendonovich/MacroGraph) | TypeScript | `c470082` | 73/100 (C) | Finds broad monorepo scope coverage gaps. |
 | [skybrush-io/skybrush-server](https://github.com/skybrush-io/skybrush-server) | Python | `9920ca2` | 93/100 (A) | Finds a healthy single instruction file with no static failures. |
+| [zapier/zapier-platform](https://github.com/zapier/zapier-platform) | JavaScript | `6a3ffbf` | 78/100 (C) | Finds four package scope gaps and missing safety guardrails. |
+| [snyk/snyk-intellij-plugin](https://github.com/snyk/snyk-intellij-plugin) | Kotlin | `2a8b015` | 55/100 (F) | Finds only a Cursor rule, no root instruction contract, and no verification command. |
+| [javascript-obfuscator/javascript-obfuscator](https://github.com/javascript-obfuscator/javascript-obfuscator) | TypeScript | `10c763f` | 83/100 (B) | Finds extensive reproducibility command guidance but no safety guardrails. |
 
 ## Reports
 
 - [codebattle.md](../examples/reports/real-world/codebattle.md)
 - [macrograph.md](../examples/reports/real-world/macrograph.md)
 - [skybrush-server.md](../examples/reports/real-world/skybrush-server.md)
+- [zapier-platform.md](../examples/reports/real-world/zapier-platform.md)
+- [snyk-intellij-plugin.md](../examples/reports/real-world/snyk-intellij-plugin.md)
+- [javascript-obfuscator.md](../examples/reports/real-world/javascript-obfuscator.md)
 
 ## Reproduce
 

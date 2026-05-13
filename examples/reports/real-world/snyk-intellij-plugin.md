@@ -1,0 +1,52 @@
+# AgentFit Report
+
+**Score:** 55/100 (F)
+
+AgentFit score 55/100 (F).
+
+Generated: 2026-05-13T14:03:22.078Z
+
+**Task execution:** Static dry-run preview; generated tasks were not executed.
+
+Run `agentfit eval --run-tasks` or select a real adapter to execute tasks in worktrees.
+
+## Score Breakdown
+
+| Check | Score | Notes |
+| --- | ---: | --- |
+| Instruction discoverability | 10/20 | 1 instruction file discovered. |
+| Command freshness | 0/15 | 1 static command issue found. |
+| Reference integrity | 15/15 | All instruction references resolve. |
+| Evaluation pass rate | 20/20 | 1 deterministic task preview generated; no tasks were executed. |
+| Diff discipline | 10/10 | No task diffs were captured because runs were previews. |
+| Safety guardrails | 0/10 | Safety guardrails were not found. |
+| Reproducibility | 0/10 | Reproducibility instructions were not found. |
+
+## Failed Checks
+
+- No root-level instruction file was discovered.
+- No runnable verification command found in instruction files.
+- Safety guardrails were not found.
+- Reproducibility instructions were not found.
+- No verification command found in instruction files.
+
+## Caps
+
+- no verification command found: max score 75
+
+## Instruction Files
+
+| Path | Kind | Scope | Commands | Imports |
+| --- | --- | --- | ---: | ---: |
+| .cursor/rules/general.mdc | cursor | .cursor/rules | 0 | 0 |
+
+## Evaluation Runs
+
+| Task | Adapter | Status | Verification | Diff | Cost |
+| --- | --- | --- | --- | ---: | ---: |
+| Make a harmless README wording change and run verification | dry-run | preview | not executed | 0 files, +0/-0 | - |
+## Static Issues
+
+| Category | Source | Severity | Message |
+| --- | --- | --- | --- |
+| command | .cursor/rules/general.mdc | error | No runnable verification command found in instruction files. |

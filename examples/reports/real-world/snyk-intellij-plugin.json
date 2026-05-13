@@ -1,0 +1,130 @@
+{
+  "score": 55,
+  "grade": "F",
+  "summary": "AgentFit score 55/100 (F).",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/general.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 7272,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": ".cursor/rules/general.mdc",
+      "message": "No runnable verification command found in instruction files.",
+      "severity": "error"
+    }
+  ],
+  "commandResolutions": [],
+  "signalFindings": [],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-13T14:03:22.078Z",
+      "finishedAt": "2026-05-13T14:03:22.078Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [
+    "no verification command found: max score 75"
+  ],
+  "generatedAt": "2026-05-13T14:03:22.078Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 10,
+      "max": 20,
+      "explanation": "1 instruction file discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Reproducibility instructions were not found."
+    }
+  ],
+  "failedChecks": [
+    "No root-level instruction file was discovered.",
+    "No runnable verification command found in instruction files.",
+    "Safety guardrails were not found.",
+    "Reproducibility instructions were not found.",
+    "No verification command found in instruction files."
+  ],
+  "scoreExplanation": "Instruction discoverability: 10/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 0/10",
+  "executionMode": "preview"
+}
