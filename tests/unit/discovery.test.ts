@@ -24,6 +24,25 @@ describe('discoverInstructionFiles', () => {
     expect(files.map((file) => file.scope)).toEqual(['.', 'packages/api']);
   });
 
+  it('discovers common case variants and root Copilot instruction files', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-discovery-'));
+    await writeFile(join(root, 'agents.md'), '# Lowercase agent instructions\n');
+    await writeFile(join(root, 'copilot-instructions.md'), '# Root Copilot instructions\n');
+
+    const files = await discoverInstructionFiles(root);
+
+    expect(files.map((file) => ({ path: file.path, kind: file.kind }))).toEqual([
+      {
+        path: 'agents.md',
+        kind: 'agents'
+      },
+      {
+        path: 'copilot-instructions.md',
+        kind: 'copilot'
+      }
+    ]);
+  });
+
   it('ignores vendored instruction files', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-discovery-'));
     await mkdir(join(root, 'vendor/github.com/example/pkg'), { recursive: true });

@@ -80,4 +80,16 @@ describe('extractCommands', () => {
       }
     ]);
   });
+
+  it('does not treat unlabeled explanatory fences as shell commands', () => {
+    const markdown = [
+      '### Timing Configuration Priorities',
+      '```',
+      'debounce < click < press < longPress',
+      'Example: 20ms < 400ms < 800ms < varies',
+      '```'
+    ].join('\n');
+
+    expect(extractCommands(markdown, 'copilot-instructions.md')).toEqual([]);
+  });
 });

@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import fg from 'fast-glob';
 import type { InstructionFile, InstructionKind } from '../types.js';
@@ -7,12 +7,20 @@ import { resolveInstructionReferences } from './references.js';
 
 export const DEFAULT_INSTRUCTION_PATTERNS = [
   'AGENTS.md',
+  'agents.md',
   '**/AGENTS.md',
+  '**/agents.md',
   'CLAUDE.md',
+  'claude.md',
   '**/CLAUDE.md',
+  '**/claude.md',
   'GEMINI.md',
+  'gemini.md',
   '**/GEMINI.md',
+  '**/gemini.md',
   '.cursor/rules/**/*.mdc',
+  'copilot-instructions.md',
+  '.copilot-instructions.md',
   '.github/copilot-instructions.md',
   '.github/instructions/**/*.instructions.md'
 ];
@@ -30,7 +38,8 @@ export async function discoverInstructionFiles(
     ignore: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/vendor/**']
   });
 
-  const sortedPaths = paths.map(normalizePath).sort();
+  const actualPaths = await Promise.all(paths.map((filePath) => resolveActualRelativePath(absoluteRoot, filePath)));
+  const sortedPaths = uniqueCaseInsensitive(actualPaths).sort();
   const files = await Promise.all(
     sortedPaths.map(async (filePath) => {
       const absolutePath = path.join(absoluteRoot, filePath);
@@ -55,29 +64,56 @@ export async function discoverInstructionFiles(
   return files;
 }
 
+async function resolveActualRelativePath(root: string, filePath: string): Promise<string> {
+  const segments = normalizePath(filePath).split('/');
+  const actualSegments: string[] = [];
+  let currentDir = root;
+
+  for (const segment of segments) {
+    const entries = await readdir(currentDir);
+    const actualSegment = entries.find((entry) => entry.toLowerCase() === segment.toLowerCase()) ?? segment;
+    actualSegments.push(actualSegment);
+    currentDir = path.join(currentDir, actualSegment);
+  }
+
+  return actualSegments.join('/');
+}
+
+function uniqueCaseInsensitive(paths: string[]): string[] {
+  const uniquePaths = new Map<string, string>();
+
+  for (const filePath of paths) {
+    uniquePaths.set(filePath.toLowerCase(), normalizePath(filePath));
+  }
+
+  return [...uniquePaths.values()];
+}
+
 function instructionKind(filePath: string): InstructionKind {
   const normalized = normalizePath(filePath);
-  const base = path.posix.basename(normalized);
+  const lowerNormalized = normalized.toLowerCase();
+  const base = path.posix.basename(lowerNormalized);
 
-  if (base === 'AGENTS.md') {
+  if (base === 'agents.md') {
     return 'agents';
   }
 
-  if (base === 'CLAUDE.md') {
+  if (base === 'claude.md') {
     return 'claude';
   }
 
-  if (base === 'GEMINI.md') {
+  if (base === 'gemini.md') {
     return 'gemini';
   }
 
-  if (normalized.startsWith('.cursor/rules/') && normalized.endsWith('.mdc')) {
+  if (lowerNormalized.startsWith('.cursor/rules/') && lowerNormalized.endsWith('.mdc')) {
     return 'cursor';
   }
 
   if (
-    normalized === '.github/copilot-instructions.md' ||
-    normalized.startsWith('.github/instructions/')
+    base === 'copilot-instructions.md' ||
+    lowerNormalized === '.github/copilot-instructions.md' ||
+    lowerNormalized.startsWith('.github/instructions/')
   ) {
     return 'copilot';
   }

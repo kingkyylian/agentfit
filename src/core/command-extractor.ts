@@ -51,7 +51,7 @@ export function extractCommands(markdown: string, sourcePath: string): Extracted
     if (inShellFence) {
       fencedLineIndexes.add(index);
       const command = normalizeShellCommand(line);
-      if (command) {
+      if (command && looksLikeCommand(command)) {
         commands.push(toExtractedCommand(command, sourcePath, index + 1));
       }
     } else if (inOtherFence) {
