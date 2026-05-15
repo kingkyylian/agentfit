@@ -263,6 +263,16 @@ I started with a short X thread here:
 https://x.com/KaganIs66551/status/2053875763275768289
 ```
 
+Reply when someone suggests GitHub code search instead of a specific repo:
+
+```text
+Thanks, this is useful. I will use these searches to build a dry-run-only candidate list and sort by recently updated so the reports target active instructions.
+
+I am still keeping the repo suggestion issue open for concrete suggestions, but I will treat search results as candidates only, not as consent to contact maintainers.
+
+The validation flow stays the same: dry-run first, no model-provider calls, no generated task execution, and maintainer contact only for concrete stale commands, broken references, or clear monorepo scope gaps.
+```
+
 ## Maintainer Outreach
 
 Use this for projects that already have `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, or Copilot instructions:

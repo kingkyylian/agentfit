@@ -34,21 +34,34 @@ Skip targets when the repo is archived, tiny, mostly generated, clearly personal
 
 ## Search Queries
 
-Use GitHub code search first:
+Use GitHub code search first. Sort results by **Recently updated** so the snapshots target active instruction files rather than abandoned examples:
 
 ```text
-path:AGENTS.md
-path:CLAUDE.md
-path:.cursor/rules
-path:.github/copilot-instructions.md
-"pnpm" path:AGENTS.md
-"monorepo" path:AGENTS.md
-"run tests" path:CLAUDE.md
-"packages/" path:AGENTS.md
-"apps/" path:AGENTS.md
+path:AGENTS.md is:public fork:false
+path:CLAUDE.md is:public fork:false
+path:.cursor/rules/ is:public fork:false
+path:.github/copilot-instructions.md is:public fork:false
+```
+
+Use narrower follow-up searches when the general queries are too broad:
+
+```text
+"pnpm" path:AGENTS.md is:public fork:false
+"monorepo" path:AGENTS.md is:public fork:false
+"run tests" path:CLAUDE.md is:public fork:false
+"packages/" path:AGENTS.md is:public fork:false
+"apps/" path:AGENTS.md is:public fork:false
+```
+
+For each candidate, record why it was selected before cloning it:
+
+```text
+OWNER/REPO | instruction source | stack | repo shape | recent activity | expected signal
 ```
 
 Then prioritize manually by activity, repo size, instruction-file substance, and whether the report would be understandable to an outside maintainer.
+
+Do not treat search results as consent to contact maintainers. Search only builds the candidate list; maintainer contact still requires a concrete finding under the triage rules below.
 
 ## Starter Candidate Seeds
 

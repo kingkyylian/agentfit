@@ -23,6 +23,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
 - Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and package-local command freshness fixes released through `0.1.10`.
 - Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
+- GitHub Community feedback suggested exact public code-search queries; keep candidate discovery in [real-world-validation.md](real-world-validation.md) and contact maintainers only after concrete dry-run findings.
 
 ## 60-Second Demo
 
@@ -77,7 +78,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 
 The goal is not friend-based social proof. The goal is to collect public, reproducible evidence that AgentFit finds useful signal in repositories that already use `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 
-1. Build a candidate list of 30 public repositories using GitHub code search queries from [real-world-validation.md](real-world-validation.md).
+1. Build a candidate list of 30 public repositories using the public, non-fork GitHub code search queries from [real-world-validation.md](real-world-validation.md).
 2. Run deterministic dry-run snapshots against 10-20 candidates without executing generated tasks.
 3. Classify each result as actionable drift, healthy example, noisy signal, or unsupported repository.
 4. Open maintainer issues only when the report has a concrete finding: missing referenced file, stale documented command, or clear nested scope gap.

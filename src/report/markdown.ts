@@ -1,6 +1,8 @@
 import type { ScoredAgentFitReport } from '../core/scoring.js';
-import type { EvaluationRun } from '../types.js';
+import type { CommandResolution, EvaluationRun, InstructionSignalFinding } from '../types.js';
 import { executionModeForRuns, isPreviewRun } from '../core/execution-mode.js';
+
+const MAX_MARKDOWN_EVIDENCE_ROWS = 25;
 
 export function renderMarkdownReport(report: ScoredAgentFitReport): string {
   const lines = [
@@ -71,14 +73,16 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
   }
 
   if ((report.commandResolutions ?? []).length > 0) {
+    const commandResolutions = sortedCommandResolutions(report.commandResolutions ?? []);
     lines.splice(
       lines.length - 1,
       0,
       `## Command Resolutions`,
       '',
+      ...limitNote(commandResolutions.length, 'command resolutions'),
       `| Command | Source | Script | Package | Status |`,
       `| --- | --- | --- | --- | --- |`,
-      ...(report.commandResolutions ?? []).map(
+      ...commandResolutions.slice(0, MAX_MARKDOWN_EVIDENCE_ROWS).map(
         (resolution) =>
           `| ${escapeCell(resolution.command)} | ${escapeCell(`${resolution.sourcePath}:${resolution.line}`)} | ${escapeCell(resolution.scriptName)} | ${escapeCell(resolution.packageJsonPath)} | ${resolution.status} |`
       ),
@@ -87,18 +91,16 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
   }
 
   if ((report.signalFindings ?? []).length > 0) {
+    const signalFindings = sortedSignalFindings(report.signalFindings ?? []);
     lines.splice(
       lines.length - 1,
       0,
       `## Signal Findings`,
       '',
+      ...limitNote(signalFindings.length, 'signal findings'),
       `| Category | Source | Evidence |`,
       `| --- | --- | --- |`,
-      ...[...(report.signalFindings ?? [])].sort((left, right) =>
-        `${left.category}:${left.sourcePath}:${left.line}:${left.message}`.localeCompare(
-          `${right.category}:${right.sourcePath}:${right.line}:${right.message}`
-        )
-      ).map(
+      ...signalFindings.slice(0, MAX_MARKDOWN_EVIDENCE_ROWS).map(
         (finding) =>
           `| ${finding.category} | ${escapeCell(`${finding.sourcePath}:${finding.line}`)} | ${escapeCell(finding.message)} |`
       ),
@@ -107,6 +109,42 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
   }
 
   return `${lines.join('\n').trimEnd()}\n`;
+}
+
+function limitNote(total: number, label: string): string[] {
+  if (total <= MAX_MARKDOWN_EVIDENCE_ROWS) {
+    return [];
+  }
+
+  return [
+    `Showing first ${MAX_MARKDOWN_EVIDENCE_ROWS} of ${total} ${label}. JSON output contains the complete set.`,
+    ''
+  ];
+}
+
+function sortedCommandResolutions(resolutions: CommandResolution[]): CommandResolution[] {
+  return [...resolutions].sort(compareCommandResolutions);
+}
+
+function compareCommandResolutions(left: CommandResolution, right: CommandResolution): number {
+  return (
+    left.sourcePath.localeCompare(right.sourcePath) ||
+    left.line - right.line ||
+    left.command.localeCompare(right.command)
+  );
+}
+
+function sortedSignalFindings(findings: InstructionSignalFinding[]): InstructionSignalFinding[] {
+  return [...findings].sort(compareSignalFindings);
+}
+
+function compareSignalFindings(left: InstructionSignalFinding, right: InstructionSignalFinding): number {
+  return (
+    left.category.localeCompare(right.category) ||
+    left.sourcePath.localeCompare(right.sourcePath) ||
+    left.line - right.line ||
+    left.message.localeCompare(right.message)
+  );
 }
 
 function breakdownRows(report: ScoredAgentFitReport): string[] {

@@ -108,4 +108,40 @@ describe('renderMarkdownReport', () => {
     expect(markdown).toContain('**Task execution:** Generated task runs were skipped.');
     expect(markdown).toContain('| Exercise the test package script | codex | skipped | none recorded | 0 files, +0/-0 | - |');
   });
+
+  it('compacts high-volume evidence tables in markdown reports', () => {
+    const commandResolutions = Array.from({ length: 27 }, (_, index) => ({
+      command: `npm run check-${index + 1}`,
+      sourcePath: 'CLAUDE.md',
+      line: index + 1,
+      scriptName: `check-${index + 1}`,
+      packageJsonPath: 'package.json',
+      status: 'resolved' as const,
+      reason: 'repository root'
+    }));
+    const signalFindings = Array.from({ length: 30 }, (_, index) => ({
+      category: 'reproducibility' as const,
+      sourcePath: 'CLAUDE.md',
+      line: index + 1,
+      message: `Signal evidence ${index + 1}`
+    }));
+
+    const markdown = renderMarkdownReport(
+      report({
+        commandResolutions,
+        signalFindings
+      })
+    );
+
+    expect(markdown).toContain(
+      'Showing first 25 of 27 command resolutions. JSON output contains the complete set.'
+    );
+    expect(markdown).toContain(
+      'Showing first 25 of 30 signal findings. JSON output contains the complete set.'
+    );
+    expect(markdown).toContain('| npm run check-25 | CLAUDE.md:25 | check-25 | package.json | resolved |');
+    expect(markdown).not.toContain('npm run check-26');
+    expect(markdown).toContain('| reproducibility | CLAUDE.md:25 | Signal evidence 25 |');
+    expect(markdown).not.toContain('Signal evidence 26');
+  });
 });

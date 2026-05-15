@@ -47,6 +47,8 @@ None.
 | Exercise the test:full package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
 ## Command Resolutions
 
+Showing first 25 of 31 command resolutions. JSON output contains the complete set.
+
 | Command | Source | Script | Package | Status |
 | --- | --- | --- | --- | --- |
 | npm run build | CLAUDE.md:477 | build | package.json | resolved |
@@ -70,31 +72,17 @@ None.
 | yarn run test:devCompilePerformance | CLAUDE.md:544 | test:devCompilePerformance | package.json | resolved |
 | npm run test:devRuntimePerformance | CLAUDE.md:547 | test:devRuntimePerformance | package.json | resolved |
 | yarn run test:devRuntimePerformance | CLAUDE.md:548 | test:devRuntimePerformance | package.json | resolved |
+| npm test | CLAUDE.md:556 | test | package.json | resolved |
 | npm run eslint | CLAUDE.md:786 | eslint | package.json | resolved |
 | yarn run eslint | CLAUDE.md:787 | eslint | package.json | resolved |
 | npm run build | CLAUDE.md:1091 | build | package.json | resolved |
-| yarn run build | CLAUDE.md:1092 | build | package.json | resolved |
-| npm run build:typings | CLAUDE.md:1163 | build:typings | package.json | resolved |
-| yarn run build:typings | CLAUDE.md:1164 | build:typings | package.json | resolved |
-| npm run build | CLAUDE.md:1167 | build | package.json | resolved |
-| yarn run build | CLAUDE.md:1168 | build | package.json | resolved |
-| npm test | CLAUDE.md:556 | test | package.json | resolved |
-| npm run build | CLAUDE.md:1175 | build | package.json | resolved |
 
 ## Signal Findings
 
+Showing first 25 of 74 signal findings. JSON output contains the complete set.
+
 | Category | Source | Evidence |
 | --- | --- | --- |
-| reproducibility | CLAUDE.md:1091 | Build command guidance. |
-| reproducibility | CLAUDE.md:1092 | Build command guidance. |
-| reproducibility | CLAUDE.md:1138 | Setup command guidance. |
-| reproducibility | CLAUDE.md:1140 | Setup command guidance. |
-| reproducibility | CLAUDE.md:1163 | Build command guidance. |
-| reproducibility | CLAUDE.md:1164 | Build command guidance. |
-| reproducibility | CLAUDE.md:1167 | Build command guidance. |
-| reproducibility | CLAUDE.md:1168 | Build command guidance. |
-| reproducibility | CLAUDE.md:1175 | Build command guidance. |
-| reproducibility | CLAUDE.md:1243 | Deterministic or reproducible workflow guidance. |
 | reproducibility | CLAUDE.md:146 | Test command guidance. |
 | reproducibility | CLAUDE.md:152 | Build command guidance. |
 | reproducibility | CLAUDE.md:181 | Setup command guidance. |
@@ -120,42 +108,3 @@ None.
 | reproducibility | CLAUDE.md:544 | Test command guidance. |
 | reproducibility | CLAUDE.md:547 | Test command guidance. |
 | reproducibility | CLAUDE.md:548 | Test command guidance. |
-| reproducibility | CLAUDE.md:556 | Test command guidance. |
-| reproducibility | CLAUDE.md:592 | Test command guidance. |
-| reproducibility | CLAUDE.md:599 | Test command guidance. |
-| reproducibility | CLAUDE.md:602 | Test command guidance. |
-| reproducibility | CLAUDE.md:605 | Test command guidance. |
-| reproducibility | CLAUDE.md:608 | Test command guidance. |
-| reproducibility | CLAUDE.md:611 | Test command guidance. |
-| reproducibility | CLAUDE.md:614 | Test command guidance. |
-| reproducibility | CLAUDE.md:623 | Test command guidance. |
-| reproducibility | CLAUDE.md:626 | Test command guidance. |
-| reproducibility | CLAUDE.md:629 | Test command guidance. |
-| reproducibility | CLAUDE.md:632 | Test command guidance. |
-| reproducibility | CLAUDE.md:635 | Test command guidance. |
-| reproducibility | CLAUDE.md:638 | Test command guidance. |
-| reproducibility | CLAUDE.md:641 | Test command guidance. |
-| reproducibility | CLAUDE.md:651 | Test command guidance. |
-| reproducibility | CLAUDE.md:654 | Test command guidance. |
-| reproducibility | CLAUDE.md:657 | Test command guidance. |
-| reproducibility | CLAUDE.md:660 | Test command guidance. |
-| reproducibility | CLAUDE.md:663 | Test command guidance. |
-| reproducibility | CLAUDE.md:666 | Test command guidance. |
-| reproducibility | CLAUDE.md:669 | Test command guidance. |
-| reproducibility | CLAUDE.md:672 | Test command guidance. |
-| reproducibility | CLAUDE.md:675 | Test command guidance. |
-| reproducibility | CLAUDE.md:678 | Test command guidance. |
-| reproducibility | CLAUDE.md:684 | Test command guidance. |
-| reproducibility | CLAUDE.md:687 | Test command guidance. |
-| reproducibility | CLAUDE.md:690 | Test command guidance. |
-| reproducibility | CLAUDE.md:693 | Test command guidance. |
-| reproducibility | CLAUDE.md:699 | Test command guidance. |
-| reproducibility | CLAUDE.md:706 | Test command guidance. |
-| reproducibility | CLAUDE.md:709 | Test command guidance. |
-| reproducibility | CLAUDE.md:712 | Test command guidance. |
-| reproducibility | CLAUDE.md:715 | Test command guidance. |
-| reproducibility | CLAUDE.md:718 | Test command guidance. |
-| reproducibility | CLAUDE.md:721 | Test command guidance. |
-| reproducibility | CLAUDE.md:742 | Test command guidance. |
-| reproducibility | CLAUDE.md:743 | Test command guidance. |
-| reproducibility | CLAUDE.md:744 | Test command guidance. |
