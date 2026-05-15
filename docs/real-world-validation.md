@@ -63,6 +63,35 @@ Then prioritize manually by activity, repo size, instruction-file substance, and
 
 Do not treat search results as consent to contact maintainers. Search only builds the candidate list; maintainer contact still requires a concrete finding under the triage rules below.
 
+## 2026-05-15 Search Candidate Scan
+
+These candidates came from GitHub code search after the public search-query suggestion. They are not endorsements and they are not contact targets. Treat them as a dry-run-only queue until a report produces a concrete, reproducible finding.
+
+The legacy GitHub code-search API does not behave exactly like the web UI, so this scan used filename-based queries for `AGENTS.md`, `CLAUDE.md`, and `copilot-instructions.md`, then filtered for public, non-fork, active repositories through repository metadata. Use the web UI for `.cursor/rules/` candidates if the CLI search returns no results.
+
+| Repository | Instruction Source | Stars | Updated | Stack | Why Candidate |
+| --- | --- | ---: | --- | --- | --- |
+| `meltano/meltano` | `AGENTS.md` | 2500 | 2026-05-15 | Python | active data tooling repo with package/setup guidance likely to produce understandable command checks |
+| `enso-org/enso` | `CLAUDE.md` | 7437 | 2026-05-15 | Java | large active data platform, useful for testing CLAUDE.md command/reference signal |
+| `SteeltoeOSS/Steeltoe` | `AGENTS.md` | 1097 | 2026-05-13 | C# | mature framework repo, broadens validation beyond JS/Python/Go |
+| `callstackincubator/rozenite` | `AGENTS.md` | 585 | 2026-05-15 | TypeScript | active React Native tooling repo with likely package-script signal |
+| `dusk-network/rusk` | `agents.md` | 201 | 2026-05-04 | Rust | active platform implementation with lowercase instruction filename coverage |
+| `NikolayS/postgres_dba` | `CLAUDE.md` | 1268 | 2026-05-13 | PLpgSQL | focused database tooling repo, useful for non-application instruction patterns |
+| `numerai/example-scripts` | `AGENTS.md` | 1137 | 2026-05-15 | Jupyter Notebook | active example/notebook repo, useful for checking how AgentFit handles notebook-heavy projects |
+| `econ-ark/HARK` | `AGENTS.md` | 384 | 2026-05-09 | Python | scientific Python package with likely reproducibility guidance |
+| `mathertel/OneButton` | `copilot-instructions.md` | 1098 | 2026-05-11 | C++ | compact Arduino library, good first Copilot-instructions dry-run target |
+| `IOBR/IOBR` | `copilot-instructions.md` | 288 | 2026-05-15 | R | active R package, broadens stack coverage |
+| `DataDog/lading` | `AGENTS.md` | 96 | 2026-05-13 | Rust | focused load-testing tools from a large org; likely compact report |
+| `percona/psmdb-docs` | `copilot-instructions.md` | 25 | 2026-05-13 | HTML | docs-focused repo, useful for distinguishing code vs documentation instruction expectations |
+
+Suggested first five dry-run targets:
+
+1. `meltano/meltano`
+2. `enso-org/enso`
+3. `SteeltoeOSS/Steeltoe`
+4. `callstackincubator/rozenite`
+5. `mathertel/OneButton`
+
 ## Starter Candidate Seeds
 
 These are seed candidates found through GitHub code search on 2026-05-11. They are not endorsements and they are not contact targets yet. Run AgentFit first, inspect the report, and contact maintainers only when the result is concrete and useful.
