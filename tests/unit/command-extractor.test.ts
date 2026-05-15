@@ -81,6 +81,62 @@ describe('extractCommands', () => {
     ]);
   });
 
+  it('extracts Python task-runner inline commands', () => {
+    const markdown = [
+      '- Install dependencies: `uv sync --all-extras --all-groups`',
+      '- Run specific test: `uv run pytest tests/path/to/test.py::test_function`',
+      '- Run all tests: `nox -t test` or `nox -s pytest`',
+      '- Run all linting: `nox -t lint`',
+      '- Run only type checks: `nox -s typing`',
+      '- Run formatter: `ruff format .`'
+    ].join('\n');
+
+    expect(extractCommands(markdown, 'AGENTS.md')).toEqual([
+      {
+        value: 'uv sync --all-extras --all-groups',
+        sourcePath: 'AGENTS.md',
+        line: 1,
+        kind: 'setup'
+      },
+      {
+        value: 'uv run pytest tests/path/to/test.py::test_function',
+        sourcePath: 'AGENTS.md',
+        line: 2,
+        kind: 'test'
+      },
+      {
+        value: 'nox -t test',
+        sourcePath: 'AGENTS.md',
+        line: 3,
+        kind: 'test'
+      },
+      {
+        value: 'nox -s pytest',
+        sourcePath: 'AGENTS.md',
+        line: 3,
+        kind: 'test'
+      },
+      {
+        value: 'nox -t lint',
+        sourcePath: 'AGENTS.md',
+        line: 4,
+        kind: 'lint'
+      },
+      {
+        value: 'nox -s typing',
+        sourcePath: 'AGENTS.md',
+        line: 5,
+        kind: 'build'
+      },
+      {
+        value: 'ruff format .',
+        sourcePath: 'AGENTS.md',
+        line: 6,
+        kind: 'lint'
+      }
+    ]);
+  });
+
   it('does not treat unlabeled explanatory fences as shell commands', () => {
     const markdown = [
       '### Timing Configuration Priorities',

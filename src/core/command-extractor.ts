@@ -18,6 +18,11 @@ const inlineCommandPrefixes = [
   'python',
   'python3',
   'pytest',
+  'uv',
+  'nox',
+  'ruff',
+  'mypy',
+  'ty',
   'make',
   'docker'
 ];
@@ -79,7 +84,7 @@ export function extractCommands(markdown: string, sourcePath: string): Extracted
 export function classifyCommand(command: string): CommandKind {
   const value = command.toLowerCase();
 
-  if (/\b(install|bootstrap|setup)\b/.test(value)) {
+  if (/\b(install|bootstrap|setup|sync)\b/.test(value)) {
     return 'setup';
   }
 
@@ -87,11 +92,11 @@ export function classifyCommand(command: string): CommandKind {
     return 'test';
   }
 
-  if (/\b(clippy|fmt|format|lint|eslint|prettier)\b/.test(value)) {
+  if (/\b(clippy|fmt|format|lint|eslint|prettier|ruff)\b/.test(value)) {
     return 'lint';
   }
 
-  if (/\b(build|compile|tsc|typecheck)\b/.test(value)) {
+  if (/\b(build|compile|mypy|tsc|ty|typecheck|typing)\b/.test(value)) {
     return 'build';
   }
 

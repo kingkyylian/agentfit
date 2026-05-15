@@ -97,6 +97,7 @@ First follow-up snapshot:
 | Repository | Commit | Initial Result | After Product Fix | Triage |
 | --- | --- | ---: | ---: | --- |
 | `DataDog/lading` | `f06a75d` | 75/100 (C) | 83/100 (B) | AgentFit repo-local command false positive fixed in `5245bec`; no maintainer contact |
+| `meltano/meltano` | `0dbb53e` | 83/100 (B) | 83/100 (B) | Python `uv`/`nox` command extraction improved; no maintainer contact |
 
 ## Starter Candidate Seeds
 
