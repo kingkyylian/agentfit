@@ -92,6 +92,12 @@ Suggested first five dry-run targets:
 4. `callstackincubator/rozenite`
 5. `mathertel/OneButton`
 
+First follow-up snapshot:
+
+| Repository | Commit | Initial Result | After Product Fix | Triage |
+| --- | --- | ---: | ---: | --- |
+| `DataDog/lading` | `f06a75d` | 75/100 (C) | 83/100 (B) | AgentFit repo-local command false positive fixed in `5245bec`; no maintainer contact |
+
 ## Starter Candidate Seeds
 
 These are seed candidates found through GitHub code search on 2026-05-11. They are not endorsements and they are not contact targets yet. Run AgentFit first, inspect the report, and contact maintainers only when the result is concrete and useful.
@@ -306,3 +312,4 @@ Success is not a star count. Success is at least three understandable reports, o
 ## Sprint Logs
 
 - [2026-05-11 initial validation sprint](validation-sprint-2026-05-11.md)
+- [2026-05-15 search follow-up sprint](validation-sprint-2026-05-15.md)
