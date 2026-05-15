@@ -48,7 +48,35 @@ describe('extractCommands', () => {
         value: 'node scripts/check.js',
         sourcePath: 'CLAUDE.md',
         line: 1,
-        kind: 'unknown'
+        kind: 'test'
+      }
+    ]);
+  });
+
+  it('extracts repo-local inline verification commands', () => {
+    const markdown = [
+      '# Agent instructions',
+      '',
+      '| Need | Answer |',
+      '| --- | --- |',
+      '| Validate changes | `ci/validate` |',
+      '| Run tests | `ci/test` |',
+      '',
+      'Use `docs/adr/README.md` for rationale.'
+    ].join('\n');
+
+    expect(extractCommands(markdown, 'AGENTS.md')).toEqual([
+      {
+        value: 'ci/validate',
+        sourcePath: 'AGENTS.md',
+        line: 5,
+        kind: 'test'
+      },
+      {
+        value: 'ci/test',
+        sourcePath: 'AGENTS.md',
+        line: 6,
+        kind: 'test'
       }
     ]);
   });

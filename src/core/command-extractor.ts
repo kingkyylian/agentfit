@@ -22,6 +22,7 @@ const inlineCommandPrefixes = [
   'docker'
 ];
 
+const repoLocalCommandDirs = new Set(['bin', 'ci', 'script', 'scripts', 'tooling', 'tools']);
 const shellFenceLanguages = new Set(['bash', 'sh', 'shell', 'zsh', 'console', 'terminal']);
 
 export function extractCommands(markdown: string, sourcePath: string): ExtractedCommand[] {
@@ -82,11 +83,11 @@ export function classifyCommand(command: string): CommandKind {
     return 'setup';
   }
 
-  if (/\b(test|vitest|jest|pytest)\b/.test(value)) {
+  if (/\b(check|kani|test|validate|vitest|jest|pytest)\b/.test(value)) {
     return 'test';
   }
 
-  if (/\b(lint|eslint|prettier)\b/.test(value)) {
+  if (/\b(clippy|fmt|format|lint|eslint|prettier)\b/.test(value)) {
     return 'lint';
   }
 
@@ -118,5 +119,16 @@ function normalizeShellCommand(line: string): string | undefined {
 
 function looksLikeCommand(value: string): boolean {
   const firstToken = value.split(/\s+/)[0];
-  return firstToken ? inlineCommandPrefixes.includes(firstToken) : false;
+  return firstToken ? inlineCommandPrefixes.includes(firstToken) || looksLikeRepoLocalCommand(firstToken) : false;
+}
+
+function looksLikeRepoLocalCommand(firstToken: string): boolean {
+  const normalized = firstToken.replace(/^\.\//, '');
+  const [topLevelDir, executableName] = normalized.split('/', 2);
+
+  if (!topLevelDir || !executableName || !repoLocalCommandDirs.has(topLevelDir)) {
+    return false;
+  }
+
+  return classifyCommand(executableName) !== 'unknown';
 }

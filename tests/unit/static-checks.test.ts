@@ -104,6 +104,42 @@ describe('collectStaticIssues', () => {
     );
   });
 
+  it('accepts repo-local verification commands as runnable instructions', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'ci'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ type: 'module' }));
+    await writeFile(join(root, 'ci/validate'), '#!/usr/bin/env bash\n');
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Agent instructions',
+        '',
+        '| Need | Answer |',
+        '| --- | --- |',
+        '| Validate changes | `ci/validate` |',
+        '| Run tests | `ci/test` |',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(instructionFiles[0]?.commands).toEqual([
+      expect.objectContaining({
+        value: 'ci/validate',
+        kind: 'test'
+      }),
+      expect.objectContaining({
+        value: 'ci/test',
+        kind: 'test'
+      })
+    ]);
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'No runnable verification command found in instruction files.'
+    );
+  });
+
   it('skips package manager options before validating script names', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await writeFile(
