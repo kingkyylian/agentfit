@@ -137,6 +137,32 @@ describe('extractCommands', () => {
     ]);
   });
 
+  it('extracts dotnet verification commands from shell fences', () => {
+    const markdown = [
+      '# Agent instructions',
+      '',
+      '```bash',
+      'dotnet build src/Steeltoe.All.slnx --configuration Release',
+      'dotnet test src/Steeltoe.All.slnx --configuration Release',
+      '```'
+    ].join('\n');
+
+    expect(extractCommands(markdown, 'AGENTS.md')).toEqual([
+      {
+        value: 'dotnet build src/Steeltoe.All.slnx --configuration Release',
+        sourcePath: 'AGENTS.md',
+        line: 4,
+        kind: 'build'
+      },
+      {
+        value: 'dotnet test src/Steeltoe.All.slnx --configuration Release',
+        sourcePath: 'AGENTS.md',
+        line: 5,
+        kind: 'test'
+      }
+    ]);
+  });
+
   it('does not treat unlabeled explanatory fences as shell commands', () => {
     const markdown = [
       '### Timing Configuration Priorities',

@@ -140,6 +140,41 @@ describe('collectStaticIssues', () => {
     );
   });
 
+  it('accepts dotnet test commands as runnable verification instructions', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      [
+        '# Agent instructions',
+        '',
+        'For final validation before committing changes:',
+        '',
+        '```bash',
+        'dotnet build src/Steeltoe.All.slnx --configuration Release',
+        'dotnet test src/Steeltoe.All.slnx --configuration Release',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+
+    expect(instructionFiles[0]?.commands).toEqual([
+      expect.objectContaining({
+        value: 'dotnet build src/Steeltoe.All.slnx --configuration Release',
+        kind: 'build'
+      }),
+      expect.objectContaining({
+        value: 'dotnet test src/Steeltoe.All.slnx --configuration Release',
+        kind: 'test'
+      })
+    ]);
+    expect(issues.map((issue) => issue.message)).not.toContain(
+      'No runnable verification command found in instruction files.'
+    );
+  });
+
   it('skips package manager options before validating script names', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await writeFile(

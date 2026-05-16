@@ -14,6 +14,7 @@ const inlineCommandPrefixes = [
   'eslint',
   'prettier',
   'cargo',
+  'dotnet',
   'go',
   'python',
   'python3',

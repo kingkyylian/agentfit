@@ -92,12 +92,14 @@ Suggested first five dry-run targets:
 4. `callstackincubator/rozenite`
 5. `mathertel/OneButton`
 
-First follow-up snapshot:
+Follow-up snapshots:
 
 | Repository | Commit | Initial Result | After Product Fix | Triage |
 | --- | --- | ---: | ---: | --- |
 | `DataDog/lading` | `f06a75d` | 75/100 (C) | 83/100 (B) | AgentFit repo-local command false positive fixed in `5245bec`; no maintainer contact |
 | `meltano/meltano` | `0dbb53e` | 83/100 (B) | 83/100 (B) | Python `uv`/`nox` command extraction improved; no maintainer contact |
+| `SteeltoeOSS/Steeltoe` | `f4d5993` | 65/100 (D) | 83/100 (B) | AgentFit `.NET` command extraction false negative fixed locally; no maintainer contact |
+| `callstackincubator/rozenite` | `60a157e` | 60/100 (D) | n/a | Minimal root `AGENTS.md` lacks verification/safety/repro guidance and nested scope coverage; no maintainer contact |
 
 ## Starter Candidate Seeds
 
