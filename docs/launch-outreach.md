@@ -22,9 +22,9 @@ Do not optimize for repository popularity metrics yet. Optimize for five externa
 
 The first-touch message should not be a product announcement. Lead with the validation result:
 
-- 20 public dry-run snapshots
+- 20+ public dry-run snapshots
 - one stale-command issue that became a merged upstream RedisInsight PR
-- AgentFit false positives found during validation and fixed through `0.1.10`
+- AgentFit false positives found during validation and fixed through `0.1.11`
 - a narrow ask for public repos to dry-run validate
 
 ## Demo Script
@@ -69,12 +69,12 @@ AgentFit score 100/100 (A).
 ## X Post
 
 ```text
-I ran AgentFit against 20 public repos that already have coding-agent instructions.
+I ran AgentFit against 20+ public repos that already have coding-agent instructions.
 
 Useful signal:
 - one stale-command issue became a merged upstream PR
 - two AgentFit false-positive classes were fixed in 0.1.8
-- package-local command false positives were fixed in 0.1.10
+- package-local and command-extraction false positives are fixed through 0.1.11
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to dry-run validate.
 
@@ -195,12 +195,12 @@ https://github.com/kingkyylian/agentfit/issues/9
 Reply 1:
 
 ```text
-I have run 20 dry-run snapshots so far.
+I have run 20+ dry-run snapshots so far.
 
 Useful signal:
 - one stale-command issue became a merged upstream RedisInsight PR
 - two AgentFit false-positive classes shipped as fixes in 0.1.8
-- package-local command false positives were fixed in 0.1.10
+- package-local and command-extraction false positives are fixed through 0.1.11
 
 RedisInsight PR:
 https://github.com/redis/RedisInsight/pull/5889
@@ -241,10 +241,10 @@ What AgentFit checks in dry-run mode:
 
 Dry-run mode does not call model providers and does not execute generated tasks.
 
-I have run 20 public dry-run snapshots so far. The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
+I have run 20+ public dry-run snapshots so far. The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
 https://github.com/redis/RedisInsight/pull/5889
 
-The same validation pass found noisy AgentFit behavior too, so I shipped two false-positive fixes in 0.1.8 and released the package-local command resolution fix in 0.1.10:
+The same validation work found noisy AgentFit behavior too, so I shipped fixes through 0.1.11, including package-local command resolution and additional command extraction support:
 https://github.com/kingkyylian/agentfit/issues/8
 
 If you know a public repo that already has AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar guidance, please suggest it here:
@@ -349,17 +349,17 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 20 snapshots: one external maintainer issue that became a merged PR, two AgentFit false-positive fixes released in `0.1.8`, one package-local command fix released in `0.1.10`, and a few healthy baselines.
+5. Follow up with a small result thread after 20+ snapshots: one external maintainer issue that became a merged PR, false-positive fixes through `0.1.11`, and a few healthy baselines.
 
 Preview result copy:
 
 ```text
-I ran AgentFit against 20 public repos that already have coding-agent instructions.
+I ran AgentFit against 20+ public repos that already have coding-agent instructions.
 
 Useful signal so far:
 - one stale-command issue opened upstream, followed by a maintainer-requested PR that merged
 - two AgentFit false-positive classes found and released in 0.1.8
-- one noisy package-local command pattern turned into a product fix released in 0.1.10
+- noisy command-detection patterns turned into product fixes released through 0.1.11
 - several healthy instruction files that score cleanly in dry-run mode
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to sanity-check before a broader launch.
