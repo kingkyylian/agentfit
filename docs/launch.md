@@ -10,18 +10,18 @@ The next milestone is not a broad launch. It is collecting five external repo su
 
 ## Current Status
 
-- NPM package: `@kingkyylian/agentfit@0.1.11`.
+- NPM package: `@kingkyylian/agentfit@0.1.12`.
 - GitHub Action tag: `kingkyylian/agentfit@v1`.
 - Repository metadata: description, homepage, and discovery topics are configured.
-- Local full verification passed on 2026-05-16 for the `0.1.11` release.
-- AgentFit `0.1.11` is published to npm and `v1` points at the release commit.
-- Manual `AgentFit Consumer Smoke` with `version: 0.1.11` passed after publish and `v1` retag.
+- Local full verification passed on 2026-05-17 for the `0.1.12` release.
+- AgentFit `0.1.12` is published to npm and `v1` points at the release commit.
+- Manual `AgentFit Consumer Smoke` with `version: 0.1.12` passed after publish and `v1` retag.
 - Initial starter issues for snapshots, fixtures, adapter smoke tests, scoring signals, and demo assets are complete.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
-- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and package-local command freshness fixes carried into `0.1.11`.
+- Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and command parser/discovery fixes carried into `0.1.12`.
 - Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
 - GitHub Community feedback suggested exact public code-search queries; keep candidate discovery in [real-world-validation.md](real-world-validation.md) and contact maintainers only after concrete dry-run findings.
 
@@ -70,9 +70,9 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 1. Run `pnpm install --frozen-lockfile`.
 2. Run `pnpm typecheck`, `pnpm test`, `pnpm lint`, `pnpm build`, and `pnpm smoke:package`.
 3. Confirm `pnpm smoke:package` validates the packed tarball contents, executable CLI entrypoint, and reported CLI version.
-4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.11`.
+4. Publish the npm CLI package as `@kingkyylian/agentfit@0.1.12`.
 5. Push the GitHub repository and create the `v1` Action tag after the npm package is available.
-6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.11`.
+6. Smoke-test the Action with the manual `AgentFit Consumer Smoke` workflow, which uses `kingkyylian/agentfit@v1` and `version: 0.1.12`.
 
 ## Real-World Validation Plan
 
@@ -108,7 +108,8 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
 - earlier AgentFit false-positive classes found from noisy validation, including https://github.com/kingkyylian/agentfit/issues/7
-- package-local command freshness fixes available in `0.1.11`: https://github.com/kingkyylian/agentfit/issues/8
+- package-local command freshness fixes available in `0.1.12`: https://github.com/kingkyylian/agentfit/issues/8
+- npm workspace, `bun x`, `.cursor/rules/*.md`, and recursive workspace command false-positive fixes are available in `0.1.12`: https://github.com/kingkyylian/agentfit/issues/10, https://github.com/kingkyylian/agentfit/issues/11, https://github.com/kingkyylian/agentfit/issues/12, https://github.com/kingkyylian/agentfit/issues/13
 - a public repo-suggestion issue for low-pressure feedback: https://github.com/kingkyylian/agentfit/issues/9
 - healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
 
