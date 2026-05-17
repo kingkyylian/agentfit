@@ -7,6 +7,7 @@ import { evalCommand } from './commands/eval.js';
 import { initCommand } from './commands/init.js';
 import { doctorCommand } from './commands/doctor.js';
 import { compareCommand } from './commands/compare.js';
+import { corpusCommand } from './commands/corpus.js';
 
 type PackageMetadata = {
   name?: string;
@@ -25,6 +26,7 @@ export function createProgram(): Command {
   program.addCommand(doctorCommand());
   program.addCommand(evalCommand());
   program.addCommand(compareCommand());
+  program.addCommand(corpusCommand());
 
   return program;
 }

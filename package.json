@@ -19,6 +19,7 @@
     "dist",
     "docs/*.md",
     "docs/assets/*.svg",
+    "examples/corpus",
     "examples/demo",
     "examples/fixtures",
     "examples/reports/demo-*.json",
@@ -31,6 +32,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "corpus:check": "tsx src/cli/index.ts corpus --manifest examples/corpus/real-world-candidates.yml --format json --output /tmp/agentfit-corpus-check.json",
     "dev": "tsx src/cli/index.ts",
     "lint": "eslint .",
     "prepack": "pnpm build",

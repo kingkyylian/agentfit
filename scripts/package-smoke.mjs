@@ -75,6 +75,8 @@ try {
   requirePackedFile(filesByPath, 'action.yml');
   requirePackedFile(filesByPath, 'docs/assets/agentfit-terminal-demo.svg');
   requirePackedFile(filesByPath, 'docs/assets/social-preview.svg');
+  requirePackedFile(filesByPath, 'examples/corpus/README.md');
+  requirePackedFile(filesByPath, 'examples/corpus/real-world-candidates.yml');
   requirePackedFile(filesByPath, 'examples/fixtures/nested-monorepo/bad/AGENTS.md');
   requirePackedFile(filesByPath, 'examples/fixtures/nested-monorepo/fixed/packages/api/AGENTS.md');
   const packedCli = requirePackedFile(filesByPath, 'dist/index.js');
@@ -117,6 +119,18 @@ try {
   }).trim();
   if (cliVersion !== packageJson.version) {
     fail(`Packed CLI returned version ${cliVersion}; expected ${packageJson.version}.`);
+  }
+
+  const corpusOutput = run(process.execPath, [
+    path.join(extractedPackageDir, 'dist/index.js'),
+    'corpus',
+    '--limit',
+    '1'
+  ], {
+    cwd: tempDir
+  });
+  if (!corpusOutput.includes('Real-world corpus: 5 candidates')) {
+    fail('Packed CLI corpus command did not read the bundled manifest.');
   }
 
   console.log(`Package smoke passed for ${packageJson.name}@${packageJson.version}.`);

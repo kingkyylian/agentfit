@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { execa } from 'execa';
 import { describe, expect, it } from 'vitest';
+import { corpusCommand } from '../../src/cli/commands/corpus.js';
 import { evalCommand } from '../../src/cli/commands/eval.js';
 import { initCommand } from '../../src/cli/commands/init.js';
 import { parseAgentFitConfig } from '../../src/core/config.js';
@@ -636,6 +637,88 @@ describe('agentfit cli', () => {
     expect(report.failedChecks).not.toContain('Documented command references missing package script "test:unit".');
     expect(markdown).toContain('## Command Resolutions');
     expect(markdown).toContain('| yarn test:unit | .cursor/rules/frontend.mdc:6 | test:unit | app/client/package.json | resolved |');
+  });
+
+  it('prints corpus command help', () => {
+    const help = createProgram().helpInformation();
+
+    expect(help).toContain('corpus');
+  });
+
+  it('writes a filtered real-world corpus queue', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-corpus-'));
+
+    await mkdir(join(root, 'examples/corpus'), { recursive: true });
+    await writeFile(
+      join(root, 'examples/corpus/real-world-candidates.yml'),
+      [
+        'version: 1',
+        "updatedAt: '2026-05-17'",
+        'policy:',
+        '  contentUse: Metadata only.',
+        '  execution: Dry-run first.',
+        '  contact: Concrete findings only.',
+        'candidates:',
+        '  - repo: meltano/meltano',
+        '    instructionSources:',
+        '      - AGENTS.md',
+        '    searchQuery: path:AGENTS.md is:public fork:false',
+        '    stack: Python',
+        '    shape: data tooling application',
+        '    recentActivity: active',
+        '    licenseStatus: unverified',
+        '    status: candidate',
+        '    expectedSignal: command coverage',
+        '    contactPolicy: no contact before report review',
+        '  - repo: grafana/mimir',
+        '    instructionSources:',
+        '      - AGENTS.md',
+        '    searchQuery: path:AGENTS.md is:public fork:false',
+        '    stack: Go',
+        '    shape: infrastructure monorepo',
+        '    recentActivity: active',
+        '    licenseStatus: reviewed',
+        '    status: healthy',
+        '    expectedSignal: healthy baseline',
+        '    contactPolicy: permission before public named use',
+        ''
+      ].join('\n')
+    );
+
+    await corpusCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--manifest',
+      'examples/corpus/real-world-candidates.yml',
+      '--status',
+      'candidate',
+      '--output',
+      'reports/corpus.txt'
+    ]);
+
+    const text = await readFile(join(root, 'reports/corpus.txt'), 'utf8');
+
+    expect(text).toContain('Real-world corpus: 2 candidates');
+    expect(text).toContain('1. meltano/meltano [candidate]');
+    expect(text).not.toContain('grafana/mimir');
+  });
+
+  it('uses the bundled real-world corpus when no local manifest exists', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-corpus-'));
+
+    await corpusCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--limit',
+      '1',
+      '--output',
+      'reports/corpus.txt'
+    ]);
+
+    const text = await readFile(join(root, 'reports/corpus.txt'), 'utf8');
+
+    expect(text).toContain('Real-world corpus: 5 candidates');
+    expect(text).toContain('1. meltano/meltano [candidate]');
   });
 });
 

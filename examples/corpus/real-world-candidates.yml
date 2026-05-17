@@ -1,0 +1,62 @@
+version: 1
+updatedAt: '2026-05-17'
+policy:
+  contentUse: Store metadata and report links only; do not vendor public instruction-file bodies.
+  execution: Dry-run snapshots first; generated tasks require explicit local review.
+  contact: Contact maintainers only for concrete, reproducible findings.
+candidates:
+  - repo: meltano/meltano
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Python
+    shape: data tooling application
+    recentActivity: active on 2026-05-15 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: package setup and verification command coverage
+    contactPolicy: no contact before report review
+  - repo: enso-org/enso
+    instructionSources:
+      - CLAUDE.md
+    searchQuery: path:CLAUDE.md is:public fork:false
+    stack: Java
+    shape: large data platform
+    recentActivity: active on 2026-05-15 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: command and reference signal in a large codebase
+    contactPolicy: no contact before report review
+  - repo: SteeltoeOSS/Steeltoe
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: C#
+    shape: framework repository
+    recentActivity: active on 2026-05-13 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: non-JavaScript command parsing coverage
+    contactPolicy: no contact before report review
+  - repo: callstackincubator/rozenite
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: TypeScript
+    shape: React Native tooling repository
+    recentActivity: active on 2026-05-15 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: package-script and nested workspace signal
+    contactPolicy: no contact before report review
+  - repo: mathertel/OneButton
+    instructionSources:
+      - copilot-instructions.md
+    searchQuery: path:.github/copilot-instructions.md is:public fork:false
+    stack: C++
+    shape: compact Arduino library
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: Copilot instruction discovery coverage
+    contactPolicy: no contact before report review
