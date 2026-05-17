@@ -284,6 +284,118 @@ describe('collectStaticIssues', () => {
     );
   });
 
+  it('resolves npm workspace run commands when -w appears before the script', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'plugins/wp-graphql'), { recursive: true });
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        workspaces: ['plugins/*'],
+        scripts: {
+          build: 'turbo run build'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'plugins/wp-graphql/package.json'),
+      JSON.stringify({
+        name: '@wpgraphql/wp-graphql',
+        scripts: {
+          build: 'wp-scripts build',
+          'test:codecept:wpunit': 'codecept run wpunit'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      [
+        '# Agent instructions',
+        '',
+        '```bash',
+        'npm run -w @wpgraphql/wp-graphql build',
+        'npm run -w @wpgraphql/wp-graphql test:codecept:wpunit',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          command: 'npm run -w @wpgraphql/wp-graphql build',
+          scriptName: 'build',
+          packageJsonPath: 'plugins/wp-graphql/package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'npm run -w @wpgraphql/wp-graphql test:codecept:wpunit',
+          scriptName: 'test:codecept:wpunit',
+          packageJsonPath: 'plugins/wp-graphql/package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+  });
+
+  it('resolves recursive pnpm run commands from workspace package scripts', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'typescript/cli'), { recursive: true });
+    await writeFile(join(root, 'package.json'), JSON.stringify({ scripts: { build: 'pnpm -r build' } }));
+    await writeFile(join(root, 'pnpm-workspace.yaml'), "packages:\n  - 'typescript/*'\n");
+    await writeFile(
+      join(root, 'typescript/cli/package.json'),
+      JSON.stringify({
+        scripts: {
+          format: 'biome format --write'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      ['# Agent instructions', '', '```bash', 'pnpm -r run format', '```', ''].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toContainEqual(
+      expect.objectContaining({
+        command: 'pnpm -r run format',
+        scriptName: 'format',
+        packageJsonPath: 'typescript/cli/package.json',
+        status: 'resolved'
+      })
+    );
+  });
+
+  it('does not treat bun x external commands as package scripts', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          check: 'bun ./packages/cli/src/index.ts check'
+        }
+      })
+    );
+    await writeFile(join(root, 'CLAUDE.md'), ['# Agent instructions', '', 'Run `bun x ultracite check` before committing.', ''].join('\n'));
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.map((issue) => issue.message)).not.toContain('Documented command references missing package script "x".');
+    expect(issues.map((issue) => issue.message)).not.toContain('No runnable verification command found in instruction files.');
+    expect(resolutions).toEqual([]);
+  });
+
   it('resolves cursor rules from heading and frontmatter package scope without treating nearby prose paths as cwd', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await mkdir(join(root, '.cursor/rules'), { recursive: true });

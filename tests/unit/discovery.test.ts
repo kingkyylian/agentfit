@@ -17,6 +17,22 @@ describe('discoverInstructionFiles', () => {
     expect(files.map((file) => file.kind)).toEqual(['cursor', 'copilot', 'agents', 'claude']);
   });
 
+  it('discovers markdown Cursor rules under .cursor/rules', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-discovery-'));
+    await mkdir(join(root, '.cursor/rules'), { recursive: true });
+    await writeFile(join(root, '.cursor/rules/project.md'), '# Cursor project rules\n\nRun `pnpm test`.\n');
+
+    const files = await discoverInstructionFiles(root);
+
+    expect(files.map((file) => ({ path: file.path, kind: file.kind, commands: file.commands.map((command) => command.value) }))).toEqual([
+      {
+        path: '.cursor/rules/project.md',
+        kind: 'cursor',
+        commands: ['pnpm test']
+      }
+    ]);
+  });
+
   it('includes root and nested AGENTS.md files', async () => {
     const files = await discoverInstructionFiles('tests/fixtures/nested-repo');
 

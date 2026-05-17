@@ -18,6 +18,7 @@ export const DEFAULT_INSTRUCTION_PATTERNS = [
   'gemini.md',
   '**/GEMINI.md',
   '**/gemini.md',
+  '.cursor/rules/**/*.md',
   '.cursor/rules/**/*.mdc',
   'copilot-instructions.md',
   '.copilot-instructions.md',
@@ -106,7 +107,7 @@ function instructionKind(filePath: string): InstructionKind {
     return 'gemini';
   }
 
-  if (lowerNormalized.startsWith('.cursor/rules/') && lowerNormalized.endsWith('.mdc')) {
+  if (lowerNormalized.startsWith('.cursor/rules/') && (lowerNormalized.endsWith('.md') || lowerNormalized.endsWith('.mdc'))) {
     return 'cursor';
   }
 

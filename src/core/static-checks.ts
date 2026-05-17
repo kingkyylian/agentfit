@@ -62,6 +62,7 @@ type ParsedPackageScriptCommand = {
   cwd?: string;
   filter?: string;
   workspace?: string;
+  recursive?: boolean;
   chainedCwd?: string;
 };
 
@@ -290,6 +291,8 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
   let cwd: string | undefined;
   let filter: string | undefined;
   let workspace: string | undefined;
+  let recursive = false;
+  let hasExplicitRun = false;
 
   while (index < tokens.length) {
     const token = tokens[index];
@@ -305,6 +308,13 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
     }
 
     if (token === 'run') {
+      hasExplicitRun = true;
+      index += 1;
+      continue;
+    }
+
+    if (token === 'recursive') {
+      recursive = true;
       index += 1;
       continue;
     }
@@ -317,6 +327,8 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
         filter = option.value;
       } else if (option?.kind === 'workspace') {
         workspace = option.value;
+      } else if (option?.kind === 'recursive') {
+        recursive = true;
       }
       index += option?.consumed ?? 1;
       continue;
@@ -324,7 +336,7 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
 
     const scriptName = token;
 
-    if (isPackageManagerCommand(scriptName)) {
+    if (!hasExplicitRun && isPackageManagerCommand(scriptName)) {
       return undefined;
     }
 
@@ -333,6 +345,7 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
       ...(cwd ? { cwd } : {}),
       ...(filter ? { filter } : {}),
       ...(workspace ? { workspace } : {}),
+      ...(recursive ? { recursive } : {}),
       ...(chained.cwd ? { chainedCwd: chained.cwd } : {})
     };
   }
@@ -343,8 +356,13 @@ function parsePackageScriptCommand(command: string): ParsedPackageScriptCommand 
 function parsePackageManagerOption(
   token: string,
   nextToken: string | undefined
-): { kind: 'cwd' | 'filter' | 'workspace'; value: string; consumed: number } | undefined {
+): { kind: 'cwd' | 'filter' | 'workspace' | 'recursive'; value: string; consumed: number } | undefined {
   const [name, inlineValue] = token.split('=', 2);
+
+  if (['--recursive', '-r'].includes(name ?? '')) {
+    return { kind: 'recursive', value: '', consumed: 1 };
+  }
+
   const optionValue = cleanTarget(inlineValue ?? nextToken ?? '');
   const consumed = inlineValue === undefined ? 2 : 1;
 
@@ -360,7 +378,7 @@ function parsePackageManagerOption(
     return { kind: 'filter', value: optionValue, consumed };
   }
 
-  if (name === '--workspace') {
+  if (['--workspace', '-w'].includes(name ?? '')) {
     return { kind: 'workspace', value: optionValue, consumed };
   }
 
@@ -368,7 +386,7 @@ function parsePackageManagerOption(
 }
 
 function isPackageManagerCommand(token: string): boolean {
-  return ['install', 'add', 'exec', 'dlx', 'create', 'init', 'remove', 'why', 'config'].includes(token);
+  return ['install', 'add', 'exec', 'x', 'dlx', 'create', 'init', 'remove', 'why', 'config'].includes(token);
 }
 
 function isOptionalAliasExample(command: ExtractedCommand, sourceContent: string | undefined): boolean {
@@ -416,6 +434,10 @@ function resolvePackageCandidate(input: {
 
   if (input.parsed.chainedCwd) {
     return packageCandidateFromDirectory(input.packageJsons, input.parsed.chainedCwd, 'cd command');
+  }
+
+  if (input.parsed.recursive) {
+    return packageCandidateFromRecursive(input.packageJsons, input.parsed.scriptName, 'package-manager recursive');
   }
 
   const contextualCwd = workingDirectoryFromSourceContext(input.command, input.sourceContent, input.packageJsons);
@@ -482,6 +504,32 @@ function packageCandidateFromTarget(
   }
 
   return packageCandidateFromDirectory(packageJsons, normalizedTarget, reason);
+}
+
+function packageCandidateFromRecursive(packageJsons: PackageJsonInfo[], scriptName: string, reason: string): PackageCandidate {
+  const matches = packageJsons.filter((candidate) => candidate.dir !== '.' && candidate.scripts[scriptName] !== undefined);
+  if (matches.length === 1) {
+    const [match] = matches;
+    return {
+      packageJsonPath: match?.path ?? 'workspace package.json files',
+      reason,
+      scripts: match?.scripts ?? {}
+    };
+  }
+
+  if (matches.length > 1) {
+    return {
+      packageJsonPath: `${matches.length} workspace package.json files`,
+      reason,
+      scripts: { [scriptName]: 'recursive workspace script' }
+    };
+  }
+
+  return {
+    packageJsonPath: 'workspace package.json files',
+    reason,
+    scripts: {}
+  };
 }
 
 function rootPackageCandidate(packageJsons: PackageJsonInfo[]): PackageCandidate {
