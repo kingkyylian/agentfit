@@ -232,8 +232,18 @@ function renderOutput(report: ReturnType<typeof attachScoreToReport>, format: Ev
     `Tasks: ${report.tasks.length}`,
     textExecutionSummary(report),
     textRunSummary(report),
+    ...textListSection('Failed checks', report.failedChecks ?? []),
+    ...textListSection('Caps', report.caps),
     ''
   ].join('\n');
+}
+
+function textListSection(label: string, items: string[]): string[] {
+  if (items.length === 0) {
+    return [];
+  }
+
+  return ['', `${label}:`, ...items.map((item) => `- ${item}`)];
 }
 
 function textExecutionSummary(report: ReturnType<typeof attachScoreToReport>): string {

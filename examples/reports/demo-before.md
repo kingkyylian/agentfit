@@ -2,9 +2,9 @@
 
 **Score:** 65/100 (D)
 
-AgentFit score 65/100 (D).
+4 failed checks found.
 
-Generated: 2026-05-07T12:24:02.709Z
+Generated: 2026-05-17T12:44:24.609Z
 
 **Task execution:** Static dry-run preview; generated tasks were not executed.
 
@@ -45,6 +45,7 @@ None.
 | --- | --- | --- | --- | ---: | ---: |
 | Exercise the test package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
 | Make a harmless README wording change and run verification | dry-run | preview | not executed | 0 files, +0/-0 | - |
+
 ## Reference Issues
 
 | Source | Target | Severity | Message |
@@ -58,3 +59,16 @@ None.
 | command | AGENTS.md | error | Documented command references missing package script "lint". |
 | command | AGENTS.md | error | No runnable verification command found in instruction files. |
 | scope | packages/api | warning | No nested instruction file found for packages/api. |
+
+## Command Resolutions
+
+| Command | Source | Script | Package | Status |
+| --- | --- | --- | --- | --- |
+| pnpm lint | AGENTS.md:14 | lint | package.json | missing |
+
+## Signal Findings
+
+| Category | Source | Evidence |
+| --- | --- | --- |
+| reproducibility | AGENTS.md:8 | Setup command guidance. |
+| safety | AGENTS.md:18 | Do-not-run or do-not-expose boundary for risky actions. |

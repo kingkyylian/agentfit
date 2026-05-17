@@ -121,6 +121,45 @@ describe('agentfit cli', () => {
     await expect(readFile(join(root, 'reports/agentfit.svg'), 'utf8')).resolves.toContain('<svg');
   });
 
+  it('includes failed checks and caps in text eval output', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
+
+    await writeFile(join(root, 'package.json'), JSON.stringify({ type: 'module' }, null, 2));
+    await writeFile(
+      join(root, 'AGENTS.md'),
+      ['# Instructions', '', 'Do not expose tokens in logs.'].join('\n')
+    );
+    await writeFile(
+      join(root, 'agentfit.config.yml'),
+      [
+        'version: 1',
+        'root: .',
+        'evaluation:',
+        '  taskCount: 1',
+        'report:',
+        '  failBelowScore: 0',
+        ''
+      ].join('\n')
+    );
+
+    await evalCommand(() => root).parseAsync([
+      'node',
+      'agentfit',
+      '--format',
+      'text',
+      '--output',
+      'reports/agentfit.txt'
+    ]);
+
+    const text = await readFile(join(root, 'reports/agentfit.txt'), 'utf8');
+
+    expect(text).toContain('Failed checks:');
+    expect(text).toContain('- No runnable verification command found in instruction files.');
+    expect(text).toContain('- No verification command found in instruction files.');
+    expect(text).toContain('Caps:');
+    expect(text).toContain('- no verification command found: max score 75');
+  });
+
   it('hard-fails eval reports when instruction files contain high-confidence secrets', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-cli-'));
     const openAiKey = `sk-proj-${'a'.repeat(32)}`;

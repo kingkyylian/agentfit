@@ -159,14 +159,15 @@ export function calculateScore(input: ScoringInput): ScoreResult {
   );
   const cappedScore = applyCaps(uncappedScore, caps);
   const grade = gradeForScore(cappedScore);
+  const uniqueFailedChecks = unique(failedChecks);
 
   return {
     score: cappedScore,
     grade,
-    summary: `AgentFit score ${cappedScore}/100 (${grade}).`,
+    summary: summaryForScore(uniqueFailedChecks, caps),
     breakdown,
     caps,
-    failedChecks: unique(failedChecks)
+    failedChecks: uniqueFailedChecks
   };
 }
 
@@ -490,6 +491,19 @@ function applyCaps(score: number, caps: string[]): number {
     }
     return current;
   }, score);
+}
+
+function summaryForScore(failedChecks: string[], caps: string[]): string {
+  const failedSummary =
+    failedChecks.length === 0
+      ? 'No failed checks.'
+      : `${failedChecks.length} failed check${failedChecks.length === 1 ? '' : 's'} found.`;
+
+  if (caps.length === 0) {
+    return failedSummary;
+  }
+
+  return `${failedSummary} ${caps.length} score cap${caps.length === 1 ? '' : 's'} applied.`;
 }
 
 function gradeForScore(score: number): string {

@@ -72,6 +72,7 @@ describe('renderMarkdownReport', () => {
     );
 
     expect(markdown).toContain('## Signal Findings');
+    expect(markdown).toContain('| Exercise the test package script | dry-run | preview | not executed | 0 files, +0/-0 | - |\n\n## Signal Findings');
     expect(markdown).toContain('| safety | AGENTS.md:4 | Approval boundary for risky changes. |');
     expect(markdown).toContain('| reproducibility | CLAUDE.md:8 | Exact reproduction guidance. |');
   });

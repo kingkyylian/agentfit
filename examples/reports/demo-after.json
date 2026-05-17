@@ -1,13 +1,13 @@
 {
   "score": 93,
   "grade": "A",
-  "summary": "AgentFit score 93/100 (A).",
+  "summary": "No failed checks.",
   "instructionFiles": [
     {
       "path": "AGENTS.md",
       "scope": ".",
       "kind": "agents",
-      "bytes": 305,
+      "bytes": 346,
       "importedPaths": [
         "docs/setup.md"
       ],
@@ -49,6 +49,61 @@
   ],
   "referenceIssues": [],
   "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 14,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint",
+      "sourcePath": "AGENTS.md",
+      "line": 15,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build",
+      "sourcePath": "AGENTS.md",
+      "line": 16,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 16,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 8,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "AGENTS.md",
+      "line": 20,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
   "tasks": [
     {
       "id": "fallback-readme-wording",
@@ -110,8 +165,8 @@
           "README.md"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.714Z",
-      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "startedAt": "2026-05-17T12:44:28.093Z",
+      "finishedAt": "2026-05-17T12:44:28.093Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -135,8 +190,8 @@
           "package.json"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.714Z",
-      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "startedAt": "2026-05-17T12:44:28.093Z",
+      "finishedAt": "2026-05-17T12:44:28.093Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -160,8 +215,8 @@
           "package.json"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.714Z",
-      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "startedAt": "2026-05-17T12:44:28.093Z",
+      "finishedAt": "2026-05-17T12:44:28.093Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -185,8 +240,8 @@
           "package.json"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.714Z",
-      "finishedAt": "2026-05-07T12:24:02.714Z",
+      "startedAt": "2026-05-17T12:44:28.093Z",
+      "finishedAt": "2026-05-17T12:44:28.093Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -198,7 +253,7 @@
     }
   ],
   "caps": [],
-  "generatedAt": "2026-05-07T12:24:02.715Z",
+  "generatedAt": "2026-05-17T12:44:28.093Z",
   "breakdown": [
     {
       "id": "discoverability",

@@ -17,3 +17,4 @@ pnpm build
 ```
 
 Keep changes focused and check `git status --short` before summarizing work.
+Do not expose tokens or secrets in logs.

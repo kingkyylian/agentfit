@@ -1,13 +1,13 @@
 {
   "score": 65,
   "grade": "D",
-  "summary": "AgentFit score 65/100 (D).",
+  "summary": "4 failed checks found.",
   "instructionFiles": [
     {
       "path": "AGENTS.md",
       "scope": ".",
       "kind": "agents",
-      "bytes": 307,
+      "bytes": 348,
       "importedPaths": [],
       "commands": [
         {
@@ -54,6 +54,31 @@
       "severity": "warning"
     }
   ],
+  "commandResolutions": [
+    {
+      "command": "pnpm lint",
+      "sourcePath": "AGENTS.md",
+      "line": 14,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 8,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "AGENTS.md",
+      "line": 18,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
   "tasks": [
     {
       "id": "fallback-readme-wording",
@@ -93,8 +118,8 @@
           "README.md"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.709Z",
-      "finishedAt": "2026-05-07T12:24:02.709Z",
+      "startedAt": "2026-05-17T12:44:24.609Z",
+      "finishedAt": "2026-05-17T12:44:24.609Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -118,8 +143,8 @@
           "package.json"
         ]
       },
-      "startedAt": "2026-05-07T12:24:02.709Z",
-      "finishedAt": "2026-05-07T12:24:02.709Z",
+      "startedAt": "2026-05-17T12:44:24.609Z",
+      "finishedAt": "2026-05-17T12:44:24.609Z",
       "status": "passed",
       "verification": [],
       "diffStat": {
@@ -131,7 +156,7 @@
     }
   ],
   "caps": [],
-  "generatedAt": "2026-05-07T12:24:02.709Z",
+  "generatedAt": "2026-05-17T12:44:24.609Z",
   "breakdown": [
     {
       "id": "discoverability",

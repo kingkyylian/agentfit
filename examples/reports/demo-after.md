@@ -2,9 +2,9 @@
 
 **Score:** 93/100 (A)
 
-AgentFit score 93/100 (A).
+No failed checks.
 
-Generated: 2026-05-07T12:24:02.715Z
+Generated: 2026-05-17T12:44:28.093Z
 
 **Task execution:** Static dry-run preview; generated tasks were not executed.
 
@@ -41,7 +41,24 @@ None.
 
 | Task | Adapter | Status | Verification | Diff | Cost |
 | --- | --- | --- | --- | ---: | ---: |
-| Exercise the build package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
-| Exercise the lint package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
 | Exercise the test package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
+| Exercise the lint package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
+| Exercise the build package script | dry-run | preview | not executed | 0 files, +0/-0 | - |
 | Make a harmless README wording change and run verification | dry-run | preview | not executed | 0 files, +0/-0 | - |
+
+## Command Resolutions
+
+| Command | Source | Script | Package | Status |
+| --- | --- | --- | --- | --- |
+| pnpm test | AGENTS.md:14 | test | package.json | resolved |
+| pnpm lint | AGENTS.md:15 | lint | package.json | resolved |
+| pnpm build | AGENTS.md:16 | build | package.json | resolved |
+
+## Signal Findings
+
+| Category | Source | Evidence |
+| --- | --- | --- |
+| reproducibility | AGENTS.md:8 | Setup command guidance. |
+| reproducibility | AGENTS.md:14 | Test command guidance. |
+| reproducibility | AGENTS.md:16 | Build command guidance. |
+| safety | AGENTS.md:20 | Do-not-run or do-not-expose boundary for risky actions. |

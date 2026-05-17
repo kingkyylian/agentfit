@@ -63,7 +63,7 @@ npx @kingkyylian/agentfit@latest eval --adapter dry-run --run-tasks
 Key line:
 
 ```text
-AgentFit score 100/100 (A).
+AgentFit score: 100/100 (A)
 ```
 
 ## X Post

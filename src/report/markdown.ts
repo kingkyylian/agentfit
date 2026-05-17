@@ -44,6 +44,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     lines.splice(
       lines.length - 1,
       0,
+      '',
       `## Reference Issues`,
       '',
       `| Source | Target | Severity | Message |`,
@@ -51,8 +52,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
       ...report.referenceIssues.map(
         (issue) =>
           `| ${escapeCell(`${issue.sourcePath}:${issue.line}`)} | ${escapeCell(issue.target)} | ${issue.severity} | ${escapeCell(issue.message)} |`
-      ),
-      ''
+      )
     );
   }
 
@@ -60,6 +60,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     lines.splice(
       lines.length - 1,
       0,
+      '',
       `## Static Issues`,
       '',
       `| Category | Source | Severity | Message |`,
@@ -67,8 +68,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
       ...(report.staticIssues ?? []).map(
         (issue) =>
           `| ${issue.category} | ${escapeCell(issue.sourcePath)} | ${issue.severity} | ${escapeCell(issue.message)} |`
-      ),
-      ''
+      )
     );
   }
 
@@ -77,6 +77,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     lines.splice(
       lines.length - 1,
       0,
+      '',
       `## Command Resolutions`,
       '',
       ...limitNote(commandResolutions.length, 'command resolutions'),
@@ -85,8 +86,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
       ...commandResolutions.slice(0, MAX_MARKDOWN_EVIDENCE_ROWS).map(
         (resolution) =>
           `| ${escapeCell(resolution.command)} | ${escapeCell(`${resolution.sourcePath}:${resolution.line}`)} | ${escapeCell(resolution.scriptName)} | ${escapeCell(resolution.packageJsonPath)} | ${resolution.status} |`
-      ),
-      ''
+      )
     );
   }
 
@@ -95,6 +95,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
     lines.splice(
       lines.length - 1,
       0,
+      '',
       `## Signal Findings`,
       '',
       ...limitNote(signalFindings.length, 'signal findings'),
@@ -103,8 +104,7 @@ export function renderMarkdownReport(report: ScoredAgentFitReport): string {
       ...signalFindings.slice(0, MAX_MARKDOWN_EVIDENCE_ROWS).map(
         (finding) =>
           `| ${finding.category} | ${escapeCell(`${finding.sourcePath}:${finding.line}`)} | ${escapeCell(finding.message)} |`
-      ),
-      ''
+      )
     );
   }
 

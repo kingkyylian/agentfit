@@ -75,6 +75,8 @@ describe('calculateScore', () => {
 
     expect(result.score).toBe(100);
     expect(result.grade).toBe('A');
+    expect(result.summary).toBe('No failed checks.');
+    expect(result.summary).not.toContain('100/100');
     expect(result.caps).toEqual([]);
     expect(result.failedChecks).toEqual([]);
     expect(result.breakdown).toEqual([
@@ -171,6 +173,7 @@ describe('calculateScore', () => {
     });
 
     expect(result.score).toBeLessThanOrEqual(60);
+    expect(result.summary).toBe('2 failed checks found. 2 score caps applied.');
     expect(result.caps).toContain('setup command cannot run: max score 60');
     expect(result.caps).toContain('no verification command found: max score 75');
     expect(result.failedChecks).toContain('No verification command found in instruction files.');

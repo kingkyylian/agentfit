@@ -25,7 +25,7 @@ Suggest a repo: https://github.com/kingkyylian/agentfit/issues/9
 
 ```text
 AgentFit score: 93/100 (A)
-AgentFit score 93/100 (A).
+No failed checks.
 Instruction files: 1
 Reference issues: 0
 Tasks: 5

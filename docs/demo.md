@@ -25,7 +25,8 @@ npx @kingkyylian/agentfit@latest eval \
 Result:
 
 ```text
-AgentFit score 65/100 (D).
+**Score:** 65/100 (D)
+4 failed checks found.
 Task execution: static dry-run preview; generated tasks were not executed.
 Failed checks:
 - No nested instruction file found for packages/api.
@@ -57,7 +58,8 @@ npx @kingkyylian/agentfit@latest eval \
 Result:
 
 ```text
-AgentFit score 93/100 (A).
+**Score:** 93/100 (A)
+No failed checks.
 Failed checks: none.
 ```
 
