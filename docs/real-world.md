@@ -8,6 +8,8 @@ Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newe
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
+The 2026-05-18 sprint added five local dry-run snapshots from the metadata corpus. Meltano, Enso, and Steeltoe are healthy internal baselines; Rozenite and OneButton have actionable instruction gaps that require local drafts before any maintainer contact.
+
 ## Latest Validation Sprint
 
 The 2026-05-11 sprint ran 20 dry-run snapshots and produced:
@@ -37,6 +39,11 @@ Do not publish named healthy examples without asking permission first. Use the s
 - [zapier-platform.md](../examples/reports/real-world/zapier-platform.md)
 - [snyk-intellij-plugin.md](../examples/reports/real-world/snyk-intellij-plugin.md)
 - [javascript-obfuscator.md](../examples/reports/real-world/javascript-obfuscator.md)
+- [meltano.md](../examples/reports/real-world/meltano.md)
+- [enso.md](../examples/reports/real-world/enso.md)
+- [steeltoe.md](../examples/reports/real-world/steeltoe.md)
+- [rozenite.md](../examples/reports/real-world/rozenite.md)
+- [onebutton.md](../examples/reports/real-world/onebutton.md)
 
 ## Reproduce
 

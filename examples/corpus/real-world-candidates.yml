@@ -13,9 +13,11 @@ candidates:
     shape: data tooling application
     recentActivity: active on 2026-05-15 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: package setup and verification command coverage
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/meltano.md
+    commit: 'fe921ef'
   - repo: enso-org/enso
     instructionSources:
       - CLAUDE.md
@@ -24,9 +26,11 @@ candidates:
     shape: large data platform
     recentActivity: active on 2026-05-15 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: command and reference signal in a large codebase
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/enso.md
+    commit: 'f364fe2'
   - repo: SteeltoeOSS/Steeltoe
     instructionSources:
       - AGENTS.md
@@ -35,9 +39,11 @@ candidates:
     shape: framework repository
     recentActivity: active on 2026-05-13 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: non-JavaScript command parsing coverage
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/steeltoe.md
+    commit: 'f4d5993'
   - repo: callstackincubator/rozenite
     instructionSources:
       - AGENTS.md
@@ -46,9 +52,11 @@ candidates:
     shape: React Native tooling repository
     recentActivity: active on 2026-05-15 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: package-script and nested workspace signal
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/rozenite.md
+    commit: '3a77ccf'
   - repo: mathertel/OneButton
     instructionSources:
       - copilot-instructions.md
@@ -57,9 +65,11 @@ candidates:
     shape: compact Arduino library
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: Copilot instruction discovery coverage
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/onebutton.md
+    commit: '9489276'
   - repo: dusk-network/rusk
     instructionSources:
       - agents.md

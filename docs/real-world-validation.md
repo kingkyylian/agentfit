@@ -125,6 +125,16 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 2 | `econ-ark/HARK` | `AGENTS.md` | Python | queue only |
 | 2 | `IOBR/IOBR` | Copilot | R | queue only |
 
+## 2026-05-18 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `meltano/meltano` | `fe921ef` | 83 | healthy | no contact; permission before public named use | Reproducible command guidance; only broad safety guardrail gap. |
+| `enso-org/enso` | `f364fe2` | 83 | healthy | no contact; permission before public named use | 84 scoped instruction files with resolved references; only broad safety guardrail gap. |
+| `SteeltoeOSS/Steeltoe` | `f4d5993` | 83 | healthy | no contact; permission before public named use | Reproducible .NET command guidance; only broad safety guardrail gap. |
+| `callstackincubator/rozenite` | `3a77ccf` | 60 | actionable | draft locally before any contact | Minimal root `AGENTS.md` lacks runnable verification, safety, reproducibility, and package-scope guidance. |
+| `mathertel/OneButton` | `9489276` | 65 | actionable | draft locally before any contact | Copilot guidance covers API usage but lacks runnable verification, safety, and reproducibility guidance. |
+
 Follow-up snapshots:
 
 | Repository | Commit | Initial Result | After Product Fix | Triage |

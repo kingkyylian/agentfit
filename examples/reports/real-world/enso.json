@@ -1,0 +1,1305 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "app/CLAUDE.md",
+      "scope": "app",
+      "kind": "claude",
+      "bytes": 3373,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run dev:inspect",
+          "sourcePath": "app/CLAUDE.md",
+          "line": 37,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm compile",
+          "sourcePath": "app/CLAUDE.md",
+          "line": 64,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run -r compile",
+          "sourcePath": "app/CLAUDE.md",
+          "line": 64,
+          "kind": "build"
+        },
+        {
+          "value": "tsc",
+          "sourcePath": "app/CLAUDE.md",
+          "line": 65,
+          "kind": "build"
+        },
+        {
+          "value": "vitest",
+          "sourcePath": "app/CLAUDE.md",
+          "line": 70,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "app/common/CLAUDE.md",
+      "scope": "app/common",
+      "kind": "claude",
+      "bytes": 1106,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/electron-client/CLAUDE.md",
+      "scope": "app/electron-client",
+      "kind": "claude",
+      "bytes": 35811,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run dist",
+          "sourcePath": "app/electron-client/CLAUDE.md",
+          "line": 33,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "app/gui/CLAUDE.md",
+      "scope": "app/gui",
+      "kind": "claude",
+      "bytes": 4786,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/gui/integration-test/CLAUDE.md",
+      "scope": "app/gui/integration-test",
+      "kind": "claude",
+      "bytes": 1532,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm test:integration          # headless",
+          "sourcePath": "app/gui/integration-test/CLAUDE.md",
+          "line": 22,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test-dev:integration      # UI mode",
+          "sourcePath": "app/gui/integration-test/CLAUDE.md",
+          "line": 23,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run playwright:install",
+          "sourcePath": "app/gui/integration-test/CLAUDE.md",
+          "line": 32,
+          "kind": "setup"
+        }
+      ]
+    },
+    {
+      "path": "app/gui/src/dashboard/CLAUDE.md",
+      "scope": "app/gui/src/dashboard",
+      "kind": "claude",
+      "bytes": 3453,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "vitest",
+          "sourcePath": "app/gui/src/dashboard/CLAUDE.md",
+          "line": 71,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "app/gui/src/project-view/CLAUDE.md",
+      "scope": "app/gui/src/project-view",
+      "kind": "claude",
+      "bytes": 3641,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/gui/src/project-view/components/GraphEditor/widgets/CLAUDE.md",
+      "scope": "app/gui/src/project-view/components/GraphEditor/widgets",
+      "kind": "claude",
+      "bytes": 2817,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/lang-markdown/CLAUDE.md",
+      "scope": "app/lang-markdown",
+      "kind": "claude",
+      "bytes": 516,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/lezer-markdown/CLAUDE.md",
+      "scope": "app/lezer-markdown",
+      "kind": "claude",
+      "bytes": 484,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node build.js",
+          "sourcePath": "app/lezer-markdown/CLAUDE.md",
+          "line": 7,
+          "kind": "build"
+        }
+      ]
+    },
+    {
+      "path": "app/project-manager-shim/CLAUDE.md",
+      "scope": "app/project-manager-shim",
+      "kind": "claude",
+      "bytes": 1438,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm dev:vite",
+          "sourcePath": "app/project-manager-shim/CLAUDE.md",
+          "line": 11,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "app/rust-ffi/CLAUDE.md",
+      "scope": "app/rust-ffi",
+      "kind": "claude",
+      "bytes": 1000,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/table-expression/CLAUDE.md",
+      "scope": "app/table-expression",
+      "kind": "claude",
+      "bytes": 684,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/ydoc-channel/CLAUDE.md",
+      "scope": "app/ydoc-channel",
+      "kind": "claude",
+      "bytes": 508,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/ydoc-inspect/CLAUDE.md",
+      "scope": "app/ydoc-inspect",
+      "kind": "claude",
+      "bytes": 313,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/ydoc-server-polyglot/CLAUDE.md",
+      "scope": "app/ydoc-server-polyglot",
+      "kind": "claude",
+      "bytes": 1308,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run compile",
+          "sourcePath": "app/ydoc-server-polyglot/CLAUDE.md",
+          "line": 16,
+          "kind": "build"
+        },
+        {
+          "value": "node ./build.mjs build",
+          "sourcePath": "app/ydoc-server-polyglot/CLAUDE.md",
+          "line": 16,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run dev:watch",
+          "sourcePath": "app/ydoc-server-polyglot/CLAUDE.md",
+          "line": 18,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "app/ydoc-server/CLAUDE.md",
+      "scope": "app/ydoc-server",
+      "kind": "claude",
+      "bytes": 2770,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run dev:inspect",
+          "sourcePath": "app/ydoc-server/CLAUDE.md",
+          "line": 54,
+          "kind": "unknown"
+        },
+        {
+          "value": "node",
+          "sourcePath": "app/ydoc-server/CLAUDE.md",
+          "line": 65,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "app/ydoc-shared/CLAUDE.md",
+      "scope": "app/ydoc-shared",
+      "kind": "claude",
+      "bytes": 1789,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run test:unit",
+          "sourcePath": "app/ydoc-shared/CLAUDE.md",
+          "line": 44,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "build_tools/base/CLAUDE.md",
+      "scope": "build_tools/base",
+      "kind": "claude",
+      "bytes": 344,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/build/CLAUDE.md",
+      "scope": "build_tools/build",
+      "kind": "claude",
+      "bytes": 2381,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "tools/http-test-helper/",
+          "sourcePath": "build_tools/build/CLAUDE.md",
+          "line": 33,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "build_tools/ci_utils/CLAUDE.md",
+      "scope": "build_tools/ci_utils",
+      "kind": "claude",
+      "bytes": 1074,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/ci-gen/CLAUDE.md",
+      "scope": "build_tools/ci-gen",
+      "kind": "claude",
+      "bytes": 452,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/CLAUDE.md",
+      "scope": "build_tools",
+      "kind": "claude",
+      "bytes": 3231,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/cli/CLAUDE.md",
+      "scope": "build_tools/cli",
+      "kind": "claude",
+      "bytes": 847,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/enso-formatter/CLAUDE.md",
+      "scope": "build_tools/enso-formatter",
+      "kind": "claude",
+      "bytes": 522,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo fmt",
+          "sourcePath": "build_tools/enso-formatter/CLAUDE.md",
+          "line": 17,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "build_tools/install/CLAUDE.md",
+      "scope": "build_tools/install",
+      "kind": "claude",
+      "bytes": 1359,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo build",
+          "sourcePath": "build_tools/install/CLAUDE.md",
+          "line": 23,
+          "kind": "build"
+        }
+      ]
+    },
+    {
+      "path": "build_tools/install/config/CLAUDE.md",
+      "scope": "build_tools/install/config",
+      "kind": "claude",
+      "bytes": 366,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/install/installer/CLAUDE.md",
+      "scope": "build_tools/install/installer",
+      "kind": "claude",
+      "bytes": 835,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo check",
+          "sourcePath": "build_tools/install/installer/CLAUDE.md",
+          "line": 13,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "build_tools/install/uninstaller/CLAUDE.md",
+      "scope": "build_tools/install/uninstaller",
+      "kind": "claude",
+      "bytes": 395,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "build_tools/macros/lib/CLAUDE.md",
+      "scope": "build_tools/macros/lib",
+      "kind": "claude",
+      "bytes": 374,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 5317,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 79,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm",
+          "sourcePath": "CLAUDE.md",
+          "line": 79,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "distribution/CLAUDE.md",
+      "scope": "distribution",
+      "kind": "claude",
+      "bytes": 1659,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/AWS/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/AWS/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1933,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Base/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Base/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 2733,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/CLAUDE.md",
+      "scope": "distribution/lib/Standard",
+      "kind": "claude",
+      "bytes": 6565,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Database/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Database/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 2469,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/DuckDB/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/DuckDB/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1678,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Examples/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Examples/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1621,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Generic_JDBC/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Generic_JDBC/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1343,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Geo/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Geo/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1910,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Google_Api/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Google_Api/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 793,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Google/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Google/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1639,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Image/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Image/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 3072,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Microsoft/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Microsoft/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1883,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Saas/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Saas/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1502,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Searcher/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Searcher/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1246,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Snowflake/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Snowflake/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1948,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Table/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Table/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 2417,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Tableau/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Tableau/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1601,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Test/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Test/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 2150,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "distribution/lib/Standard/Visualization/0.0.0-dev/CLAUDE.md",
+      "scope": "distribution/lib/Standard/Visualization/0.0.0-dev",
+      "kind": "claude",
+      "bytes": 1898,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "docs/CLAUDE.md",
+      "scope": "docs",
+      "kind": "claude",
+      "bytes": 2032,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "engine/CLAUDE.md",
+      "scope": "engine",
+      "kind": "claude",
+      "bytes": 5373,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "engine/language-server/CLAUDE.md",
+      "scope": "engine/language-server",
+      "kind": "claude",
+      "bytes": 2268,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "engine/polyglot-api/CLAUDE.md",
+      "scope": "engine/polyglot-api",
+      "kind": "claude",
+      "bytes": 915,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "engine/runner/CLAUDE.md",
+      "scope": "engine/runner",
+      "kind": "claude",
+      "bytes": 1253,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "engine/runtime/CLAUDE.md",
+      "scope": "engine/runtime",
+      "kind": "claude",
+      "bytes": 3179,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "internal/CLAUDE.md",
+      "scope": "internal",
+      "kind": "claude",
+      "bytes": 1398,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install",
+          "sourcePath": "internal/CLAUDE.md",
+          "line": 8,
+          "kind": "setup"
+        }
+      ]
+    },
+    {
+      "path": "lib/java/CLAUDE.md",
+      "scope": "lib/java",
+      "kind": "claude",
+      "bytes": 2068,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/CLAUDE.md",
+      "scope": "lib/rust",
+      "kind": "claude",
+      "bytes": 2064,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/launcher-shims/CLAUDE.md",
+      "scope": "lib/rust/launcher-shims",
+      "kind": "claude",
+      "bytes": 818,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/macro-utils/CLAUDE.md",
+      "scope": "lib/rust/macro-utils",
+      "kind": "claude",
+      "bytes": 360,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/metamodel/CLAUDE.md",
+      "scope": "lib/rust/metamodel",
+      "kind": "claude",
+      "bytes": 762,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/metamodel/lexpr/CLAUDE.md",
+      "scope": "lib/rust/metamodel/lexpr",
+      "kind": "claude",
+      "bytes": 343,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/parser/CLAUDE.md",
+      "scope": "lib/rust/parser",
+      "kind": "claude",
+      "bytes": 2426,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/parser/debug/CLAUDE.md",
+      "scope": "lib/rust/parser/debug",
+      "kind": "claude",
+      "bytes": 571,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo insta review",
+          "sourcePath": "lib/rust/parser/debug/CLAUDE.md",
+          "line": 12,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+      "scope": "lib/rust/parser/debug/fuzz",
+      "kind": "claude",
+      "bytes": 405,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo afl build --release",
+          "sourcePath": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+          "line": 11,
+          "kind": "build"
+        },
+        {
+          "value": "cargo afl fuzz -i corpus/ -o findings/ target/release/enso-parser-fuzz",
+          "sourcePath": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+          "line": 12,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo install cargo-afl",
+          "sourcePath": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+          "line": 8,
+          "kind": "setup"
+        }
+      ]
+    },
+    {
+      "path": "lib/rust/parser/generate-java/CLAUDE.md",
+      "scope": "lib/rust/parser/generate-java",
+      "kind": "claude",
+      "bytes": 901,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/parser/jni/CLAUDE.md",
+      "scope": "lib/rust/parser/jni",
+      "kind": "claude",
+      "bytes": 982,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo build -p enso-parser-jni --release",
+          "sourcePath": "lib/rust/parser/jni/CLAUDE.md",
+          "line": 20,
+          "kind": "build"
+        }
+      ]
+    },
+    {
+      "path": "lib/rust/parser/macros/CLAUDE.md",
+      "scope": "lib/rust/parser/macros",
+      "kind": "claude",
+      "bytes": 327,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/parser/schema/CLAUDE.md",
+      "scope": "lib/rust/parser/schema",
+      "kind": "claude",
+      "bytes": 482,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/parser/src/syntax/tree/visitor/CLAUDE.md",
+      "scope": "lib/rust/parser/src/syntax/tree/visitor",
+      "kind": "claude",
+      "bytes": 541,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/prelude/CLAUDE.md",
+      "scope": "lib/rust/prelude",
+      "kind": "claude",
+      "bytes": 977,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/prelude/macros/CLAUDE.md",
+      "scope": "lib/rust/prelude/macros",
+      "kind": "claude",
+      "bytes": 304,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/reflect/CLAUDE.md",
+      "scope": "lib/rust/reflect",
+      "kind": "claude",
+      "bytes": 689,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/reflect/macros/CLAUDE.md",
+      "scope": "lib/rust/reflect/macros",
+      "kind": "claude",
+      "bytes": 181,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/rust/zst/CLAUDE.md",
+      "scope": "lib/rust/zst",
+      "kind": "claude",
+      "bytes": 285,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "lib/scala/CLAUDE.md",
+      "scope": "lib/scala",
+      "kind": "claude",
+      "bytes": 2943,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "project/CLAUDE.md",
+      "scope": "project",
+      "kind": "claude",
+      "bytes": 2089,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "std-bits/CLAUDE.md",
+      "scope": "std-bits",
+      "kind": "claude",
+      "bytes": 1855,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "test/CLAUDE.md",
+      "scope": "test",
+      "kind": "claude",
+      "bytes": 1941,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "tools/CLAUDE.md",
+      "scope": "tools",
+      "kind": "claude",
+      "bytes": 1472,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "tools/enso4igv/CLAUDE.md",
+      "scope": "tools/enso4igv",
+      "kind": "claude",
+      "bytes": 663,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "tools/http-test-helper/CLAUDE.md",
+      "scope": "tools/http-test-helper",
+      "kind": "claude",
+      "bytes": 855,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "pnpm compile",
+      "sourcePath": "app/CLAUDE.md",
+      "line": 64,
+      "scriptName": "compile",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run -r compile",
+      "sourcePath": "app/CLAUDE.md",
+      "line": 64,
+      "scriptName": "compile",
+      "packageJsonPath": "9 workspace package.json files",
+      "status": "resolved",
+      "reason": "package-manager recursive"
+    },
+    {
+      "command": "pnpm test:integration          # headless",
+      "sourcePath": "app/gui/integration-test/CLAUDE.md",
+      "line": 22,
+      "scriptName": "test:integration",
+      "packageJsonPath": "app/gui/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm test-dev:integration      # UI mode",
+      "sourcePath": "app/gui/integration-test/CLAUDE.md",
+      "line": 23,
+      "scriptName": "test-dev:integration",
+      "packageJsonPath": "app/gui/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm run compile",
+      "sourcePath": "app/ydoc-server-polyglot/CLAUDE.md",
+      "line": 16,
+      "scriptName": "compile",
+      "packageJsonPath": "app/ydoc-server-polyglot/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "pnpm run test:unit",
+      "sourcePath": "app/ydoc-shared/CLAUDE.md",
+      "line": 44,
+      "scriptName": "test:unit",
+      "packageJsonPath": "app/ydoc-shared/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/CLAUDE.md",
+      "line": 64,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/CLAUDE.md",
+      "line": 65,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/CLAUDE.md",
+      "line": 70,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/electron-client/CLAUDE.md",
+      "line": 40,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/gui/integration-test/CLAUDE.md",
+      "line": 22,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/gui/integration-test/CLAUDE.md",
+      "line": 23,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/gui/integration-test/CLAUDE.md",
+      "line": 32,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/gui/src/dashboard/CLAUDE.md",
+      "line": 71,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/lezer-markdown/CLAUDE.md",
+      "line": 7,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/rust-ffi/CLAUDE.md",
+      "line": 9,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/ydoc-server-polyglot/CLAUDE.md",
+      "line": 16,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "app/ydoc-shared/CLAUDE.md",
+      "line": 44,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "build_tools/build/CLAUDE.md",
+      "line": 33,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "build_tools/install/CLAUDE.md",
+      "line": 23,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "build_tools/install/installer/CLAUDE.md",
+      "line": 13,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "internal/CLAUDE.md",
+      "line": 8,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+      "line": 11,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "lib/rust/parser/debug/fuzz/CLAUDE.md",
+      "line": 8,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "lib/rust/parser/jni/CLAUDE.md",
+      "line": 20,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "lib/rust/parser/schema/CLAUDE.md",
+      "line": 8,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tools/http-test-helper/CLAUDE.md",
+      "line": 22,
+      "message": "Deterministic or reproducible workflow guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-bazel-clean",
+      "title": "Exercise the bazel-clean package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the bazel-clean script passing. Run pnpm run bazel-clean and report the result.",
+      "expectedChecks": [
+        "pnpm run bazel-clean"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build-gui",
+      "title": "Exercise the build:gui package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:gui script passing. Run pnpm run build:gui and report the result.",
+      "expectedChecks": [
+        "pnpm run build:gui"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build-icons",
+      "title": "Exercise the build:icons package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:icons script passing. Run pnpm run build:icons and report the result.",
+      "expectedChecks": [
+        "pnpm run build:icons"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build-ide",
+      "title": "Exercise the build:ide package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:ide script passing. Run pnpm run build:ide and report the result.",
+      "expectedChecks": [
+        "pnpm run build:ide"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build-ydoc-server-polyglot",
+      "title": "Exercise the build:ydoc-server-polyglot package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:ydoc-server-polyglot script passing. Run pnpm run build:ydoc-server-polyglot and report the result.",
+      "expectedChecks": [
+        "pnpm run build:ydoc-server-polyglot"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-bazel-clean",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-bazel-clean",
+        "title": "Exercise the bazel-clean package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the bazel-clean script passing. Run pnpm run bazel-clean and report the result.",
+        "expectedChecks": [
+          "pnpm run bazel-clean"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.670Z",
+      "finishedAt": "2026-05-18T16:23:25.670Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-gui",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-gui",
+        "title": "Exercise the build:gui package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:gui script passing. Run pnpm run build:gui and report the result.",
+        "expectedChecks": [
+          "pnpm run build:gui"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.670Z",
+      "finishedAt": "2026-05-18T16:23:25.670Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-icons",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-icons",
+        "title": "Exercise the build:icons package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:icons script passing. Run pnpm run build:icons and report the result.",
+        "expectedChecks": [
+          "pnpm run build:icons"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.670Z",
+      "finishedAt": "2026-05-18T16:23:25.670Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-ide",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-ide",
+        "title": "Exercise the build:ide package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:ide script passing. Run pnpm run build:ide and report the result.",
+        "expectedChecks": [
+          "pnpm run build:ide"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.670Z",
+      "finishedAt": "2026-05-18T16:23:25.670Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-ydoc-server-polyglot",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-ydoc-server-polyglot",
+        "title": "Exercise the build:ydoc-server-polyglot package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:ydoc-server-polyglot script passing. Run pnpm run build:ydoc-server-polyglot and report the result.",
+        "expectedChecks": [
+          "pnpm run build:ydoc-server-polyglot"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.670Z",
+      "finishedAt": "2026-05-18T16:23:25.670Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T16:23:25.671Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "84 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

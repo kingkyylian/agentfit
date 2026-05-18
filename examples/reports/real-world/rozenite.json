@@ -1,0 +1,449 @@
+{
+  "score": 60,
+  "grade": "D",
+  "summary": "5 failed checks found. 1 score cap applied.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 149,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm -w run rozenite",
+          "sourcePath": "AGENTS.md",
+          "line": 3,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "No runnable verification command found in instruction files.",
+      "severity": "error"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/playground",
+      "message": "No nested instruction file found for apps/playground.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/agent-bridge",
+      "message": "No nested instruction file found for packages/agent-bridge.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/agent-sdk",
+      "message": "No nested instruction file found for packages/agent-sdk.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/agent-shared",
+      "message": "No nested instruction file found for packages/agent-shared.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/chrome-extension",
+      "message": "No nested instruction file found for packages/chrome-extension.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/cli",
+      "message": "No nested instruction file found for packages/cli.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/controls-plugin",
+      "message": "No nested instruction file found for packages/controls-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/expo-atlas-plugin",
+      "message": "No nested instruction file found for packages/expo-atlas-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/file-system-plugin",
+      "message": "No nested instruction file found for packages/file-system-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/metro",
+      "message": "No nested instruction file found for packages/metro.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/middleware",
+      "message": "No nested instruction file found for packages/middleware.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/mmkv-plugin",
+      "message": "No nested instruction file found for packages/mmkv-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/network-activity-plugin",
+      "message": "No nested instruction file found for packages/network-activity-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/overlay-plugin",
+      "message": "No nested instruction file found for packages/overlay-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/performance-monitor-plugin",
+      "message": "No nested instruction file found for packages/performance-monitor-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/plugin-bridge",
+      "message": "No nested instruction file found for packages/plugin-bridge.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/react-navigation-plugin",
+      "message": "No nested instruction file found for packages/react-navigation-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/redux-devtools-plugin",
+      "message": "No nested instruction file found for packages/redux-devtools-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/repack",
+      "message": "No nested instruction file found for packages/repack.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/require-profiler-plugin",
+      "message": "No nested instruction file found for packages/require-profiler-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/rhf-plugin",
+      "message": "No nested instruction file found for packages/rhf-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/runtime",
+      "message": "No nested instruction file found for packages/runtime.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/sqlite-plugin",
+      "message": "No nested instruction file found for packages/sqlite-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/storage-plugin",
+      "message": "No nested instruction file found for packages/storage-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/tanstack-query-plugin",
+      "message": "No nested instruction file found for packages/tanstack-query-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/tools",
+      "message": "No nested instruction file found for packages/tools.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/vite-plugin",
+      "message": "No nested instruction file found for packages/vite-plugin.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/web",
+      "message": "No nested instruction file found for packages/web.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [],
+  "signalFindings": [],
+  "tasks": [
+    {
+      "id": "script-build-all",
+      "title": "Exercise the build:all package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:all script passing. Run pnpm run build:all and report the result.",
+      "expectedChecks": [
+        "pnpm run build:all"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-checks-all",
+      "title": "Exercise the checks:all package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the checks:all script passing. Run pnpm run checks:all and report the result.",
+      "expectedChecks": [
+        "pnpm run checks:all"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-format-all",
+      "title": "Exercise the format:all package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the format:all script passing. Run pnpm run format:all and report the result.",
+      "expectedChecks": [
+        "pnpm run format:all"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-format-all-fix",
+      "title": "Exercise the format:all:fix package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the format:all:fix script passing. Run pnpm run format:all:fix and report the result.",
+      "expectedChecks": [
+        "pnpm run format:all:fix"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-all",
+      "title": "Exercise the lint:all package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:all script passing. Run pnpm run lint:all and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:all"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build-all",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-all",
+        "title": "Exercise the build:all package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:all script passing. Run pnpm run build:all and report the result.",
+        "expectedChecks": [
+          "pnpm run build:all"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.442Z",
+      "finishedAt": "2026-05-18T16:23:25.442Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-checks-all",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-checks-all",
+        "title": "Exercise the checks:all package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the checks:all script passing. Run pnpm run checks:all and report the result.",
+        "expectedChecks": [
+          "pnpm run checks:all"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.442Z",
+      "finishedAt": "2026-05-18T16:23:25.442Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-format-all",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-format-all",
+        "title": "Exercise the format:all package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the format:all script passing. Run pnpm run format:all and report the result.",
+        "expectedChecks": [
+          "pnpm run format:all"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.442Z",
+      "finishedAt": "2026-05-18T16:23:25.442Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-format-all-fix",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-format-all-fix",
+        "title": "Exercise the format:all:fix package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the format:all:fix script passing. Run pnpm run format:all:fix and report the result.",
+        "expectedChecks": [
+          "pnpm run format:all:fix"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.442Z",
+      "finishedAt": "2026-05-18T16:23:25.442Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-all",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-all",
+        "title": "Exercise the lint:all package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:all script passing. Run pnpm run lint:all and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:all"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T16:23:25.442Z",
+      "finishedAt": "2026-05-18T16:23:25.442Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [
+    "no verification command found: max score 75"
+  ],
+  "generatedAt": "2026-05-18T16:23:25.443Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "1 instruction file discovered; 28 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Reproducibility instructions were not found."
+    }
+  ],
+  "failedChecks": [
+    "28 nested scopes do not have local instruction files.",
+    "No runnable verification command found in instruction files.",
+    "Safety guardrails were not found.",
+    "Reproducibility instructions were not found.",
+    "No verification command found in instruction files."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 0/10",
+  "executionMode": "preview"
+}
