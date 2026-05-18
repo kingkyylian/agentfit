@@ -280,9 +280,11 @@ candidates:
     shape: package repository
     recentActivity: active on 2026-05-07 scan
     licenseStatus: unverified
-    status: candidate
+    status: snapshotted
     expectedSignal: safety scoring and package scope gaps
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad package-scope and safety signal
+    reportPath: examples/reports/real-world/zapier-platform-batch5.md
+    commit: '345765a'
   - repo: snyk/snyk-intellij-plugin
     instructionSources:
       - .cursor/rules
@@ -291,9 +293,11 @@ candidates:
     shape: focused IDE plugin
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: unsupported
     expectedSignal: Cursor-only instruction coverage
-    contactPolicy: no contact before report review
+    contactPolicy: no contact; low-signal Cursor-only snapshot
+    reportPath: examples/reports/real-world/snyk-intellij-plugin-batch5.md
+    commit: '852d824'
   - repo: projen/projen
     instructionSources:
       - AGENTS.md
@@ -304,9 +308,11 @@ candidates:
     shape: tooling repository
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: healthy multi-instruction baseline
-    contactPolicy: permission before public named use
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/projen.md
+    commit: '454253c'
   - repo: Dart-Code/Dart-Code
     instructionSources:
       - AGENTS.md
@@ -315,9 +321,11 @@ candidates:
     shape: editor extension
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: compact extension instruction baseline
-    contactPolicy: permission before public named use
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/dart-code.md
+    commit: '7cf2598'
   - repo: kubernetes/kops
     instructionSources:
       - AGENTS.md
@@ -328,9 +336,11 @@ candidates:
     shape: infrastructure repository
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: multiple agent instruction formats in Go infrastructure
-    contactPolicy: permission before public named use
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/kops.md
+    commit: 'dfcdbd09'
   - repo: opf/openproject
     instructionSources:
       - AGENTS.md

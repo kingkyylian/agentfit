@@ -4,7 +4,7 @@ AgentFit does not need a private network for early feedback. It needs a small se
 
 ## Goal
 
-Collect 10-20 dry-run snapshots from public repositories and turn them into one of three outputs:
+Collect 10-30 dry-run snapshots from public repositories and turn them into one of three outputs:
 
 - actionable maintainer feedback when AgentFit finds a concrete instruction drift issue
 - product issues when AgentFit produces noisy, vague, or confusing output
@@ -134,6 +134,11 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 4 | `pingcap/tidb` | `AGENTS.md`, `CLAUDE.md` | Go | dry-run snapshot |
 | 4 | `appsmithorg/appsmith` | Cursor | TypeScript | dry-run snapshot |
 | 4 | `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | dry-run snapshot |
+| 5 | `zapier/zapier-platform` | `CLAUDE.md`, Cursor, Copilot | JavaScript | dry-run snapshot |
+| 5 | `snyk/snyk-intellij-plugin` | Cursor | Kotlin | dry-run snapshot |
+| 5 | `projen/projen` | `AGENTS.md`, `CLAUDE.md`, Cursor, Copilot | TypeScript | dry-run snapshot |
+| 5 | `Dart-Code/Dart-Code` | `AGENTS.md` | TypeScript | dry-run snapshot |
+| 5 | `kubernetes/kops` | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | Go | dry-run snapshot |
 
 ## 2026-05-18 Snapshot Triage
 
@@ -175,11 +180,22 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `appsmithorg/appsmith` | `a128a3e` | 73 | snapshotted | no contact | Cursor-only instruction set; no package-local command false positives reappeared. |
 | `javascript-obfuscator/javascript-obfuscator` | `10c763f` | 83 | healthy | no contact; permission before public named use | Focused library with reproducible commands; only broad safety guardrail gap. |
 
+## 2026-05-18 Batch 5 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `zapier/zapier-platform` | `345765a` | 78 | snapshotted | no contact | Commands resolve cleanly; remaining signal is broad package-scope and safety guidance coverage. |
+| `snyk/snyk-intellij-plugin` | `852d824` | 55 | unsupported | no contact | Cursor-only instruction set lacks root contract and verification guidance; low-signal for maintainer outreach. |
+| `projen/projen` | `454253c` | 83 | healthy | no contact; permission before public named use | Multi-instruction TypeScript baseline with reproducibility guidance; only broad safety guardrail gap. |
+| `Dart-Code/Dart-Code` | `7cf2598` | 83 | healthy | no contact; permission before public named use | Compact extension instructions with resolved commands; only broad safety guardrail gap. |
+| `kubernetes/kops` | `dfcdbd09` | 83 | healthy | no contact; permission before public named use | Layered Go infrastructure instructions with reproducibility signal; only broad safety guardrail gap. |
+
 ## 2026-05-18 Product Fixes From Corpus
 
 - Fixed command working-directory inference so an older path-bearing sibling heading does not leak into a later unscoped command section. This cleared false missing-script findings in the Lerna report.
 - Fixed nested instruction command resolution so root-only workspace scripts can satisfy nested instructions when the scoped package lacks the script. This cleared a false `build:sdk` missing-script finding in the GitButler report.
 - Batch 4 did not expose a new AgentFit product bug. The RedisInsight command finding was checked against root and package-local scripts before triage.
+- Batch 5 did not expose a new AgentFit product bug. Findings stayed in broad safety/package-scope territory or low-signal Cursor-only coverage.
 
 ## 2026-05-18 Maintainer Contact Drafts
 
@@ -509,7 +525,7 @@ Prefer opening an issue only after running AgentFit locally and confirming the f
 
 ## No-Network Preview Plan
 
-The 10-20 validation target does not require knowing maintainers personally. Use a public, low-pressure funnel:
+The validation target does not require knowing maintainers personally. Use a public, low-pressure funnel:
 
 1. Run dry-run snapshots on public repos that already publish agent instructions.
 2. Contact maintainers only for concrete, reproducible drift that can be checked in under five minutes.
@@ -517,7 +533,7 @@ The 10-20 validation target does not require knowing maintainers personally. Use
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit ran 20 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, shipped two false-positive fixes in `0.1.8`, and released the package-local command false-positive fix in `0.1.10`. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit ran 25 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, kept additional maintainer-contact drafts local until approved, shipped two false-positive fixes in `0.1.8`, and released the package-local command false-positive fix in `0.1.10`. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 

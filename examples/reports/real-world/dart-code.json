@@ -1,0 +1,402 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4114,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm install",
+          "sourcePath": "AGENTS.md",
+          "line": 62,
+          "kind": "setup"
+        },
+        {
+          "value": "npm run lint",
+          "sourcePath": "AGENTS.md",
+          "line": 63,
+          "kind": "lint"
+        },
+        {
+          "value": "eslint",
+          "sourcePath": "AGENTS.md",
+          "line": 63,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run lint:fix",
+          "sourcePath": "AGENTS.md",
+          "line": 64,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "AGENTS.md",
+          "line": 65,
+          "kind": "build"
+        },
+        {
+          "value": "npm run test <...test-file-globs>",
+          "sourcePath": "AGENTS.md",
+          "line": 66,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test",
+          "sourcePath": "AGENTS.md",
+          "line": 67,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test-grammar",
+          "sourcePath": "AGENTS.md",
+          "line": 68,
+          "kind": "test"
+        },
+        {
+          "value": "npm run update-grammar-snapshots",
+          "sourcePath": "AGENTS.md",
+          "line": 69,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "npm run lint",
+      "sourcePath": "AGENTS.md",
+      "line": 63,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run lint:fix",
+      "sourcePath": "AGENTS.md",
+      "line": 64,
+      "scriptName": "lint:fix",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "AGENTS.md",
+      "line": 65,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test <...test-file-globs>",
+      "sourcePath": "AGENTS.md",
+      "line": 66,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test",
+      "sourcePath": "AGENTS.md",
+      "line": 67,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test-grammar",
+      "sourcePath": "AGENTS.md",
+      "line": 68,
+      "scriptName": "test-grammar",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 62,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 65,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 66,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 67,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 68,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+      "expectedChecks": [
+        "npm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build-tests",
+      "title": "Exercise the build-tests package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build-tests script passing. Run npm run build-tests and report the result.",
+      "expectedChecks": [
+        "npm run build-tests"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+      "expectedChecks": [
+        "npm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-fix",
+      "title": "Exercise the lint:fix package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run npm run lint:fix and report the result.",
+      "expectedChecks": [
+        "npm run lint:fix"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+        "expectedChecks": [
+          "npm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.060Z",
+      "finishedAt": "2026-05-18T17:14:04.060Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-tests",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-tests",
+        "title": "Exercise the build-tests package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build-tests script passing. Run npm run build-tests and report the result.",
+        "expectedChecks": [
+          "npm run build-tests"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.060Z",
+      "finishedAt": "2026-05-18T17:14:04.060Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+        "expectedChecks": [
+          "npm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.060Z",
+      "finishedAt": "2026-05-18T17:14:04.060Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-fix",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-fix",
+        "title": "Exercise the lint:fix package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run npm run lint:fix and report the result.",
+        "expectedChecks": [
+          "npm run lint:fix"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.060Z",
+      "finishedAt": "2026-05-18T17:14:04.060Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.060Z",
+      "finishedAt": "2026-05-18T17:14:04.060Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:14:04.060Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 instruction file discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

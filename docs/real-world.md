@@ -8,7 +8,7 @@ Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A 2026
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
-The 2026-05-18 sprint added twenty local dry-run snapshots from the metadata corpus. Nine are healthy internal baselines, eight have actionable instruction gaps that require local drafts before any maintainer contact, and three were reviewed without contact.
+The 2026-05-18 sprint added twenty-five local dry-run snapshots from the metadata corpus. Twelve are healthy internal baselines, eight have actionable instruction gaps that require local drafts before any maintainer contact, four were reviewed without contact, and one is a low-signal unsupported snapshot.
 
 ## Latest Validation Sprint
 
@@ -59,6 +59,11 @@ Do not publish named healthy examples without asking permission first. Use the s
 - [tidb.md](../examples/reports/real-world/tidb.md)
 - [appsmith.md](../examples/reports/real-world/appsmith.md)
 - [javascript-obfuscator-batch4.md](../examples/reports/real-world/javascript-obfuscator-batch4.md)
+- [zapier-platform-batch5.md](../examples/reports/real-world/zapier-platform-batch5.md)
+- [snyk-intellij-plugin-batch5.md](../examples/reports/real-world/snyk-intellij-plugin-batch5.md)
+- [projen.md](../examples/reports/real-world/projen.md)
+- [dart-code.md](../examples/reports/real-world/dart-code.md)
+- [kops.md](../examples/reports/real-world/kops.md)
 
 ## Reproduce
 

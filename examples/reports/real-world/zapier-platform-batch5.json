@@ -1,0 +1,488 @@
+{
+  "score": 78,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/main.md",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2531,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm validate",
+          "sourcePath": ".cursor/rules/main.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": ".cursor/rules/main.md",
+          "line": 47,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm validate",
+          "sourcePath": ".cursor/rules/main.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm generate-types",
+          "sourcePath": ".cursor/rules/main.md",
+          "line": 49,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": ".cursor/rules/main.md",
+          "line": 50,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 2257,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm validate",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 47,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm validate",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm generate-types",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 49,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 1339,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm validate",
+          "sourcePath": "CLAUDE.md",
+          "line": 20,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "packages/cli",
+      "message": "No nested instruction file found for packages/cli.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/core",
+      "message": "No nested instruction file found for packages/core.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/legacy-scripting-runner",
+      "message": "No nested instruction file found for packages/legacy-scripting-runner.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/schema",
+      "message": "No nested instruction file found for packages/schema.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm validate",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 28,
+      "scriptName": "validate",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 47,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm validate",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 48,
+      "scriptName": "validate",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 50,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm validate",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 28,
+      "scriptName": "validate",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 47,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm validate",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 48,
+      "scriptName": "validate",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm validate",
+      "sourcePath": "CLAUDE.md",
+      "line": 20,
+      "scriptName": "validate",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 28,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 47,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/main.md",
+      "line": 50,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 28,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 47,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 20,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-bump",
+      "title": "Exercise the bump package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the bump script passing. Run pnpm run bump and report the result.",
+      "expectedChecks": [
+        "pnpm run bump"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-generate-types",
+      "title": "Exercise the generate-types package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the generate-types script passing. Run pnpm run generate-types and report the result.",
+      "expectedChecks": [
+        "pnpm run generate-types"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-fix",
+      "title": "Exercise the lint:fix package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:fix"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-bump",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-bump",
+        "title": "Exercise the bump package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the bump script passing. Run pnpm run bump and report the result.",
+        "expectedChecks": [
+          "pnpm run bump"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.036Z",
+      "finishedAt": "2026-05-18T17:14:04.036Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-generate-types",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-generate-types",
+        "title": "Exercise the generate-types package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the generate-types script passing. Run pnpm run generate-types and report the result.",
+        "expectedChecks": [
+          "pnpm run generate-types"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.036Z",
+      "finishedAt": "2026-05-18T17:14:04.036Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.036Z",
+      "finishedAt": "2026-05-18T17:14:04.036Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-fix",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-fix",
+        "title": "Exercise the lint:fix package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:fix"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.036Z",
+      "finishedAt": "2026-05-18T17:14:04.036Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.036Z",
+      "finishedAt": "2026-05-18T17:14:04.036Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:14:04.037Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "3 instruction files discovered; 4 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "4 nested scopes do not have local instruction files.",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

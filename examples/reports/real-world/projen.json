@@ -1,0 +1,794 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/project.md",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 3144,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node ./projen.js <task-name>",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 12,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 13,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 15,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 20,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 31,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 46,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 49,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 51,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test test/path-to-test.test.ts",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 56,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js eslint",
+          "sourcePath": ".cursor/rules/project.md",
+          "line": 57,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 3144,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node ./projen.js <task-name>",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 12,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 13,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 15,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 20,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 31,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 46,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 49,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 51,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test test/path-to-test.test.ts",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 56,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js eslint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 57,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 3144,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node ./projen.js <task-name>",
+          "sourcePath": "AGENTS.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "AGENTS.md",
+          "line": 12,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "AGENTS.md",
+          "line": 13,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": "AGENTS.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": "AGENTS.md",
+          "line": 15,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "AGENTS.md",
+          "line": 20,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "AGENTS.md",
+          "line": 31,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "AGENTS.md",
+          "line": 46,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": "AGENTS.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": "AGENTS.md",
+          "line": 49,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "AGENTS.md",
+          "line": 51,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test test/path-to-test.test.ts",
+          "sourcePath": "AGENTS.md",
+          "line": 56,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js eslint",
+          "sourcePath": "AGENTS.md",
+          "line": 57,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 3144,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node ./projen.js <task-name>",
+          "sourcePath": "CLAUDE.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "CLAUDE.md",
+          "line": 12,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "CLAUDE.md",
+          "line": 13,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": "CLAUDE.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": "CLAUDE.md",
+          "line": 15,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "CLAUDE.md",
+          "line": 20,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js",
+          "sourcePath": "CLAUDE.md",
+          "line": 31,
+          "kind": "unknown"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "CLAUDE.md",
+          "line": 46,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test",
+          "sourcePath": "CLAUDE.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js compile",
+          "sourcePath": "CLAUDE.md",
+          "line": 49,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js build",
+          "sourcePath": "CLAUDE.md",
+          "line": 51,
+          "kind": "build"
+        },
+        {
+          "value": "node ./projen.js test test/path-to-test.test.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 56,
+          "kind": "test"
+        },
+        {
+          "value": "node ./projen.js eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 57,
+          "kind": "lint"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 13,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 15,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 46,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 49,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 51,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/project.md",
+      "line": 56,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 13,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 15,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 46,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 49,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 51,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 56,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 13,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 15,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 46,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 49,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 51,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 56,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 13,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 15,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 46,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 49,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 51,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 56,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-audit",
+      "title": "Exercise the audit package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the audit script passing. Run npm run audit and report the result.",
+      "expectedChecks": [
+        "npm run audit"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+      "expectedChecks": [
+        "npm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-bump",
+      "title": "Exercise the bump package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the bump script passing. Run npm run bump and report the result.",
+      "expectedChecks": [
+        "npm run bump"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-bundle-task-runner",
+      "title": "Exercise the bundle:task-runner package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the bundle:task-runner script passing. Run npm run bundle:task-runner and report the result.",
+      "expectedChecks": [
+        "npm run bundle:task-runner"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-audit",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-audit",
+        "title": "Exercise the audit package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the audit script passing. Run npm run audit and report the result.",
+        "expectedChecks": [
+          "npm run audit"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.056Z",
+      "finishedAt": "2026-05-18T17:14:04.056Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+        "expectedChecks": [
+          "npm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.056Z",
+      "finishedAt": "2026-05-18T17:14:04.056Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-bump",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-bump",
+        "title": "Exercise the bump package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the bump script passing. Run npm run bump and report the result.",
+        "expectedChecks": [
+          "npm run bump"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.056Z",
+      "finishedAt": "2026-05-18T17:14:04.056Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-bundle-task-runner",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-bundle-task-runner",
+        "title": "Exercise the bundle:task-runner package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the bundle:task-runner script passing. Run npm run bundle:task-runner and report the result.",
+        "expectedChecks": [
+          "npm run bundle:task-runner"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.056Z",
+      "finishedAt": "2026-05-18T17:14:04.056Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.056Z",
+      "finishedAt": "2026-05-18T17:14:04.056Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:14:04.057Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "4 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

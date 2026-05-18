@@ -4,7 +4,7 @@ Corpus validation pass for the metadata-only real-world candidate workflow. All 
 
 ## Scope
 
-The sprint used the first twenty repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
+The sprint used the first twenty-five repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
@@ -28,6 +28,11 @@ The sprint used the first twenty repositories from the 30-candidate corpus queue
 | `pingcap/tidb` | `2ce45f0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy |
 | `appsmithorg/appsmith` | `a128a3e` | Cursor rules | 73/100 (C) | snapshotted |
 | `javascript-obfuscator/javascript-obfuscator` | `10c763f` | `CLAUDE.md` | 83/100 (B) | healthy |
+| `zapier/zapier-platform` | `345765a` | `CLAUDE.md`, Cursor rules, Copilot instructions | 78/100 (C) | snapshotted |
+| `snyk/snyk-intellij-plugin` | `852d824` | Cursor rules | 55/100 (F) | unsupported |
+| `projen/projen` | `454253c` | `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions | 83/100 (B) | healthy |
+| `Dart-Code/Dart-Code` | `7cf2598` | `AGENTS.md` | 83/100 (B) | healthy |
+| `kubernetes/kops` | `dfcdbd09` | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | 83/100 (B) | healthy |
 
 ## Report Outputs
 
@@ -53,6 +58,11 @@ The reviewed dry-run reports are checked in under `examples/reports/real-world`:
 - [tidb.md](../examples/reports/real-world/tidb.md)
 - [appsmith.md](../examples/reports/real-world/appsmith.md)
 - [javascript-obfuscator-batch4.md](../examples/reports/real-world/javascript-obfuscator-batch4.md)
+- [zapier-platform-batch5.md](../examples/reports/real-world/zapier-platform-batch5.md)
+- [snyk-intellij-plugin-batch5.md](../examples/reports/real-world/snyk-intellij-plugin-batch5.md)
+- [projen.md](../examples/reports/real-world/projen.md)
+- [dart-code.md](../examples/reports/real-world/dart-code.md)
+- [kops.md](../examples/reports/real-world/kops.md)
 
 The matching JSON reports are checked in beside each Markdown report for repeatable summary extraction.
 
@@ -141,6 +151,19 @@ Safety guardrails were not found.
 
 No package-local command false positive reappeared, so this remains a reviewed no-contact snapshot.
 
+### Batch 5 Review
+
+Zapier Platform scored 78/100 with no stale-command or broken-reference findings. Its remaining findings are broad package-scope and safety coverage:
+
+```text
+4 nested scopes do not have local instruction files.
+Safety guardrails were not found.
+```
+
+Snyk IntelliJ Plugin scored 55/100 from one Cursor rule and no root instruction contract. This remains unsupported / low-signal for launch evidence rather than a maintainer-contact candidate.
+
+Projen, Dart-Code, and Kops each scored 83/100. They all have clean reference integrity and useful reproducibility signal; their only failed check is the broad safety guardrail finding. Treat them as healthy internal baselines, not public named examples without permission.
+
 ## Product Issues Found And Fixed
 
 Batch 3 exposed two AgentFit command-resolution false positives:
@@ -152,22 +175,25 @@ Regression coverage was added in `tests/unit/static-checks.test.ts`, and both re
 
 Batch 4 did not expose a new AgentFit product bug. The RedisInsight command finding was manually checked against root and package-local scripts and appears to be real instruction drift.
 
+Batch 5 did not expose a new AgentFit product bug. The low Snyk score reflects a Cursor-only instruction shape, and the other findings are broad safety or package-scope signals.
+
 ## Decision
 
 The sprint produced:
 
 - 30 total corpus candidates.
-- 20 reviewed dry-run snapshots.
-- 9 healthy internal baselines.
+- 25 reviewed dry-run snapshots.
+- 12 healthy internal baselines.
 - 8 actionable local maintainer-contact drafts.
-- 3 snapshotted no-contact reports.
+- 4 snapshotted no-contact reports.
+- 1 unsupported low-signal report.
 - 0 unresolved noisy AgentFit reports.
 - 2 product fixes applied from Batch 3.
 
 Next action should be one of:
 
 - ask for approval before opening any actionable maintainer issue,
-- continue with Batch 5 dry-run snapshots,
+- continue with Batch 6 dry-run snapshots,
 - prepare an internal launch-validation summary that does not name healthy examples as endorsements.
 
 ## Verification
@@ -184,5 +210,5 @@ Next action should be one of:
   - Result: passed for `@kingkyylian/agentfit@0.1.12`.
 - Command: `rtk pnpm corpus:check`
   - Result: passed.
-- Command: `rtk node dist/index.js corpus --limit 20`
-  - Result: printed the first twenty corpus entries, with nine `healthy`, eight `actionable`, and three `snapshotted` entries.
+- Command: `rtk node dist/index.js corpus --limit 25`
+  - Result: printed the first twenty-five corpus entries, with twelve `healthy`, eight `actionable`, four `snapshotted`, and one `unsupported` entry.

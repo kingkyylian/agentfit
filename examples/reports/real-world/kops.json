@@ -1,0 +1,240 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4646,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make kops",
+          "sourcePath": "AGENTS.md",
+          "line": 20,
+          "kind": "unknown"
+        },
+        {
+          "value": "make all",
+          "sourcePath": "AGENTS.md",
+          "line": 28,
+          "kind": "unknown"
+        },
+        {
+          "value": "make install",
+          "sourcePath": "AGENTS.md",
+          "line": 36,
+          "kind": "setup"
+        },
+        {
+          "value": "make test",
+          "sourcePath": "AGENTS.md",
+          "line": 44,
+          "kind": "test"
+        },
+        {
+          "value": "make verify",
+          "sourcePath": "AGENTS.md",
+          "line": 50,
+          "kind": "unknown"
+        },
+        {
+          "value": "make ci",
+          "sourcePath": "AGENTS.md",
+          "line": 56,
+          "kind": "unknown"
+        },
+        {
+          "value": "make gofmt",
+          "sourcePath": "AGENTS.md",
+          "line": 88,
+          "kind": "unknown"
+        },
+        {
+          "value": "make goimports",
+          "sourcePath": "AGENTS.md",
+          "line": 89,
+          "kind": "unknown"
+        },
+        {
+          "value": "make verify-golangci-lint",
+          "sourcePath": "AGENTS.md",
+          "line": 97,
+          "kind": "lint"
+        },
+        {
+          "value": "make gomod",
+          "sourcePath": "AGENTS.md",
+          "line": 105,
+          "kind": "unknown"
+        },
+        {
+          "value": "make",
+          "sourcePath": "AGENTS.md",
+          "line": 13,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 9,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "discovery/GEMINI.md",
+      "scope": "discovery",
+      "kind": "gemini",
+      "bytes": 3499,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "go build ./cmd/discovery-server",
+          "sourcePath": "discovery/GEMINI.md",
+          "line": 58,
+          "kind": "build"
+        }
+      ]
+    },
+    {
+      "path": "GEMINI.md",
+      "scope": ".",
+      "kind": "gemini",
+      "bytes": 9,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 36,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 44,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 53,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "discovery/GEMINI.md",
+      "line": 58,
+      "message": "Build command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T17:14:04.180Z",
+      "finishedAt": "2026-05-18T17:14:04.180Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:14:04.181Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "4 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}
