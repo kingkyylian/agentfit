@@ -4,7 +4,7 @@ These are dry-run AgentFit snapshots from public open-source repositories that a
 
 New candidates should go through the corpus intake workflow in [real-world-validation.md](real-world-validation.md). The checked-in examples are report snapshots, not an instruction-file dataset.
 
-Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A newer 2026-05-11 validation sprint with AgentFit 0.1.8 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md). Additional dry-run snapshots were added on 2026-05-13 from local `main` after the signal-evidence reporting work.
+Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A 2026-05-11 validation sprint with AgentFit 0.1.8 is tracked in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md), and the 2026-05-18 metadata-corpus pass is tracked in [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md). Additional dry-run snapshots were added on 2026-05-13 from local `main` after the signal-evidence reporting work.
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
