@@ -600,7 +600,7 @@ function workingDirectoryFromSourceContext(
       return cdDirectory;
     }
 
-    const proseDirectory = directoryFromProse(line);
+    const proseDirectory = directoryFromProse(line, packageJsons);
     if (proseDirectory) {
       return proseDirectory;
     }
@@ -624,14 +624,35 @@ function directoryFromCdLine(line: string): string | undefined {
   return match?.[1] ? normalizeCandidateDir(match[1]) : undefined;
 }
 
-function directoryFromProse(line: string): string | undefined {
-  const explicitMatch =
-    line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+`([^`]+)`/i) ??
-    line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+([A-Za-z0-9@._/-]+)/i) ??
-    line.match(/\bcwd\s*[:=]\s*`([^`]+)`/i) ??
-    line.match(/\bcwd\s*[:=]\s*([A-Za-z0-9@._/-]+)/i);
+function directoryFromProse(line: string, packageJsons: PackageJsonInfo[]): string | undefined {
+  if (/\b(?:run|runs|execute|executes|executed)\s+from\b.*\b(?:monorepo|repository|repo)\s+root\b/i.test(line)) {
+    return '.';
+  }
 
-  return explicitMatch?.[1] ? normalizeCandidateDir(explicitMatch[1]) : undefined;
+  const quotedMatch =
+    line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+`([^`]+)`/i) ??
+    line.match(/\bcwd\s*[:=]\s*`([^`]+)`/i);
+  if (quotedMatch?.[1]) {
+    return normalizeCandidateDir(quotedMatch[1]);
+  }
+
+  const unquotedMatch =
+    line.match(/\b(?:run|runs|execute|executes|executed)\s+from\s+([A-Za-z0-9@._/-]+)/i) ??
+    line.match(/\bcwd\s*[:=]\s*([A-Za-z0-9@._/-]+)/i);
+  if (!unquotedMatch?.[1]) {
+    return undefined;
+  }
+
+  const candidate = normalizeCandidateDir(unquotedMatch[1]);
+  if (
+    candidate === '.' ||
+    looksLikeDirectoryReference(candidate) ||
+    packageJsons.some((packageJson) => packageJson.dir === candidate)
+  ) {
+    return candidate;
+  }
+
+  return undefined;
 }
 
 function directoryFromPreviousHeadings(lines: string[], commandIndex: number): string | undefined {

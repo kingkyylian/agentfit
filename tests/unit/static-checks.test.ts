@@ -587,6 +587,61 @@ describe('collectStaticIssues', () => {
     );
   });
 
+  it('treats prose monorepo root guidance as root instead of a generic word directory', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'tegg'), { recursive: true });
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          build: 'tsc -b',
+          clean: 'rimraf dist',
+          test: 'vitest',
+          'test:cov': 'vitest --coverage',
+          ci: 'vitest --coverage --bail'
+        }
+      })
+    );
+    await writeFile(
+      join(root, 'tegg/CLAUDE.md'),
+      [
+        '# Tegg instructions',
+        '',
+        '**Note:** All commands below should be run from the **monorepo root** (`../egg`), not from the tegg directory.',
+        '',
+        '```bash',
+        'pnpm run build',
+        'pnpm run clean',
+        'pnpm test',
+        'pnpm run test:cov',
+        'pnpm run ci',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          command: 'pnpm run build',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'pnpm test',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+    expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('the/package.json');
+  });
+
   it('reuses same-file package script resolutions for later shorthand commands', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await mkdir(join(root, 'deck'), { recursive: true });
