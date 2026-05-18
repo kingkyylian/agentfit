@@ -1,0 +1,636 @@
+{
+  "score": 93,
+  "grade": "A",
+  "summary": "No failed checks.",
+  "instructionFiles": [
+    {
+      "path": "agents.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4908,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo test -p <package> --release",
+          "sourcePath": "agents.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "make -C <dir> clippy",
+          "sourcePath": "agents.md",
+          "line": 78,
+          "kind": "lint"
+        },
+        {
+          "value": "make setup-compiler",
+          "sourcePath": "agents.md",
+          "line": 136,
+          "kind": "setup"
+        },
+        {
+          "value": "make prepare-dev",
+          "sourcePath": "agents.md",
+          "line": 140,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo clean -p <crate> && cargo build -p <crate> --release",
+          "sourcePath": "agents.md",
+          "line": 143,
+          "kind": "build"
+        },
+        {
+          "value": "make -C consensus test",
+          "sourcePath": "agents.md",
+          "line": 21,
+          "kind": "test"
+        },
+        {
+          "value": "make -C consensus testbed",
+          "sourcePath": "agents.md",
+          "line": 21,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C node test",
+          "sourcePath": "agents.md",
+          "line": 21,
+          "kind": "test"
+        },
+        {
+          "value": "make -C vm test",
+          "sourcePath": "agents.md",
+          "line": 26,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 26,
+          "kind": "test"
+        },
+        {
+          "value": "make -C node-data test",
+          "sourcePath": "agents.md",
+          "line": 31,
+          "kind": "test"
+        },
+        {
+          "value": "make -C node test",
+          "sourcePath": "agents.md",
+          "line": 31,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 31,
+          "kind": "test"
+        },
+        {
+          "value": "make -C vm test",
+          "sourcePath": "agents.md",
+          "line": 36,
+          "kind": "test"
+        },
+        {
+          "value": "make -C contracts/<name> wasm",
+          "sourcePath": "agents.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C contracts/<name> test",
+          "sourcePath": "agents.md",
+          "line": 41,
+          "kind": "test"
+        },
+        {
+          "value": "make -C wallet-core test",
+          "sourcePath": "agents.md",
+          "line": 46,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk-prover test",
+          "sourcePath": "agents.md",
+          "line": 51,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 51,
+          "kind": "test"
+        },
+        {
+          "value": "make setup-compiler",
+          "sourcePath": "agents.md",
+          "line": 65,
+          "kind": "setup"
+        },
+        {
+          "value": "make -C contracts/<name> wasm",
+          "sourcePath": "agents.md",
+          "line": 65,
+          "kind": "unknown"
+        },
+        {
+          "value": "make clippy",
+          "sourcePath": "agents.md",
+          "line": 84,
+          "kind": "lint"
+        },
+        {
+          "value": "make test",
+          "sourcePath": "agents.md",
+          "line": 84,
+          "kind": "test"
+        },
+        {
+          "value": "make -C core test",
+          "sourcePath": "agents.md",
+          "line": 122,
+          "kind": "test"
+        },
+        {
+          "value": "make -C vm test",
+          "sourcePath": "agents.md",
+          "line": 122,
+          "kind": "test"
+        },
+        {
+          "value": "make -C node-data test",
+          "sourcePath": "agents.md",
+          "line": 123,
+          "kind": "test"
+        },
+        {
+          "value": "make -C node test",
+          "sourcePath": "agents.md",
+          "line": 123,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 123,
+          "kind": "test"
+        },
+        {
+          "value": "make -C vm test",
+          "sourcePath": "agents.md",
+          "line": 124,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 124,
+          "kind": "test"
+        },
+        {
+          "value": "make -C contracts test",
+          "sourcePath": "agents.md",
+          "line": 125,
+          "kind": "test"
+        },
+        {
+          "value": "make prepare-dev",
+          "sourcePath": "agents.md",
+          "line": 125,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C consensus testbed",
+          "sourcePath": "agents.md",
+          "line": 126,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C rusk test",
+          "sourcePath": "agents.md",
+          "line": 127,
+          "kind": "test"
+        },
+        {
+          "value": "make -C wallet-core test",
+          "sourcePath": "agents.md",
+          "line": 128,
+          "kind": "test"
+        },
+        {
+          "value": "make -C rusk-wallet test",
+          "sourcePath": "agents.md",
+          "line": 128,
+          "kind": "test"
+        },
+        {
+          "value": "npm run checks",
+          "sourcePath": "agents.md",
+          "line": 129,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 4028,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make setup-compiler            # Dusk contract compiler (cargo +dusk)",
+          "sourcePath": "CLAUDE.md",
+          "line": 33,
+          "kind": "setup"
+        },
+        {
+          "value": "make                           # Everything",
+          "sourcePath": "CLAUDE.md",
+          "line": 39,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo build -p dusk-rusk       # Node binary (add --release for prod)",
+          "sourcePath": "CLAUDE.md",
+          "line": 40,
+          "kind": "build"
+        },
+        {
+          "value": "cargo check -p <crate>         # Fast compile check",
+          "sourcePath": "CLAUDE.md",
+          "line": 41,
+          "kind": "test"
+        },
+        {
+          "value": "make test                              # Full suite (slow)",
+          "sourcePath": "CLAUDE.md",
+          "line": 47,
+          "kind": "test"
+        },
+        {
+          "value": "cargo test -p <crate> --release        # Single crate",
+          "sourcePath": "CLAUDE.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "make -C <dir> test                     # Crate via Makefile",
+          "sourcePath": "CLAUDE.md",
+          "line": 49,
+          "kind": "test"
+        },
+        {
+          "value": "make clippy                    # All crates (warnings = errors)",
+          "sourcePath": "CLAUDE.md",
+          "line": 55,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo fmt --all                # Format",
+          "sourcePath": "CLAUDE.md",
+          "line": 56,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo test -p <package> --release",
+          "sourcePath": "CLAUDE.md",
+          "line": 62,
+          "kind": "test"
+        },
+        {
+          "value": "make -C <dir> clippy",
+          "sourcePath": "CLAUDE.md",
+          "line": 63,
+          "kind": "lint"
+        },
+        {
+          "value": "make wasm                      # All contracts + wallet-core",
+          "sourcePath": "CLAUDE.md",
+          "line": 71,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C contracts/transfer wasm",
+          "sourcePath": "CLAUDE.md",
+          "line": 72,
+          "kind": "unknown"
+        },
+        {
+          "value": "make -C wallet-core wasm",
+          "sourcePath": "CLAUDE.md",
+          "line": 73,
+          "kind": "unknown"
+        },
+        {
+          "value": "make data-drivers-js           # JS bindings",
+          "sourcePath": "CLAUDE.md",
+          "line": 74,
+          "kind": "unknown"
+        },
+        {
+          "value": "make prepare-dev               # One-time state setup",
+          "sourcePath": "CLAUDE.md",
+          "line": 80,
+          "kind": "setup"
+        },
+        {
+          "value": "make run-dev                   # Ephemeral node",
+          "sourcePath": "CLAUDE.md",
+          "line": 81,
+          "kind": "unknown"
+        },
+        {
+          "value": "make run-dev-archive           # With archive storage",
+          "sourcePath": "CLAUDE.md",
+          "line": 82,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo update",
+          "sourcePath": "CLAUDE.md",
+          "line": 119,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 122,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 123,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 124,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 125,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 127,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 128,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 136,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 143,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 21,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 26,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 31,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 36,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 41,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 46,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 51,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 65,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "agents.md",
+      "line": 84,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 33,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 40,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 41,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 47,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 49,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 62,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 80,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "agents.md",
+      "line": 13,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "CLAUDE.md",
+      "line": 117,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "CLAUDE.md",
+      "line": 118,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T16:43:52.891Z",
+      "finishedAt": "2026-05-18T16:43:52.891Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T16:43:52.892Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "2 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

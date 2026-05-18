@@ -1,5 +1,5 @@
 version: 1
-updatedAt: '2026-05-17'
+updatedAt: '2026-05-18'
 policy:
   contentUse: Store metadata and report links only; do not vendor public instruction-file bodies.
   execution: Dry-run snapshots first; generated tasks require explicit local review.
@@ -78,9 +78,11 @@ candidates:
     shape: platform implementation repository
     recentActivity: active on 2026-05-04 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: lowercase instruction filename and Rust verification guidance
-    contactPolicy: no contact before report review
+    contactPolicy: no contact; permission before public named use
+    reportPath: examples/reports/real-world/rusk.md
+    commit: '5487124'
   - repo: NikolayS/postgres_dba
     instructionSources:
       - CLAUDE.md
@@ -89,9 +91,11 @@ candidates:
     shape: focused database tooling repository
     recentActivity: active on 2026-05-13 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: database-specific instruction patterns outside app code
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/postgres-dba.md
+    commit: '455c2f6'
   - repo: numerai/example-scripts
     instructionSources:
       - AGENTS.md
@@ -100,9 +104,11 @@ candidates:
     shape: example and notebook repository
     recentActivity: active on 2026-05-15 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: notebook-heavy project handling
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/numerai-example-scripts.md
+    commit: 'a35d11c'
   - repo: econ-ark/HARK
     instructionSources:
       - AGENTS.md
@@ -111,9 +117,11 @@ candidates:
     shape: scientific Python package
     recentActivity: active on 2026-05-09 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: reproducibility guidance in scientific software
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/hark.md
+    commit: '2690850'
   - repo: IOBR/IOBR
     instructionSources:
       - copilot-instructions.md
@@ -122,9 +130,11 @@ candidates:
     shape: active R package
     recentActivity: active on 2026-05-15 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: Copilot instruction handling outside common JS stacks
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/iobr.md
+    commit: '2cb9be5'
   - repo: DataDog/lading
     instructionSources:
       - AGENTS.md

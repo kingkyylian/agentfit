@@ -119,11 +119,11 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 1 | `SteeltoeOSS/Steeltoe` | `AGENTS.md` | C# | dry-run snapshot |
 | 1 | `callstackincubator/rozenite` | `AGENTS.md` | TypeScript | dry-run snapshot |
 | 1 | `mathertel/OneButton` | Copilot | C++ | dry-run snapshot |
-| 2 | `dusk-network/rusk` | `agents.md` | Rust | queue only |
-| 2 | `NikolayS/postgres_dba` | `CLAUDE.md` | PLpgSQL | queue only |
-| 2 | `numerai/example-scripts` | `AGENTS.md` | Notebook | queue only |
-| 2 | `econ-ark/HARK` | `AGENTS.md` | Python | queue only |
-| 2 | `IOBR/IOBR` | Copilot | R | queue only |
+| 2 | `dusk-network/rusk` | `agents.md` | Rust | dry-run snapshot |
+| 2 | `NikolayS/postgres_dba` | `CLAUDE.md` | PLpgSQL | dry-run snapshot |
+| 2 | `numerai/example-scripts` | `AGENTS.md` | Notebook | dry-run snapshot |
+| 2 | `econ-ark/HARK` | `AGENTS.md` | Python | dry-run snapshot |
+| 2 | `IOBR/IOBR` | Copilot | R | dry-run snapshot |
 
 ## 2026-05-18 Snapshot Triage
 
@@ -134,6 +134,16 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `SteeltoeOSS/Steeltoe` | `f4d5993` | 83 | healthy | no contact; permission before public named use | Reproducible .NET command guidance; only broad safety guardrail gap. |
 | `callstackincubator/rozenite` | `3a77ccf` | 60 | actionable | draft locally before any contact | Minimal root `AGENTS.md` lacks runnable verification, safety, reproducibility, and package-scope guidance. |
 | `mathertel/OneButton` | `9489276` | 65 | actionable | draft locally before any contact | Copilot guidance covers API usage but lacks runnable verification, safety, and reproducibility guidance. |
+
+## 2026-05-18 Batch 2 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `dusk-network/rusk` | `5487124` | 93 | healthy | no contact; permission before public named use | Lowercase `agents.md` and `CLAUDE.md` both produce strong command, safety, and reproducibility signal. |
+| `NikolayS/postgres_dba` | `455c2f6` | 65 | actionable | draft locally before any contact | Database-focused guidance lacks a runnable verification command, safety, and reproducibility guidance. |
+| `numerai/example-scripts` | `a35d11c` | 65 | actionable | draft locally before any contact | Notebook/example guidance is discoverable but lacks runnable verification, safety, and reproducibility guidance. |
+| `econ-ark/HARK` | `2690850` | 65 | actionable | draft locally before any contact | Scientific Python root instructions lack runnable verification, safety, and reproducibility guidance. |
+| `IOBR/IOBR` | `2cb9be5` | 65 | actionable | draft locally before any contact | R/Copilot guidance is discoverable but lacks runnable verification, safety, and reproducibility guidance. |
 
 ## 2026-05-18 Maintainer Contact Drafts
 
@@ -178,6 +188,94 @@ Finding:
 Why it may matter:
 
 - Copilot guidance covers library API usage, but agents do not get a clear command for validating generated Arduino library changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `NikolayS/postgres_dba`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents get database style and context guidance, but they do not get a clear local command for validating generated SQL or tooling changes.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `numerai/example-scripts`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can discover notebook/example instructions, but they do not get a clear command for checking generated example changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `econ-ark/HARK`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can find the project instructions, but they do not get a clear maintainer-preferred command for validating scientific Python changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `IOBR/IOBR`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can discover the R/Copilot guidance, but they do not get a clear command for checking generated package changes locally.
 
 Opt-out wording:
 

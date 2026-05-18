@@ -1,0 +1,196 @@
+{
+  "score": 65,
+  "grade": "D",
+  "summary": "4 failed checks found. 1 score cap applied.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 11122,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "docker run -i --rm -v \"$PWD:$PWD\" \\",
+          "sourcePath": "AGENTS.md",
+          "line": 236,
+          "kind": "unknown"
+        },
+        {
+          "value": "python -m agents.code.modeling --config <config>",
+          "sourcePath": "AGENTS.md",
+          "line": 71,
+          "kind": "unknown"
+        },
+        {
+          "value": "python -m agents.code.modeling --config <config_path>",
+          "sourcePath": "AGENTS.md",
+          "line": 77,
+          "kind": "unknown"
+        },
+        {
+          "value": "python -m agents.code.analysis.show_experiment",
+          "sourcePath": "AGENTS.md",
+          "line": 78,
+          "kind": "unknown"
+        },
+        {
+          "value": "python -m agents.code.data.build_full_datasets",
+          "sourcePath": "AGENTS.md",
+          "line": 79,
+          "kind": "unknown"
+        },
+        {
+          "value": "python -m agents.code.data.build_full_datasets",
+          "sourcePath": "AGENTS.md",
+          "line": 256,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "numerai/AGENTS.md",
+      "scope": "numerai",
+      "kind": "agents",
+      "bytes": 939,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "python -m agents.code.modeling",
+          "sourcePath": "numerai/AGENTS.md",
+          "line": 5,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "numerai/agents/AGENTS.md",
+      "scope": "numerai/agents",
+      "kind": "agents",
+      "bytes": 4473,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "python -m agents.code.modeling",
+          "sourcePath": "numerai/agents/AGENTS.md",
+          "line": 66,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "No runnable verification command found in instruction files.",
+      "severity": "error"
+    }
+  ],
+  "commandResolutions": [],
+  "signalFindings": [],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T16:43:52.901Z",
+      "finishedAt": "2026-05-18T16:43:52.901Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [
+    "no verification command found: max score 75"
+  ],
+  "generatedAt": "2026-05-18T16:43:52.901Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "3 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Reproducibility instructions were not found."
+    }
+  ],
+  "failedChecks": [
+    "No runnable verification command found in instruction files.",
+    "Safety guardrails were not found.",
+    "Reproducibility instructions were not found.",
+    "No verification command found in instruction files."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 0/10",
+  "executionMode": "preview"
+}
