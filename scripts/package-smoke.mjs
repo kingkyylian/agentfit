@@ -129,7 +129,7 @@ try {
   ], {
     cwd: tempDir
   });
-  if (!corpusOutput.includes('Real-world corpus: 5 candidates')) {
+  if (!corpusOutput.includes('Real-world corpus: 30 candidates')) {
     fail('Packed CLI corpus command did not read the bundled manifest.');
   }
 

@@ -717,7 +717,7 @@ describe('agentfit cli', () => {
 
     const text = await readFile(join(root, 'reports/corpus.txt'), 'utf8');
 
-    expect(text).toContain('Real-world corpus: 5 candidates');
+    expect(text).toContain('Real-world corpus: 30 candidates');
     expect(text).toContain('1. meltano/meltano [candidate]');
   });
 });
