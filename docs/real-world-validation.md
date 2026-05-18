@@ -139,6 +139,11 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 5 | `projen/projen` | `AGENTS.md`, `CLAUDE.md`, Cursor, Copilot | TypeScript | dry-run snapshot |
 | 5 | `Dart-Code/Dart-Code` | `AGENTS.md` | TypeScript | dry-run snapshot |
 | 5 | `kubernetes/kops` | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | Go | dry-run snapshot |
+| 6 | `opf/openproject` | `AGENTS.md`, `CLAUDE.md`, Copilot | Ruby/TypeScript | dry-run snapshot |
+| 6 | `spinnaker/spinnaker` | `AGENTS.md`, `CLAUDE.md`, Copilot | Java/TypeScript | dry-run snapshot |
+| 6 | `hashintel/hash` | `AGENTS.md`, `CLAUDE.md`, Cursor | Rust/TypeScript | dry-run snapshot |
+| 6 | `eggjs/egg` | `AGENTS.md`, `CLAUDE.md`, Copilot | TypeScript | dry-run snapshot |
+| 6 | `erigontech/erigon` | `agents.md`, `CLAUDE.md` | Go | dry-run snapshot |
 
 ## 2026-05-18 Snapshot Triage
 
@@ -190,12 +195,23 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `Dart-Code/Dart-Code` | `7cf2598` | 83 | healthy | no contact; permission before public named use | Compact extension instructions with resolved commands; only broad safety guardrail gap. |
 | `kubernetes/kops` | `dfcdbd09` | 83 | healthy | no contact; permission before public named use | Layered Go infrastructure instructions with reproducibility signal; only broad safety guardrail gap. |
 
+## 2026-05-18 Batch 6 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `opf/openproject` | `a609d587` | 83 | healthy | no contact; permission before public named use | Layered Ruby/TypeScript application instructions; only broad safety guardrail gap. |
+| `spinnaker/spinnaker` | `f76c1d10` | 93 | healthy | no contact; permission before public named use | Multi-service instructions with no failed static checks. |
+| `hashintel/hash` | `da5a1e2` | 78 | snapshotted | no contact | Remaining signal is broad package-scope and safety guidance coverage. |
+| `eggjs/egg` | `0dec2c9` | 80 | actionable | draft locally before any contact | AgentFit false positive fixed; remaining `pnpm run clean` command drift is concrete. |
+| `erigontech/erigon` | `30954c9` | 83 | healthy | no contact; permission before public named use | Large Go repo with LFS-safe checkout caveat; only broad safety guardrail gap. |
+
 ## 2026-05-18 Product Fixes From Corpus
 
 - Fixed command working-directory inference so an older path-bearing sibling heading does not leak into a later unscoped command section. This cleared false missing-script findings in the Lerna report.
 - Fixed nested instruction command resolution so root-only workspace scripts can satisfy nested instructions when the scoped package lacks the script. This cleared a false `build:sdk` missing-script finding in the GitButler report.
 - Batch 4 did not expose a new AgentFit product bug. The RedisInsight command finding was checked against root and package-local scripts before triage.
 - Batch 5 did not expose a new AgentFit product bug. Findings stayed in broad safety/package-scope territory or low-signal Cursor-only coverage.
+- Fixed prose working-directory inference so "run from the monorepo root" is treated as the repository root instead of the literal directory `the`. This cleared false `the/package.json` command findings in the Egg report.
 
 ## 2026-05-18 Maintainer Contact Drafts
 
@@ -377,6 +393,28 @@ Opt-out wording:
 
 If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
 
+#### `eggjs/egg`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- `.github/copilot-instructions.md` and `tegg/CLAUDE.md` document `pnpm run clean`, but the root `package.json` does not define a `clean` script.
+
+Why it may matter:
+
+- Agents following the documented validation workflow may run a command that fails immediately; the current root script list includes `clean-dist`, not `clean`.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
 Follow-up snapshots:
 
 | Repository | Commit | Initial Result | After Product Fix | Triage |
@@ -533,7 +571,7 @@ The validation target does not require knowing maintainers personally. Use a pub
 4. Ask broadly for repo suggestions after the first 10 snapshots, not for stars.
 5. Request permission before using healthy named reports as launch proof.
 
-The first public preview should say: AgentFit ran 25 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, kept additional maintainer-contact drafts local until approved, shipped two false-positive fixes in `0.1.8`, and released the package-local command false-positive fix in `0.1.10`. That is a stronger story than a generic launch pitch.
+The first public preview should say: AgentFit ran 30 dry-run snapshots, found one real stale-command issue that became a merged upstream PR, kept additional maintainer-contact drafts local until approved, shipped two false-positive fixes in `0.1.8`, released the package-local command false-positive fix in `0.1.10`, and fixed another command-resolution false positive during the corpus pass. That is a stronger story than a generic launch pitch.
 
 ## Next Public Preview Queue
 
@@ -588,7 +626,7 @@ Repo: https://github.com/kingkyylian/agentfit
 One focused pass should be enough before public launch:
 
 1. Find 30 candidate repositories.
-2. Run dry-run snapshots on the best 10-20. Twenty are complete.
+2. Run dry-run snapshots on the best corpus candidates. Thirty are complete.
 3. Keep 3-5 strong public examples.
 4. Open maintainer issues for only the clearest actionable findings.
 5. Convert false positives into AgentFit issues.

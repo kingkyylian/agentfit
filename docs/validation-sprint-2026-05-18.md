@@ -4,7 +4,7 @@ Corpus validation pass for the metadata-only real-world candidate workflow. All 
 
 ## Scope
 
-The sprint used the first twenty-five repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
+The sprint used all thirty repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
@@ -33,6 +33,11 @@ The sprint used the first twenty-five repositories from the 30-candidate corpus 
 | `projen/projen` | `454253c` | `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions | 83/100 (B) | healthy |
 | `Dart-Code/Dart-Code` | `7cf2598` | `AGENTS.md` | 83/100 (B) | healthy |
 | `kubernetes/kops` | `dfcdbd09` | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` | 83/100 (B) | healthy |
+| `opf/openproject` | `a609d587` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 83/100 (B) | healthy |
+| `spinnaker/spinnaker` | `f76c1d10` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 93/100 (A) | healthy |
+| `hashintel/hash` | `da5a1e2` | `AGENTS.md`, `CLAUDE.md`, Cursor rules | 78/100 (C) | snapshotted |
+| `eggjs/egg` | `0dec2c9` | `AGENTS.md`, `CLAUDE.md`, Copilot instructions | 80/100 (B) | actionable |
+| `erigontech/erigon` | `30954c9` | `agents.md`, `CLAUDE.md` | 83/100 (B) | healthy |
 
 ## Report Outputs
 
@@ -63,6 +68,11 @@ The reviewed dry-run reports are checked in under `examples/reports/real-world`:
 - [projen.md](../examples/reports/real-world/projen.md)
 - [dart-code.md](../examples/reports/real-world/dart-code.md)
 - [kops.md](../examples/reports/real-world/kops.md)
+- [openproject.md](../examples/reports/real-world/openproject.md)
+- [spinnaker.md](../examples/reports/real-world/spinnaker.md)
+- [hash.md](../examples/reports/real-world/hash.md)
+- [egg.md](../examples/reports/real-world/egg.md)
+- [erigon.md](../examples/reports/real-world/erigon.md)
 
 The matching JSON reports are checked in beside each Markdown report for repeatable summary extraction.
 
@@ -164,6 +174,27 @@ Snyk IntelliJ Plugin scored 55/100 from one Cursor rule and no root instruction 
 
 Projen, Dart-Code, and Kops each scored 83/100. They all have clean reference integrity and useful reproducibility signal; their only failed check is the broad safety guardrail finding. Treat them as healthy internal baselines, not public named examples without permission.
 
+### Batch 6 Review
+
+OpenProject scored 83/100 with layered instructions across app, config, db, Docker dev, frontend, and spec scopes. Its only failed check is the broad safety guardrail finding. Spinnaker scored 93/100 with no failed checks.
+
+Hash scored 78/100. Its remaining findings are broad package-scope and safety guidance coverage:
+
+```text
+8 nested scopes do not have local instruction files.
+Safety guardrails were not found.
+```
+
+Egg scored 80/100 after an AgentFit product-noise fix. The remaining concrete finding is real command drift:
+
+```text
+Documented command references missing package script "clean".
+```
+
+Manual review confirmed root `package.json` defines `clean-dist`, not `clean`, while `.github/copilot-instructions.md` and `tegg/CLAUDE.md` document `pnpm run clean`. This stays as a local maintainer-contact draft only.
+
+Erigon scored 83/100 with only broad safety guardrail signal. Its checkout required Git LFS filter-process and smudge to be disabled because `git-lfs` was not installed locally, so keep it as an internal baseline with an LFS caveat.
+
 ## Product Issues Found And Fixed
 
 Batch 3 exposed two AgentFit command-resolution false positives:
@@ -177,23 +208,25 @@ Batch 4 did not expose a new AgentFit product bug. The RedisInsight command find
 
 Batch 5 did not expose a new AgentFit product bug. The low Snyk score reflects a Cursor-only instruction shape, and the other findings are broad safety or package-scope signals.
 
+Batch 6 exposed one AgentFit command-resolution false positive: prose like "run from the monorepo root" was parsed as the literal directory `the`. `src/core/static-checks.ts` now treats monorepo/repository/repo root prose as the repository root and rejects generic unquoted prose words as working-directory candidates. Regression coverage was added in `tests/unit/static-checks.test.ts`, and the Egg report was regenerated after the fix.
+
 ## Decision
 
 The sprint produced:
 
 - 30 total corpus candidates.
-- 25 reviewed dry-run snapshots.
-- 12 healthy internal baselines.
-- 8 actionable local maintainer-contact drafts.
-- 4 snapshotted no-contact reports.
+- 30 reviewed dry-run snapshots.
+- 15 healthy internal baselines.
+- 9 actionable local maintainer-contact drafts.
+- 5 snapshotted no-contact reports.
 - 1 unsupported low-signal report.
 - 0 unresolved noisy AgentFit reports.
-- 2 product fixes applied from Batch 3.
+- 3 product fixes applied from corpus runs.
 
 Next action should be one of:
 
 - ask for approval before opening any actionable maintainer issue,
-- continue with Batch 6 dry-run snapshots,
+- prepare a public-preview summary that does not name healthy examples as endorsements,
 - prepare an internal launch-validation summary that does not name healthy examples as endorsements.
 
 ## Verification
@@ -201,7 +234,7 @@ Next action should be one of:
 - Command: `rtk pnpm typecheck`
   - Result: passed.
 - Command: `rtk pnpm test`
-  - Result: passed, 18 test files and 98 tests.
+  - Result: passed, 18 test files and 99 tests.
 - Command: `rtk pnpm lint`
   - Result: passed.
 - Command: `rtk pnpm build`
@@ -210,5 +243,5 @@ Next action should be one of:
   - Result: passed for `@kingkyylian/agentfit@0.1.12`.
 - Command: `rtk pnpm corpus:check`
   - Result: passed.
-- Command: `rtk node dist/index.js corpus --limit 25`
-  - Result: printed the first twenty-five corpus entries, with twelve `healthy`, eight `actionable`, four `snapshotted`, and one `unsupported` entry.
+- Command: `rtk node dist/index.js corpus --limit 30`
+  - Result: printed all thirty corpus entries, with fifteen `healthy`, nine `actionable`, five `snapshotted`, and one `unsupported` entry.

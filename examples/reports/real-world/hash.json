@@ -1,0 +1,1168 @@
+{
+  "score": 78,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/ai-assistant-guidelines.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2707,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/ark-ui.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 6541,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/git-commit-conventions.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 835,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/mastra.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 5569,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/panda-css.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 3867,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/rust-coding-style.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 8440,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo clippy",
+          "sourcePath": ".cursor/rules/rust-coding-style.mdc",
+          "line": 13,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo doc --no-deps --all-features",
+          "sourcePath": ".cursor/rules/rust-coding-style.mdc",
+          "line": 14,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/rust-documentation.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 601,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo doc --no-deps --all-features",
+          "sourcePath": ".cursor/rules/rust-documentation.mdc",
+          "line": 22,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/rust-error-handling.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 763,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/rust-testing-strategy.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 3467,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo doc --no-deps --all-features",
+          "sourcePath": ".cursor/rules/rust-testing-strategy.mdc",
+          "line": 23,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/rust-tracing-practices.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 1167,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/typescript-coding-guidelines.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 3831,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/update-rules.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 292,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/zod.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2873,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 3017,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo nextest run --package <package-name>",
+          "sourcePath": "AGENTS.md",
+          "line": 76,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo test --package <package-name> --doc  # For doc tests",
+          "sourcePath": "AGENTS.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "cargo clippy --all-features --package <package-name>",
+          "sourcePath": "AGENTS.md",
+          "line": 78,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn dev",
+          "sourcePath": "AGENTS.md",
+          "line": 40,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:backend",
+          "sourcePath": "AGENTS.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:backend:api",
+          "sourcePath": "AGENTS.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:frontend",
+          "sourcePath": "AGENTS.md",
+          "line": 42,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start",
+          "sourcePath": "AGENTS.md",
+          "line": 46,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:graph",
+          "sourcePath": "AGENTS.md",
+          "line": 47,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:backend",
+          "sourcePath": "AGENTS.md",
+          "line": 48,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:frontend",
+          "sourcePath": "AGENTS.md",
+          "line": 49,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:worker",
+          "sourcePath": "AGENTS.md",
+          "line": 50,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn test:unit",
+          "sourcePath": "AGENTS.md",
+          "line": 54,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:integration",
+          "sourcePath": "AGENTS.md",
+          "line": 55,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "AGENTS.md",
+          "line": 59,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:tsc",
+          "sourcePath": "AGENTS.md",
+          "line": 60,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:eslint",
+          "sourcePath": "AGENTS.md",
+          "line": 61,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:format",
+          "sourcePath": "AGENTS.md",
+          "line": 62,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn fix:eslint",
+          "sourcePath": "AGENTS.md",
+          "line": 64,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn fix:format",
+          "sourcePath": "AGENTS.md",
+          "line": 65,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 3017,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo nextest run --package <package-name>",
+          "sourcePath": "CLAUDE.md",
+          "line": 76,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo test --package <package-name> --doc  # For doc tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "cargo clippy --all-features --package <package-name>",
+          "sourcePath": "CLAUDE.md",
+          "line": 78,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn dev",
+          "sourcePath": "CLAUDE.md",
+          "line": 40,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:backend",
+          "sourcePath": "CLAUDE.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:backend:api",
+          "sourcePath": "CLAUDE.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:frontend",
+          "sourcePath": "CLAUDE.md",
+          "line": 42,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start",
+          "sourcePath": "CLAUDE.md",
+          "line": 46,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:graph",
+          "sourcePath": "CLAUDE.md",
+          "line": 47,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:backend",
+          "sourcePath": "CLAUDE.md",
+          "line": 48,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:frontend",
+          "sourcePath": "CLAUDE.md",
+          "line": 49,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn start:worker",
+          "sourcePath": "CLAUDE.md",
+          "line": 50,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn test:unit",
+          "sourcePath": "CLAUDE.md",
+          "line": 54,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:integration",
+          "sourcePath": "CLAUDE.md",
+          "line": 55,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 59,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:tsc",
+          "sourcePath": "CLAUDE.md",
+          "line": 60,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 61,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:format",
+          "sourcePath": "CLAUDE.md",
+          "line": 62,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn fix:eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 64,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn fix:format",
+          "sourcePath": "CLAUDE.md",
+          "line": 65,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "libs/@hashintel/ds-components/AGENTS.md",
+      "scope": "libs/@hashintel/ds-components",
+      "kind": "agents",
+      "bytes": 8339,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn codegen:colors",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 264,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn codegen:tokens",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 265,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn codegen",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 268,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn lint:tsc",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 271,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn dev",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 228,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:lib",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 229,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn codegen",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 230,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn build",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 231,
+          "kind": "build"
+        },
+        {
+          "value": "yarn build:ladle",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 232,
+          "kind": "build"
+        },
+        {
+          "value": "yarn lint:eslint",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 233,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:tsc",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 234,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn test:unit",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 235,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:snapshots",
+          "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+          "line": 236,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "libs/@hashintel/ds-helpers/AGENTS.md",
+      "scope": "libs/@hashintel/ds-helpers",
+      "kind": "agents",
+      "bytes": 2633,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn codegen",
+          "sourcePath": "libs/@hashintel/ds-helpers/AGENTS.md",
+          "line": 69,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn workspace @hashintel/ds-components codegen",
+          "sourcePath": "libs/@hashintel/ds-helpers/AGENTS.md",
+          "line": 39,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "scope": "libs/@hashintel/petrinaut",
+      "kind": "claude",
+      "bytes": 1530,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn dev              # Dev server (demo site)",
+          "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+          "line": 34,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn build            # Library build",
+          "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+          "line": 35,
+          "kind": "build"
+        },
+        {
+          "value": "yarn lint:eslint      # Lint with oxlint",
+          "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+          "line": 36,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:tsc         # Type check with tsgo",
+          "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+          "line": 37,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:unit        # Unit tests (vitest)",
+          "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+          "line": 38,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-ai-worker-ts",
+      "message": "No nested instruction file found for apps/hash-ai-worker-ts.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-api",
+      "message": "No nested instruction file found for apps/hash-api.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-external-services",
+      "message": "No nested instruction file found for apps/hash-external-services.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-frontend",
+      "message": "No nested instruction file found for apps/hash-frontend.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-graph",
+      "message": "No nested instruction file found for apps/hash-graph.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/hash-integration-worker",
+      "message": "No nested instruction file found for apps/hash-integration-worker.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/petrinaut-website",
+      "message": "No nested instruction file found for apps/petrinaut-website.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/plugin-browser",
+      "message": "No nested instruction file found for apps/plugin-browser.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "yarn test:unit",
+      "sourcePath": "AGENTS.md",
+      "line": 54,
+      "scriptName": "test:unit",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test:integration",
+      "sourcePath": "AGENTS.md",
+      "line": 55,
+      "scriptName": "test:integration",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "AGENTS.md",
+      "line": 59,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:tsc",
+      "sourcePath": "AGENTS.md",
+      "line": 60,
+      "scriptName": "lint:tsc",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:eslint",
+      "sourcePath": "AGENTS.md",
+      "line": 61,
+      "scriptName": "lint:eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:format",
+      "sourcePath": "AGENTS.md",
+      "line": 62,
+      "scriptName": "lint:format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn fix:eslint",
+      "sourcePath": "AGENTS.md",
+      "line": 64,
+      "scriptName": "fix:eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn fix:format",
+      "sourcePath": "AGENTS.md",
+      "line": 65,
+      "scriptName": "fix:format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test:unit",
+      "sourcePath": "CLAUDE.md",
+      "line": 54,
+      "scriptName": "test:unit",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test:integration",
+      "sourcePath": "CLAUDE.md",
+      "line": 55,
+      "scriptName": "test:integration",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 59,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:tsc",
+      "sourcePath": "CLAUDE.md",
+      "line": 60,
+      "scriptName": "lint:tsc",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:eslint",
+      "sourcePath": "CLAUDE.md",
+      "line": 61,
+      "scriptName": "lint:eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:format",
+      "sourcePath": "CLAUDE.md",
+      "line": 62,
+      "scriptName": "lint:format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn fix:eslint",
+      "sourcePath": "CLAUDE.md",
+      "line": 64,
+      "scriptName": "fix:eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn fix:format",
+      "sourcePath": "CLAUDE.md",
+      "line": 65,
+      "scriptName": "fix:format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn build",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 231,
+      "scriptName": "build",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn build:ladle",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 232,
+      "scriptName": "build:ladle",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn lint:eslint",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 233,
+      "scriptName": "lint:eslint",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn lint:tsc",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 234,
+      "scriptName": "lint:tsc",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn test:unit",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 235,
+      "scriptName": "test:unit",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn test:snapshots",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 236,
+      "scriptName": "test:snapshots",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn lint:tsc",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 271,
+      "scriptName": "lint:tsc",
+      "packageJsonPath": "libs/@hashintel/ds-components/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn build            # Library build",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 35,
+      "scriptName": "build",
+      "packageJsonPath": "libs/@hashintel/petrinaut/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn lint:eslint      # Lint with oxlint",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 36,
+      "scriptName": "lint:eslint",
+      "packageJsonPath": "libs/@hashintel/petrinaut/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn lint:tsc         # Type check with tsgo",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 37,
+      "scriptName": "lint:tsc",
+      "packageJsonPath": "libs/@hashintel/petrinaut/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "yarn test:unit        # Unit tests (vitest)",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 38,
+      "scriptName": "test:unit",
+      "packageJsonPath": "libs/@hashintel/petrinaut/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/mastra.mdc",
+      "line": 49,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 54,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 55,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 54,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 55,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 231,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 232,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 235,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/ds-components/AGENTS.md",
+      "line": 236,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 35,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 37,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "libs/@hashintel/petrinaut/CLAUDE.md",
+      "line": 38,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+      "expectedChecks": [
+        "yarn run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-integration",
+      "title": "Exercise the test:integration package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:integration script passing. Run yarn run test:integration and report the result.",
+      "expectedChecks": [
+        "yarn run test:integration"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-playwright",
+      "title": "Exercise the test:playwright package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:playwright script passing. Run yarn run test:playwright and report the result.",
+      "expectedChecks": [
+        "yarn run test:playwright"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-stale-approvals",
+      "title": "Exercise the test:stale-approvals package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:stale-approvals script passing. Run yarn run test:stale-approvals and report the result.",
+      "expectedChecks": [
+        "yarn run test:stale-approvals"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-unit",
+      "title": "Exercise the test:unit package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:unit script passing. Run yarn run test:unit and report the result.",
+      "expectedChecks": [
+        "yarn run test:unit"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+        "expectedChecks": [
+          "yarn run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.652Z",
+      "finishedAt": "2026-05-18T17:26:05.652Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-integration",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-integration",
+        "title": "Exercise the test:integration package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:integration script passing. Run yarn run test:integration and report the result.",
+        "expectedChecks": [
+          "yarn run test:integration"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.652Z",
+      "finishedAt": "2026-05-18T17:26:05.652Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-playwright",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-playwright",
+        "title": "Exercise the test:playwright package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:playwright script passing. Run yarn run test:playwright and report the result.",
+        "expectedChecks": [
+          "yarn run test:playwright"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.652Z",
+      "finishedAt": "2026-05-18T17:26:05.652Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-stale-approvals",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-stale-approvals",
+        "title": "Exercise the test:stale-approvals package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:stale-approvals script passing. Run yarn run test:stale-approvals and report the result.",
+        "expectedChecks": [
+          "yarn run test:stale-approvals"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.652Z",
+      "finishedAt": "2026-05-18T17:26:05.652Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-unit",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-unit",
+        "title": "Exercise the test:unit package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:unit script passing. Run yarn run test:unit and report the result.",
+        "expectedChecks": [
+          "yarn run test:unit"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.652Z",
+      "finishedAt": "2026-05-18T17:26:05.652Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:26:05.653Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "18 instruction files discovered; 8 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "8 nested scopes do not have local instruction files.",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

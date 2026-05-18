@@ -351,9 +351,11 @@ candidates:
     shape: large application
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: layered instruction files in a large application
-    contactPolicy: permission before public named use
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/openproject.md
+    commit: 'a609d587'
   - repo: spinnaker/spinnaker
     instructionSources:
       - AGENTS.md
@@ -364,9 +366,11 @@ candidates:
     shape: multi-service monorepo
     recentActivity: active on 2026-05-09 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: service-scope instruction and package command behavior
-    contactPolicy: no contact before report review
+    contactPolicy: no contact; permission before public named use
+    reportPath: examples/reports/real-world/spinnaker.md
+    commit: 'f76c1d10'
   - repo: hashintel/hash
     instructionSources:
       - AGENTS.md
@@ -377,9 +381,11 @@ candidates:
     shape: product monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: snapshotted
     expectedSignal: complex product monorepo instruction layering
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad scope and safety-only signal
+    reportPath: examples/reports/real-world/hash.md
+    commit: 'da5a1e2'
   - repo: eggjs/egg
     instructionSources:
       - AGENTS.md
@@ -390,9 +396,11 @@ candidates:
     shape: framework monorepo
     recentActivity: active on 2026-05-10 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: framework monorepo command parsing and scope signal
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/egg.md
+    commit: '0dec2c9'
   - repo: erigontech/erigon
     instructionSources:
       - AGENTS.md
@@ -402,6 +410,8 @@ candidates:
     shape: infrastructure repository
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: large Go repository with possible Git LFS checkout caveat
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for LFS-caveat safety-only snapshot; permission before public named use
+    reportPath: examples/reports/real-world/erigon.md
+    commit: '30954c9'

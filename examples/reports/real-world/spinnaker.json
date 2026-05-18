@@ -1,0 +1,955 @@
+{
+  "score": 93,
+  "grade": "A",
+  "summary": "No failed checks.",
+  "instructionFiles": [
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 4482,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 42,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn modules",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 43,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 44,
+          "kind": "build"
+        },
+        {
+          "value": "yarn build               # Production build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 75,
+          "kind": "build"
+        },
+        {
+          "value": "yarn test                # Run unit tests",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 76,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint                # ESLint check",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier:check      # Check formatting",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 78,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier            # Apply formatting",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 79,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 85,
+          "kind": "build"
+        },
+        {
+          "value": "npm run test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 86,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 87,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 95,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 125,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4482,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn",
+          "sourcePath": "AGENTS.md",
+          "line": 42,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn modules",
+          "sourcePath": "AGENTS.md",
+          "line": 43,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn build",
+          "sourcePath": "AGENTS.md",
+          "line": 44,
+          "kind": "build"
+        },
+        {
+          "value": "yarn build               # Production build",
+          "sourcePath": "AGENTS.md",
+          "line": 75,
+          "kind": "build"
+        },
+        {
+          "value": "yarn test                # Run unit tests",
+          "sourcePath": "AGENTS.md",
+          "line": 76,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint                # ESLint check",
+          "sourcePath": "AGENTS.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier:check      # Check formatting",
+          "sourcePath": "AGENTS.md",
+          "line": 78,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier            # Apply formatting",
+          "sourcePath": "AGENTS.md",
+          "line": 79,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "AGENTS.md",
+          "line": 85,
+          "kind": "build"
+        },
+        {
+          "value": "npm run test",
+          "sourcePath": "AGENTS.md",
+          "line": 86,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint",
+          "sourcePath": "AGENTS.md",
+          "line": 87,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "AGENTS.md",
+          "line": 95,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "AGENTS.md",
+          "line": 125,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 4482,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn",
+          "sourcePath": "CLAUDE.md",
+          "line": 42,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn modules",
+          "sourcePath": "CLAUDE.md",
+          "line": 43,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn build",
+          "sourcePath": "CLAUDE.md",
+          "line": 44,
+          "kind": "build"
+        },
+        {
+          "value": "yarn build               # Production build",
+          "sourcePath": "CLAUDE.md",
+          "line": 75,
+          "kind": "build"
+        },
+        {
+          "value": "yarn test                # Run unit tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 76,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint                # ESLint check",
+          "sourcePath": "CLAUDE.md",
+          "line": 77,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier:check      # Check formatting",
+          "sourcePath": "CLAUDE.md",
+          "line": 78,
+          "kind": "test"
+        },
+        {
+          "value": "yarn prettier            # Apply formatting",
+          "sourcePath": "CLAUDE.md",
+          "line": 79,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 85,
+          "kind": "build"
+        },
+        {
+          "value": "npm run test",
+          "sourcePath": "CLAUDE.md",
+          "line": 86,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 87,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 95,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 125,
+          "kind": "lint"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "yarn lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 125,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "yarn build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 44,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn build               # Production build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 75,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test                # Run unit tests",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 76,
+      "scriptName": "test",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint                # ESLint check",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 77,
+      "scriptName": "lint",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier:check      # Check formatting",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 78,
+      "scriptName": "prettier:check",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier            # Apply formatting",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 79,
+      "scriptName": "prettier",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 85,
+      "scriptName": "build",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 86,
+      "scriptName": "test",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 87,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 95,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "AGENTS.md",
+      "line": 125,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "yarn build",
+      "sourcePath": "AGENTS.md",
+      "line": 44,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn build               # Production build",
+      "sourcePath": "AGENTS.md",
+      "line": 75,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test                # Run unit tests",
+      "sourcePath": "AGENTS.md",
+      "line": 76,
+      "scriptName": "test",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint                # ESLint check",
+      "sourcePath": "AGENTS.md",
+      "line": 77,
+      "scriptName": "lint",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier:check      # Check formatting",
+      "sourcePath": "AGENTS.md",
+      "line": 78,
+      "scriptName": "prettier:check",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier            # Apply formatting",
+      "sourcePath": "AGENTS.md",
+      "line": 79,
+      "scriptName": "prettier",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "AGENTS.md",
+      "line": 85,
+      "scriptName": "build",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run test",
+      "sourcePath": "AGENTS.md",
+      "line": 86,
+      "scriptName": "test",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run lint",
+      "sourcePath": "AGENTS.md",
+      "line": 87,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "AGENTS.md",
+      "line": 95,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 125,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "yarn build",
+      "sourcePath": "CLAUDE.md",
+      "line": 44,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn build               # Production build",
+      "sourcePath": "CLAUDE.md",
+      "line": 75,
+      "scriptName": "build",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test                # Run unit tests",
+      "sourcePath": "CLAUDE.md",
+      "line": 76,
+      "scriptName": "test",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint                # ESLint check",
+      "sourcePath": "CLAUDE.md",
+      "line": 77,
+      "scriptName": "lint",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier:check      # Check formatting",
+      "sourcePath": "CLAUDE.md",
+      "line": 78,
+      "scriptName": "prettier:check",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn prettier            # Apply formatting",
+      "sourcePath": "CLAUDE.md",
+      "line": 79,
+      "scriptName": "prettier",
+      "packageJsonPath": "deck/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 85,
+      "scriptName": "build",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run test",
+      "sourcePath": "CLAUDE.md",
+      "line": 86,
+      "scriptName": "test",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 87,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 95,
+      "scriptName": "lint",
+      "packageJsonPath": "deck-kayenta/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 44,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 75,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 76,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 78,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 85,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 86,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 44,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 75,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 76,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 78,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 85,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 86,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 44,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 75,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 76,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 77,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 78,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 85,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 86,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 129,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "AGENTS.md",
+      "line": 129,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "CLAUDE.md",
+      "line": 129,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "test-editmetricmodal-spec",
+      "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx",
+      "prompt": "Inspect deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx"
+      ]
+    },
+    {
+      "id": "test-editmetricvalidation-spec",
+      "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts",
+      "prompt": "Inspect deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts"
+      ]
+    },
+    {
+      "id": "test-filtertemplateselector-spec",
+      "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx",
+      "prompt": "Inspect deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx"
+      ]
+    },
+    {
+      "id": "test-filtertemplatesvalidation-spec",
+      "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts",
+      "prompt": "Inspect deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts"
+      ]
+    },
+    {
+      "id": "test-inlinetemplateeditor-spec",
+      "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx",
+      "prompt": "Inspect deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-test-editmetricmodal-spec",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-editmetricmodal-spec",
+        "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx",
+        "prompt": "Inspect deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "deck-kayenta/src/kayenta/edit/editMetricModal.spec.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:06.007Z",
+      "finishedAt": "2026-05-18T17:26:06.007Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-editmetricvalidation-spec",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-editmetricvalidation-spec",
+        "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts",
+        "prompt": "Inspect deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "deck-kayenta/src/kayenta/edit/editMetricValidation.spec.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:06.007Z",
+      "finishedAt": "2026-05-18T17:26:06.007Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-filtertemplateselector-spec",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-filtertemplateselector-spec",
+        "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx",
+        "prompt": "Inspect deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "deck-kayenta/src/kayenta/edit/filterTemplateSelector.spec.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:06.007Z",
+      "finishedAt": "2026-05-18T17:26:06.007Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-filtertemplatesvalidation-spec",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-filtertemplatesvalidation-spec",
+        "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts",
+        "prompt": "Inspect deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "deck-kayenta/src/kayenta/edit/filterTemplatesValidation.spec.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:06.007Z",
+      "finishedAt": "2026-05-18T17:26:06.007Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-inlinetemplateeditor-spec",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-inlinetemplateeditor-spec",
+        "title": "Make a safe change covered by deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx",
+        "prompt": "Inspect deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "deck-kayenta/src/kayenta/edit/inlineTemplateEditor.spec.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:06.007Z",
+      "finishedAt": "2026-05-18T17:26:06.007Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:26:06.007Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "3 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

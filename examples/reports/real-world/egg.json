@@ -1,0 +1,1235 @@
+{
+  "score": 80,
+  "grade": "B",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 10318,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 26,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 29,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 32,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm --filter=egg run test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 86,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter=@eggjs/core run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 87,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter=site run dev",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 88,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 111,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 114,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm run test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 117,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run site:dev",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 120,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 57,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run clean",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 58,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 62,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run test:cov",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 63,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run ci",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 64,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 68,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm run site:dev",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 72,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run example:commonjs",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 77,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run example:typescript",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 78,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm --filter=<package>",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 82,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 95,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 182,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 220,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 221,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm run site:dev",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 222,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 223,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 6610,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install",
+          "sourcePath": "AGENTS.md",
+          "line": 21,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": "AGENTS.md",
+          "line": 22,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run test",
+          "sourcePath": "AGENTS.md",
+          "line": 23,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": "AGENTS.md",
+          "line": 24,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm run typecheck",
+          "sourcePath": "AGENTS.md",
+          "line": 25,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter=egg run test",
+          "sourcePath": "AGENTS.md",
+          "line": 26,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter=site run dev",
+          "sourcePath": "AGENTS.md",
+          "line": 26,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 276,
+      "importedPaths": [
+        "AGENTS.md"
+      ],
+      "commands": []
+    },
+    {
+      "path": "packages/skills/CLAUDE.md",
+      "scope": "packages/skills",
+      "kind": "claude",
+      "bytes": 11667,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "tegg/CLAUDE.md",
+      "scope": "tegg",
+      "kind": "claude",
+      "bytes": 10585,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm run build               # Build all packages including tegg (runs build in all workspaces)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 63,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm run clean               # Clean all build artifacts including tegg (removes dist, tsbuildinfo)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 64,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm test                    # Run vitest tests for all packages (from monorepo root)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 72,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run test:cov            # Run tests with coverage",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 73,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run ci                  # Full CI: vitest with coverage and bail on first failure",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 74,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run typecheck           # Clean and type check all workspaces (including tegg)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 82,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run lint                # Run oxlint with type-aware checking on all packages",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 83,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm run fmtcheck            # Check code formatting with oxfmt",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 84,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run version:patch       # Bump patch version (0.0.X)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 94,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:minor       # Bump minor version (0.X.0)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 95,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:major       # Bump major version (X.0.0)",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 96,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:prepatch    # Bump to next prerelease patch version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 97,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:preminor    # Bump to next prerelease minor version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 98,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:premajor    # Bump to next prerelease major version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 99,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:alpha       # Bump prerelease alpha version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 100,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:beta        # Bump prerelease beta version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 101,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run version:rc          # Bump prerelease rc version",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 102,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm install                          # Install all dependencies using catalog versions",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 111,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm -r run typecheck                 # Type check all packages recursively",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 114,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter @eggjs/tegg-runtime run typecheck",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 115,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter @eggjs/metadata run build",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 118,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter @eggjs/tegg-runtime run build",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 119,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter @eggjs/tegg-runtime run clean",
+          "sourcePath": "tegg/CLAUDE.md",
+          "line": 122,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "tegg/CLAUDE.md",
+      "message": "Documented command references missing package script \"clean\".",
+      "severity": "error"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/cluster",
+      "message": "No nested instruction file found for packages/cluster.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/cookies",
+      "message": "No nested instruction file found for packages/cookies.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/core",
+      "message": "No nested instruction file found for packages/core.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/egg",
+      "message": "No nested instruction file found for packages/egg.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/errors",
+      "message": "No nested instruction file found for packages/errors.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/extend2",
+      "message": "No nested instruction file found for packages/extend2.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/koa-static-cache",
+      "message": "No nested instruction file found for packages/koa-static-cache.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/koa",
+      "message": "No nested instruction file found for packages/koa.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/logger",
+      "message": "No nested instruction file found for packages/logger.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/path-matching",
+      "message": "No nested instruction file found for packages/path-matching.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/router",
+      "message": "No nested instruction file found for packages/router.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/supertest",
+      "message": "No nested instruction file found for packages/supertest.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/tsconfig",
+      "message": "No nested instruction file found for packages/tsconfig.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/typings",
+      "message": "No nested instruction file found for packages/typings.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/utils",
+      "message": "No nested instruction file found for packages/utils.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 111,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 114,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 117,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 182,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 220,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 221,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 223,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 29,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 32,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 57,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 62,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run test:cov",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 63,
+      "scriptName": "test:cov",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 68,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm --filter=egg run test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 86,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "pnpm --filter=@eggjs/core run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 87,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 95,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run build",
+      "sourcePath": "AGENTS.md",
+      "line": 22,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run test",
+      "sourcePath": "AGENTS.md",
+      "line": 23,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": "AGENTS.md",
+      "line": 24,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run typecheck",
+      "sourcePath": "AGENTS.md",
+      "line": 25,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm --filter=egg run test",
+      "sourcePath": "AGENTS.md",
+      "line": 26,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "pnpm -r run typecheck                 # Type check all packages recursively",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 114,
+      "scriptName": "typecheck",
+      "packageJsonPath": "81 workspace package.json files",
+      "status": "resolved",
+      "reason": "package-manager recursive"
+    },
+    {
+      "command": "pnpm --filter @eggjs/tegg-runtime run typecheck",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 115,
+      "scriptName": "typecheck",
+      "packageJsonPath": "tegg/core/runtime/package.json",
+      "status": "resolved",
+      "reason": "package-manager filter"
+    },
+    {
+      "command": "pnpm --filter @eggjs/metadata run build",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 118,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "pnpm --filter @eggjs/tegg-runtime run build",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 119,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "same source resolved package script"
+    },
+    {
+      "command": "pnpm run build               # Build all packages including tegg (runs build in all workspaces)",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 63,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm run clean               # Clean all build artifacts including tegg (removes dist, tsbuildinfo)",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 64,
+      "scriptName": "clean",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm test                    # Run vitest tests for all packages (from monorepo root)",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 72,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm run test:cov            # Run tests with coverage",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 73,
+      "scriptName": "test:cov",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm run ci                  # Full CI: vitest with coverage and bail on first failure",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 74,
+      "scriptName": "ci",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "pnpm run typecheck           # Clean and type check all workspaces (including tegg)",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 82,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint                # Run oxlint with type-aware checking on all packages",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 83,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run fmtcheck            # Check code formatting with oxfmt",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 84,
+      "scriptName": "fmtcheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 111,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 117,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 182,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 19,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 220,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 223,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 26,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 29,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 57,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 62,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 63,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 86,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 87,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 95,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 21,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 22,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 23,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 25,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 26,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 96,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 111,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 114,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 115,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 118,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 119,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 63,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 64,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 72,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 73,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 74,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 82,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "tegg/CLAUDE.md",
+      "line": 84,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 297,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "AGENTS.md",
+      "line": 53,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+      "expectedChecks": [
+        "pnpm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-cov",
+      "title": "Exercise the test:cov package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:cov script passing. Run pnpm run test:cov and report the result.",
+      "expectedChecks": [
+        "pnpm run test:cov"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-typecheck",
+      "title": "Exercise the typecheck package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+      "expectedChecks": [
+        "pnpm run typecheck"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+        "expectedChecks": [
+          "pnpm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:29:12.906Z",
+      "finishedAt": "2026-05-18T17:29:12.906Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:29:12.906Z",
+      "finishedAt": "2026-05-18T17:29:12.906Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:29:12.906Z",
+      "finishedAt": "2026-05-18T17:29:12.906Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-cov",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-cov",
+        "title": "Exercise the test:cov package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:cov script passing. Run pnpm run test:cov and report the result.",
+        "expectedChecks": [
+          "pnpm run test:cov"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:29:12.906Z",
+      "finishedAt": "2026-05-18T17:29:12.906Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-typecheck",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-typecheck",
+        "title": "Exercise the typecheck package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+        "expectedChecks": [
+          "pnpm run typecheck"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:29:12.906Z",
+      "finishedAt": "2026-05-18T17:29:12.906Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:29:12.906Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "5 instruction files discovered; 15 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "15 nested scopes do not have local instruction files.",
+    "Documented command references missing package script \"clean\"."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

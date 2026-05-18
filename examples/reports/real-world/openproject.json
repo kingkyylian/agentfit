@@ -1,0 +1,494 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 4236,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "docker compose run --rm backend-test \"bundle exec rspec spec/features/work_package_show_spec.rb\"",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 85,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 3369,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/AGENTS.md",
+      "scope": "app",
+      "kind": "agents",
+      "bytes": 1337,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "app/CLAUDE.md",
+      "scope": "app",
+      "kind": "claude",
+      "bytes": 1337,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 3369,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "config/AGENTS.md",
+      "scope": "config",
+      "kind": "agents",
+      "bytes": 564,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "config/CLAUDE.md",
+      "scope": "config",
+      "kind": "claude",
+      "bytes": 564,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "db/AGENTS.md",
+      "scope": "db",
+      "kind": "agents",
+      "bytes": 761,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "db/CLAUDE.md",
+      "scope": "db",
+      "kind": "claude",
+      "bytes": 761,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "docker/dev/AGENTS.md",
+      "scope": "docker/dev",
+      "kind": "agents",
+      "bytes": 2777,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm",
+          "sourcePath": "docker/dev/AGENTS.md",
+          "line": 30,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "docker/dev/CLAUDE.md",
+      "scope": "docker/dev",
+      "kind": "claude",
+      "bytes": 2777,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm",
+          "sourcePath": "docker/dev/CLAUDE.md",
+          "line": 30,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "frontend/AGENTS.md",
+      "scope": "frontend",
+      "kind": "agents",
+      "bytes": 908,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm ci && cd ..   # Install Node packages",
+          "sourcePath": "frontend/AGENTS.md",
+          "line": 22,
+          "kind": "setup"
+        },
+        {
+          "value": "npx eslint src/ && cd ..",
+          "sourcePath": "frontend/AGENTS.md",
+          "line": 37,
+          "kind": "lint"
+        },
+        {
+          "value": "npm test && cd ..",
+          "sourcePath": "frontend/AGENTS.md",
+          "line": 44,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "frontend/CLAUDE.md",
+      "scope": "frontend",
+      "kind": "claude",
+      "bytes": 908,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm ci && cd ..   # Install Node packages",
+          "sourcePath": "frontend/CLAUDE.md",
+          "line": 22,
+          "kind": "setup"
+        },
+        {
+          "value": "npx eslint src/ && cd ..",
+          "sourcePath": "frontend/CLAUDE.md",
+          "line": 37,
+          "kind": "lint"
+        },
+        {
+          "value": "npm test && cd ..",
+          "sourcePath": "frontend/CLAUDE.md",
+          "line": 44,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "spec/AGENTS.md",
+      "scope": "spec",
+      "kind": "agents",
+      "bytes": 982,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "spec/CLAUDE.md",
+      "scope": "spec",
+      "kind": "claude",
+      "bytes": 982,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "npm test && cd ..",
+      "sourcePath": "frontend/AGENTS.md",
+      "line": 44,
+      "scriptName": "test",
+      "packageJsonPath": "frontend/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    },
+    {
+      "command": "npm test && cd ..",
+      "sourcePath": "frontend/CLAUDE.md",
+      "line": 44,
+      "scriptName": "test",
+      "packageJsonPath": "frontend/package.json",
+      "status": "resolved",
+      "reason": "instruction file scope"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 85,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 35,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 35,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "frontend/AGENTS.md",
+      "line": 22,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "frontend/AGENTS.md",
+      "line": 44,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "frontend/CLAUDE.md",
+      "line": 22,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "frontend/CLAUDE.md",
+      "line": 44,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-tslint-typechecks",
+      "title": "Exercise the tslint_typechecks package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the tslint_typechecks script passing. Run npm run tslint_typechecks and report the result.",
+      "expectedChecks": [
+        "npm run tslint_typechecks"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "test-closeevents-test",
+      "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts",
+      "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts"
+      ]
+    },
+    {
+      "id": "test-openprojectapi-test",
+      "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts",
+      "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts"
+      ]
+    },
+    {
+      "id": "test-openprojectapi-withstubbedenv-test",
+      "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts",
+      "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.806Z",
+      "finishedAt": "2026-05-18T17:26:05.806Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-tslint-typechecks",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-tslint-typechecks",
+        "title": "Exercise the tslint_typechecks package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the tslint_typechecks script passing. Run npm run tslint_typechecks and report the result.",
+        "expectedChecks": [
+          "npm run tslint_typechecks"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.806Z",
+      "finishedAt": "2026-05-18T17:26:05.806Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-closeevents-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-closeevents-test",
+        "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts",
+        "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "extensions/op-blocknote-hocuspocus/test/closeEvents.test.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.806Z",
+      "finishedAt": "2026-05-18T17:26:05.806Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-openprojectapi-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-openprojectapi-test",
+        "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts",
+        "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi.test.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.806Z",
+      "finishedAt": "2026-05-18T17:26:05.806Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-openprojectapi-withstubbedenv-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-openprojectapi-withstubbedenv-test",
+        "title": "Make a safe change covered by extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts",
+        "prompt": "Inspect extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "extensions/op-blocknote-hocuspocus/test/extensions/openProjectApi_withStubbedEnv.test.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:26:05.806Z",
+      "finishedAt": "2026-05-18T17:26:05.806Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:26:05.807Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "15 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}
