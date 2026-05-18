@@ -60,3 +60,298 @@ candidates:
     status: candidate
     expectedSignal: Copilot instruction discovery coverage
     contactPolicy: no contact before report review
+  - repo: dusk-network/rusk
+    instructionSources:
+      - agents.md
+    searchQuery: filename:AGENTS.md is:public fork:false
+    stack: Rust
+    shape: platform implementation repository
+    recentActivity: active on 2026-05-04 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: lowercase instruction filename and Rust verification guidance
+    contactPolicy: no contact before report review
+  - repo: NikolayS/postgres_dba
+    instructionSources:
+      - CLAUDE.md
+    searchQuery: path:CLAUDE.md is:public fork:false
+    stack: PLpgSQL
+    shape: focused database tooling repository
+    recentActivity: active on 2026-05-13 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: database-specific instruction patterns outside app code
+    contactPolicy: no contact before report review
+  - repo: numerai/example-scripts
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Jupyter Notebook
+    shape: example and notebook repository
+    recentActivity: active on 2026-05-15 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: notebook-heavy project handling
+    contactPolicy: no contact before report review
+  - repo: econ-ark/HARK
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Python
+    shape: scientific Python package
+    recentActivity: active on 2026-05-09 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: reproducibility guidance in scientific software
+    contactPolicy: no contact before report review
+  - repo: IOBR/IOBR
+    instructionSources:
+      - copilot-instructions.md
+    searchQuery: path:.github/copilot-instructions.md is:public fork:false
+    stack: R
+    shape: active R package
+    recentActivity: active on 2026-05-15 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: Copilot instruction handling outside common JS stacks
+    contactPolicy: no contact before report review
+  - repo: DataDog/lading
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Rust
+    shape: focused load-testing tools
+    recentActivity: active on 2026-05-13 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: compact infrastructure tool report
+    contactPolicy: no contact before report review
+  - repo: percona/psmdb-docs
+    instructionSources:
+      - copilot-instructions.md
+    searchQuery: path:.github/copilot-instructions.md is:public fork:false
+    stack: HTML
+    shape: documentation repository
+    recentActivity: active on 2026-05-13 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: documentation-repo instruction expectations
+    contactPolicy: no contact before report review
+  - repo: statelyai/xstate
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: TypeScript
+    shape: package monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: high-visibility monorepo scope signal
+    contactPolicy: no contact before report review
+  - repo: gitbutlerapp/gitbutler
+    instructionSources:
+      - AGENTS.md
+      - copilot-instructions.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Rust
+    shape: desktop application monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: layered agent guidance in Rust desktop code
+    contactPolicy: no contact before report review
+  - repo: lerna/lerna
+    instructionSources:
+      - CLAUDE.md
+    searchQuery: path:CLAUDE.md is:public fork:false
+    stack: TypeScript
+    shape: tooling monorepo
+    recentActivity: active on 2026-05-09 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: clear package command and safety guidance
+    contactPolicy: no contact before report review
+  - repo: redis/RedisInsight
+    instructionSources:
+      - AGENTS.md
+      - .cursor/rules
+      - .github/copilot-instructions.md
+    searchQuery: path:.cursor/rules/ is:public fork:false
+    stack: TypeScript
+    shape: desktop and web application
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: stale command regression guard after prior upstream fix
+    contactPolicy: no contact unless a new concrete drift is reproduced
+  - repo: grafana/mimir
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Go
+    shape: infrastructure monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: healthy layered instruction baseline
+    contactPolicy: permission before public named use
+  - repo: pingcap/tidb
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Go
+    shape: large infrastructure monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: large monorepo reproducibility signal
+    contactPolicy: no contact before report review
+  - repo: appsmithorg/appsmith
+    instructionSources:
+      - .cursor/rules
+    searchQuery: path:.cursor/rules/ is:public fork:false
+    stack: TypeScript
+    shape: application monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: Cursor rules and package-local command resolution
+    contactPolicy: no contact before report review
+  - repo: javascript-obfuscator/javascript-obfuscator
+    instructionSources:
+      - CLAUDE.md
+    searchQuery: path:CLAUDE.md is:public fork:false
+    stack: TypeScript
+    shape: focused library
+    recentActivity: active on 2026-04-27 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: reproducibility command guidance without broad monorepo noise
+    contactPolicy: no contact before report review
+  - repo: zapier/zapier-platform
+    instructionSources:
+      - CLAUDE.md
+      - .github/copilot-instructions.md
+    searchQuery: path:.github/copilot-instructions.md is:public fork:false
+    stack: JavaScript
+    shape: package repository
+    recentActivity: active on 2026-05-07 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: safety scoring and package scope gaps
+    contactPolicy: no contact before report review
+  - repo: snyk/snyk-intellij-plugin
+    instructionSources:
+      - .cursor/rules
+    searchQuery: path:.cursor/rules/ is:public fork:false
+    stack: Kotlin
+    shape: focused IDE plugin
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: Cursor-only instruction coverage
+    contactPolicy: no contact before report review
+  - repo: projen/projen
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - .github/copilot-instructions.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: TypeScript
+    shape: tooling repository
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: healthy multi-instruction baseline
+    contactPolicy: permission before public named use
+  - repo: Dart-Code/Dart-Code
+    instructionSources:
+      - AGENTS.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: TypeScript
+    shape: editor extension
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: compact extension instruction baseline
+    contactPolicy: permission before public named use
+  - repo: kubernetes/kops
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - GEMINI.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Go
+    shape: infrastructure repository
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: multiple agent instruction formats in Go infrastructure
+    contactPolicy: permission before public named use
+  - repo: opf/openproject
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - .github/copilot-instructions.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Ruby and TypeScript
+    shape: large application
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: layered instruction files in a large application
+    contactPolicy: permission before public named use
+  - repo: spinnaker/spinnaker
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - .github/copilot-instructions.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: Java and TypeScript
+    shape: multi-service monorepo
+    recentActivity: active on 2026-05-09 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: service-scope instruction and package command behavior
+    contactPolicy: no contact before report review
+  - repo: hashintel/hash
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - .cursor/rules
+    searchQuery: path:.cursor/rules/ is:public fork:false
+    stack: Rust and TypeScript
+    shape: product monorepo
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: complex product monorepo instruction layering
+    contactPolicy: no contact before report review
+  - repo: eggjs/egg
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+      - .github/copilot-instructions.md
+    searchQuery: path:AGENTS.md is:public fork:false
+    stack: TypeScript
+    shape: framework monorepo
+    recentActivity: active on 2026-05-10 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: framework monorepo command parsing and scope signal
+    contactPolicy: no contact before report review
+  - repo: erigontech/erigon
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: filename:AGENTS.md is:public fork:false
+    stack: Go
+    shape: infrastructure repository
+    recentActivity: active on 2026-05-11 scan
+    licenseStatus: unverified
+    status: candidate
+    expectedSignal: large Go repository with possible Git LFS checkout caveat
+    contactPolicy: no contact before report review

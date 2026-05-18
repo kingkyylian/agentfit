@@ -108,6 +108,23 @@ Suggested first five dry-run targets:
 4. `callstackincubator/rozenite`
 5. `mathertel/OneButton`
 
+## 2026-05-17 Execution Queue
+
+This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a dry-run target list only; it is not a maintainer contact list.
+
+| Batch | Repository | Source | Stack | Planned Action |
+| --- | --- | --- | --- | --- |
+| 1 | `meltano/meltano` | `AGENTS.md` | Python | dry-run snapshot |
+| 1 | `enso-org/enso` | `CLAUDE.md` | Java | dry-run snapshot |
+| 1 | `SteeltoeOSS/Steeltoe` | `AGENTS.md` | C# | dry-run snapshot |
+| 1 | `callstackincubator/rozenite` | `AGENTS.md` | TypeScript | dry-run snapshot |
+| 1 | `mathertel/OneButton` | Copilot | C++ | dry-run snapshot |
+| 2 | `dusk-network/rusk` | `agents.md` | Rust | queue only |
+| 2 | `NikolayS/postgres_dba` | `CLAUDE.md` | PLpgSQL | queue only |
+| 2 | `numerai/example-scripts` | `AGENTS.md` | Notebook | queue only |
+| 2 | `econ-ark/HARK` | `AGENTS.md` | Python | queue only |
+| 2 | `IOBR/IOBR` | Copilot | R | queue only |
+
 Follow-up snapshots:
 
 | Repository | Commit | Initial Result | After Product Fix | Triage |
