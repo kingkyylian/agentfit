@@ -1,0 +1,793 @@
+{
+  "score": 78,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 10221,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 61,
+          "kind": "setup"
+        },
+        {
+          "value": "cargo build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 66,
+          "kind": "build"
+        },
+        {
+          "value": "cargo build -p but",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 69,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm dev:desktop",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 78,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm dev:web",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 84,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm dev:ui",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 87,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 94,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm build:desktop",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 97,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm tauri build --features devtools --config crates/gitbutler-tauri/tauri.conf.nightly.json",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 100,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm lint",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 118,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm fix",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 121,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm format",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 124,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm prettier",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 127,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm isgood",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 130,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm begood",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 133,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo fmt",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 157,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm rustfmt",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 160,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo +nightly fmt -- --config-path rustfmt-nightly.toml",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 162,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo clippy --all-targets",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 165,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm add -D <package>",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 181,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm add <package> --filter @gitbutler/desktop",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 184,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm add <package> --filter @gitbutler/ui",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 185,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm exec turbo daemon stop",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 286,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm exec turbo daemon clean",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 287,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm install",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 291,
+          "kind": "setup"
+        },
+        {
+          "value": "cargo clean",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 294,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 107,
+          "kind": "test"
+        },
+        {
+          "value": "cargo test -p CRATE_NAME",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 107,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm format && pnpm rustfmt",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 245,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm lint && cargo clippy --all-targets",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 246,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm test && cargo test",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 247,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm build",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 248,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm isgood",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 250,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm begood && cargo clippy --fix --all-targets",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 251,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm exec turbo daemon clean",
+          "sourcePath": ".github/copilot-instructions.md",
+          "line": 325,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 929,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "apps/lite/AGENTS.md",
+      "scope": "apps/lite",
+      "kind": "agents",
+      "bytes": 934,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "claude.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 929,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "crates/AGENTS.md",
+      "scope": "crates",
+      "kind": "agents",
+      "bytes": 7172,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "cargo nextest",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 94,
+          "kind": "unknown"
+        },
+        {
+          "value": "cargo test -p <crate>",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 94,
+          "kind": "test"
+        },
+        {
+          "value": "cargo fmt",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 104,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo clippy --fix --allow-dirty",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 105,
+          "kind": "lint"
+        },
+        {
+          "value": "cargo machete",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 107,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm build:sdk && pnpm format",
+          "sourcePath": "crates/AGENTS.md",
+          "line": 110,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": "crates/but/AGENTS.md",
+      "scope": "crates/but",
+      "kind": "agents",
+      "bytes": 1983,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "apps/desktop",
+      "message": "No nested instruction file found for apps/desktop.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/web",
+      "message": "No nested instruction file found for apps/web.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/but-sdk",
+      "message": "No nested instruction file found for packages/but-sdk.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/core",
+      "message": "No nested instruction file found for packages/core.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/no-cross-domain-imports",
+      "message": "No nested instruction file found for packages/no-cross-domain-imports.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/no-relative-imports",
+      "message": "No nested instruction file found for packages/no-relative-imports.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/shared",
+      "message": "No nested instruction file found for packages/shared.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/svelte-comment-injector",
+      "message": "No nested instruction file found for packages/svelte-comment-injector.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/ui",
+      "message": "No nested instruction file found for packages/ui.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm tauri build --features devtools --config crates/gitbutler-tauri/tauri.conf.nightly.json",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 100,
+      "scriptName": "tauri",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 118,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm format",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 124,
+      "scriptName": "format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm prettier",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 127,
+      "scriptName": "prettier",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm format && pnpm rustfmt",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 245,
+      "scriptName": "format",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint && cargo clippy --all-targets",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 246,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test && cargo test",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 247,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 248,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm begood && cargo clippy --fix --all-targets",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 251,
+      "scriptName": "begood",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 94,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build:desktop",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 97,
+      "scriptName": "build:desktop",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build:sdk && pnpm format",
+      "sourcePath": "crates/AGENTS.md",
+      "line": 110,
+      "scriptName": "build:sdk",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root fallback"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 100,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 107,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 247,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 248,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 291,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 61,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 66,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 69,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 94,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".github/copilot-instructions.md",
+      "line": 97,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "apps/lite/AGENTS.md",
+      "line": 10,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "crates/AGENTS.md",
+      "line": 83,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "crates/AGENTS.md",
+      "line": 94,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-ct",
+      "title": "Exercise the test:ct package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:ct script passing. Run pnpm run test:ct and report the result.",
+      "expectedChecks": [
+        "pnpm run test:ct"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-e2e",
+      "title": "Exercise the test:e2e package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e script passing. Run pnpm run test:e2e and report the result.",
+      "expectedChecks": [
+        "pnpm run test:e2e"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-e2e-blackbox",
+      "title": "Exercise the test:e2e:blackbox package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e:blackbox script passing. Run pnpm run test:e2e:blackbox and report the result.",
+      "expectedChecks": [
+        "pnpm run test:e2e:blackbox"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-e2e-playwright",
+      "title": "Exercise the test:e2e:playwright package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e:playwright script passing. Run pnpm run test:e2e:playwright and report the result.",
+      "expectedChecks": [
+        "pnpm run test:e2e:playwright"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:35.022Z",
+      "finishedAt": "2026-05-18T17:01:35.022Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-ct",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-ct",
+        "title": "Exercise the test:ct package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:ct script passing. Run pnpm run test:ct and report the result.",
+        "expectedChecks": [
+          "pnpm run test:ct"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:35.022Z",
+      "finishedAt": "2026-05-18T17:01:35.022Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-e2e",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-e2e",
+        "title": "Exercise the test:e2e package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e script passing. Run pnpm run test:e2e and report the result.",
+        "expectedChecks": [
+          "pnpm run test:e2e"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:35.022Z",
+      "finishedAt": "2026-05-18T17:01:35.022Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-e2e-blackbox",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-e2e-blackbox",
+        "title": "Exercise the test:e2e:blackbox package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e:blackbox script passing. Run pnpm run test:e2e:blackbox and report the result.",
+        "expectedChecks": [
+          "pnpm run test:e2e:blackbox"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:35.022Z",
+      "finishedAt": "2026-05-18T17:01:35.022Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-e2e-playwright",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-e2e-playwright",
+        "title": "Exercise the test:e2e:playwright package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:e2e:playwright script passing. Run pnpm run test:e2e:playwright and report the result.",
+        "expectedChecks": [
+          "pnpm run test:e2e:playwright"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:35.022Z",
+      "finishedAt": "2026-05-18T17:01:35.022Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:01:35.023Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "6 instruction files discovered; 9 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "9 nested scopes do not have local instruction files.",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

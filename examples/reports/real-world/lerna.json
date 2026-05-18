@@ -1,0 +1,502 @@
+{
+  "score": 88,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 6655,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm run format:check # run npm run format:write and commit the result if this check fails",
+          "sourcePath": "CLAUDE.md",
+          "line": 14,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint # run linting across all packages",
+          "sourcePath": "CLAUDE.md",
+          "line": 15,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run test # run all unit tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 16,
+          "kind": "test"
+        },
+        {
+          "value": "npm run integration # run integration tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 17,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm install",
+          "sourcePath": "CLAUDE.md",
+          "line": 142,
+          "kind": "setup"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 145,
+          "kind": "build"
+        },
+        {
+          "value": "npm run test",
+          "sourcePath": "CLAUDE.md",
+          "line": 150,
+          "kind": "test"
+        },
+        {
+          "value": "npm run integration",
+          "sourcePath": "CLAUDE.md",
+          "line": 155,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run format:write",
+          "sourcePath": "CLAUDE.md",
+          "line": 161,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run format:check",
+          "sourcePath": "CLAUDE.md",
+          "line": 164,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 167,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run e2e-start-local-registry",
+          "sourcePath": "CLAUDE.md",
+          "line": 178,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run e2e-build-package-publish",
+          "sourcePath": "CLAUDE.md",
+          "line": 181,
+          "kind": "build"
+        },
+        {
+          "value": "npm",
+          "sourcePath": "CLAUDE.md",
+          "line": 7,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 7,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn",
+          "sourcePath": "CLAUDE.md",
+          "line": 7,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "packages/lerna",
+      "message": "No nested instruction file found for packages/lerna.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "npm run format:check # run npm run format:write and commit the result if this check fails",
+      "sourcePath": "CLAUDE.md",
+      "line": 14,
+      "scriptName": "format:check",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 145,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run lint # run linting across all packages",
+      "sourcePath": "CLAUDE.md",
+      "line": 15,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test",
+      "sourcePath": "CLAUDE.md",
+      "line": 150,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test # run all unit tests",
+      "sourcePath": "CLAUDE.md",
+      "line": 16,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run format:write",
+      "sourcePath": "CLAUDE.md",
+      "line": 161,
+      "scriptName": "format:write",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run format:check",
+      "sourcePath": "CLAUDE.md",
+      "line": 164,
+      "scriptName": "format:check",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 167,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run e2e-build-package-publish",
+      "sourcePath": "CLAUDE.md",
+      "line": 181,
+      "scriptName": "e2e-build-package-publish",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 105,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 14,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 142,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 145,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 150,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 16,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 164,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 181,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "CLAUDE.md",
+      "line": 116,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+      "expectedChecks": [
+        "npm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-e2e-build-package-publish",
+      "title": "Exercise the e2e-build-package-publish package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the e2e-build-package-publish script passing. Run npm run e2e-build-package-publish and report the result.",
+      "expectedChecks": [
+        "npm run e2e-build-package-publish"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-e2e-start-local-registry",
+      "title": "Exercise the e2e-start-local-registry package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the e2e-start-local-registry script passing. Run npm run e2e-start-local-registry and report the result.",
+      "expectedChecks": [
+        "npm run e2e-start-local-registry"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+      "expectedChecks": [
+        "npm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run npm run build and report the result.",
+        "expectedChecks": [
+          "npm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:34.978Z",
+      "finishedAt": "2026-05-18T17:01:34.978Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-e2e-build-package-publish",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-e2e-build-package-publish",
+        "title": "Exercise the e2e-build-package-publish package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the e2e-build-package-publish script passing. Run npm run e2e-build-package-publish and report the result.",
+        "expectedChecks": [
+          "npm run e2e-build-package-publish"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:34.978Z",
+      "finishedAt": "2026-05-18T17:01:34.978Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-e2e-start-local-registry",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-e2e-start-local-registry",
+        "title": "Exercise the e2e-start-local-registry package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the e2e-start-local-registry script passing. Run npm run e2e-start-local-registry and report the result.",
+        "expectedChecks": [
+          "npm run e2e-start-local-registry"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:34.978Z",
+      "finishedAt": "2026-05-18T17:01:34.978Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run npm run lint and report the result.",
+        "expectedChecks": [
+          "npm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:34.978Z",
+      "finishedAt": "2026-05-18T17:01:34.978Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run npm run test and report the result.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:01:34.978Z",
+      "finishedAt": "2026-05-18T17:01:34.978Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:01:34.981Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "1 instruction file discovered; 1 nested scope issue found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "No nested instruction file found for packages/lerna."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

@@ -143,9 +143,11 @@ candidates:
     shape: focused load-testing tools
     recentActivity: active on 2026-05-13 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: compact infrastructure tool report
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/lading.md
+    commit: 'f06a75d'
   - repo: percona/psmdb-docs
     instructionSources:
       - copilot-instructions.md
@@ -154,9 +156,11 @@ candidates:
     shape: documentation repository
     recentActivity: active on 2026-05-13 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: documentation-repo instruction expectations
-    contactPolicy: no contact before report review
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/psmdb-docs.md
+    commit: '8b048bc'
   - repo: statelyai/xstate
     instructionSources:
       - AGENTS.md
@@ -166,9 +170,11 @@ candidates:
     shape: package monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: snapshotted
     expectedSignal: high-visibility monorepo scope signal
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad scope and safety-only signal
+    reportPath: examples/reports/real-world/xstate.md
+    commit: 'd7fb9c6'
   - repo: gitbutlerapp/gitbutler
     instructionSources:
       - AGENTS.md
@@ -178,9 +184,11 @@ candidates:
     shape: desktop application monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: snapshotted
     expectedSignal: layered agent guidance in Rust desktop code
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad scope and safety-only signal
+    reportPath: examples/reports/real-world/gitbutler.md
+    commit: '5235412'
   - repo: lerna/lerna
     instructionSources:
       - CLAUDE.md
@@ -189,9 +197,11 @@ candidates:
     shape: tooling monorepo
     recentActivity: active on 2026-05-09 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: clear package command and safety guidance
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for package-scope-only signal; permission before public named use
+    reportPath: examples/reports/real-world/lerna.md
+    commit: 'f4387d6'
   - repo: redis/RedisInsight
     instructionSources:
       - AGENTS.md

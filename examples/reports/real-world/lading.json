@@ -1,0 +1,287 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 6988,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "ci/validate",
+          "sourcePath": "AGENTS.md",
+          "line": 10,
+          "kind": "test"
+        },
+        {
+          "value": "ci/test",
+          "sourcePath": "AGENTS.md",
+          "line": 11,
+          "kind": "test"
+        },
+        {
+          "value": "ci/kani <crate>",
+          "sourcePath": "AGENTS.md",
+          "line": 12,
+          "kind": "test"
+        },
+        {
+          "value": "ci/validate",
+          "sourcePath": "AGENTS.md",
+          "line": 150,
+          "kind": "test"
+        },
+        {
+          "value": "ci/validate",
+          "sourcePath": "AGENTS.md",
+          "line": 154,
+          "kind": "test"
+        },
+        {
+          "value": "ci/fmt",
+          "sourcePath": "AGENTS.md",
+          "line": 155,
+          "kind": "lint"
+        },
+        {
+          "value": "ci/check",
+          "sourcePath": "AGENTS.md",
+          "line": 156,
+          "kind": "test"
+        },
+        {
+          "value": "ci/clippy",
+          "sourcePath": "AGENTS.md",
+          "line": 157,
+          "kind": "lint"
+        },
+        {
+          "value": "ci/test",
+          "sourcePath": "AGENTS.md",
+          "line": 158,
+          "kind": "test"
+        },
+        {
+          "value": "ci/kani <crate>",
+          "sourcePath": "AGENTS.md",
+          "line": 159,
+          "kind": "test"
+        },
+        {
+          "value": "cargo criterion",
+          "sourcePath": "AGENTS.md",
+          "line": 161,
+          "kind": "unknown"
+        },
+        {
+          "value": "ci/test",
+          "sourcePath": "AGENTS.md",
+          "line": 167,
+          "kind": "test"
+        },
+        {
+          "value": "ci/validate",
+          "sourcePath": "AGENTS.md",
+          "line": 174,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 10,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 11,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 12,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 150,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 154,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 156,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 158,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 159,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 167,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 174,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 179,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 21,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 22,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 36,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 47,
+      "message": "Deterministic or reproducible workflow guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T16:56:53.876Z",
+      "finishedAt": "2026-05-18T16:56:53.876Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T16:56:53.876Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 instruction file discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

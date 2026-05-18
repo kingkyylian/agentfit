@@ -124,6 +124,11 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 2 | `numerai/example-scripts` | `AGENTS.md` | Notebook | dry-run snapshot |
 | 2 | `econ-ark/HARK` | `AGENTS.md` | Python | dry-run snapshot |
 | 2 | `IOBR/IOBR` | Copilot | R | dry-run snapshot |
+| 3 | `DataDog/lading` | `AGENTS.md` | Rust | dry-run snapshot |
+| 3 | `percona/psmdb-docs` | Copilot | HTML | dry-run snapshot |
+| 3 | `statelyai/xstate` | `AGENTS.md`, `CLAUDE.md` | TypeScript | dry-run snapshot |
+| 3 | `gitbutlerapp/gitbutler` | `AGENTS.md`, Copilot | Rust | dry-run snapshot |
+| 3 | `lerna/lerna` | `CLAUDE.md` | TypeScript | dry-run snapshot |
 
 ## 2026-05-18 Snapshot Triage
 
@@ -144,6 +149,21 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `numerai/example-scripts` | `a35d11c` | 65 | actionable | draft locally before any contact | Notebook/example guidance is discoverable but lacks runnable verification, safety, and reproducibility guidance. |
 | `econ-ark/HARK` | `2690850` | 65 | actionable | draft locally before any contact | Scientific Python root instructions lack runnable verification, safety, and reproducibility guidance. |
 | `IOBR/IOBR` | `2cb9be5` | 65 | actionable | draft locally before any contact | R/Copilot guidance is discoverable but lacks runnable verification, safety, and reproducibility guidance. |
+
+## 2026-05-18 Batch 3 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `DataDog/lading` | `f06a75d` | 83 | healthy | no contact; permission before public named use | Reproducible Rust verification guidance; only broad safety guardrail gap. |
+| `percona/psmdb-docs` | `8b048bc` | 65 | actionable | draft locally before any contact | Documentation-repo Copilot guidance lacks runnable verification, safety, and reproducibility guidance. |
+| `statelyai/xstate` | `d7fb9c6` | 78 | snapshotted | no contact | Commands resolve cleanly; remaining signal is broad package-scope and safety guidance coverage. |
+| `gitbutlerapp/gitbutler` | `5235412` | 78 | snapshotted | no contact | Product false positive fixed locally; remaining signal is broad package-scope and safety guidance coverage. |
+| `lerna/lerna` | `f4387d6` | 88 | healthy | no contact; permission before public named use | Product false positive fixed locally; remaining signal is one package-scope warning. |
+
+## 2026-05-18 Product Fixes From Corpus
+
+- Fixed command working-directory inference so an older path-bearing sibling heading does not leak into a later unscoped command section. This cleared false missing-script findings in the Lerna report.
+- Fixed nested instruction command resolution so root-only workspace scripts can satisfy nested instructions when the scoped package lacks the script. This cleared a false `build:sdk` missing-script finding in the GitButler report.
 
 ## 2026-05-18 Maintainer Contact Drafts
 
@@ -276,6 +296,28 @@ Finding:
 Why it may matter:
 
 - Agents can discover the R/Copilot guidance, but they do not get a clear command for checking generated package changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `percona/psmdb-docs`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can discover the documentation guidance, but they do not get a clear command for validating generated docs changes locally.
 
 Opt-out wording:
 

@@ -8,7 +8,7 @@ Initial report examples were generated on 2026-05-07 with AgentFit 0.1.3. A 2026
 
 Use [real-world-validation.md](real-world-validation.md) when adding more snapshots.
 
-The 2026-05-18 sprint added ten local dry-run snapshots from the metadata corpus. Meltano, Enso, Steeltoe, and Rusk are healthy internal baselines; six repositories have actionable instruction gaps that require local drafts before any maintainer contact.
+The 2026-05-18 sprint added fifteen local dry-run snapshots from the metadata corpus. Six are healthy internal baselines, seven have actionable instruction gaps that require local drafts before any maintainer contact, and two were reviewed without contact.
 
 ## Latest Validation Sprint
 
@@ -49,6 +49,11 @@ Do not publish named healthy examples without asking permission first. Use the s
 - [numerai-example-scripts.md](../examples/reports/real-world/numerai-example-scripts.md)
 - [hark.md](../examples/reports/real-world/hark.md)
 - [iobr.md](../examples/reports/real-world/iobr.md)
+- [lading.md](../examples/reports/real-world/lading.md)
+- [psmdb-docs.md](../examples/reports/real-world/psmdb-docs.md)
+- [xstate.md](../examples/reports/real-world/xstate.md)
+- [gitbutler.md](../examples/reports/real-world/gitbutler.md)
+- [lerna.md](../examples/reports/real-world/lerna.md)
 
 ## Reproduce
 
