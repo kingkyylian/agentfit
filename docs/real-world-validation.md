@@ -135,6 +135,54 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `callstackincubator/rozenite` | `3a77ccf` | 60 | actionable | draft locally before any contact | Minimal root `AGENTS.md` lacks runnable verification, safety, reproducibility, and package-scope guidance. |
 | `mathertel/OneButton` | `9489276` | 65 | actionable | draft locally before any contact | Copilot guidance covers API usage but lacks runnable verification, safety, and reproducibility guidance. |
 
+## 2026-05-18 Maintainer Contact Drafts
+
+These are local drafts only. Do not open GitHub issues unless explicitly approved after review.
+
+#### `callstackincubator/rozenite`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can infer workspace tasks from `AGENTS.md`, but they do not get a clear maintainer-preferred local verification command before proposing changes.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `mathertel/OneButton`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Copilot guidance covers library API usage, but agents do not get a clear command for validating generated Arduino library changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
 Follow-up snapshots:
 
 | Repository | Commit | Initial Result | After Product Fix | Triage |
