@@ -483,6 +483,110 @@ describe('collectStaticIssues', () => {
     expect(resolutions.map((resolution) => resolution.packageJsonPath)).not.toContain('smoke/package.json');
   });
 
+  it('does not apply an older path heading to later unscoped command sections', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, '__fixtures__'), { recursive: true });
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          build: 'tsc -b',
+          'format:write': 'prettier --write .',
+          'e2e-build-package-publish': 'node tools/e2e.js'
+        }
+      })
+    );
+    await writeFile(join(root, '__fixtures__/package.json'), JSON.stringify({ scripts: {} }));
+    await writeFile(
+      join(root, 'CLAUDE.md'),
+      [
+        '# Agent instructions',
+        '',
+        '### `/__fixtures__/` - Test Fixtures',
+        '',
+        'Fixture-specific notes live here.',
+        '',
+        '## Common Commands',
+        '',
+        '```bash',
+        'npm run build',
+        'npm run format:write',
+        'npm run e2e-build-package-publish',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          command: 'npm run build',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'npm run format:write',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        }),
+        expect.objectContaining({
+          command: 'npm run e2e-build-package-publish',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+  });
+
+  it('falls back to root scripts for nested instructions when only the root defines the script', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
+    await mkdir(join(root, 'crates'), { recursive: true });
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({
+        scripts: {
+          'build:sdk': 'turbo run --filter @agentfit/sdk build',
+          format: 'prettier --write .'
+        }
+      })
+    );
+    await writeFile(join(root, 'crates/package.json'), JSON.stringify({ scripts: {} }));
+    await writeFile(
+      join(root, 'crates/AGENTS.md'),
+      [
+        '# Crate instructions',
+        '',
+        'After changing exported SDK types, run:',
+        '',
+        '```bash',
+        'pnpm build:sdk && pnpm format',
+        '```',
+        ''
+      ].join('\n')
+    );
+    const instructionFiles = await discoverInstructionFiles(root);
+
+    const issues = await collectStaticIssues(root, instructionFiles);
+    const resolutions = await collectCommandResolutions(root, instructionFiles);
+
+    expect(issues.filter((issue) => issue.category === 'command')).toEqual([]);
+    expect(resolutions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          command: 'pnpm build:sdk && pnpm format',
+          scriptName: 'build:sdk',
+          packageJsonPath: 'package.json',
+          status: 'resolved'
+        })
+      ])
+    );
+  });
+
   it('reuses same-file package script resolutions for later shorthand commands', async () => {
     const root = await mkdtemp(join(tmpdir(), 'agentfit-static-'));
     await mkdir(join(root, 'deck'), { recursive: true });

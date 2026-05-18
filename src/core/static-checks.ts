@@ -447,6 +447,16 @@ function resolvePackageCandidate(input: {
 
   const scopedPackage = packageCandidateFromInstructionScope(input.packageJsons, input.instructionFiles, input.command);
   if (scopedPackage) {
+    if (scopedPackage.scripts[input.parsed.scriptName] === undefined) {
+      const rootPackage = rootPackageCandidate(input.packageJsons);
+      if (rootPackage.scripts[input.parsed.scriptName] !== undefined) {
+        return {
+          ...rootPackage,
+          reason: 'repository root fallback'
+        };
+      }
+    }
+
     return scopedPackage;
   }
 
@@ -625,12 +635,20 @@ function directoryFromProse(line: string): string | undefined {
 }
 
 function directoryFromPreviousHeadings(lines: string[], commandIndex: number): string | undefined {
+  let childHeadingLevel: number | undefined;
+
   for (let index = commandIndex; index >= 0; index -= 1) {
     const line = lines[index] ?? '';
-    if (!/^\s{0,3}#{1,6}\s+/.test(line)) {
+    const level = markdownHeadingLevel(line);
+    if (!level) {
       continue;
     }
 
+    if (childHeadingLevel !== undefined && level >= childHeadingLevel) {
+      continue;
+    }
+
+    childHeadingLevel = level;
     const directory = directoryFromBacktickPath(line);
     if (directory) {
       return directory;
@@ -638,6 +656,10 @@ function directoryFromPreviousHeadings(lines: string[], commandIndex: number): s
   }
 
   return undefined;
+}
+
+function markdownHeadingLevel(line: string): number | undefined {
+  return line.match(/^\s{0,3}(#{1,6})\s+/)?.[1]?.length;
 }
 
 function directoryFromBacktickPath(line: string): string | undefined {
