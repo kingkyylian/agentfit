@@ -1,0 +1,415 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 11462,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make",
+          "sourcePath": "AGENTS.md",
+          "line": 69,
+          "kind": "unknown"
+        },
+        {
+          "value": "make test",
+          "sourcePath": "AGENTS.md",
+          "line": 81,
+          "kind": "test"
+        },
+        {
+          "value": "make CONTAINER_MOUNT_OPTIONS=delegated",
+          "sourcePath": "AGENTS.md",
+          "line": 94,
+          "kind": "unknown"
+        },
+        {
+          "value": "make protos",
+          "sourcePath": "AGENTS.md",
+          "line": 100,
+          "kind": "unknown"
+        },
+        {
+          "value": "go get example.com/some/module/pkg",
+          "sourcePath": "AGENTS.md",
+          "line": 122,
+          "kind": "unknown"
+        },
+        {
+          "value": "go get example.com/some/module/pkg@vX.Y.Z",
+          "sourcePath": "AGENTS.md",
+          "line": 125,
+          "kind": "unknown"
+        },
+        {
+          "value": "go mod tidy",
+          "sourcePath": "AGENTS.md",
+          "line": 131,
+          "kind": "unknown"
+        },
+        {
+          "value": "go mod vendor",
+          "sourcePath": "AGENTS.md",
+          "line": 132,
+          "kind": "unknown"
+        },
+        {
+          "value": "make reference-help doc",
+          "sourcePath": "AGENTS.md",
+          "line": 21,
+          "kind": "unknown"
+        },
+        {
+          "value": "go get golang.org/x/tools/cmd/goimports",
+          "sourcePath": "AGENTS.md",
+          "line": 32,
+          "kind": "unknown"
+        },
+        {
+          "value": "make format",
+          "sourcePath": "AGENTS.md",
+          "line": 47,
+          "kind": "lint"
+        },
+        {
+          "value": "make format-mixin",
+          "sourcePath": "AGENTS.md",
+          "line": 53,
+          "kind": "lint"
+        },
+        {
+          "value": "make build-mixin",
+          "sourcePath": "AGENTS.md",
+          "line": 53,
+          "kind": "build"
+        },
+        {
+          "value": "make format-jsonnet-manifests",
+          "sourcePath": "AGENTS.md",
+          "line": 54,
+          "kind": "lint"
+        },
+        {
+          "value": "make format-makefiles",
+          "sourcePath": "AGENTS.md",
+          "line": 60,
+          "kind": "lint"
+        },
+        {
+          "value": "make format-protobuf",
+          "sourcePath": "AGENTS.md",
+          "line": 61,
+          "kind": "lint"
+        },
+        {
+          "value": "make format-promql-tests",
+          "sourcePath": "AGENTS.md",
+          "line": 62,
+          "kind": "lint"
+        },
+        {
+          "value": "make help",
+          "sourcePath": "AGENTS.md",
+          "line": 72,
+          "kind": "unknown"
+        },
+        {
+          "value": "make",
+          "sourcePath": "AGENTS.md",
+          "line": 75,
+          "kind": "unknown"
+        },
+        {
+          "value": "go get",
+          "sourcePath": "AGENTS.md",
+          "line": 118,
+          "kind": "unknown"
+        },
+        {
+          "value": "make docs",
+          "sourcePath": "AGENTS.md",
+          "line": 162,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 11,
+      "importedPaths": [
+        "AGENTS.md"
+      ],
+      "commands": []
+    },
+    {
+      "path": "docs/CLAUDE.md",
+      "scope": "docs",
+      "kind": "claude",
+      "bytes": 384,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "integration/CLAUDE.md",
+      "scope": "integration",
+      "kind": "claude",
+      "bytes": 2557,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make ./cmd/mimir/.uptodate",
+          "sourcePath": "integration/CLAUDE.md",
+          "line": 8,
+          "kind": "unknown"
+        },
+        {
+          "value": "go test -v ./integration/...",
+          "sourcePath": "integration/CLAUDE.md",
+          "line": 16,
+          "kind": "test"
+        },
+        {
+          "value": "go test -v ./integration -run \"^TestChunksStorageAllIndexBackends$\"",
+          "sourcePath": "integration/CLAUDE.md",
+          "line": 22,
+          "kind": "test"
+        },
+        {
+          "value": "go test -v -timeout=20m ./integration/...",
+          "sourcePath": "integration/CLAUDE.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "go test",
+          "sourcePath": "integration/CLAUDE.md",
+          "line": 25,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "operations/helm/CLAUDE.md",
+      "scope": "operations/helm",
+      "kind": "claude",
+      "bytes": 8381,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "docker run --rm -u $(id -g):$(id -u) -e HOME=/tmp -v $(pwd):/data quay.io/helmpack/chart-testing:latest sh -c \"ct lint --all --debug --chart-dirs /data/operations/helm/charts --check-version-increment false --config /data/operations/helm/ct.yaml\"",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 46,
+          "kind": "test"
+        },
+        {
+          "value": "make doc",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 8,
+          "kind": "unknown"
+        },
+        {
+          "value": "make build-helm-tests",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 18,
+          "kind": "build"
+        },
+        {
+          "value": "make check-helm-tests",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 18,
+          "kind": "test"
+        },
+        {
+          "value": "docker",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 43,
+          "kind": "unknown"
+        },
+        {
+          "value": "make check-helm-jsonnet-diff",
+          "sourcePath": "operations/helm/CLAUDE.md",
+          "line": 91,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "pkg/CLAUDE.md",
+      "scope": "pkg",
+      "kind": "claude",
+      "bytes": 2168,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 53,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 81,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "integration/CLAUDE.md",
+      "line": 16,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "integration/CLAUDE.md",
+      "line": 22,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "integration/CLAUDE.md",
+      "line": 25,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "integration/CLAUDE.md",
+      "line": 28,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "operations/helm/CLAUDE.md",
+      "line": 18,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "operations/helm/CLAUDE.md",
+      "line": 18,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "operations/helm/CLAUDE.md",
+      "line": 46,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "operations/helm/CLAUDE.md",
+      "line": 91,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.633Z",
+      "finishedAt": "2026-05-18T17:08:20.633Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:08:20.634Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "6 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

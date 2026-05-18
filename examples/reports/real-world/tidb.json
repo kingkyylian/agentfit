@@ -1,0 +1,280 @@
+{
+  "score": 93,
+  "grade": "A",
+  "summary": "No failed checks.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 14534,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make bazel_prepare",
+          "sourcePath": "AGENTS.md",
+          "line": 109,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_bin",
+          "sourcePath": "AGENTS.md",
+          "line": 114,
+          "kind": "unknown"
+        },
+        {
+          "value": "make gogenerate   # optional: regenerate generated code",
+          "sourcePath": "AGENTS.md",
+          "line": 115,
+          "kind": "unknown"
+        },
+        {
+          "value": "go mod tidy       # optional: if go.mod/go.sum changed",
+          "sourcePath": "AGENTS.md",
+          "line": 116,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_prepare",
+          "sourcePath": "AGENTS.md",
+          "line": 39,
+          "kind": "unknown"
+        },
+        {
+          "value": "make lint",
+          "sourcePath": "AGENTS.md",
+          "line": 47,
+          "kind": "lint"
+        },
+        {
+          "value": "make bazel_lint_changed",
+          "sourcePath": "AGENTS.md",
+          "line": 49,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_prepare",
+          "sourcePath": "AGENTS.md",
+          "line": 91,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_prepare",
+          "sourcePath": "AGENTS.md",
+          "line": 93,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_lint_changed",
+          "sourcePath": "AGENTS.md",
+          "line": 120,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_lint_changed",
+          "sourcePath": "AGENTS.md",
+          "line": 120,
+          "kind": "unknown"
+        },
+        {
+          "value": "make parser",
+          "sourcePath": "AGENTS.md",
+          "line": 135,
+          "kind": "unknown"
+        },
+        {
+          "value": "make parser_yacc",
+          "sourcePath": "AGENTS.md",
+          "line": 135,
+          "kind": "unknown"
+        },
+        {
+          "value": "make parser_fmt",
+          "sourcePath": "AGENTS.md",
+          "line": 135,
+          "kind": "unknown"
+        },
+        {
+          "value": "make parser_unit_test",
+          "sourcePath": "AGENTS.md",
+          "line": 135,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 11,
+      "importedPaths": [
+        "AGENTS.md"
+      ],
+      "commands": []
+    },
+    {
+      "path": "dumpling/tests/AGENTS.md",
+      "scope": "dumpling/tests",
+      "kind": "agents",
+      "bytes": 3412,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make server",
+          "sourcePath": "dumpling/tests/AGENTS.md",
+          "line": 47,
+          "kind": "unknown"
+        },
+        {
+          "value": "make dumpling_integration_test",
+          "sourcePath": "dumpling/tests/AGENTS.md",
+          "line": 52,
+          "kind": "unknown"
+        },
+        {
+          "value": "make bazel_prepare",
+          "sourcePath": "dumpling/tests/AGENTS.md",
+          "line": 81,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 163,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 17,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 207,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 95,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "dumpling/tests/AGENTS.md",
+      "line": 12,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "AGENTS.md",
+      "line": 197,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.601Z",
+      "finishedAt": "2026-05-18T17:08:20.601Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:08:20.602Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "3 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 deterministic task preview generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

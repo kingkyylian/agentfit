@@ -129,6 +129,11 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | 3 | `statelyai/xstate` | `AGENTS.md`, `CLAUDE.md` | TypeScript | dry-run snapshot |
 | 3 | `gitbutlerapp/gitbutler` | `AGENTS.md`, Copilot | Rust | dry-run snapshot |
 | 3 | `lerna/lerna` | `CLAUDE.md` | TypeScript | dry-run snapshot |
+| 4 | `redis/RedisInsight` | `AGENTS.md`, Cursor, Copilot | TypeScript | dry-run snapshot |
+| 4 | `grafana/mimir` | `AGENTS.md`, `CLAUDE.md` | Go | dry-run snapshot |
+| 4 | `pingcap/tidb` | `AGENTS.md`, `CLAUDE.md` | Go | dry-run snapshot |
+| 4 | `appsmithorg/appsmith` | Cursor | TypeScript | dry-run snapshot |
+| 4 | `javascript-obfuscator/javascript-obfuscator` | `CLAUDE.md` | TypeScript | dry-run snapshot |
 
 ## 2026-05-18 Snapshot Triage
 
@@ -160,10 +165,21 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `gitbutlerapp/gitbutler` | `5235412` | 78 | snapshotted | no contact | Product false positive fixed locally; remaining signal is broad package-scope and safety guidance coverage. |
 | `lerna/lerna` | `f4387d6` | 88 | healthy | no contact; permission before public named use | Product false positive fixed locally; remaining signal is one package-scope warning. |
 
+## 2026-05-18 Batch 4 Snapshot Triage
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `redis/RedisInsight` | `57caf95` | 85 | actionable | draft locally before any contact | Root `AGENTS.md` documents `yarn type-check:ui`, but root and package-local scripts expose `type-check` instead. |
+| `grafana/mimir` | `f1497c22` | 83 | healthy | no contact; permission before public named use | Layered Go infrastructure instructions; only broad safety guardrail gap. |
+| `pingcap/tidb` | `2ce45f0` | 93 | healthy | no contact; permission before public named use | Large Go monorepo with no failed static checks. |
+| `appsmithorg/appsmith` | `a128a3e` | 73 | snapshotted | no contact | Cursor-only instruction set; no package-local command false positives reappeared. |
+| `javascript-obfuscator/javascript-obfuscator` | `10c763f` | 83 | healthy | no contact; permission before public named use | Focused library with reproducible commands; only broad safety guardrail gap. |
+
 ## 2026-05-18 Product Fixes From Corpus
 
 - Fixed command working-directory inference so an older path-bearing sibling heading does not leak into a later unscoped command section. This cleared false missing-script findings in the Lerna report.
 - Fixed nested instruction command resolution so root-only workspace scripts can satisfy nested instructions when the scoped package lacks the script. This cleared a false `build:sdk` missing-script finding in the GitButler report.
+- Batch 4 did not expose a new AgentFit product bug. The RedisInsight command finding was checked against root and package-local scripts before triage.
 
 ## 2026-05-18 Maintainer Contact Drafts
 
@@ -318,6 +334,28 @@ Finding:
 Why it may matter:
 
 - Agents can discover the documentation guidance, but they do not get a clear command for validating generated docs changes locally.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `redis/RedisInsight`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- `AGENTS.md` documents `yarn type-check:ui`, but the root `package.json` does not define `type-check:ui`.
+
+Why it may matter:
+
+- Agents following the root pre-commit guidance may run a command that fails immediately instead of the current package-local UI type check, `yarn --cwd redisinsight/ui type-check`.
 
 Opt-out wording:
 
@@ -547,3 +585,4 @@ Success is not a star count. Success is at least three understandable reports, o
 
 - [2026-05-11 initial validation sprint](validation-sprint-2026-05-11.md)
 - [2026-05-15 search follow-up sprint](validation-sprint-2026-05-15.md)
+- [2026-05-18 metadata corpus validation sprint](validation-sprint-2026-05-18.md)

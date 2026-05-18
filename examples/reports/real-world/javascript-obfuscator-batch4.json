@@ -1,0 +1,1893 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 45256,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 477,
+          "kind": "build"
+        },
+        {
+          "value": "npm run watch",
+          "sourcePath": "CLAUDE.md",
+          "line": 480,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run build:typings",
+          "sourcePath": "CLAUDE.md",
+          "line": 483,
+          "kind": "build"
+        },
+        {
+          "value": "npm run eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 486,
+          "kind": "lint"
+        },
+        {
+          "value": "npm install",
+          "sourcePath": "CLAUDE.md",
+          "line": 505,
+          "kind": "setup"
+        },
+        {
+          "value": "yarn install",
+          "sourcePath": "CLAUDE.md",
+          "line": 507,
+          "kind": "setup"
+        },
+        {
+          "value": "npm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 510,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test",
+          "sourcePath": "CLAUDE.md",
+          "line": 512,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:full",
+          "sourcePath": "CLAUDE.md",
+          "line": 519,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:full",
+          "sourcePath": "CLAUDE.md",
+          "line": 520,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:mocha",
+          "sourcePath": "CLAUDE.md",
+          "line": 523,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:mocha",
+          "sourcePath": "CLAUDE.md",
+          "line": 524,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:mocha-coverage",
+          "sourcePath": "CLAUDE.md",
+          "line": 527,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:mocha-coverage",
+          "sourcePath": "CLAUDE.md",
+          "line": 528,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:mocha-coverage:report",
+          "sourcePath": "CLAUDE.md",
+          "line": 531,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:mocha-coverage:report",
+          "sourcePath": "CLAUDE.md",
+          "line": 532,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:mocha-memory-performance",
+          "sourcePath": "CLAUDE.md",
+          "line": 535,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:mocha-memory-performance",
+          "sourcePath": "CLAUDE.md",
+          "line": 536,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:dev",
+          "sourcePath": "CLAUDE.md",
+          "line": 539,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:dev",
+          "sourcePath": "CLAUDE.md",
+          "line": 540,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:devCompilePerformance",
+          "sourcePath": "CLAUDE.md",
+          "line": 543,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:devCompilePerformance",
+          "sourcePath": "CLAUDE.md",
+          "line": 544,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:devRuntimePerformance",
+          "sourcePath": "CLAUDE.md",
+          "line": 547,
+          "kind": "test"
+        },
+        {
+          "value": "yarn run test:devRuntimePerformance",
+          "sourcePath": "CLAUDE.md",
+          "line": 548,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register <path-to-test-file>",
+          "sourcePath": "CLAUDE.md",
+          "line": 592,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 599,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/cli/JavaScriptObfuscatorCLI.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 602,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/analyzers/calls-graph-analyzer/CallsGraphAnalyzer.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 605,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/analyzers/scope-analyzer/ScopeAnalyzer.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 608,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/custom-code-helpers/string-array/StringArrayCodeHelper.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 611,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/custom-code-helpers/self-defending/SelfDefendingCodeHelper.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 614,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/options/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 623,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/analyzers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 626,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/**/*StringArray*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 629,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/**/*ControlFlow*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 632,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/node-transformers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 635,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/unit-tests/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 638,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 641,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/options/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 651,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/analyzers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 654,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/node-transformers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 657,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/code-transformers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 660,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/custom-code-helpers/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 663,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/storages/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 666,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/cli/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 669,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/generators/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 672,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/javascript-obfuscator/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 675,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/issues/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 678,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/unit-tests/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 684,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/unit-tests/options/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 687,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/unit-tests/utils/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 690,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/unit-tests/node/**/*.spec.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 693,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/performance-tests/JavaScriptObfuscatorMemory.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 699,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts --grep \"compact\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 706,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts --reporter spec",
+          "sourcePath": "CLAUDE.md",
+          "line": 709,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts --timeout 20000",
+          "sourcePath": "CLAUDE.md",
+          "line": 712,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register \"test/functional-tests/**/*.spec.ts\" --bail",
+          "sourcePath": "CLAUDE.md",
+          "line": 715,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts --watch",
+          "sourcePath": "CLAUDE.md",
+          "line": 718,
+          "kind": "test"
+        },
+        {
+          "value": "npx mocha --require ts-node/register --require source-map-support/register test/functional-tests/options/Options.spec.ts --reporter json",
+          "sourcePath": "CLAUDE.md",
+          "line": 721,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:options",
+          "sourcePath": "CLAUDE.md",
+          "line": 742,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:analyzers",
+          "sourcePath": "CLAUDE.md",
+          "line": 743,
+          "kind": "test"
+        },
+        {
+          "value": "npm run test:transformers",
+          "sourcePath": "CLAUDE.md",
+          "line": 744,
+          "kind": "test"
+        },
+        {
+          "value": "npm run eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 786,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn run eslint",
+          "sourcePath": "CLAUDE.md",
+          "line": 787,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint <path-to-file-or-directory>",
+          "sourcePath": "CLAUDE.md",
+          "line": 798,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 805,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscatorFacade.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 808,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/converting-transformers/StringArrayTransformer.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 811,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/calls-graph-analyzer/CallsGraphAnalyzer.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 814,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/Options.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 817,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/string-array/StringArrayCodeHelper.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 820,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/container/InversifyContainerFacade.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 823,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/",
+          "sourcePath": "CLAUDE.md",
+          "line": 830,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 833,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 836,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/**/*.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 839,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/",
+          "sourcePath": "CLAUDE.md",
+          "line": 842,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 845,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/utils/",
+          "sourcePath": "CLAUDE.md",
+          "line": 848,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/cli/",
+          "sourcePath": "CLAUDE.md",
+          "line": 851,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/container/",
+          "sourcePath": "CLAUDE.md",
+          "line": 854,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/storages/",
+          "sourcePath": "CLAUDE.md",
+          "line": 857,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 864,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*Transformer.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 867,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*Analyzer.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 870,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*Storage.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 873,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*Helper.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 876,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/**/*String*.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 879,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/node-transformers/**/*.ts\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 882,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/**/*.ts --fix",
+          "sourcePath": "CLAUDE.md",
+          "line": 891,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --fix",
+          "sourcePath": "CLAUDE.md",
+          "line": 894,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/ --fix",
+          "sourcePath": "CLAUDE.md",
+          "line": 897,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint \"src/analyzers/**/*.ts\" --fix",
+          "sourcePath": "CLAUDE.md",
+          "line": 900,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --fix --fix-type suggestion,layout",
+          "sourcePath": "CLAUDE.md",
+          "line": 903,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --quiet",
+          "sourcePath": "CLAUDE.md",
+          "line": 910,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --rule 'no-console: error'",
+          "sourcePath": "CLAUDE.md",
+          "line": 913,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --rule 'no-console: off'",
+          "sourcePath": "CLAUDE.md",
+          "line": 916,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --format stylish  # Default",
+          "sourcePath": "CLAUDE.md",
+          "line": 919,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --format json     # JSON output",
+          "sourcePath": "CLAUDE.md",
+          "line": 920,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --format compact  # Compact output",
+          "sourcePath": "CLAUDE.md",
+          "line": 921,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --format unix     # Unix style",
+          "sourcePath": "CLAUDE.md",
+          "line": 922,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --format stylish",
+          "sourcePath": "CLAUDE.md",
+          "line": 929,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/ --debug 2>&1 | grep \"Processing\"",
+          "sourcePath": "CLAUDE.md",
+          "line": 932,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts --debug",
+          "sourcePath": "CLAUDE.md",
+          "line": 935,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/ --format json | jq '.[] | {file: .filePath, errors: .errorCount, warnings: .warningCount}'",
+          "sourcePath": "CLAUDE.md",
+          "line": 938,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscator.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 947,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/JavaScriptObfuscatorFacade.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 948,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/ASTParserFacade.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 949,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 955,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/converting-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 958,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/control-flow-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 961,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/string-array-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 964,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/rename-identifiers-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 967,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/node-transformers/rename-properties-transformers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 968,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 974,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/calls-graph-analyzer/",
+          "sourcePath": "CLAUDE.md",
+          "line": 977,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/scope-analyzer/",
+          "sourcePath": "CLAUDE.md",
+          "line": 978,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/analyzers/string-array-storage-analyzer/",
+          "sourcePath": "CLAUDE.md",
+          "line": 979,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/",
+          "sourcePath": "CLAUDE.md",
+          "line": 985,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/Options.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 988,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/OptionsNormalizer.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 989,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/validators/",
+          "sourcePath": "CLAUDE.md",
+          "line": 992,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/options/presets/",
+          "sourcePath": "CLAUDE.md",
+          "line": 995,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/",
+          "sourcePath": "CLAUDE.md",
+          "line": 1001,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/string-array/",
+          "sourcePath": "CLAUDE.md",
+          "line": 1004,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/debug-protection/",
+          "sourcePath": "CLAUDE.md",
+          "line": 1007,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/custom-code-helpers/self-defending/",
+          "sourcePath": "CLAUDE.md",
+          "line": 1010,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/utils/",
+          "sourcePath": "CLAUDE.md",
+          "line": 1016,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/utils/RandomGenerator.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 1019,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/utils/ArrayUtils.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 1020,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint src/utils/CryptUtils.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 1021,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run lint:transformers",
+          "sourcePath": "CLAUDE.md",
+          "line": 1058,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run lint:analyzers",
+          "sourcePath": "CLAUDE.md",
+          "line": 1059,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run lint:fix",
+          "sourcePath": "CLAUDE.md",
+          "line": 1060,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint --print-config src/JavaScriptObfuscator.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 1081,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint --print-config src/JavaScriptObfuscator.ts | grep rules -A 1000",
+          "sourcePath": "CLAUDE.md",
+          "line": 1084,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 1091,
+          "kind": "build"
+        },
+        {
+          "value": "yarn run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 1092,
+          "kind": "build"
+        },
+        {
+          "value": "npm install",
+          "sourcePath": "CLAUDE.md",
+          "line": 1138,
+          "kind": "setup"
+        },
+        {
+          "value": "yarn install",
+          "sourcePath": "CLAUDE.md",
+          "line": 1140,
+          "kind": "setup"
+        },
+        {
+          "value": "npm run prepare",
+          "sourcePath": "CLAUDE.md",
+          "line": 1143,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn run prepare",
+          "sourcePath": "CLAUDE.md",
+          "line": 1145,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm start",
+          "sourcePath": "CLAUDE.md",
+          "line": 1152,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run watch",
+          "sourcePath": "CLAUDE.md",
+          "line": 1154,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn run watch",
+          "sourcePath": "CLAUDE.md",
+          "line": 1156,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run webpack:prod",
+          "sourcePath": "CLAUDE.md",
+          "line": 1159,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn run webpack:prod",
+          "sourcePath": "CLAUDE.md",
+          "line": 1160,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm run build:typings",
+          "sourcePath": "CLAUDE.md",
+          "line": 1163,
+          "kind": "build"
+        },
+        {
+          "value": "yarn run build:typings",
+          "sourcePath": "CLAUDE.md",
+          "line": 1164,
+          "kind": "build"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 1167,
+          "kind": "build"
+        },
+        {
+          "value": "yarn run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 1168,
+          "kind": "build"
+        },
+        {
+          "value": "npm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 556,
+          "kind": "test"
+        },
+        {
+          "value": "eslint src/**/*.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 790,
+          "kind": "lint"
+        },
+        {
+          "value": "npm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 1175,
+          "kind": "build"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 1091,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 1092,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build:typings",
+      "sourcePath": "CLAUDE.md",
+      "line": 1163,
+      "scriptName": "build:typings",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run build:typings",
+      "sourcePath": "CLAUDE.md",
+      "line": 1164,
+      "scriptName": "build:typings",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 1167,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 1168,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 1175,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 477,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run build:typings",
+      "sourcePath": "CLAUDE.md",
+      "line": 483,
+      "scriptName": "build:typings",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run eslint",
+      "sourcePath": "CLAUDE.md",
+      "line": 486,
+      "scriptName": "eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 510,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test",
+      "sourcePath": "CLAUDE.md",
+      "line": 512,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:full",
+      "sourcePath": "CLAUDE.md",
+      "line": 519,
+      "scriptName": "test:full",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:full",
+      "sourcePath": "CLAUDE.md",
+      "line": 520,
+      "scriptName": "test:full",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:mocha",
+      "sourcePath": "CLAUDE.md",
+      "line": 523,
+      "scriptName": "test:mocha",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:mocha",
+      "sourcePath": "CLAUDE.md",
+      "line": 524,
+      "scriptName": "test:mocha",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:mocha-coverage",
+      "sourcePath": "CLAUDE.md",
+      "line": 527,
+      "scriptName": "test:mocha-coverage",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:mocha-coverage",
+      "sourcePath": "CLAUDE.md",
+      "line": 528,
+      "scriptName": "test:mocha-coverage",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:mocha-coverage:report",
+      "sourcePath": "CLAUDE.md",
+      "line": 531,
+      "scriptName": "test:mocha-coverage:report",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:mocha-coverage:report",
+      "sourcePath": "CLAUDE.md",
+      "line": 532,
+      "scriptName": "test:mocha-coverage:report",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:mocha-memory-performance",
+      "sourcePath": "CLAUDE.md",
+      "line": 535,
+      "scriptName": "test:mocha-memory-performance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:mocha-memory-performance",
+      "sourcePath": "CLAUDE.md",
+      "line": 536,
+      "scriptName": "test:mocha-memory-performance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:dev",
+      "sourcePath": "CLAUDE.md",
+      "line": 539,
+      "scriptName": "test:dev",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:dev",
+      "sourcePath": "CLAUDE.md",
+      "line": 540,
+      "scriptName": "test:dev",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:devCompilePerformance",
+      "sourcePath": "CLAUDE.md",
+      "line": 543,
+      "scriptName": "test:devCompilePerformance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:devCompilePerformance",
+      "sourcePath": "CLAUDE.md",
+      "line": 544,
+      "scriptName": "test:devCompilePerformance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run test:devRuntimePerformance",
+      "sourcePath": "CLAUDE.md",
+      "line": 547,
+      "scriptName": "test:devRuntimePerformance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run test:devRuntimePerformance",
+      "sourcePath": "CLAUDE.md",
+      "line": 548,
+      "scriptName": "test:devRuntimePerformance",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 556,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run eslint",
+      "sourcePath": "CLAUDE.md",
+      "line": 786,
+      "scriptName": "eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn run eslint",
+      "sourcePath": "CLAUDE.md",
+      "line": 787,
+      "scriptName": "eslint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1091,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1092,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1138,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1140,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1163,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1164,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1167,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1168,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1175,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 1243,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 477,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 483,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 505,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 507,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 510,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 512,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 519,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 520,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 523,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 524,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 527,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 528,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 531,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 532,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 535,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 536,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 539,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 540,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 543,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 544,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 547,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 548,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 556,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 592,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 599,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 602,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 605,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 608,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 611,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 614,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 623,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 626,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 629,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 632,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 635,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 638,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 641,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 651,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 654,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 657,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 660,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 663,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 666,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 669,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 672,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 675,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 678,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 684,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 687,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 690,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 693,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 699,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 706,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 709,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 712,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 715,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 718,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 721,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 742,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 743,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 744,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+      "expectedChecks": [
+        "yarn run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-dev",
+      "title": "Exercise the test:dev package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:dev script passing. Run yarn run test:dev and report the result.",
+      "expectedChecks": [
+        "yarn run test:dev"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-devcompileperformance",
+      "title": "Exercise the test:devCompilePerformance package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:devCompilePerformance script passing. Run yarn run test:devCompilePerformance and report the result.",
+      "expectedChecks": [
+        "yarn run test:devCompilePerformance"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-devruntimeperformance",
+      "title": "Exercise the test:devRuntimePerformance package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:devRuntimePerformance script passing. Run yarn run test:devRuntimePerformance and report the result.",
+      "expectedChecks": [
+        "yarn run test:devRuntimePerformance"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-full",
+      "title": "Exercise the test:full package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:full script passing. Run yarn run test:full and report the result.",
+      "expectedChecks": [
+        "yarn run test:full"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+        "expectedChecks": [
+          "yarn run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.551Z",
+      "finishedAt": "2026-05-18T17:08:20.551Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-dev",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-dev",
+        "title": "Exercise the test:dev package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:dev script passing. Run yarn run test:dev and report the result.",
+        "expectedChecks": [
+          "yarn run test:dev"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.551Z",
+      "finishedAt": "2026-05-18T17:08:20.551Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-devcompileperformance",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-devcompileperformance",
+        "title": "Exercise the test:devCompilePerformance package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:devCompilePerformance script passing. Run yarn run test:devCompilePerformance and report the result.",
+        "expectedChecks": [
+          "yarn run test:devCompilePerformance"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.551Z",
+      "finishedAt": "2026-05-18T17:08:20.551Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-devruntimeperformance",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-devruntimeperformance",
+        "title": "Exercise the test:devRuntimePerformance package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:devRuntimePerformance script passing. Run yarn run test:devRuntimePerformance and report the result.",
+        "expectedChecks": [
+          "yarn run test:devRuntimePerformance"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.551Z",
+      "finishedAt": "2026-05-18T17:08:20.551Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-full",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-full",
+        "title": "Exercise the test:full package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:full script passing. Run yarn run test:full and report the result.",
+        "expectedChecks": [
+          "yarn run test:full"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.551Z",
+      "finishedAt": "2026-05-18T17:08:20.551Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:08:20.552Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "1 instruction file discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

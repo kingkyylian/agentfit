@@ -1,0 +1,579 @@
+{
+  "score": 73,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/agent-behavior.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 3089,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/backend.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 1558,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/build/docker.mdc",
+      "scope": ".cursor/rules/build",
+      "kind": "cursor",
+      "bytes": 3893,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npm install",
+          "sourcePath": ".cursor/rules/build/docker.mdc",
+          "line": 76,
+          "kind": "setup"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/commit/semantic-pr-validator.mdc",
+      "scope": ".cursor/rules/commit",
+      "kind": "cursor",
+      "bytes": 4209,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/frontend.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 1697,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npx prettier --write ./src ./cypress",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 43,
+          "kind": "lint"
+        },
+        {
+          "value": "npx eslint --fix --cache ./src && npx eslint --fix -c ./cypress/.eslintrc.json --cache ./cypress",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 46,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn run test:unit",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 33,
+          "kind": "test"
+        },
+        {
+          "value": "yarn cypress run --browser chrome --headless --spec {fileName}",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 34,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn run lint",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 35,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn run prettier",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 36,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn run check-types",
+          "sourcePath": ".cursor/rules/frontend.mdc",
+          "line": 37,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/index.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2036,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/infra.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 1736,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/playwright.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 13655,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn test:pw:flake-check --grep \"test name\"",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 122,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:pw:smoke",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 162,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:pw:sanity",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 162,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:pw:regression",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 162,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test tests/sanity/git/",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 163,
+          "kind": "test"
+        },
+        {
+          "value": "npx eslint <file> --ext .ts",
+          "sourcePath": ".cursor/rules/playwright.mdc",
+          "line": 296,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/quality/performance-optimizer.mdc",
+      "scope": ".cursor/rules/quality",
+      "kind": "cursor",
+      "bytes": 1223,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/quality/react-hook-best-practices.mdc",
+      "scope": ".cursor/rules/quality",
+      "kind": "cursor",
+      "bytes": 1,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/README.md",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 1658,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/regen-helm-schema.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2520,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/testing/test-generator.mdc",
+      "scope": ".cursor/rules/testing",
+      "kind": "cursor",
+      "bytes": 2063,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/verification/bug-fix-verifier.mdc",
+      "scope": ".cursor/rules/verification",
+      "kind": "cursor",
+      "bytes": 829,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/verification/feature-verifier.mdc",
+      "scope": ".cursor/rules/verification",
+      "kind": "cursor",
+      "bytes": 1081,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/verification/workflow-validator.mdc",
+      "scope": ".cursor/rules/verification",
+      "kind": "cursor",
+      "bytes": 685,
+      "importedPaths": [],
+      "commands": []
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "yarn run test:unit",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 33,
+      "scriptName": "test:unit",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn run lint",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 35,
+      "scriptName": "lint",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn run prettier",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 36,
+      "scriptName": "prettier",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn run check-types",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 37,
+      "scriptName": "check-types",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test:pw:flake-check --grep \"test name\"",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 122,
+      "scriptName": "test:pw:flake-check",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test:pw:regression",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 162,
+      "scriptName": "test:pw:regression",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test:pw:sanity",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 162,
+      "scriptName": "test:pw:sanity",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "yarn test:pw:smoke",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 162,
+      "scriptName": "test:pw:smoke",
+      "packageJsonPath": "app/client/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/build/docker.mdc",
+      "line": 76,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 33,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/frontend.mdc",
+      "line": 37,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 122,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 162,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/playwright.mdc",
+      "line": 163,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "test-badge-test",
+      "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Badge/Badge.test.tsx",
+      "prompt": "Inspect app/client/packages/design-system/ads/src/Badge/Badge.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "app/client/packages/design-system/ads/src/Badge/Badge.test.tsx"
+      ]
+    },
+    {
+      "id": "test-divider-test",
+      "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Divider/Divider.test.tsx",
+      "prompt": "Inspect app/client/packages/design-system/ads/src/Divider/Divider.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "app/client/packages/design-system/ads/src/Divider/Divider.test.tsx"
+      ]
+    },
+    {
+      "id": "test-icon-test",
+      "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Icon/Icon.test.tsx",
+      "prompt": "Inspect app/client/packages/design-system/ads/src/Icon/Icon.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "app/client/packages/design-system/ads/src/Icon/Icon.test.tsx"
+      ]
+    },
+    {
+      "id": "test-index-test",
+      "title": "Make a safe change covered by app/client/packages/ast/src/actionCreator/index.test.ts",
+      "prompt": "Inspect app/client/packages/ast/src/actionCreator/index.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "app/client/packages/ast/src/actionCreator/index.test.ts"
+      ]
+    },
+    {
+      "id": "test-link-test",
+      "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Link/Link.test.tsx",
+      "prompt": "Inspect app/client/packages/design-system/ads/src/Link/Link.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "npm run test"
+      ],
+      "filesLikelyTouched": [
+        "app/client/packages/design-system/ads/src/Link/Link.test.tsx"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-test-badge-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-badge-test",
+        "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Badge/Badge.test.tsx",
+        "prompt": "Inspect app/client/packages/design-system/ads/src/Badge/Badge.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "app/client/packages/design-system/ads/src/Badge/Badge.test.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.700Z",
+      "finishedAt": "2026-05-18T17:08:20.700Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-divider-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-divider-test",
+        "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Divider/Divider.test.tsx",
+        "prompt": "Inspect app/client/packages/design-system/ads/src/Divider/Divider.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "app/client/packages/design-system/ads/src/Divider/Divider.test.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.700Z",
+      "finishedAt": "2026-05-18T17:08:20.700Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-icon-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-icon-test",
+        "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Icon/Icon.test.tsx",
+        "prompt": "Inspect app/client/packages/design-system/ads/src/Icon/Icon.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "app/client/packages/design-system/ads/src/Icon/Icon.test.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.700Z",
+      "finishedAt": "2026-05-18T17:08:20.700Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-index-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-index-test",
+        "title": "Make a safe change covered by app/client/packages/ast/src/actionCreator/index.test.ts",
+        "prompt": "Inspect app/client/packages/ast/src/actionCreator/index.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "app/client/packages/ast/src/actionCreator/index.test.ts"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.700Z",
+      "finishedAt": "2026-05-18T17:08:20.700Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-link-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-link-test",
+        "title": "Make a safe change covered by app/client/packages/design-system/ads/src/Link/Link.test.tsx",
+        "prompt": "Inspect app/client/packages/design-system/ads/src/Link/Link.test.tsx, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "npm run test"
+        ],
+        "filesLikelyTouched": [
+          "app/client/packages/design-system/ads/src/Link/Link.test.tsx"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.700Z",
+      "finishedAt": "2026-05-18T17:08:20.700Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:08:20.700Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 10,
+      "max": 20,
+      "explanation": "16 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "No root-level instruction file was discovered.",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 10/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

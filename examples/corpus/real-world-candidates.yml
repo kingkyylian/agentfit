@@ -212,9 +212,11 @@ candidates:
     shape: desktop and web application
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: actionable
     expectedSignal: stale command regression guard after prior upstream fix
-    contactPolicy: no contact unless a new concrete drift is reproduced
+    contactPolicy: draft locally before any maintainer contact; prior issue remains closed
+    reportPath: examples/reports/real-world/redisinsight.md
+    commit: '57caf95'
   - repo: grafana/mimir
     instructionSources:
       - AGENTS.md
@@ -224,9 +226,11 @@ candidates:
     shape: infrastructure monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: healthy layered instruction baseline
-    contactPolicy: permission before public named use
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/mimir.md
+    commit: 'f1497c22'
   - repo: pingcap/tidb
     instructionSources:
       - AGENTS.md
@@ -236,9 +240,11 @@ candidates:
     shape: large infrastructure monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: large monorepo reproducibility signal
-    contactPolicy: no contact before report review
+    contactPolicy: no contact; permission before public named use
+    reportPath: examples/reports/real-world/tidb.md
+    commit: '2ce45f0'
   - repo: appsmithorg/appsmith
     instructionSources:
       - .cursor/rules
@@ -247,9 +253,11 @@ candidates:
     shape: application monorepo
     recentActivity: active on 2026-05-11 scan
     licenseStatus: unverified
-    status: candidate
+    status: snapshotted
     expectedSignal: Cursor rules and package-local command resolution
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad Cursor-only root and safety signal
+    reportPath: examples/reports/real-world/appsmith.md
+    commit: 'a128a3e'
   - repo: javascript-obfuscator/javascript-obfuscator
     instructionSources:
       - CLAUDE.md
@@ -258,9 +266,11 @@ candidates:
     shape: focused library
     recentActivity: active on 2026-04-27 scan
     licenseStatus: unverified
-    status: candidate
+    status: healthy
     expectedSignal: reproducibility command guidance without broad monorepo noise
-    contactPolicy: no contact before report review
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/javascript-obfuscator-batch4.md
+    commit: '10c763f'
   - repo: zapier/zapier-platform
     instructionSources:
       - CLAUDE.md

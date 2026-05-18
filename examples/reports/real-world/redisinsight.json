@@ -1,0 +1,837 @@
+{
+  "score": 85,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": ".cursor/rules/backend.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 6272,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/code-quality.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2915,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn lint",
+          "sourcePath": ".cursor/rules/code-quality.mdc",
+          "line": 9,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn install",
+          "sourcePath": ".cursor/rules/code-quality.mdc",
+          "line": 73,
+          "kind": "setup"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": ".cursor/rules/code-quality.mdc",
+          "line": 86,
+          "kind": "lint"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/e2e-testing.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 17551,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "npx playwright test --project=main           # Only main parallel tests",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 59,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test --project=auto-update    # Only auto-update tests",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 60,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test                           # All projects",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 61,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test                           # All Playwright projects",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 441,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test --project=chromium        # Chromium browser tests",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 442,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test --project=electron        # Electron desktop tests",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 443,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test --project=main            # Main parallel tests only",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 444,
+          "kind": "test"
+        },
+        {
+          "value": "npx playwright test --project=auto-update     # Auto-update tests only",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 445,
+          "kind": "test"
+        },
+        {
+          "value": "npm run lint                # ESLint check",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 455,
+          "kind": "test"
+        },
+        {
+          "value": "npm run type-check          # TypeScript type check",
+          "sourcePath": ".cursor/rules/e2e-testing.mdc",
+          "line": 456,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": ".cursor/rules/frontend.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 12350,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/git-safety.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 2169,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": ".cursor/rules/testing.mdc",
+      "scope": ".cursor/rules",
+      "kind": "cursor",
+      "bytes": 11882,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/path/to/Component.spec.tsx' -c 'jest.config.cjs'",
+          "sourcePath": ".cursor/rules/testing.mdc",
+          "line": 39,
+          "kind": "test"
+        },
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/path/to/Component.spec.tsx' -c 'jest.config.cjs' -t 'test name pattern'",
+          "sourcePath": ".cursor/rules/testing.mdc",
+          "line": 42,
+          "kind": "test"
+        },
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/slices/tests/browser/keys.spec.ts' -c 'jest.config.cjs' -t 'refreshKeyInfoAction'",
+          "sourcePath": ".cursor/rules/testing.mdc",
+          "line": 45,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": ".github/copilot-instructions.md",
+      "scope": ".github",
+      "kind": "copilot",
+      "bytes": 2980,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 4459,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "yarn dev:ui",
+          "sourcePath": "AGENTS.md",
+          "line": 30,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:api",
+          "sourcePath": "AGENTS.md",
+          "line": 33,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:desktop",
+          "sourcePath": "AGENTS.md",
+          "line": 36,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn dev:ui:coverage",
+          "sourcePath": "AGENTS.md",
+          "line": 39,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn test              # Run all UI tests",
+          "sourcePath": "AGENTS.md",
+          "line": 48,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:api          # Run all API tests",
+          "sourcePath": "AGENTS.md",
+          "line": 51,
+          "kind": "test"
+        },
+        {
+          "value": "yarn --cwd tests/e2e-playwright test",
+          "sourcePath": "AGENTS.md",
+          "line": 54,
+          "kind": "test"
+        },
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/path/to/Component.spec.tsx' -c 'jest.config.cjs'",
+          "sourcePath": "AGENTS.md",
+          "line": 61,
+          "kind": "test"
+        },
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/path/to/Component.spec.tsx' -c 'jest.config.cjs' -t 'test name pattern'",
+          "sourcePath": "AGENTS.md",
+          "line": 64,
+          "kind": "test"
+        },
+        {
+          "value": "node 'node_modules/.bin/jest' 'redisinsight/ui/src/slices/tests/browser/keys.spec.ts' -c 'jest.config.cjs' -t 'refreshKeyInfoAction'",
+          "sourcePath": "AGENTS.md",
+          "line": 67,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint              # All code",
+          "sourcePath": "AGENTS.md",
+          "line": 76,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:ui           # Frontend only",
+          "sourcePath": "AGENTS.md",
+          "line": 77,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn lint:api          # Backend only",
+          "sourcePath": "AGENTS.md",
+          "line": 78,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn type-check:ui     # Frontend TypeScript",
+          "sourcePath": "AGENTS.md",
+          "line": 81,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test              # Frontend tests",
+          "sourcePath": "AGENTS.md",
+          "line": 84,
+          "kind": "test"
+        },
+        {
+          "value": "yarn test:api          # Backend tests",
+          "sourcePath": "AGENTS.md",
+          "line": 85,
+          "kind": "test"
+        },
+        {
+          "value": "yarn lint",
+          "sourcePath": "AGENTS.md",
+          "line": 110,
+          "kind": "lint"
+        },
+        {
+          "value": "yarn test",
+          "sourcePath": "AGENTS.md",
+          "line": 110,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"type-check:ui\".",
+      "severity": "error"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "yarn lint",
+      "sourcePath": ".cursor/rules/code-quality.mdc",
+      "line": 86,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": ".cursor/rules/code-quality.mdc",
+      "line": 9,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "npm run lint                # ESLint check",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 455,
+      "scriptName": "lint",
+      "packageJsonPath": "tests/e2e-playwright/package.json",
+      "status": "resolved",
+      "reason": "instruction working directory"
+    },
+    {
+      "command": "npm run type-check          # TypeScript type check",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 456,
+      "scriptName": "type-check",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint",
+      "sourcePath": "AGENTS.md",
+      "line": 110,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test",
+      "sourcePath": "AGENTS.md",
+      "line": 110,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test              # Run all UI tests",
+      "sourcePath": "AGENTS.md",
+      "line": 48,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test:api          # Run all API tests",
+      "sourcePath": "AGENTS.md",
+      "line": 51,
+      "scriptName": "test:api",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn --cwd tests/e2e-playwright test",
+      "sourcePath": "AGENTS.md",
+      "line": 54,
+      "scriptName": "test",
+      "packageJsonPath": "tests/e2e-playwright/package.json",
+      "status": "resolved",
+      "reason": "package-manager cwd option"
+    },
+    {
+      "command": "yarn lint              # All code",
+      "sourcePath": "AGENTS.md",
+      "line": 76,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:ui           # Frontend only",
+      "sourcePath": "AGENTS.md",
+      "line": 77,
+      "scriptName": "lint:ui",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn lint:api          # Backend only",
+      "sourcePath": "AGENTS.md",
+      "line": 78,
+      "scriptName": "lint:api",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn type-check:ui     # Frontend TypeScript",
+      "sourcePath": "AGENTS.md",
+      "line": 81,
+      "scriptName": "type-check:ui",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test              # Frontend tests",
+      "sourcePath": "AGENTS.md",
+      "line": 84,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "yarn test:api          # Backend tests",
+      "sourcePath": "AGENTS.md",
+      "line": 85,
+      "scriptName": "test:api",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/code-quality.mdc",
+      "line": 73,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 441,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 442,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 443,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 444,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 445,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 455,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 456,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 59,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 60,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 61,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/testing.mdc",
+      "line": 14,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/testing.mdc",
+      "line": 39,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/testing.mdc",
+      "line": 42,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": ".cursor/rules/testing.mdc",
+      "line": 45,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 110,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 48,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 51,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 54,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 61,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 64,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 67,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 81,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 84,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 85,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 231,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": ".cursor/rules/e2e-testing.mdc",
+      "line": 483,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    },
+    {
+      "category": "safety",
+      "sourcePath": ".cursor/rules/git-safety.mdc",
+      "line": 27,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+      "expectedChecks": [
+        "yarn run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-api",
+      "title": "Exercise the test:api package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:api script passing. Run yarn run test:api and report the result.",
+      "expectedChecks": [
+        "yarn run test:api"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-api-integration",
+      "title": "Exercise the test:api:integration package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:api:integration script passing. Run yarn run test:api:integration and report the result.",
+      "expectedChecks": [
+        "yarn run test:api:integration"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-cov",
+      "title": "Exercise the test:cov package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:cov script passing. Run yarn run test:cov and report the result.",
+      "expectedChecks": [
+        "yarn run test:cov"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-cov-component",
+      "title": "Exercise the test:cov:component package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:cov:component script passing. Run yarn run test:cov:component and report the result.",
+      "expectedChecks": [
+        "yarn run test:cov:component"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run yarn run test and report the result.",
+        "expectedChecks": [
+          "yarn run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.663Z",
+      "finishedAt": "2026-05-18T17:08:20.663Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-api",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-api",
+        "title": "Exercise the test:api package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:api script passing. Run yarn run test:api and report the result.",
+        "expectedChecks": [
+          "yarn run test:api"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.663Z",
+      "finishedAt": "2026-05-18T17:08:20.663Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-api-integration",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-api-integration",
+        "title": "Exercise the test:api:integration package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:api:integration script passing. Run yarn run test:api:integration and report the result.",
+        "expectedChecks": [
+          "yarn run test:api:integration"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.663Z",
+      "finishedAt": "2026-05-18T17:08:20.663Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-cov",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-cov",
+        "title": "Exercise the test:cov package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:cov script passing. Run yarn run test:cov and report the result.",
+        "expectedChecks": [
+          "yarn run test:cov"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.663Z",
+      "finishedAt": "2026-05-18T17:08:20.663Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-cov-component",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-cov-component",
+        "title": "Exercise the test:cov:component package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:cov:component script passing. Run yarn run test:cov:component and report the result.",
+        "expectedChecks": [
+          "yarn run test:cov:component"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-18T17:08:20.663Z",
+      "finishedAt": "2026-05-18T17:08:20.663Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-18T17:08:20.663Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "8 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Documented command references missing package script \"type-check:ui\"."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

@@ -4,7 +4,7 @@ Corpus validation pass for the metadata-only real-world candidate workflow. All 
 
 ## Scope
 
-The sprint used the first fifteen repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
+The sprint used the first twenty repositories from the 30-candidate corpus queue in [real-world-validation.md](real-world-validation.md). The goal was to verify that the corpus workflow can move from metadata queue to checked-in report snapshots with clear triage.
 
 | Repository | Commit | Instruction Source | Result | Triage |
 | --- | --- | --- | ---: | --- |
@@ -23,6 +23,11 @@ The sprint used the first fifteen repositories from the 30-candidate corpus queu
 | `statelyai/xstate` | `d7fb9c6` | `AGENTS.md`, `CLAUDE.md` | 78/100 (C) | snapshotted |
 | `gitbutlerapp/gitbutler` | `5235412` | `AGENTS.md`, Copilot instructions | 78/100 (C) | snapshotted |
 | `lerna/lerna` | `f4387d6` | `CLAUDE.md` | 88/100 (B) | healthy |
+| `redis/RedisInsight` | `57caf95` | `AGENTS.md`, Cursor rules, Copilot instructions | 85/100 (B) | actionable |
+| `grafana/mimir` | `f1497c22` | `AGENTS.md`, `CLAUDE.md` | 83/100 (B) | healthy |
+| `pingcap/tidb` | `2ce45f0` | `AGENTS.md`, `CLAUDE.md` | 93/100 (A) | healthy |
+| `appsmithorg/appsmith` | `a128a3e` | Cursor rules | 73/100 (C) | snapshotted |
+| `javascript-obfuscator/javascript-obfuscator` | `10c763f` | `CLAUDE.md` | 83/100 (B) | healthy |
 
 ## Report Outputs
 
@@ -43,6 +48,11 @@ The reviewed dry-run reports are checked in under `examples/reports/real-world`:
 - [xstate.md](../examples/reports/real-world/xstate.md)
 - [gitbutler.md](../examples/reports/real-world/gitbutler.md)
 - [lerna.md](../examples/reports/real-world/lerna.md)
+- [redisinsight.md](../examples/reports/real-world/redisinsight.md)
+- [mimir.md](../examples/reports/real-world/mimir.md)
+- [tidb.md](../examples/reports/real-world/tidb.md)
+- [appsmith.md](../examples/reports/real-world/appsmith.md)
+- [javascript-obfuscator-batch4.md](../examples/reports/real-world/javascript-obfuscator-batch4.md)
 
 The matching JSON reports are checked in beside each Markdown report for repeatable summary extraction.
 
@@ -110,6 +120,27 @@ Psmdb Docs scored 65/100 with the same verification/safety/reproducibility guida
 
 XState and GitButler are reviewed snapshots with no maintainer contact. Their remaining findings are broad package-scope and safety guidance coverage, not concrete stale-command or broken-reference findings.
 
+### Batch 4 Review
+
+RedisInsight scored 85/100. The report found strong safety and reproducibility guidance, but surfaced one concrete command drift:
+
+```text
+Documented command references missing package script "type-check:ui".
+```
+
+Manual review confirmed the root package defines `type-check`, while the UI package defines `type-check`; no root `type-check:ui` script exists. The current documented equivalent is `yarn --cwd redisinsight/ui type-check`. This stays as a local maintainer-contact draft only.
+
+Mimir and JavaScript Obfuscator each scored 83/100 with only broad safety guardrail findings. TiDB scored 93/100 with no failed checks. These are healthy internal baselines; do not name them publicly without permission.
+
+Appsmith scored 73/100 with a Cursor-only root-contract signal and broad safety guidance gap:
+
+```text
+No root-level instruction file was discovered.
+Safety guardrails were not found.
+```
+
+No package-local command false positive reappeared, so this remains a reviewed no-contact snapshot.
+
 ## Product Issues Found And Fixed
 
 Batch 3 exposed two AgentFit command-resolution false positives:
@@ -119,22 +150,24 @@ Batch 3 exposed two AgentFit command-resolution false positives:
 
 Regression coverage was added in `tests/unit/static-checks.test.ts`, and both reports were regenerated after the fixes.
 
+Batch 4 did not expose a new AgentFit product bug. The RedisInsight command finding was manually checked against root and package-local scripts and appears to be real instruction drift.
+
 ## Decision
 
 The sprint produced:
 
 - 30 total corpus candidates.
-- 15 reviewed dry-run snapshots.
-- 6 healthy internal baselines.
-- 7 actionable local maintainer-contact drafts.
-- 2 snapshotted no-contact reports.
+- 20 reviewed dry-run snapshots.
+- 9 healthy internal baselines.
+- 8 actionable local maintainer-contact drafts.
+- 3 snapshotted no-contact reports.
 - 0 unresolved noisy AgentFit reports.
 - 2 product fixes applied from Batch 3.
 
 Next action should be one of:
 
 - ask for approval before opening any actionable maintainer issue,
-- continue with Batch 4 dry-run snapshots,
+- continue with Batch 5 dry-run snapshots,
 - prepare an internal launch-validation summary that does not name healthy examples as endorsements.
 
 ## Verification
@@ -151,5 +184,5 @@ Next action should be one of:
   - Result: passed for `@kingkyylian/agentfit@0.1.12`.
 - Command: `rtk pnpm corpus:check`
   - Result: passed.
-- Command: `rtk node dist/index.js corpus --limit 10`
-  - Result: printed the first ten corpus entries, with four `healthy` and six `actionable` entries.
+- Command: `rtk node dist/index.js corpus --limit 20`
+  - Result: printed the first twenty corpus entries, with nine `healthy`, eight `actionable`, and three `snapshotted` entries.
