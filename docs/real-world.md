@@ -12,15 +12,25 @@ The 2026-05-18 sprint added thirty local dry-run snapshots from the metadata cor
 
 ## Latest Validation Sprint
 
-The 2026-05-11 sprint ran 20 dry-run snapshots and produced:
+The 2026-05-18 metadata-corpus sprint completed the 30-candidate queue and produced:
 
-- one external maintainer issue for stale E2E commands in RedisInsight Cursor rules, fixed by a merged upstream PR
-- two AgentFit false-positive fixes: optional alias examples and TypeScript decorator calls
-- one AgentFit product fix for package-local command freshness, released in `0.1.10`
-- published `0.1.10` reruns that cleared the Appsmith, Spinnaker, and Hash package-local command false positives
-- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
+- 30 reviewed dry-run snapshots
+- 15 healthy internal baselines
+- 9 actionable local maintainer-contact drafts
+- 5 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+- 0 unresolved noisy AgentFit reports
+- 3 AgentFit product fixes from corpus runs
 
-Do not publish named healthy examples without asking permission first. Use the sprint log for internal launch planning.
+All 2026-05-18 runs were local dry runs. They did not call model providers, execute generated tasks, run real agent adapters, or open maintainer issues.
+
+Do not publish named healthy examples without asking permission first. Use [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md), [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md), and [internal-launch-validation-summary-2026-05-19.md](internal-launch-validation-summary-2026-05-19.md) for launch planning.
+
+## Prior Public Outcome
+
+The 2026-05-11 sprint produced the clearest public maintainer outcome so far: one stale-command issue in RedisInsight Cursor rules, followed by a maintainer-requested PR that merged upstream.
+
+That earlier sprint also found AgentFit false positives, including optional alias examples, TypeScript decorator calls, and package-local command freshness. Those fixes informed the later 30-candidate corpus pass.
 
 | Repository | Language | Commit | Score | Main Signal |
 | --- | --- | --- | ---: | --- |
@@ -71,6 +81,14 @@ Do not publish named healthy examples without asking permission first. Use the s
 - [erigon.md](../examples/reports/real-world/erigon.md)
 
 ## Reproduce
+
+Use the current package for new snapshots:
+
+```bash
+npx @kingkyylian/agentfit@latest eval --adapter dry-run --format markdown
+```
+
+Older checked-in examples preserve their original package versions for reproducibility. For example:
 
 ```bash
 git clone --depth 1 https://github.com/hexlet-codebattle/codebattle.git /tmp/codebattle

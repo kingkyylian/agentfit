@@ -15,6 +15,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Repository metadata: description, homepage, and discovery topics are configured.
 - Local full verification passed on 2026-05-17 for the `0.1.12` release.
 - AgentFit `0.1.12` is published to npm and `v1` points at the release commit.
+- `main` has moved past the `v0.1.12` tag; check release status before claiming every corpus-driven fix is available in the published package.
 - Manual `AgentFit Consumer Smoke` with `version: 0.1.12` passed after publish and `v1` retag.
 - Initial starter issues for snapshots, fixtures, adapter smoke tests, scoring signals, and demo assets are complete.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
@@ -22,6 +23,10 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
 - Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and command parser/discovery fixes carried into `0.1.12`.
+- The 30-candidate metadata corpus sprint is complete in [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md): 30 reviewed dry-run snapshots, 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, 1 unsupported low-signal snapshot, and 3 product fixes from validation.
+- Public-preview copy lives in [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md).
+- Internal launch validation lives in [internal-launch-validation-summary-2026-05-19.md](internal-launch-validation-summary-2026-05-19.md).
+- Local maintainer outreach prioritization lives in [maintainer-outreach-shortlist-2026-05-19.md](maintainer-outreach-shortlist-2026-05-19.md).
 - Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
 - GitHub Community feedback suggested exact public code-search queries; keep candidate discovery in [real-world-validation.md](real-world-validation.md) and contact maintainers only after concrete dry-run findings.
 
@@ -62,7 +67,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 - Ship `agentfit compare` examples for before/after instruction changes.
 - Open starter issues for adapters, fixtures, examples, and docs.
 - Add the terminal demo asset to README.
-- Run a real-world validation sprint against 10-20 public repositories with agent instruction files. First 20 snapshots are complete.
+- Run a real-world validation sprint against 10-30 public repositories with agent instruction files. The 30-candidate sprint is complete.
 - Publish one launch post per channel, not a generic cross-post.
 
 ## Release Order
@@ -79,7 +84,7 @@ npx @kingkyylian/agentfit@latest compare examples/reports/demo-before.json examp
 The goal is not friend-based social proof. The goal is to collect public, reproducible evidence that AgentFit finds useful signal in repositories that already use `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 
 1. Build a candidate list of 30 public repositories using the public, non-fork GitHub code search queries from [real-world-validation.md](real-world-validation.md).
-2. Run deterministic dry-run snapshots against 10-20 candidates without executing generated tasks.
+2. Run deterministic dry-run snapshots against all 30 candidates without executing generated tasks.
 3. Classify each result as actionable drift, healthy example, noisy signal, or unsupported repository.
 4. Open maintainer issues only when the report has a concrete finding: missing referenced file, stale documented command, or clear nested scope gap.
 5. Turn false positives and confusing output into AgentFit issues before public launch posts.
@@ -104,14 +109,14 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 
 ## Public Preview Gate
 
-Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 20-snapshot summary from [launch-outreach.md](launch-outreach.md):
+Do not run the broad launch post yet. The next public step is a preview ask for more repos, using the 30-snapshot summary from [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md):
 
 - one stale-command issue opened upstream, then a maintainer-requested PR that merged: https://github.com/redis/RedisInsight/pull/5889
 - earlier AgentFit false-positive classes found from noisy validation, including https://github.com/kingkyylian/agentfit/issues/7
 - package-local command freshness fixes available in `0.1.12`: https://github.com/kingkyylian/agentfit/issues/8
 - npm workspace, `bun x`, `.cursor/rules/*.md`, and recursive workspace command false-positive fixes are available in `0.1.12`: https://github.com/kingkyylian/agentfit/issues/10, https://github.com/kingkyylian/agentfit/issues/11, https://github.com/kingkyylian/agentfit/issues/12, https://github.com/kingkyylian/agentfit/issues/13
 - a public repo-suggestion issue for low-pressure feedback: https://github.com/kingkyylian/agentfit/issues/9
-- healthy internal baselines from Mimir, Projen, Dart-Code, Kops, iTerm2, and OpenProject
+- the 30-candidate sprint counts from [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md), without naming healthy repositories as endorsements
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.
 

@@ -22,10 +22,13 @@ Do not optimize for repository popularity metrics yet. Optimize for five externa
 
 The first-touch message should not be a product announcement. Lead with the validation result:
 
-- 20+ public dry-run snapshots
+- 30 public dry-run snapshots
+- 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, and 1 unsupported low-signal snapshot
 - one stale-command issue that became a merged upstream RedisInsight PR
-- AgentFit false positives found during validation and fixed through `0.1.12`
+- three AgentFit product fixes found during validation
 - a narrow ask for public repos to dry-run validate
+
+The copy-ready 30-snapshot brief lives in [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md). Do not name healthy repositories as endorsements in public preview copy.
 
 ## Demo Script
 
@@ -69,12 +72,15 @@ AgentFit score: 100/100 (A)
 ## X Post
 
 ```text
-I ran AgentFit against 20+ public repos that already have coding-agent instructions.
+I ran AgentFit against 30 public repos that already have coding-agent instructions.
 
 Useful signal:
+- 15 healthy internal baselines
+- 9 actionable local drafts
+- 5 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
 - one stale-command issue became a merged upstream PR
-- two AgentFit false-positive classes were fixed in 0.1.8
-- package-local and command-extraction false positives are fixed through 0.1.12
+- 3 AgentFit product fixes from noisy validation reports
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to dry-run validate.
 
@@ -195,12 +201,15 @@ https://github.com/kingkyylian/agentfit/issues/9
 Reply 1:
 
 ```text
-I have run 20+ dry-run snapshots so far.
+I have run 30 dry-run snapshots so far.
 
 Useful signal:
+- 15 healthy internal baselines
+- 9 actionable local drafts
+- 5 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
 - one stale-command issue became a merged upstream RedisInsight PR
-- two AgentFit false-positive classes shipped as fixes in 0.1.8
-- package-local and command-extraction false positives are fixed through 0.1.12
+- 3 AgentFit product fixes from noisy validation reports
 
 RedisInsight PR:
 https://github.com/redis/RedisInsight/pull/5889
@@ -241,10 +250,12 @@ What AgentFit checks in dry-run mode:
 
 Dry-run mode does not call model providers and does not execute generated tasks.
 
-I have run 20+ public dry-run snapshots so far. The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
+I have run 30 public dry-run snapshots so far. The current internal triage is 15 healthy baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, and 1 unsupported low-signal snapshot.
+
+The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
 https://github.com/redis/RedisInsight/pull/5889
 
-The same validation work found noisy AgentFit behavior too, so I shipped fixes through 0.1.12, including package-local command resolution and additional command extraction support:
+The same validation work found noisy AgentFit behavior too, so I fixed package-local command resolution and additional command extraction support during the 0.1.12 cycle:
 https://github.com/kingkyylian/agentfit/issues/8
 
 If you know a public repo that already has AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar guidance, please suggest it here:
@@ -349,18 +360,20 @@ Use this sequence when there is no existing friend or maintainer network to lean
 2. Pin the ask to public repos that already have `AGENTS.md`, `CLAUDE.md`, Cursor rules, or Copilot instructions.
 3. Say dry-run mode does not call model providers and does not execute generated tasks.
 4. Share only concrete examples: stale commands, missing references, monorepo scope gaps, or healthy reports with permission.
-5. Follow up with a small result thread after 20+ snapshots: one external maintainer issue that became a merged PR, false-positive fixes through `0.1.12`, and a few healthy baselines.
+5. Follow up with the 30-snapshot result thread: one external maintainer issue that became a merged PR, 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, 1 unsupported low-signal snapshot, and 3 product fixes from validation.
 
 Preview result copy:
 
 ```text
-I ran AgentFit against 20+ public repos that already have coding-agent instructions.
+I ran AgentFit against 30 public repos that already have coding-agent instructions.
 
 Useful signal so far:
+- 15 healthy internal baselines
+- 9 actionable local drafts
+- 5 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
 - one stale-command issue opened upstream, followed by a maintainer-requested PR that merged
-- two AgentFit false-positive classes found and released in 0.1.8
-- noisy command-detection patterns turned into product fixes released through 0.1.12
-- several healthy instruction files that score cleanly in dry-run mode
+- 3 AgentFit product fixes from noisy validation reports
 
 I am looking for more public repos with AGENTS.md, CLAUDE.md, Cursor rules, or Copilot instructions to sanity-check before a broader launch.
 
