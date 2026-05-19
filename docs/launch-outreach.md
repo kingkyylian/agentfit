@@ -255,7 +255,7 @@ I have run 30 public dry-run snapshots so far. The current internal triage is 15
 The clearest external finding was a stale-command issue in RedisInsight Cursor rules; the maintainers requested a PR and merged the fix:
 https://github.com/redis/RedisInsight/pull/5889
 
-The same validation work found noisy AgentFit behavior too, so I fixed package-local command resolution and additional command extraction support during the 0.1.12 cycle:
+The same validation work found noisy AgentFit behavior too, so I fixed package-local command resolution, command extraction, and working-directory inference during the 0.1.13 cycle:
 https://github.com/kingkyylian/agentfit/issues/8
 
 If you know a public repo that already has AGENTS.md, CLAUDE.md, Cursor rules, Copilot instructions, or similar guidance, please suggest it here:

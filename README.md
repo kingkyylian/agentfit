@@ -17,7 +17,7 @@ npx @kingkyylian/agentfit@latest eval --adapter dry-run
 
 ## Why This Exists
 
-AgentFit has been tested against public repositories that already publish coding-agent instructions. Validation found one stale-command issue that became a merged upstream RedisInsight PR, and it exposed AgentFit false positives that are fixed through `0.1.12`.
+AgentFit has been tested against public repositories that already publish coding-agent instructions. Validation found one stale-command issue that became a merged upstream RedisInsight PR, and it exposed AgentFit false positives that are fixed through `0.1.13`.
 
 The current feedback ask is narrow: suggest public repos with `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, or similar guidance so AgentFit can run deterministic dry-run validation.
 
@@ -93,7 +93,7 @@ The latest corpus pass produced 15 healthy internal baselines, 9 actionable loca
 - Issue: https://github.com/redis/RedisInsight/issues/5887
 - PR: https://github.com/redis/RedisInsight/pull/5889
 
-The same validation work also found AgentFit false positives, including package-local command checks that now resolve nested package scripts in `0.1.12`. No endorsement is implied by any repository being tested, and healthy examples are not named publicly without permission.
+The same validation work also found AgentFit false positives, including package-local command checks and command working-directory inference that are fixed through `0.1.13`. No endorsement is implied by any repository being tested, and healthy examples are not named publicly without permission.
 
 Suggest a public repository for dry-run validation: https://github.com/kingkyylian/agentfit/issues/9
 
@@ -126,7 +126,7 @@ By default, dry-run mode performs deterministic discovery, reference, command, a
 ```yaml
 - uses: kingkyylian/agentfit@v1
   with:
-    version: 0.1.12
+    version: 0.1.13
     adapter: dry-run
     run-tasks: true
     fail-below-score: 70
