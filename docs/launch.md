@@ -16,7 +16,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Local full verification passed on 2026-05-19 for the `0.1.13` release.
 - AgentFit `0.1.13` is published to npm and `v1` points at the release commit.
 - Corpus workflow, 30-candidate validation artifacts, and the latest corpus-driven static-check fixes are available in the published package.
-- Manual `AgentFit Consumer Smoke` should be rerun with `version: 0.1.13` after publish and `v1` retag.
+- Manual `AgentFit Consumer Smoke` passed with `version: 0.1.13` after publish and `v1` retag.
 - Initial starter issues for snapshots, fixtures, adapter smoke tests, scoring signals, and demo assets are complete.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
@@ -27,7 +27,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Public-preview copy lives in [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md).
 - Internal launch validation lives in [internal-launch-validation-summary-2026-05-19.md](internal-launch-validation-summary-2026-05-19.md).
 - Local maintainer outreach prioritization lives in [maintainer-outreach-shortlist-2026-05-19.md](maintainer-outreach-shortlist-2026-05-19.md).
-- Public repo suggestion funnel: https://github.com/kingkyylian/agentfit/issues/9
+- Public repo suggestion funnel is open and labeled `help wanted`: https://github.com/kingkyylian/agentfit/issues/9
 - GitHub Community feedback suggested exact public code-search queries; keep candidate discovery in [real-world-validation.md](real-world-validation.md) and contact maintainers only after concrete dry-run findings.
 
 ## 60-Second Demo
