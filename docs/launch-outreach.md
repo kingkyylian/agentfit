@@ -320,6 +320,8 @@ https://github.com/kingkyylian/agentfit
 
 ## First Feedback Funnel
 
+Use [feedback-triage.md](feedback-triage.md) to classify every suggestion before contact or public use.
+
 - First 3-5 reports: public repositories found through GitHub code search.
 - First maintainer contact: only when AgentFit finds a concrete, reproducible issue.
 - First X post: proof-led validation summary plus one real-world finding, not a generic product pitch.

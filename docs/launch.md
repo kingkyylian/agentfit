@@ -21,6 +21,7 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
+- Public preview feedback triage lives in [feedback-triage.md](feedback-triage.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
 - Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and command parser/discovery fixes carried into `0.1.13`.
 - The 30-candidate metadata corpus sprint is complete in [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md): 30 reviewed dry-run snapshots, 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, 1 unsupported low-signal snapshot, and 3 product fixes from validation.
@@ -85,7 +86,7 @@ The goal is not friend-based social proof. The goal is to collect public, reprod
 
 1. Build a candidate list of 30 public repositories using the public, non-fork GitHub code search queries from [real-world-validation.md](real-world-validation.md).
 2. Run deterministic dry-run snapshots against all 30 candidates without executing generated tasks.
-3. Classify each result as actionable drift, healthy example, noisy signal, or unsupported repository.
+3. Classify each result with the [feedback triage](feedback-triage.md) buckets before contacting maintainers.
 4. Open maintainer issues only when the report has a concrete finding: missing referenced file, stale documented command, or clear nested scope gap.
 5. Turn false positives and confusing output into AgentFit issues before public launch posts.
 6. Launch with the before/after demo plus 3-5 real-world signals, not a feature list.
