@@ -1,13 +1,15 @@
 # AgentFit
 
+[![CI](https://github.com/kingkyylian/agentfit/actions/workflows/ci.yml/badge.svg)](https://github.com/kingkyylian/agentfit/actions/workflows/ci.yml)
+![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
+[![GitHub release](https://img.shields.io/github/v/release/kingkyylian/agentfit)](https://github.com/kingkyylian/agentfit/releases)
+![AgentFit 100/100](https://img.shields.io/badge/AgentFit-100%2F100-2ea043)
+
 Test whether your `AGENTS.md` and coding-agent instructions actually work.
 
 Agent instruction files rot. Setup commands change, docs move, nested packages get missed, and teams guess whether a prompt change helped. AgentFit turns that guess into a local-first score, report, and CI check.
 
 AgentFit discovers `AGENTS.md`, `CLAUDE.md`, Cursor rules, Copilot instructions, and other agent harness files. It checks whether instructions are discoverable, commands still work, references resolve, nested packages are covered, and generated repo-specific tasks can be verified in isolated git worktrees.
-
-![npm](https://img.shields.io/npm/v/@kingkyylian/agentfit)
-![AgentFit 100/100](https://img.shields.io/badge/AgentFit-100%2F100-2ea043)
 
 ![AgentFit terminal demo](docs/assets/agentfit-terminal-demo.svg)
 
