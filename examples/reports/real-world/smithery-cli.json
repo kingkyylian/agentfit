@@ -1,0 +1,343 @@
+{
+  "score": 75,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 1876,
+      "importedPaths": [],
+      "commands": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 481,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 4,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm run build",
+          "sourcePath": "CLAUDE.md",
+          "line": 5,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 6,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm run lint",
+          "sourcePath": "CLAUDE.md",
+          "line": 7,
+          "kind": "lint"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "CLAUDE.md",
+      "message": "Documented command references missing package script \"lint\".",
+      "severity": "error"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm run build",
+      "sourcePath": "CLAUDE.md",
+      "line": 5,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 6,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm run lint",
+      "sourcePath": "CLAUDE.md",
+      "line": 7,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 5,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 6,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-install",
+      "title": "Exercise the test:install package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:install script passing. Run pnpm run test:install and report the result.",
+      "expectedChecks": [
+        "pnpm run test:install"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-installed",
+      "title": "Exercise the test:installed package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:installed script passing. Run pnpm run test:installed and report the result.",
+      "expectedChecks": [
+        "pnpm run test:installed"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-list",
+      "title": "Exercise the test:list package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:list script passing. Run pnpm run test:list and report the result.",
+      "expectedChecks": [
+        "pnpm run test:list"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-uninstall",
+      "title": "Exercise the test:uninstall package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:uninstall script passing. Run pnpm run test:uninstall and report the result.",
+      "expectedChecks": [
+        "pnpm run test:uninstall"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:15.885Z",
+      "finishedAt": "2026-05-21T11:22:15.885Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-install",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-install",
+        "title": "Exercise the test:install package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:install script passing. Run pnpm run test:install and report the result.",
+        "expectedChecks": [
+          "pnpm run test:install"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:15.885Z",
+      "finishedAt": "2026-05-21T11:22:15.885Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-installed",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-installed",
+        "title": "Exercise the test:installed package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:installed script passing. Run pnpm run test:installed and report the result.",
+        "expectedChecks": [
+          "pnpm run test:installed"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:15.885Z",
+      "finishedAt": "2026-05-21T11:22:15.885Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-list",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-list",
+        "title": "Exercise the test:list package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:list script passing. Run pnpm run test:list and report the result.",
+        "expectedChecks": [
+          "pnpm run test:list"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:15.885Z",
+      "finishedAt": "2026-05-21T11:22:15.885Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-uninstall",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-uninstall",
+        "title": "Exercise the test:uninstall package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:uninstall script passing. Run pnpm run test:uninstall and report the result.",
+        "expectedChecks": [
+          "pnpm run test:uninstall"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:15.885Z",
+      "finishedAt": "2026-05-21T11:22:15.885Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-21T11:22:15.886Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "2 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "1 static command issue found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Documented command references missing package script \"lint\".",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

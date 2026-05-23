@@ -64,7 +64,70 @@ Why this is not first:
 
 Only use this if the user explicitly approves an exception or maintainers invite follow-up.
 
-### 3. Verification-Guidance Drafts
+### 3. `smithery-ai/cli`
+
+Status: concrete command drift candidate from the 2026-05-21 continuation mini-batch.
+
+Finding:
+
+- `CLAUDE.md` documents `pnpm run lint`.
+- The root `package.json` does not define a `lint` script.
+- The current root script list includes `check`, which runs `biome check`.
+
+Why this is eligible:
+
+- It is a concrete command drift finding.
+- A maintainer can verify it quickly from `CLAUDE.md` and root package scripts.
+
+Draft:
+
+```text
+I ran AgentFit in dry-run mode against this repository's coding-agent instructions.
+
+Command:
+agentfit eval --adapter dry-run --format markdown
+
+Finding:
+CLAUDE.md documents `pnpm run lint`, but the root package.json does not define a `lint` script. The current root script list includes `check`, which runs `biome check`.
+
+Why it may matter:
+Agents following the documented validation workflow may run a command that fails immediately.
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+```
+
+### 4. `OpenCoworkAI/open-codesign`
+
+Status: concrete command drift candidate from the 2026-05-21 continuation mini-batch.
+
+Finding:
+
+- `AGENTS.md` and `CLAUDE.md` document `pnpm test:e2e`.
+- The checked package scripts do not define `test:e2e`.
+
+Why this is eligible:
+
+- It is a concrete command drift finding.
+- The report also contains broader nested-scope and safety findings, but maintainer contact should mention only the stale command.
+
+Draft:
+
+```text
+I ran AgentFit in dry-run mode against this repository's coding-agent instructions.
+
+Command:
+agentfit eval --adapter dry-run --format markdown
+
+Finding:
+AGENTS.md and CLAUDE.md document `pnpm test:e2e`, but the checked package scripts do not define a `test:e2e` script.
+
+Why it may matter:
+Agents following the documented verification workflow may run a command that fails immediately.
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+```
+
+### 5. Verification-Guidance Drafts
 
 Status: keep local for now.
 
@@ -77,6 +140,7 @@ Repositories:
 - `econ-ark/HARK`
 - `IOBR/IOBR`
 - `percona/psmdb-docs`
+- `netresearch/composer-patches-plugin`
 
 Common finding:
 
@@ -93,5 +157,5 @@ The serious next move is:
 
 1. Post the public preview ask.
 2. Wait for repo suggestions or explicit report-sanity-check interest.
-3. If maintainer outreach is approved, start with `eggjs/egg`.
+3. If maintainer outreach is approved, start with one concrete command drift candidate such as `eggjs/egg`, `smithery-ai/cli`, or `OpenCoworkAI/open-codesign`.
 4. Keep all verification-guidance drafts local until there is a stronger signal that this feedback is welcome.

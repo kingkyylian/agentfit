@@ -40,6 +40,12 @@ function requirePackedFile(filesByPath, filePath) {
   return file;
 }
 
+function forbidPackedFile(filesByPath, filePath) {
+  if (filesByPath.has(filePath)) {
+    fail(`Packed tarball unexpectedly includes local-only file ${filePath}.`);
+  }
+}
+
 try {
   const builtCliPath = path.join(repoRoot, 'dist/index.js');
   if (!existsSync(builtCliPath)) {
@@ -75,6 +81,14 @@ try {
   requirePackedFile(filesByPath, 'action.yml');
   requirePackedFile(filesByPath, 'docs/assets/agentfit-terminal-demo.svg');
   requirePackedFile(filesByPath, 'docs/assets/social-preview.svg');
+  for (const filePath of filesByPath.keys()) {
+    if (filePath.startsWith('docs/local/')) {
+      fail(`Packed tarball unexpectedly includes local-only file ${filePath}.`);
+    }
+  }
+  forbidPackedFile(filesByPath, 'docs/public-preview-issue-9-refresh-2026-05-23.md');
+  forbidPackedFile(filesByPath, 'docs/public-preview-issue-9-refresh-2026-05-23.txt');
+  forbidPackedFile(filesByPath, 'scripts/issue9-refresh-preflight.mjs');
   requirePackedFile(filesByPath, 'examples/corpus/README.md');
   requirePackedFile(filesByPath, 'examples/corpus/real-world-candidates.yml');
   requirePackedFile(filesByPath, 'examples/fixtures/nested-monorepo/bad/AGENTS.md');
@@ -129,7 +143,12 @@ try {
   ], {
     cwd: tempDir
   });
-  if (!corpusOutput.includes('Real-world corpus: 30 candidates')) {
+  const bundledManifest = readFileSync(
+    path.join(extractedPackageDir, 'examples/corpus/real-world-candidates.yml'),
+    'utf8'
+  );
+  const bundledCandidateCount = bundledManifest.match(/^ {2}- repo:/gm)?.length ?? 0;
+  if (!corpusOutput.includes(`Real-world corpus: ${bundledCandidateCount} candidates`)) {
     fail('Packed CLI corpus command did not read the bundled manifest.');
   }
 

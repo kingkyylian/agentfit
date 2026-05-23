@@ -10,6 +10,10 @@ Use [real-world-validation.md](real-world-validation.md) when adding more snapsh
 
 The 2026-05-18 sprint added thirty local dry-run snapshots from the metadata corpus. Fifteen are healthy internal baselines, nine have actionable instruction gaps that require local drafts before any maintainer contact, five were reviewed without contact, and one is a low-signal unsupported snapshot.
 
+The 2026-05-21 public preview continuation mini-batch added four self-discovered dry-run snapshots after issue `#9` had no external suggestions yet. One is a healthy internal baseline, two are actionable local drafts, and one is a reviewed no-contact monorepo snapshot.
+
+The 2026-05-22 public preview continuation mini-batch added three GitHub-code-search dry-run snapshots after issue `#9` still had no external suggestions. Two are reviewed no-contact monorepo snapshots, and one is an actionable local verification-guidance draft.
+
 ## Latest Validation Sprint
 
 The 2026-05-18 metadata-corpus sprint completed the 30-candidate queue and produced:
@@ -22,7 +26,14 @@ The 2026-05-18 metadata-corpus sprint completed the 30-candidate queue and produ
 - 0 unresolved noisy AgentFit reports
 - 3 AgentFit product fixes from corpus runs
 
-All 2026-05-18 runs were local dry runs. They did not call model providers, execute generated tasks, run real agent adapters, or open maintainer issues.
+The current corpus manifest now tracks 37 reviewed candidates after the 2026-05-22 continuation mini-batch:
+
+- 16 healthy internal baselines
+- 12 actionable local maintainer-contact drafts
+- 8 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+
+All corpus runs were local dry runs. They did not call model providers, execute generated tasks, run real agent adapters, or open maintainer issues.
 
 Do not publish named healthy examples without asking permission first. Use [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md), [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md), and [internal-launch-validation-summary-2026-05-19.md](internal-launch-validation-summary-2026-05-19.md) for launch planning.
 
@@ -79,6 +90,13 @@ That earlier sprint also found AgentFit false positives, including optional alia
 - [hash.md](../examples/reports/real-world/hash.md)
 - [egg.md](../examples/reports/real-world/egg.md)
 - [erigon.md](../examples/reports/real-world/erigon.md)
+- [supabase-agent-skills.md](../examples/reports/real-world/supabase-agent-skills.md)
+- [multica.md](../examples/reports/real-world/multica.md)
+- [smithery-cli.md](../examples/reports/real-world/smithery-cli.md)
+- [open-codesign.md](../examples/reports/real-world/open-codesign.md)
+- [nuqs.md](../examples/reports/real-world/nuqs.md)
+- [tinyhttp.md](../examples/reports/real-world/tinyhttp.md)
+- [composer-patches-plugin.md](../examples/reports/real-world/composer-patches-plugin.md)
 
 ## Reproduce
 

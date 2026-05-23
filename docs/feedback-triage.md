@@ -94,11 +94,24 @@ For public preview copy, prefer aggregate counts:
 Track the first five external signals before broad launch:
 
 ```text
-1.
-2.
-3.
-4.
-5.
+Status as of 2026-05-23 15:01 +03: 0/5 external signals.
+
+Issue #9 is open and was refreshed on 2026-05-23 with the 37-candidate
+corpus status:
+https://github.com/kingkyylian/agentfit/issues/9#issuecomment-4525279626
+
+That refresh is funnel maintenance and does not count as an external signal. The
+issue still has not received an external repo suggestion, report sanity-check
+request, permission response, maintainer reply, or other outside feedback path.
+GitHub Discussions are still disabled.
+
+See docs/public-preview-execution-log.md for the running public-preview ledger.
+
+1. pending
+2. pending
+3. pending
+4. pending
+5. pending
 ```
 
 After five signals, re-evaluate the launch gate in [launch.md](launch.md):

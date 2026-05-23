@@ -1,0 +1,377 @@
+{
+  "score": 78,
+  "grade": "C",
+  "summary": "2 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 3895,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm",
+          "sourcePath": "AGENTS.md",
+          "line": 38,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm build",
+          "sourcePath": "AGENTS.md",
+          "line": 39,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 40,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm dev --filter <package-name>...",
+          "sourcePath": "AGENTS.md",
+          "line": 41,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 96,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "packages/docs",
+      "message": "No nested instruction file found for packages/docs.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/e2e",
+      "message": "No nested instruction file found for packages/e2e.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/examples",
+      "message": "No nested instruction file found for packages/examples.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/nuqs",
+      "message": "No nested instruction file found for packages/nuqs.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/res",
+      "message": "No nested instruction file found for packages/res.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/scripts",
+      "message": "No nested instruction file found for packages/scripts.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm build",
+      "sourcePath": "AGENTS.md",
+      "line": 39,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 40,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 96,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 39,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 40,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 96,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-knip",
+      "title": "Exercise the lint:knip package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:knip script passing. Run pnpm run lint:knip and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:knip"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-prettier",
+      "title": "Exercise the lint:prettier package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:prettier script passing. Run pnpm run lint:prettier and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:prettier"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-sherif",
+      "title": "Exercise the lint:sherif package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:sherif script passing. Run pnpm run lint:sherif and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:sherif"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-22T14:33:18.481Z",
+      "finishedAt": "2026-05-22T14:33:18.481Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-knip",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-knip",
+        "title": "Exercise the lint:knip package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:knip script passing. Run pnpm run lint:knip and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:knip"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-22T14:33:18.481Z",
+      "finishedAt": "2026-05-22T14:33:18.481Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-prettier",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-prettier",
+        "title": "Exercise the lint:prettier package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:prettier script passing. Run pnpm run lint:prettier and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:prettier"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-22T14:33:18.481Z",
+      "finishedAt": "2026-05-22T14:33:18.481Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-sherif",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-sherif",
+        "title": "Exercise the lint:sherif package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:sherif script passing. Run pnpm run lint:sherif and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:sherif"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-22T14:33:18.481Z",
+      "finishedAt": "2026-05-22T14:33:18.481Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-22T14:33:18.481Z",
+      "finishedAt": "2026-05-22T14:33:18.481Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-22T14:33:18.481Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "1 instruction file discovered; 6 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "6 nested scopes do not have local instruction files.",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

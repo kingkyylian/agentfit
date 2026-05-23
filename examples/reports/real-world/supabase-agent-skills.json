@@ -1,0 +1,471 @@
+{
+  "score": 83,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 6136,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install                     # Install dependencies",
+          "sourcePath": "AGENTS.md",
+          "line": 27,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm test                        # Run tests",
+          "sourcePath": "AGENTS.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "AGENTS.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm install",
+          "sourcePath": "AGENTS.md",
+          "line": 11,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "AGENTS.md",
+          "line": 24,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 31,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 59,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 6136,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm install                     # Install dependencies",
+          "sourcePath": "CLAUDE.md",
+          "line": 27,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm test                        # Run tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 28,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 9,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm install",
+          "sourcePath": "CLAUDE.md",
+          "line": 11,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 24,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 31,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 59,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [],
+  "commandResolutions": [
+    {
+      "command": "pnpm test                        # Run tests",
+      "sourcePath": "AGENTS.md",
+      "line": 28,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 31,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 59,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test                        # Run tests",
+      "sourcePath": "CLAUDE.md",
+      "line": 28,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 31,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 59,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 11,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 27,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 28,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 31,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 59,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 11,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 27,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 28,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 31,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 59,
+      "message": "Test command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "fallback-readme-wording",
+      "title": "Make a harmless README wording change and run verification",
+      "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "README.md"
+      ]
+    },
+    {
+      "id": "script-build-release",
+      "title": "Exercise the build:release package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build:release script passing. Run pnpm run build:release and report the result.",
+      "expectedChecks": [
+        "pnpm run build:release"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test-sanity",
+      "title": "Exercise the test:sanity package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test:sanity script passing. Run pnpm run test:sanity and report the result.",
+      "expectedChecks": [
+        "pnpm run test:sanity"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "test-sanity-test",
+      "title": "Make a safe change covered by test/sanity.test.ts",
+      "prompt": "Inspect test/sanity.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "test/sanity.test.ts"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-fallback-readme-wording",
+      "adapter": "dry-run",
+      "task": {
+        "id": "fallback-readme-wording",
+        "title": "Make a harmless README wording change and run verification",
+        "prompt": "Make a small wording-only README improvement, then run the configured verification command.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "README.md"
+        ]
+      },
+      "startedAt": "2026-05-21T10:47:59.359Z",
+      "finishedAt": "2026-05-21T10:47:59.359Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-build-release",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build-release",
+        "title": "Exercise the build:release package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build:release script passing. Run pnpm run build:release and report the result.",
+        "expectedChecks": [
+          "pnpm run build:release"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:47:59.359Z",
+      "finishedAt": "2026-05-21T10:47:59.359Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:47:59.359Z",
+      "finishedAt": "2026-05-21T10:47:59.359Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test-sanity",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test-sanity",
+        "title": "Exercise the test:sanity package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test:sanity script passing. Run pnpm run test:sanity and report the result.",
+        "expectedChecks": [
+          "pnpm run test:sanity"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:47:59.359Z",
+      "finishedAt": "2026-05-21T10:47:59.359Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-test-sanity-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "test-sanity-test",
+        "title": "Make a safe change covered by test/sanity.test.ts",
+        "prompt": "Inspect test/sanity.test.ts, make a tiny behavior-preserving improvement nearby, and run the relevant test command.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "test/sanity.test.ts"
+        ]
+      },
+      "startedAt": "2026-05-21T10:47:59.359Z",
+      "finishedAt": "2026-05-21T10:47:59.359Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-21T10:47:59.359Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 20,
+      "max": 20,
+      "explanation": "2 instruction files discovered."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 20/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

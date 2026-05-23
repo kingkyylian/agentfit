@@ -1,0 +1,18 @@
+Update while this stays open: I ran one more dry-run-only continuation pass while waiting for external suggestions.
+
+Current local corpus manifest:
+- 37 reviewed public candidates
+- 16 healthy internal baselines
+- 12 actionable local drafts
+- 8 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+
+The latest continuation added three public-code-search candidates:
+- two reviewed no-contact monorepo snapshots
+- one local verification-guidance draft
+
+I have not contacted those maintainers; they remain local-only unless outreach is explicitly approved.
+
+I am still looking for public repos that already use AGENTS.md, CLAUDE.md, GEMINI.md, Cursor rules, Copilot instructions, or similar coding-agent guidance. Repo URL plus any sensitive paths to avoid is enough.
+
+Dry-run policy remains unchanged: no model-provider calls, no generated task execution, no endorsement implied, and noisy reports become AgentFit product issues instead of maintainer outreach.

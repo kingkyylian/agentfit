@@ -716,8 +716,13 @@ describe('agentfit cli', () => {
     ]);
 
     const text = await readFile(join(root, 'reports/corpus.txt'), 'utf8');
+    const manifest = await readFile(
+      join(process.cwd(), 'examples/corpus/real-world-candidates.yml'),
+      'utf8'
+    );
+    const bundledCount = manifest.match(/^ {2}- repo:/gm)?.length ?? 0;
 
-    expect(text).toContain('Real-world corpus: 30 candidates');
+    expect(text).toContain(`Real-world corpus: ${bundledCount} candidates`);
     expect(text).toContain('1. meltano/meltano [healthy]');
   });
 });

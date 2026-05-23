@@ -1,5 +1,5 @@
 version: 1
-updatedAt: '2026-05-18'
+updatedAt: '2026-05-22'
 policy:
   contentUse: Store metadata and report links only; do not vendor public instruction-file bodies.
   execution: Dry-run snapshots first; generated tasks require explicit local review.
@@ -415,3 +415,98 @@ candidates:
     contactPolicy: no contact for LFS-caveat safety-only snapshot; permission before public named use
     reportPath: examples/reports/real-world/erigon.md
     commit: '30954c9'
+  - repo: supabase/agent-skills
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: 'web search: site:github.com "AGENTS.md" "pnpm" "Repository"'
+    stack: TypeScript
+    shape: agent skills repository
+    recentActivity: active on 2026-05-21 scan
+    licenseStatus: unverified
+    status: healthy
+    expectedSignal: compact pnpm command guidance and symlinked instruction discovery
+    contactPolicy: no contact for broad safety-only signal; permission before public named use
+    reportPath: examples/reports/real-world/supabase-agent-skills.md
+    commit: 'a5648b6'
+  - repo: multica-ai/multica
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: 'web search: site:github.com "AGENTS.md" "pnpm" "Repository"'
+    stack: Go/TypeScript
+    shape: AI-native task management monorepo
+    recentActivity: active on 2026-05-21 scan
+    licenseStatus: unverified
+    status: snapshotted
+    expectedSignal: large monorepo command and nested scope signal
+    contactPolicy: no contact for broad nested-scope-only signal
+    reportPath: examples/reports/real-world/multica.md
+    commit: 'cb90249'
+  - repo: smithery-ai/cli
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: 'web search: site:github.com "AGENTS.md" "pnpm run" "package.json" "CLAUDE.md"'
+    stack: TypeScript
+    shape: CLI repository
+    recentActivity: active on 2026-05-21 scan
+    licenseStatus: unverified
+    status: actionable
+    expectedSignal: CLI command freshness signal
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/smithery-cli.md
+    commit: '87e196c'
+  - repo: OpenCoworkAI/open-codesign
+    instructionSources:
+      - AGENTS.md
+      - CLAUDE.md
+    searchQuery: 'web search: site:github.com "AGENTS.md" "pnpm run" "package.json" "CLAUDE.md"'
+    stack: TypeScript
+    shape: desktop and package monorepo
+    recentActivity: active on 2026-05-21 scan
+    licenseStatus: unverified
+    status: actionable
+    expectedSignal: monorepo command freshness and scope signal
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/open-codesign.md
+    commit: '8efd7e3'
+  - repo: 47ng/nuqs
+    instructionSources:
+      - AGENTS.md
+    searchQuery: 'gh search code pnpm --filename AGENTS.md'
+    stack: TypeScript
+    shape: package monorepo
+    recentActivity: active on 2026-05-22 scan
+    licenseStatus: unverified
+    status: snapshotted
+    expectedSignal: high-visibility TypeScript monorepo command and nested-scope signal
+    contactPolicy: no contact for broad nested-scope and safety-only signal
+    reportPath: examples/reports/real-world/nuqs.md
+    commit: '0f51d0b'
+  - repo: tinyhttp/tinyhttp
+    instructionSources:
+      - CLAUDE.md
+    searchQuery: 'gh search code "run tests" --filename CLAUDE.md'
+    stack: TypeScript
+    shape: package monorepo
+    recentActivity: active on 2026-05-22 scan
+    licenseStatus: unverified
+    status: snapshotted
+    expectedSignal: TypeScript package command and nested-scope signal
+    contactPolicy: no contact for broad nested-scope and safety-only signal
+    reportPath: examples/reports/real-world/tinyhttp.md
+    commit: '707168f'
+  - repo: netresearch/composer-patches-plugin
+    instructionSources:
+      - copilot-instructions.md
+    searchQuery: 'gh search code test --filename copilot-instructions.md'
+    stack: PHP
+    shape: Composer plugin repository
+    recentActivity: active on 2026-05-22 scan
+    licenseStatus: unverified
+    status: actionable
+    expectedSignal: Copilot instruction verification guidance signal
+    contactPolicy: draft locally before any maintainer contact
+    reportPath: examples/reports/real-world/composer-patches-plugin.md
+    commit: '013e998'

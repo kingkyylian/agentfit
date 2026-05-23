@@ -1,0 +1,636 @@
+{
+  "score": 70,
+  "grade": "C",
+  "summary": "3 failed checks found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 15134,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm i",
+          "sourcePath": "AGENTS.md",
+          "line": 184,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm dev",
+          "sourcePath": "AGENTS.md",
+          "line": 185,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "AGENTS.md",
+          "line": 186,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test:e2e",
+          "sourcePath": "AGENTS.md",
+          "line": 187,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm lint",
+          "sourcePath": "AGENTS.md",
+          "line": 188,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm typecheck",
+          "sourcePath": "AGENTS.md",
+          "line": 189,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm build",
+          "sourcePath": "AGENTS.md",
+          "line": 190,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm changeset",
+          "sourcePath": "AGENTS.md",
+          "line": 191,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "AGENTS.md",
+          "line": 107,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm",
+          "sourcePath": "AGENTS.md",
+          "line": 107,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn",
+          "sourcePath": "AGENTS.md",
+          "line": 107,
+          "kind": "unknown"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 7441,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "pnpm i                  # install (uses Corepack-pinned pnpm)",
+          "sourcePath": "CLAUDE.md",
+          "line": 93,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm dev                # start Electron + Vite renderer",
+          "sourcePath": "CLAUDE.md",
+          "line": 94,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm test               # vitest watch",
+          "sourcePath": "CLAUDE.md",
+          "line": 95,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test:e2e           # playwright",
+          "sourcePath": "CLAUDE.md",
+          "line": 96,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm lint               # biome check",
+          "sourcePath": "CLAUDE.md",
+          "line": 97,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm typecheck          # tsc --noEmit across workspace",
+          "sourcePath": "CLAUDE.md",
+          "line": 98,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm build              # produce signed Mac/Win installers",
+          "sourcePath": "CLAUDE.md",
+          "line": 99,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm changeset          # record a release-worthy change",
+          "sourcePath": "CLAUDE.md",
+          "line": 100,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm",
+          "sourcePath": "CLAUDE.md",
+          "line": 26,
+          "kind": "unknown"
+        },
+        {
+          "value": "npm",
+          "sourcePath": "CLAUDE.md",
+          "line": 26,
+          "kind": "unknown"
+        },
+        {
+          "value": "yarn",
+          "sourcePath": "CLAUDE.md",
+          "line": 26,
+          "kind": "unknown"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "command",
+      "sourcePath": "AGENTS.md",
+      "message": "Documented command references missing package script \"test:e2e\".",
+      "severity": "error"
+    },
+    {
+      "category": "command",
+      "sourcePath": "CLAUDE.md",
+      "message": "Documented command references missing package script \"test:e2e\".",
+      "severity": "error"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/desktop",
+      "message": "No nested instruction file found for apps/desktop.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/artifacts",
+      "message": "No nested instruction file found for packages/artifacts.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/core",
+      "message": "No nested instruction file found for packages/core.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/exporters",
+      "message": "No nested instruction file found for packages/exporters.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/i18n",
+      "message": "No nested instruction file found for packages/i18n.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/providers",
+      "message": "No nested instruction file found for packages/providers.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/runtime",
+      "message": "No nested instruction file found for packages/runtime.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/shared",
+      "message": "No nested instruction file found for packages/shared.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/templates",
+      "message": "No nested instruction file found for packages/templates.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/ui",
+      "message": "No nested instruction file found for packages/ui.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm test",
+      "sourcePath": "AGENTS.md",
+      "line": 186,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test:e2e",
+      "sourcePath": "AGENTS.md",
+      "line": 187,
+      "scriptName": "test:e2e",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint",
+      "sourcePath": "AGENTS.md",
+      "line": 188,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm typecheck",
+      "sourcePath": "AGENTS.md",
+      "line": 189,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build",
+      "sourcePath": "AGENTS.md",
+      "line": 190,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test               # vitest watch",
+      "sourcePath": "CLAUDE.md",
+      "line": 95,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test:e2e           # playwright",
+      "sourcePath": "CLAUDE.md",
+      "line": 96,
+      "scriptName": "test:e2e",
+      "packageJsonPath": "package.json",
+      "status": "missing",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint               # biome check",
+      "sourcePath": "CLAUDE.md",
+      "line": 97,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm typecheck          # tsc --noEmit across workspace",
+      "sourcePath": "CLAUDE.md",
+      "line": 98,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build              # produce signed Mac/Win installers",
+      "sourcePath": "CLAUDE.md",
+      "line": 99,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 186,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 187,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 189,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 190,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 93,
+      "message": "Deterministic or reproducible workflow guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 93,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 95,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 96,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 97,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 98,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 99,
+      "message": "Build command guidance."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+      "expectedChecks": [
+        "pnpm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint-fix",
+      "title": "Exercise the lint:fix package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+      "expectedChecks": [
+        "pnpm run lint:fix"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-typecheck",
+      "title": "Exercise the typecheck package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+      "expectedChecks": [
+        "pnpm run typecheck"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+        "expectedChecks": [
+          "pnpm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:42.936Z",
+      "finishedAt": "2026-05-21T11:22:42.936Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:42.936Z",
+      "finishedAt": "2026-05-21T11:22:42.936Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint-fix",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint-fix",
+        "title": "Exercise the lint:fix package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint:fix script passing. Run pnpm run lint:fix and report the result.",
+        "expectedChecks": [
+          "pnpm run lint:fix"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:42.936Z",
+      "finishedAt": "2026-05-21T11:22:42.936Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:42.936Z",
+      "finishedAt": "2026-05-21T11:22:42.936Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-typecheck",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-typecheck",
+        "title": "Exercise the typecheck package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+        "expectedChecks": [
+          "pnpm run typecheck"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T11:22:42.936Z",
+      "finishedAt": "2026-05-21T11:22:42.936Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-21T11:22:42.937Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "2 instruction files discovered; 10 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 0,
+      "max": 15,
+      "explanation": "2 static command issues found."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 0,
+      "max": 10,
+      "explanation": "Safety guardrails were not found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "10 nested scopes do not have local instruction files.",
+    "Documented command references missing package script \"test:e2e\".",
+    "Safety guardrails were not found."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 0/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 0/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

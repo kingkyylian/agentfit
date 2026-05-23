@@ -1,0 +1,904 @@
+{
+  "score": 88,
+  "grade": "B",
+  "summary": "1 failed check found.",
+  "instructionFiles": [
+    {
+      "path": "AGENTS.md",
+      "scope": ".",
+      "kind": "agents",
+      "bytes": 1892,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make dev              # Auto-setup + start everything",
+          "sourcePath": "AGENTS.md",
+          "line": 40,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm typecheck        # TypeScript check",
+          "sourcePath": "AGENTS.md",
+          "line": 41,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test             # TS unit tests (Vitest)",
+          "sourcePath": "AGENTS.md",
+          "line": 42,
+          "kind": "test"
+        },
+        {
+          "value": "make test             # Go tests",
+          "sourcePath": "AGENTS.md",
+          "line": 43,
+          "kind": "test"
+        },
+        {
+          "value": "make check            # Full verification pipeline",
+          "sourcePath": "AGENTS.md",
+          "line": 44,
+          "kind": "test"
+        }
+      ]
+    },
+    {
+      "path": "CLAUDE.md",
+      "scope": ".",
+      "kind": "claude",
+      "bytes": 25177,
+      "importedPaths": [],
+      "commands": [
+        {
+          "value": "make dev              # Auto-creates env, installs deps, starts DB, migrates, launches app",
+          "sourcePath": "CLAUDE.md",
+          "line": 76,
+          "kind": "unknown"
+        },
+        {
+          "value": "make setup            # First-time: ensure shared DB, create app DB, migrate",
+          "sourcePath": "CLAUDE.md",
+          "line": 79,
+          "kind": "setup"
+        },
+        {
+          "value": "make start            # Start backend + frontend together",
+          "sourcePath": "CLAUDE.md",
+          "line": 80,
+          "kind": "unknown"
+        },
+        {
+          "value": "make stop             # Stop app processes for the current checkout",
+          "sourcePath": "CLAUDE.md",
+          "line": 81,
+          "kind": "unknown"
+        },
+        {
+          "value": "make db-down          # Stop the shared PostgreSQL container",
+          "sourcePath": "CLAUDE.md",
+          "line": 82,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm install",
+          "sourcePath": "CLAUDE.md",
+          "line": 85,
+          "kind": "setup"
+        },
+        {
+          "value": "pnpm dev:web          # Next.js dev server (port 3000)",
+          "sourcePath": "CLAUDE.md",
+          "line": 86,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm dev:desktop      # Electron dev (electron-vite, HMR)",
+          "sourcePath": "CLAUDE.md",
+          "line": 87,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm build            # Build all frontend apps",
+          "sourcePath": "CLAUDE.md",
+          "line": 88,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm typecheck        # TypeScript check (all packages + apps via turbo)",
+          "sourcePath": "CLAUDE.md",
+          "line": 89,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm lint             # ESLint",
+          "sourcePath": "CLAUDE.md",
+          "line": 90,
+          "kind": "lint"
+        },
+        {
+          "value": "pnpm test             # TS tests (Vitest, all packages + apps via turbo)",
+          "sourcePath": "CLAUDE.md",
+          "line": 91,
+          "kind": "test"
+        },
+        {
+          "value": "make server           # Run Go server only (port 8080)",
+          "sourcePath": "CLAUDE.md",
+          "line": 94,
+          "kind": "unknown"
+        },
+        {
+          "value": "make daemon           # Run local daemon",
+          "sourcePath": "CLAUDE.md",
+          "line": 95,
+          "kind": "unknown"
+        },
+        {
+          "value": "make build            # Build server + CLI binaries to server/bin/",
+          "sourcePath": "CLAUDE.md",
+          "line": 96,
+          "kind": "build"
+        },
+        {
+          "value": "make cli ARGS=\"...\"   # Run multica CLI (e.g. make cli ARGS=\"config\")",
+          "sourcePath": "CLAUDE.md",
+          "line": 97,
+          "kind": "unknown"
+        },
+        {
+          "value": "make test             # Go tests",
+          "sourcePath": "CLAUDE.md",
+          "line": 98,
+          "kind": "test"
+        },
+        {
+          "value": "make sqlc             # Regenerate sqlc code after editing SQL in server/pkg/db/queries/",
+          "sourcePath": "CLAUDE.md",
+          "line": 99,
+          "kind": "unknown"
+        },
+        {
+          "value": "make migrate-up       # Run database migrations",
+          "sourcePath": "CLAUDE.md",
+          "line": 100,
+          "kind": "unknown"
+        },
+        {
+          "value": "make migrate-down     # Rollback migrations",
+          "sourcePath": "CLAUDE.md",
+          "line": 101,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm --filter @multica/views exec vitest run auth/login-page.test.tsx",
+          "sourcePath": "CLAUDE.md",
+          "line": 104,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter @multica/core exec vitest run runtimes/version.test.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 105,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter @multica/web exec vitest run app/\\(auth\\)/login/page.test.tsx",
+          "sourcePath": "CLAUDE.md",
+          "line": 106,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm exec playwright test e2e/tests/specific-test.spec.ts",
+          "sourcePath": "CLAUDE.md",
+          "line": 112,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm --filter @multica/desktop build      # Compile TS → JS (reads .env.production)",
+          "sourcePath": "CLAUDE.md",
+          "line": 115,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm --filter @multica/desktop package    # Package into .app/.dmg/.exe (current platform only)",
+          "sourcePath": "CLAUDE.md",
+          "line": 116,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm ui:add badge                # Adds component to packages/ui/components/ui/",
+          "sourcePath": "CLAUDE.md",
+          "line": 119,
+          "kind": "unknown"
+        },
+        {
+          "value": "make db-up            # Start shared PostgreSQL (pgvector/pg17 image)",
+          "sourcePath": "CLAUDE.md",
+          "line": 122,
+          "kind": "unknown"
+        },
+        {
+          "value": "make db-down          # Stop shared PostgreSQL",
+          "sourcePath": "CLAUDE.md",
+          "line": 123,
+          "kind": "unknown"
+        },
+        {
+          "value": "make db-reset         # Drop + recreate current env's DB, then re-run migrations (local only; stop backend first)",
+          "sourcePath": "CLAUDE.md",
+          "line": 124,
+          "kind": "unknown"
+        },
+        {
+          "value": "make worktree-env       # Generate .env.worktree with unique DB/ports",
+          "sourcePath": "CLAUDE.md",
+          "line": 138,
+          "kind": "unknown"
+        },
+        {
+          "value": "make setup-worktree     # Setup using .env.worktree",
+          "sourcePath": "CLAUDE.md",
+          "line": 139,
+          "kind": "setup"
+        },
+        {
+          "value": "make start-worktree     # Start using .env.worktree",
+          "sourcePath": "CLAUDE.md",
+          "line": 140,
+          "kind": "unknown"
+        },
+        {
+          "value": "make check    # Runs all checks: typecheck, unit tests, Go tests, E2E",
+          "sourcePath": "CLAUDE.md",
+          "line": 344,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm typecheck        # TypeScript type errors only",
+          "sourcePath": "CLAUDE.md",
+          "line": 351,
+          "kind": "build"
+        },
+        {
+          "value": "pnpm test             # TS unit tests only (Vitest, all packages)",
+          "sourcePath": "CLAUDE.md",
+          "line": 352,
+          "kind": "test"
+        },
+        {
+          "value": "make test             # Go tests only",
+          "sourcePath": "CLAUDE.md",
+          "line": 353,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm exec playwright test   # E2E only (requires backend + frontend running)",
+          "sourcePath": "CLAUDE.md",
+          "line": 354,
+          "kind": "test"
+        },
+        {
+          "value": "make check",
+          "sourcePath": "CLAUDE.md",
+          "line": 362,
+          "kind": "test"
+        },
+        {
+          "value": "make dev",
+          "sourcePath": "CLAUDE.md",
+          "line": 135,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm generate:reserved-slugs",
+          "sourcePath": "CLAUDE.md",
+          "line": 154,
+          "kind": "unknown"
+        },
+        {
+          "value": "pnpm ui:add <component>",
+          "sourcePath": "CLAUDE.md",
+          "line": 262,
+          "kind": "unknown"
+        },
+        {
+          "value": "go test",
+          "sourcePath": "CLAUDE.md",
+          "line": 289,
+          "kind": "test"
+        },
+        {
+          "value": "pnpm test",
+          "sourcePath": "CLAUDE.md",
+          "line": 304,
+          "kind": "test"
+        },
+        {
+          "value": "go test",
+          "sourcePath": "CLAUDE.md",
+          "line": 309,
+          "kind": "test"
+        },
+        {
+          "value": "make check",
+          "sourcePath": "CLAUDE.md",
+          "line": 367,
+          "kind": "test"
+        },
+        {
+          "value": "make check",
+          "sourcePath": "CLAUDE.md",
+          "line": 372,
+          "kind": "test"
+        }
+      ]
+    }
+  ],
+  "referenceIssues": [],
+  "staticIssues": [
+    {
+      "category": "scope",
+      "sourcePath": "apps/desktop",
+      "message": "No nested instruction file found for apps/desktop.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/docs",
+      "message": "No nested instruction file found for apps/docs.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "apps/web",
+      "message": "No nested instruction file found for apps/web.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/core",
+      "message": "No nested instruction file found for packages/core.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/eslint-config",
+      "message": "No nested instruction file found for packages/eslint-config.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/tsconfig",
+      "message": "No nested instruction file found for packages/tsconfig.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/ui",
+      "message": "No nested instruction file found for packages/ui.",
+      "severity": "warning"
+    },
+    {
+      "category": "scope",
+      "sourcePath": "packages/views",
+      "message": "No nested instruction file found for packages/views.",
+      "severity": "warning"
+    }
+  ],
+  "commandResolutions": [
+    {
+      "command": "pnpm typecheck        # TypeScript check",
+      "sourcePath": "AGENTS.md",
+      "line": 41,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test             # TS unit tests (Vitest)",
+      "sourcePath": "AGENTS.md",
+      "line": 42,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm --filter @multica/desktop build      # Compile TS → JS (reads .env.production)",
+      "sourcePath": "CLAUDE.md",
+      "line": 115,
+      "scriptName": "build",
+      "packageJsonPath": "apps/desktop/package.json",
+      "status": "resolved",
+      "reason": "package-manager filter"
+    },
+    {
+      "command": "pnpm test",
+      "sourcePath": "CLAUDE.md",
+      "line": 304,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm typecheck        # TypeScript type errors only",
+      "sourcePath": "CLAUDE.md",
+      "line": 351,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test             # TS unit tests only (Vitest, all packages)",
+      "sourcePath": "CLAUDE.md",
+      "line": 352,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm build            # Build all frontend apps",
+      "sourcePath": "CLAUDE.md",
+      "line": 88,
+      "scriptName": "build",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm typecheck        # TypeScript check (all packages + apps via turbo)",
+      "sourcePath": "CLAUDE.md",
+      "line": 89,
+      "scriptName": "typecheck",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm lint             # ESLint",
+      "sourcePath": "CLAUDE.md",
+      "line": 90,
+      "scriptName": "lint",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    },
+    {
+      "command": "pnpm test             # TS tests (Vitest, all packages + apps via turbo)",
+      "sourcePath": "CLAUDE.md",
+      "line": 91,
+      "scriptName": "test",
+      "packageJsonPath": "package.json",
+      "status": "resolved",
+      "reason": "repository root"
+    }
+  ],
+  "signalFindings": [
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 40,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 41,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 42,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 43,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "AGENTS.md",
+      "line": 44,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 104,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 105,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 106,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 112,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 115,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 139,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 289,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 304,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 309,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 344,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 351,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 352,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 353,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 354,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 362,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 367,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 372,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 79,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 85,
+      "message": "Setup command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 88,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 89,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 91,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 96,
+      "message": "Build command guidance."
+    },
+    {
+      "category": "reproducibility",
+      "sourcePath": "CLAUDE.md",
+      "line": 98,
+      "message": "Test command guidance."
+    },
+    {
+      "category": "safety",
+      "sourcePath": "CLAUDE.md",
+      "line": 219,
+      "message": "Do-not-run or do-not-expose boundary for risky actions."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "script-build",
+      "title": "Exercise the build package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+      "expectedChecks": [
+        "pnpm run build"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-clean",
+      "title": "Exercise the clean package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the clean script passing. Run pnpm run clean and report the result.",
+      "expectedChecks": [
+        "pnpm run clean"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-lint",
+      "title": "Exercise the lint package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+      "expectedChecks": [
+        "pnpm run lint"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-test",
+      "title": "Exercise the test package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+      "expectedChecks": [
+        "pnpm run test"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    },
+    {
+      "id": "script-typecheck",
+      "title": "Exercise the typecheck package script",
+      "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+      "expectedChecks": [
+        "pnpm run typecheck"
+      ],
+      "filesLikelyTouched": [
+        "package.json"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "id": "dry-run-script-build",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-build",
+        "title": "Exercise the build package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the build script passing. Run pnpm run build and report the result.",
+        "expectedChecks": [
+          "pnpm run build"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:48:08.581Z",
+      "finishedAt": "2026-05-21T10:48:08.581Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-clean",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-clean",
+        "title": "Exercise the clean package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the clean script passing. Run pnpm run clean and report the result.",
+        "expectedChecks": [
+          "pnpm run clean"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:48:08.581Z",
+      "finishedAt": "2026-05-21T10:48:08.581Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-lint",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-lint",
+        "title": "Exercise the lint package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the lint script passing. Run pnpm run lint and report the result.",
+        "expectedChecks": [
+          "pnpm run lint"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:48:08.581Z",
+      "finishedAt": "2026-05-21T10:48:08.581Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-test",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-test",
+        "title": "Exercise the test package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the test script passing. Run pnpm run test and report the result.",
+        "expectedChecks": [
+          "pnpm run test"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:48:08.581Z",
+      "finishedAt": "2026-05-21T10:48:08.581Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    },
+    {
+      "id": "dry-run-script-typecheck",
+      "adapter": "dry-run",
+      "task": {
+        "id": "script-typecheck",
+        "title": "Exercise the typecheck package script",
+        "prompt": "Make a minimal repository-appropriate change that should keep the typecheck script passing. Run pnpm run typecheck and report the result.",
+        "expectedChecks": [
+          "pnpm run typecheck"
+        ],
+        "filesLikelyTouched": [
+          "package.json"
+        ]
+      },
+      "startedAt": "2026-05-21T10:48:08.581Z",
+      "finishedAt": "2026-05-21T10:48:08.581Z",
+      "status": "passed",
+      "verification": [],
+      "diffStat": {
+        "filesChanged": 0,
+        "insertions": 0,
+        "deletions": 0
+      },
+      "message": "Deterministic dry-run completed. Re-run with --run-tasks to execute isolated worktree checks."
+    }
+  ],
+  "caps": [],
+  "generatedAt": "2026-05-21T10:48:08.581Z",
+  "breakdown": [
+    {
+      "id": "discoverability",
+      "label": "Instruction discoverability",
+      "earned": 15,
+      "max": 20,
+      "explanation": "2 instruction files discovered; 8 nested scope issues found."
+    },
+    {
+      "id": "command-freshness",
+      "label": "Command freshness",
+      "earned": 8,
+      "max": 15,
+      "explanation": "Commands were found but not executed."
+    },
+    {
+      "id": "reference-integrity",
+      "label": "Reference integrity",
+      "earned": 15,
+      "max": 15,
+      "explanation": "All instruction references resolve."
+    },
+    {
+      "id": "evaluation-pass-rate",
+      "label": "Evaluation pass rate",
+      "earned": 20,
+      "max": 20,
+      "explanation": "5 deterministic task previews generated; no tasks were executed."
+    },
+    {
+      "id": "diff-discipline",
+      "label": "Diff discipline",
+      "earned": 10,
+      "max": 10,
+      "explanation": "No task diffs were captured because runs were previews."
+    },
+    {
+      "id": "safety-guardrails",
+      "label": "Safety guardrails",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Safety guardrails found."
+    },
+    {
+      "id": "reproducibility",
+      "label": "Reproducibility",
+      "earned": 10,
+      "max": 10,
+      "explanation": "Reproducible setup and verification guidance found."
+    }
+  ],
+  "failedChecks": [
+    "8 nested scopes do not have local instruction files."
+  ],
+  "scoreExplanation": "Instruction discoverability: 15/20; Command freshness: 8/15; Reference integrity: 15/15; Evaluation pass rate: 20/20; Diff discipline: 10/10; Safety guardrails: 10/10; Reproducibility: 10/10",
+  "executionMode": "preview"
+}

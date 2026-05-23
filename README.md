@@ -88,9 +88,9 @@ Agent-aware repositories are becoming normal. The missing piece is regression te
 
 ## Real-World Validation
 
-AgentFit has 30 reviewed dry-run snapshots from public repositories that already publish coding-agent instructions. Dry-run mode did not call model providers or execute generated tasks.
+AgentFit's current corpus manifest tracks 37 reviewed dry-run candidates from public repositories that already publish coding-agent instructions. Dry-run mode did not call model providers or execute generated tasks.
 
-The latest corpus pass produced 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, and 1 unsupported low-signal snapshot. The clearest public finding was in RedisInsight: Cursor rules documented stale root E2E scripts. The maintainers requested a PR and merged the fix:
+The 30-candidate corpus pass produced 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, and 1 unsupported low-signal snapshot. Public-preview continuation passes added one healthy internal baseline, three actionable local drafts, and three reviewed no-contact monorepo snapshots. The clearest public finding was in RedisInsight: Cursor rules documented stale root E2E scripts. The maintainers requested a PR and merged the fix:
 
 - Issue: https://github.com/redis/RedisInsight/issues/5887
 - PR: https://github.com/redis/RedisInsight/pull/5889

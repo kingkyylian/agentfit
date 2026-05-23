@@ -16,19 +16,23 @@ The next milestone is not a broad launch. It is collecting five external repo su
 - Local full verification passed on 2026-05-19 for the `0.1.13` release.
 - AgentFit `0.1.13` is published to npm and `v1` points at the release commit.
 - Corpus workflow, 30-candidate validation artifacts, and the latest corpus-driven static-check fixes are available in the published package.
+- The current corpus manifest tracks 37 reviewed dry-run candidates after the 2026-05-21 and 2026-05-22 public-preview continuation mini-batches.
 - Manual `AgentFit Consumer Smoke` passed with `version: 0.1.13` after publish and `v1` retag.
 - Initial starter issues for snapshots, fixtures, adapter smoke tests, scoring signals, and demo assets are complete.
 - README includes a terminal demo asset at [assets/agentfit-terminal-demo.svg](assets/agentfit-terminal-demo.svg).
 - Social preview is configured from [assets/social-preview.svg](assets/social-preview.svg).
 - Launch copy and outreach templates live in [launch-outreach.md](launch-outreach.md).
 - Public preview feedback triage lives in [feedback-triage.md](feedback-triage.md).
+- Public preview execution log lives in [public-preview-execution-log.md](public-preview-execution-log.md).
 - Real-world validation workflow lives in [real-world-validation.md](real-world-validation.md).
 - Validation sprint log lives in [validation-sprint-2026-05-11.md](validation-sprint-2026-05-11.md): 20 dry-run snapshots, one upstream maintainer issue that became a merged PR, earlier AgentFit false-positive fixes, and command parser/discovery fixes carried into `0.1.13`.
 - The 30-candidate metadata corpus sprint is complete in [validation-sprint-2026-05-18.md](validation-sprint-2026-05-18.md): 30 reviewed dry-run snapshots, 15 healthy internal baselines, 9 actionable local drafts, 5 reviewed no-contact snapshots, 1 unsupported low-signal snapshot, and 3 product fixes from validation.
+- The 2026-05-21 continuation mini-batch is recorded in [real-world-validation.md](real-world-validation.md): one additional healthy internal baseline, two actionable local drafts, and one reviewed no-contact monorepo snapshot.
+- The 2026-05-22 continuation mini-batch is recorded in [real-world-validation.md](real-world-validation.md): two reviewed no-contact monorepo snapshots and one actionable verification-guidance local draft.
 - Public-preview copy lives in [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md).
 - Internal launch validation lives in [internal-launch-validation-summary-2026-05-19.md](internal-launch-validation-summary-2026-05-19.md).
 - Local maintainer outreach prioritization lives in [maintainer-outreach-shortlist-2026-05-19.md](maintainer-outreach-shortlist-2026-05-19.md).
-- Public repo suggestion funnel is open and labeled `help wanted`: https://github.com/kingkyylian/agentfit/issues/9
+- Public repo suggestion funnel is open and labeled `help wanted`: https://github.com/kingkyylian/agentfit/issues/9. It was refreshed on 2026-05-23 with the 37-candidate local corpus status in both the issue body and https://github.com/kingkyylian/agentfit/issues/9#issuecomment-4525279626. This is funnel maintenance only and does not count as an external signal.
 - GitHub Community feedback suggested exact public code-search queries; keep candidate discovery in [real-world-validation.md](real-world-validation.md) and contact maintainers only after concrete dry-run findings.
 
 ## 60-Second Demo
@@ -119,6 +123,7 @@ Do not run the broad launch post yet. The next public step is a preview ask for 
 - corpus command, 30-candidate bundled corpus, and latest corpus-driven command-scope fixes are available in `0.1.13`
 - a public repo-suggestion issue for low-pressure feedback: https://github.com/kingkyylian/agentfit/issues/9
 - the 30-candidate sprint counts from [public-preview-summary-2026-05-19.md](public-preview-summary-2026-05-19.md), without naming healthy repositories as endorsements
+- issue `#9` body and latest refresh comment now reflect the 37-candidate continuation state, but the external-signal counter remains `0/5`; broad launch still waits for outside feedback
 
 This does not require knowing anyone personally. It is a public request for repo suggestions and report sanity checks.
 

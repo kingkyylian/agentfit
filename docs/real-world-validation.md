@@ -205,6 +205,27 @@ This queue is mirrored in `examples/corpus/real-world-candidates.yml`. It is a d
 | `eggjs/egg` | `0dec2c9` | 80 | actionable | draft locally before any contact | AgentFit false positive fixed; remaining `pnpm run clean` command drift is concrete. |
 | `erigontech/erigon` | `30954c9` | 83 | healthy | no contact; permission before public named use | Large Go repo with LFS-safe checkout caveat; only broad safety guardrail gap. |
 
+## 2026-05-21 Public Preview Continuation Mini-Batch
+
+Issue `#9` had no external repo suggestions yet, so this pass used public web search as discovery input and kept the same dry-run-only triage policy. These are not endorsements. Actionable rows are local drafts only and require explicit approval before maintainer contact. After the pass, issue `#9` was refreshed with the 34-candidate corpus status.
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `supabase/agent-skills` | `a5648b6` | 83 | healthy | no contact; permission before public named use | Symlinked `AGENTS.md` and `CLAUDE.md` resolve pnpm test guidance; only broad safety guardrail gap. |
+| `multica-ai/multica` | `cb90249` | 88 | snapshotted | no contact | Strong root `AGENTS.md` and detailed `CLAUDE.md`; remaining signal is broad nested-scope coverage, not a concrete maintainer issue. |
+| `smithery-ai/cli` | `87e196c` | 75 | actionable | draft locally before any contact | `CLAUDE.md` documents `pnpm run lint`, but the root package scripts expose `check` instead of `lint`. |
+| `OpenCoworkAI/open-codesign` | `8efd7e3` | 70 | actionable | draft locally before any contact | `AGENTS.md` and `CLAUDE.md` document `pnpm test:e2e`, but no checked package script defines `test:e2e`. |
+
+## 2026-05-22 Public Preview Continuation Mini-Batch
+
+Issue `#9` still had no external repo suggestions, so this pass used GitHub code search as discovery input and kept the same dry-run-only triage policy. These are not endorsements. No maintainer outreach or public issue update was sent during this pass.
+
+| Repository | Commit | Score | Triage | Contact | Main Signal |
+| --- | --- | ---: | --- | --- | --- |
+| `47ng/nuqs` | `0f51d0b` | 78 | snapshotted | no contact | Root `AGENTS.md` resolves core pnpm build/test guidance; remaining signal is broad nested-scope and safety coverage. |
+| `tinyhttp/tinyhttp` | `707168f` | 78 | snapshotted | no contact | `CLAUDE.md` resolves package scripts cleanly; remaining signal is broad package-scope and safety coverage. |
+| `netresearch/composer-patches-plugin` | `013e998` | 65 | actionable | draft locally before any contact | Copilot guidance is discoverable but lacks a runnable verification command, safety, and reproducibility guidance. |
+
 ## 2026-05-18 Product Fixes From Corpus
 
 - Fixed command working-directory inference so an older path-bearing sibling heading does not leak into a later unscoped command section. This cleared false missing-script findings in the Lerna report.
@@ -410,6 +431,28 @@ Finding:
 Why it may matter:
 
 - Agents following the documented validation workflow may run a command that fails immediately; the current root script list includes `clean-dist`, not `clean`.
+
+Opt-out wording:
+
+If this kind of tool-generated feedback is not useful for the project, I can close this and avoid opening similar issues.
+
+#### `netresearch/composer-patches-plugin`
+
+### Maintainer Contact Draft
+
+Command:
+
+```bash
+agentfit eval --adapter dry-run --format markdown
+```
+
+Finding:
+
+- No runnable verification command found in instruction files.
+
+Why it may matter:
+
+- Agents can discover the Copilot guidance, but they do not get a clear command for validating generated Composer plugin changes locally.
 
 Opt-out wording:
 

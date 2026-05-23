@@ -384,6 +384,25 @@ Repo suggestions:
 https://github.com/kingkyylian/agentfit/issues/9
 ```
 
+Current 37-candidate repo-request copy:
+
+```text
+I am still looking for public repos that already use AGENTS.md, CLAUDE.md, GEMINI.md, Cursor rules, Copilot instructions, or similar coding-agent guidance.
+
+AgentFit's current dry-run corpus tracks 37 reviewed public candidates:
+- 16 healthy internal baselines
+- 12 actionable local drafts
+- 8 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+
+Dry-run mode does not call model providers or execute generated tasks.
+
+If a report finds concrete drift, I can share a narrow finding: stale commands, broken references, or clear monorepo scope gaps. If a report is noisy, I turn it into an AgentFit product issue instead of bothering maintainers.
+
+Repo suggestions:
+https://github.com/kingkyylian/agentfit/issues/9
+```
+
 Use the RedisInsight issue as the concrete example only when the link helps the conversation:
 
 ```text
@@ -403,6 +422,87 @@ https://github.com/kingkyylian/agentfit/issues/9
 
 Dry-run mode does not call model providers or execute generated tasks. If a report is noisy, I turn it into an AgentFit issue instead of bothering maintainers.
 ```
+
+Current public issue `#9` funnel state:
+
+```text
+The repo-suggestion issue was refreshed again on 2026-05-23 after explicit approval:
+https://github.com/kingkyylian/agentfit/issues/9#issuecomment-4525279626
+
+The issue body was also updated on 2026-05-23 so the current public funnel state is:
+- 37 reviewed public dry-run candidates
+- 16 healthy internal baselines
+- 12 actionable local drafts
+- 8 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+
+The refresh is funnel maintenance only. It does not count as an external signal, and it should not be reposted unless there is new explicit approval and a reason to refresh again.
+
+GitHub Discussions are currently disabled for the repository, so issue #9 is the single GitHub-native suggestion funnel.
+```
+
+## 2026-05-22 Approval Packet
+
+This section is local-only. Do not post, comment, open issues, or contact maintainers from this packet without explicit approval.
+
+Current evidence:
+
+- Local corpus: `37` reviewed public dry-run candidates.
+- Triage split: `16` healthy internal baselines, `12` actionable local drafts, `8` reviewed no-contact snapshots, `1` unsupported low-signal snapshot.
+- External signal counter: `0/5`.
+- Issue `#9` body and latest refresh comment publicly reflect the `37`-candidate update.
+- GitHub Discussions are disabled, so issue `#9` remains the single GitHub-native funnel.
+- No 2026-05-22 maintainer outreach, issue update, public channel post, model-provider call, generated task execution, or real adapter run has happened.
+- 2026-05-23 pre-post live recheck: issue `#9` was still open, still had only the 34-candidate progress comment, and GitHub Discussions were still disabled.
+- 2026-05-23 after explicit approval: the 37-candidate issue `#9` refresh was posted at https://github.com/kingkyylian/agentfit/issues/9#issuecomment-4525279626 and the issue body was updated to the same 37-candidate baseline. This is funnel maintenance only and does not count as an external signal.
+
+Posted public-funnel refresh:
+
+```text
+Update while this stays open: I ran one more dry-run-only continuation pass while waiting for external suggestions.
+
+Current local corpus manifest:
+- 37 reviewed public candidates
+- 16 healthy internal baselines
+- 12 actionable local drafts
+- 8 reviewed no-contact snapshots
+- 1 unsupported low-signal snapshot
+
+The latest continuation added three public-code-search candidates:
+- two reviewed no-contact monorepo snapshots
+- one local verification-guidance draft
+
+I have not contacted those maintainers; they remain local-only unless outreach is explicitly approved.
+
+I am still looking for public repos that already use AGENTS.md, CLAUDE.md, GEMINI.md, Cursor rules, Copilot instructions, or similar coding-agent guidance. Repo URL plus any sensitive paths to avoid is enough.
+
+Dry-run policy remains unchanged: no model-provider calls, no generated task execution, no endorsement implied, and noisy reports become AgentFit product issues instead of maintainer outreach.
+```
+
+This issue update was posted after explicit approval and should not be counted as an external signal. It is a funnel refresh only. Count a signal only if someone outside the project replies with a repo suggestion, asks for a report sanity-check, grants permission, responds as a maintainer, or creates another concrete feedback path.
+
+Preferred next action if one maintainer outreach is approved:
+
+1. `smithery-ai/cli`: concrete command drift in `CLAUDE.md`; no previous contact history in this project.
+2. `OpenCoworkAI/open-codesign`: concrete `pnpm test:e2e` drift; mention only the stale command, not broad score findings.
+3. `eggjs/egg`: concrete `pnpm run clean` drift; still eligible, but older than the 2026-05-21 continuation drafts.
+
+Do not start with `netresearch/composer-patches-plugin` unless the user specifically wants verification-guidance outreach. It is useful but less concrete than stale command drift.
+
+Preferred next action if a public channel post is approved:
+
+- Use the `Current 37-candidate repo-request copy` above.
+- Keep the ask narrow: public repos with agent instruction files.
+- Point back to issue `#9`.
+- Do not name healthy repositories as proof unless permission has been granted.
+- Do not post Hacker News or Reddit yet; `docs/launch.md` still requires stronger external proof.
+
+Decision rule:
+
+- If the goal is to reduce friction with minimal public surface area, issue `#9` has already been refreshed; wait for replies before reposting.
+- If the goal is to actively seek new suggestions, post the 37-candidate repo-request copy in one public channel.
+- If the goal is to create a concrete external signal quickly, ask approval for exactly one narrow stale-command maintainer outreach.
+- Do not do multiple channels or multiple maintainer contacts in the same step; wait for signal and record the outcome in [public-preview-execution-log.md](public-preview-execution-log.md).
 
 ## Follow-Up Issues
 
